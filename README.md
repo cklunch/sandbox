@@ -1,2 +1,2 @@
 # sandbox
-Repo for code testing and small projects
+Repository for code testing and small projects 
