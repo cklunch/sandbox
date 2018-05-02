@@ -23,3 +23,10 @@ dat <- nneo_wrangle(site_code="NIWO", time_start="2017-07-01", time_end="2017-11
                     time_agr=30, package="basic")
 
 
+
+install.packages("metScanR")
+library(metScanR)
+
+
+
+
