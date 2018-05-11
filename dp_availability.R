@@ -90,6 +90,8 @@ for(i in current.os$DPID) {
   }
 }
 
+# modify: if sampled in the past, put 0; only give years for 2018 forward
+
 # write out status table
 write.table(current.os, "~/sandbox/os_status.csv", row.names=F, sep=",")
 
