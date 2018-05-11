@@ -1,0 +1,277 @@
+"Team","dpID","DPName","table","Location","Transition.wait.time","loadDelay.Fulcrum"
+"TOS","NEON.DOM.SITE.DP1.10003.001","Breeding landbird point counts","brd_countdata_pub","External",45,NA
+"TOS","NEON.DOM.SITE.DP1.10003.001","Breeding landbird point counts","brd_perpoint_pub","External",45,NA
+"TOS","NEON.DOM.SITE.DP1.10003.001","Breeding landbird point counts","brd_personnel_pub","External",45,NA
+"TOS","NEON.DOM.SITE.DP1.10003.001","Breeding landbird point counts","brd_references_pub","External",45,NA
+"TOS","NEON.DOM.SITE.DP1.10035.001","Bryophyte clip harvest","bry_productivity_pub","Field",60,45
+"TOS","NEON.DOM.SITE.DP1.10014.001","Coarse downed wood bulk density sampling","cdw_densitydisk_pub","Field",105,90
+"TOS","NEON.DOM.SITE.DP1.10014.001","Coarse downed wood bulk density sampling","cdw_densitylog_pub","Field",105,90
+"TOS","NEON.DOM.SITE.DP1.10010.001","Coarse downed wood log survey","cdw_fieldtally_pub","Field",30,14
+"TOS","NEON.DOM.SITE.DP1.10017.001","Digital hemispheric photos of plot vegetation","dhp_perimagefile_pub","Field",60,NA
+"TOS","NEON.DOM.SITE.DP1.10017.001","Digital hemispheric photos of plot vegetation","dhp_perplot_pub","Field",60,NA
+"TOS","NEON.DOM.SITE.DP1.10020.001","Ground beetle sequences DNA barcode","bet_BOLDcollectionData_pub","External",614,NA
+"TOS","NEON.DOM.SITE.DP1.10020.001","Ground beetle sequences DNA barcode","bet_BOLDspecimenDetails_pub","External",614,NA
+"TOS","NEON.DOM.SITE.DP1.10020.001","Ground beetle sequences DNA barcode","bet_BOLDtaxonomy_pub","External",614,NA
+"TOS","NEON.DOM.SITE.DP1.10020.001","Ground beetle sequences DNA barcode","bet_BOLDvoucherInfo_pub","External",614,NA
+"TOS","NEON.DOM.SITE.DP1.10022.001","Ground beetles sampled from pitfall traps","bet_archivepooling_pub","Domain",330,300
+"TOS","NEON.DOM.SITE.DP1.10022.001","Ground beetles sampled from pitfall traps","bet_expertTaxonomistIDProcessed_pub","External",600,NA
+"TOS","NEON.DOM.SITE.DP1.10022.001","Ground beetles sampled from pitfall traps","bet_expertTaxonomistIDRaw_pub","External",600,NA
+"TOS","NEON.DOM.SITE.DP1.10022.001","Ground beetles sampled from pitfall traps","bet_fielddata_pub","Field",75,60
+"TOS","NEON.DOM.SITE.DP1.10022.001","Ground beetles sampled from pitfall traps","bet_parataxonomistID_pub","Domain",330,300
+"TOS","NEON.DOM.SITE.DP1.10022.001","Ground beetles sampled from pitfall traps","bet_sorting_pub","Domain",330,300
+"TOS","NEON.DOM.SITE.DP1.10023.001","Herbaceous clip harvest","hbp_massdata_pub","Domain",60,45
+"TOS","NEON.DOM.SITE.DP1.10023.001","Herbaceous clip harvest","hbp_perbout_pub","Field",60,45
+"TOS","NEON.DOM.SITE.DP1.10031.001","Litter chemical properties","lig_externalSummary_pub","External-Summary",14,NA
+"TOS","NEON.DOM.SITE.DP1.10031.001","Litter chemical properties","ltr_litterCarbonNitrogen_pub","External",270,NA
+"TOS","NEON.DOM.SITE.DP1.10031.001","Litter chemical properties","ltr_litterLignin_pub","External",120,NA
+"TOS","NEON.DOM.SITE.DP1.10101.001","Litter stable isotopes","ltr_litterStableIsotopes_pub","External",270,NA
+"TOS","NEON.DOM.SITE.DP1.10033.001","Litterfall and fine woody debris sampling","ltr_chemistrySubsampling_pub","Domain",60,45
+"TOS","NEON.DOM.SITE.DP1.10033.001","Litterfall and fine woody debris sampling","ltr_fielddata_pub","Field",60,45
+"TOS","NEON.DOM.SITE.DP1.10033.001","Litterfall and fine woody debris sampling","ltr_massdata_pub","Domain",60,45
+"TOS","NEON.DOM.SITE.DP1.10033.001","Litterfall and fine woody debris sampling","ltr_pertrap_pub","Field",30,14
+"TOS","NEON.DOM.SITE.DP1.10038.001","Mosquito sequences DNA barcode","mos_BOLDcollectionData_pub","External",255,NA
+"TOS","NEON.DOM.SITE.DP1.10038.001","Mosquito sequences DNA barcode","mos_BOLDspecimenDetails_pub","External",255,NA
+"TOS","NEON.DOM.SITE.DP1.10038.001","Mosquito sequences DNA barcode","mos_BOLDtaxonomy_pub","External",255,NA
+"TOS","NEON.DOM.SITE.DP1.10038.001","Mosquito sequences DNA barcode","mos_BOLDvoucherInfo_pub","External",255,NA
+"TOS","NEON.DOM.SITE.DP1.10041.001","Mosquito-borne pathogen status","mos_pathogenpooling_pub","External",360,NA
+"TOS","NEON.DOM.SITE.DP1.10041.001","Mosquito-borne pathogen status","mos_pathogenresults_pub","External",360,NA
+"TOS","NEON.DOM.SITE.DP1.10043.001","Mosquitoes sampled from CO2 traps","mos_archivepooling_pub","External",240,NA
+"TOS","NEON.DOM.SITE.DP1.10043.001","Mosquitoes sampled from CO2 traps","mos_barcoding_pub","External",420,NA
+"TOS","NEON.DOM.SITE.DP1.10043.001","Mosquitoes sampled from CO2 traps","mos_expertTaxonomistIDProcessed_pub","External",240,NA
+"TOS","NEON.DOM.SITE.DP1.10043.001","Mosquitoes sampled from CO2 traps","mos_expertTaxonomistIDRaw_pub","External",240,NA
+"TOS","NEON.DOM.SITE.DP1.10043.001","Mosquitoes sampled from CO2 traps","mos_sorting_pub","External",240,NA
+"TOS","NEON.DOM.SITE.DP1.10043.001","Mosquitoes sampled from CO2 traps","mos_trapping_pub","Field",30,14
+"TOS","NEON.DOM.SITE.DP1.10045.001","Non-herbaceous perennial vegetation structure","nst_perindividual_pub","Field",90,75
+"TOS","NEON.DOM.SITE.DP1.10026.001","Plant foliar physical and chemical properties","cfc_carbonNitrogen_pub","External",270,NA
+"TOS","NEON.DOM.SITE.DP1.10026.001","Plant foliar physical and chemical properties","cfc_chemistrySubsampling_pub","Domain",60,45
+"TOS","NEON.DOM.SITE.DP1.10026.001","Plant foliar physical and chemical properties","cfc_chlorophyll_pub","External",120,NA
+"TOS","NEON.DOM.SITE.DP1.10026.001","Plant foliar physical and chemical properties","cfc_chlorophyllParameters_pub","External-Summary",14,NA
+"TOS","NEON.DOM.SITE.DP1.10026.001","Plant foliar physical and chemical properties","cfc_chlorophyllSummary_pub","External-Summary",14,NA
+"TOS","NEON.DOM.SITE.DP1.10026.001","Plant foliar physical and chemical properties","cfc_elements_pub","External",270,NA
+"TOS","NEON.DOM.SITE.DP1.10026.001","Plant foliar physical and chemical properties","cfc_elementsSummary_pub","External-Summary",14,NA
+"TOS","NEON.DOM.SITE.DP1.10026.001","Plant foliar physical and chemical properties","cfc_fieldData_pub","Field",45,30
+"TOS","NEON.DOM.SITE.DP1.10026.001","Plant foliar physical and chemical properties","cfc_lignin_pub","External",120,NA
+"TOS","NEON.DOM.SITE.DP1.10026.001","Plant foliar physical and chemical properties","cfc_LMA_pub","Domain",60,45
+"TOS","NEON.DOM.SITE.DP1.10053.001","Plant foliar stable isotopes","cfc_foliarStableIsotopes_pub","External",270,NA
+"TOS","NEON.DOM.SITE.DP1.10055.001","Plant phenology observations","phe_perindividual_pub","Field",30,14
+"TOS","NEON.DOM.SITE.DP1.10055.001","Plant phenology observations","phe_perindividualperyear_pub","Field",30,14
+"TOS","NEON.DOM.SITE.DP1.10055.001","Plant phenology observations","phe_statusintensity_pub","Field",30,14
+"TOS","NEON.DOM.SITE.DP1.10058.001","Plant presence and percent cover","div_10m2Data100m2Data_pub","Field",135,120
+"TOS","NEON.DOM.SITE.DP1.10058.001","Plant presence and percent cover","div_1m2Data_pub","Field",135,120
+"TOS","NEON.DOM.SITE.DP1.10058.001","Plant presence and percent cover","div_geneticarchive_pub","Field",30,14
+"TOS","NEON.DOM.SITE.DP1.10058.001","Plant presence and percent cover","div_voucher_pub","Field",30,14
+"TOS","NEON.DOM.SITE.DP1.10064.001","Rodent-borne pathogen status","rpt_bloodtesting_pub","External",270,NA
+"TOS","NEON.DOM.SITE.DP1.10102.001","Root chemical properties","bbc_rootChemistry_pub","External",270,NA
+"TOS","NEON.DOM.SITE.DP1.10066.001","Root sampling (Megapit)","mpr_perdepthincrement_pub","External",NA,NA
+"TOS","NEON.DOM.SITE.DP1.10066.001","Root sampling (Megapit)","mpr_perpitprofile_pub","External",NA,NA
+"TOS","NEON.DOM.SITE.DP1.10066.001","Root sampling (Megapit)","mpr_perrootsample_pub","External",NA,NA
+"TOS","NEON.DOM.SITE.DP1.10067.001","Root sampling tower plots","bbc_chemistryPooling_pub","Domain",60,45
+"TOS","NEON.DOM.SITE.DP1.10067.001","Root sampling tower plots","bbc_dilution_pub","Domain",60,45
+"TOS","NEON.DOM.SITE.DP1.10067.001","Root sampling tower plots","bbc_percore_pub","Field",60,45
+"TOS","NEON.DOM.SITE.DP1.10067.001","Root sampling tower plots","bbc_rootmass_pub","Domain",60,45
+"TOS","NEON.DOM.SITE.DP1.10099.001","Root stable isotopes","bbc_rootStableIsotopes_pub","External",270,NA
+"TOS","NEON.DOM.SITE.DP1.10072.001","Small mammal box trapping","mam_perplotnight_pub","Field",45,30
+"TOS","NEON.DOM.SITE.DP1.10072.001","Small mammal box trapping","mam_pertrapnight_pub","Field",45,30
+"TOS","NEON.DOM.SITE.DP1.10072.001","Small mammal box trapping","mam_voucher_pub","Field",45,30
+"TOS","NEON.DOM.SITE.DP1.10076.001","Small mammal sequences DNA barcode","mam_BOLDcollectionData_pub","External",375,NA
+"TOS","NEON.DOM.SITE.DP1.10076.001","Small mammal sequences DNA barcode","mam_BOLDspecimenDetails_pub","External",375,NA
+"TOS","NEON.DOM.SITE.DP1.10076.001","Small mammal sequences DNA barcode","mam_BOLDtaxonomy_pub","External",375,NA
+"TOS","NEON.DOM.SITE.DP1.10076.001","Small mammal sequences DNA barcode","mam_BOLDvoucherInfo_pub","External",375,NA
+"TOS","NEON.DOM.SITE.DP1.10008.001","Soil chemical properties (Distributed initial characterization)","spc_biogeochem_pub","External",NA,NA
+"TOS","NEON.DOM.SITE.DP1.10008.001","Soil chemical properties (Distributed initial characterization)","spc_externalLabSummary_pub","External-Summary",NA,NA
+"TOS","NEON.DOM.SITE.DP1.10078.001","Soil chemical properties (Distributed periodic)","bgc_CNiso_externalSummary_pub","External-Summary",14,NA
+"TOS","NEON.DOM.SITE.DP1.10078.001","Soil chemical properties (Distributed periodic)","sls_soilChemistry_pub","External",270,NA
+"TOS","NEON.DOM.SITE.DP1.00097.001","Soil chemical properties (Megapit)","mgc_perarchivesample_pub","External",NA,NA
+"TOS","NEON.DOM.SITE.DP1.00097.001","Soil chemical properties (Megapit)","mgc_perbiogeosample_pub","External",NA,NA
+"TOS","NEON.DOM.SITE.DP1.00097.001","Soil chemical properties (Megapit)","mgc_perhorizon_pub","External",NA,NA
+"TOS","NEON.DOM.SITE.DP1.00097.001","Soil chemical properties (Megapit)","mgc_permegapit_pub","External",NA,NA
+"TOS","NEON.DOM.SITE.DP1.10080.001","Soil inorganic nitrogen pools and transformations","ntr_externalLab_pub","External",270,NA
+"TOS","NEON.DOM.SITE.DP1.10080.001","Soil inorganic nitrogen pools and transformations","ntr_externalSummary_pub","External-Summary",14,NA
+"TOS","NEON.DOM.SITE.DP1.10080.001","Soil inorganic nitrogen pools and transformations","ntr_internalLab_pub","Domain",60,45
+"TOS","NEON.DOM.SITE.DP1.10080.001","Soil inorganic nitrogen pools and transformations","ntr_internalLabBlanks_pub","Domain",60,45
+"TOS","NEON.DOM.SITE.DP1.10104.001","Soil microbe biomass","sme_batchResults_pub","External",14,NA
+"TOS","NEON.DOM.SITE.DP1.10104.001","Soil microbe biomass","sme_labSummary_pub","External-Summary",14,NA
+"TOS","NEON.DOM.SITE.DP1.10104.001","Soil microbe biomass","sme_microbialBiomass_pub","External",240,NA
+"TOS","NEON.DOM.SITE.DP1.10081.001","Soil microbe community composition, Level 1","mcc_soilTaxonTable_pub","External",240,NA
+"TOS","NEON.DOM.SITE.DP1.10081.001","Soil microbe community composition, Level 1","mcc_taxonTableLabSummary_pub","External-Summary",14,NA
+"TOS","NEON.DOM.SITE.DP1.10109.001","Soil microbe group abundances","mga_batchResults_pub","External",14,NA
+"TOS","NEON.DOM.SITE.DP1.10109.001","Soil microbe group abundances","mga_soilGroupAbundances_pub","External",240,NA
+"TOS","NEON.DOM.SITE.DP1.10109.001","Soil microbe group abundances","mga_labSummary_pub","External-Summary",14,NA
+"TOS","NEON.DOM.SITE.DP1.10108.001","Soil microbe marker gene sequences","mmg_soilDnaExtraction_pub","External",240,NA
+"TOS","NEON.DOM.SITE.DP1.10108.001","Soil microbe marker gene sequences","mmg_soilMarkerGeneSequencing_16S_pub","External",240,NA
+"TOS","NEON.DOM.SITE.DP1.10108.001","Soil microbe marker gene sequences","mmg_soilMarkerGeneSequencing_ITS_pub","External",240,NA
+"TOS","NEON.DOM.SITE.DP1.10108.001","Soil microbe marker gene sequences","mmg_soilPcrAmplification_16S_pub","External",240,NA
+"TOS","NEON.DOM.SITE.DP1.10108.001","Soil microbe marker gene sequences","mmg_soilPcrAmplification_ITS_pub","External",240,NA
+"TOS","NEON.DOM.SITE.DP1.10107.001","Soil microbe metagenome sequences","mms_metagenomeDnaExtraction_pub","External",240,NA
+"TOS","NEON.DOM.SITE.DP1.10107.001","Soil microbe metagenome sequences","mms_metagenomeSequencing_pub","External",240,NA
+"TOS","NEON.DOM.SITE.DP1.10047.001","Soil physical properties (Distributed initial characterization)","spc_bulkdensity_pub","External",NA,NA
+"TOS","NEON.DOM.SITE.DP1.10047.001","Soil physical properties (Distributed initial characterization)","spc_particlesize_pub","External",NA,NA
+"TOS","NEON.DOM.SITE.DP1.10047.001","Soil physical properties (Distributed initial characterization)","spc_perhorizon_pub","External",NA,NA
+"TOS","NEON.DOM.SITE.DP1.10047.001","Soil physical properties (Distributed initial characterization)","spc_perplot_pub","External",NA,NA
+"TOS","NEON.DOM.SITE.DP1.10086.001","Soil physical properties (Distributed periodic)","sls_bgcSubsampling_pub","Domain",60,45
+"TOS","NEON.DOM.SITE.DP1.10086.001","Soil physical properties (Distributed periodic)","sls_metagenomicsPooling_pub","Domain",45,30
+"TOS","NEON.DOM.SITE.DP1.10086.001","Soil physical properties (Distributed periodic)","sls_soilCoreCollection_pub","Field",45,30
+"TOS","NEON.DOM.SITE.DP1.10086.001","Soil physical properties (Distributed periodic)","sls_soilMoisture_pub","Field",60,45
+"TOS","NEON.DOM.SITE.DP1.10086.001","Soil physical properties (Distributed periodic)","sls_soilpH_pub","Field",60,45
+"TOS","NEON.DOM.SITE.DP1.00096.001","Soil physical properties (Megapit)","mgp_perarchivesample_pub","External",NA,NA
+"TOS","NEON.DOM.SITE.DP1.00096.001","Soil physical properties (Megapit)","mgp_perbiogeosample_pub","External",NA,NA
+"TOS","NEON.DOM.SITE.DP1.00096.001","Soil physical properties (Megapit)","mgp_perbulksample_pub","External",NA,NA
+"TOS","NEON.DOM.SITE.DP1.00096.001","Soil physical properties (Megapit)","mgp_perhorizon_pub","External",NA,NA
+"TOS","NEON.DOM.SITE.DP1.00096.001","Soil physical properties (Megapit)","mgp_permegapit_pub","External",NA,NA
+"TOS","NEON.DOM.SITE.DP1.10100.001","Soil stable isotopes (Distributed periodic)","sls_soilStableIsotopes_pub","External",270,NA
+"TOS","NEON.DOM.SITE.DP1.10092.001","Tick-borne pathogen status","tck_pathogen_pub","External",390,NA
+"TOS","NEON.DOM.SITE.DP1.10092.001","Tick-borne pathogen status","tck_pathogenqa_pub","External",390,NA
+"TOS","NEON.DOM.SITE.DP1.10093.001","Ticks sampled using drag cloths","tck_fielddata_pub","Field",30,14
+"TOS","NEON.DOM.SITE.DP1.10093.001","Ticks sampled using drag cloths","tck_taxonomyProcessed_pub","External",300,NA
+"TOS","NEON.DOM.SITE.DP1.10093.001","Ticks sampled using drag cloths","tck_taxonomyRaw_pub","External",300,NA
+"TOS","NEON.DOM.SITE.DP1.10098.001","Woody plant vegetation structure","vst_apparentindividual_pub","Field",90,75
+"TOS","NEON.DOM.SITE.DP1.10098.001","Woody plant vegetation structure","vst_mappingandtagging_pub","Field",90,75
+"TOS","NEON.DOM.SITE.DP1.10098.001","Woody plant vegetation structure","vst_perplotperyear_pub","Field",300,270
+"TOS","NEON.DOM.SITE.DP1.10098.001","Woody plant vegetation structure","vst_shrubgroup_pub","Field",90,75
+"AOS","NEON.DOM.SITE.DP1.20063.001","Aquatic plant bryophyte chemical properties","apl_plantExternalLabDataPerSample_pub","External",180,NA
+"AOS","NEON.DOM.SITE.DP1.20066.001","Aquatic plant bryophyte macroalgae clip harvest","apl_biomass_pub","Domain",60,45
+"AOS","NEON.DOM.SITE.DP1.20066.001","Aquatic plant bryophyte macroalgae clip harvest","apl_clipHarvest_pub","Field",60,45
+"AOS","NEON.DOM.SITE.DP1.20066.001","Aquatic plant bryophyte macroalgae clip harvest","apl_taxonomyProcessed_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20066.001","Aquatic plant bryophyte macroalgae clip harvest","apl_taxonomyRaw_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20072.001","Aquatic plant, bryophyte, lichen, and macroalgae point counts in wadeable streams","apc_morphospecies_pub","Domain",390,360
+"AOS","NEON.DOM.SITE.DP1.20072.001","Aquatic plant, bryophyte, lichen, and macroalgae point counts in wadeable streams","apc_perTaxon_pub","Field",60,45
+"AOS","NEON.DOM.SITE.DP1.20072.001","Aquatic plant, bryophyte, lichen, and macroalgae point counts in wadeable streams","apc_pointTransect_pub","Field",60,45
+"AOS","NEON.DOM.SITE.DP1.20072.001","Aquatic plant, bryophyte, lichen, and macroalgae point counts in wadeable streams","apc_taxonomyProcessed_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20072.001","Aquatic plant, bryophyte, lichen, and macroalgae point counts in wadeable streams","apc_taxonomyRaw_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20072.001","Aquatic plant, bryophyte, lichen, and macroalgae point counts in wadeable streams","apc_voucher_pub","Domain",30,14
+"AOS","NEON.DOM.SITE.DP1.20072.001","Aquatic plant, bryophyte, lichen, and macroalgae point counts in wadeable streams","apc_voucherTaxonomyProcessed_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20072.001","Aquatic plant, bryophyte, lichen, and macroalgae point counts in wadeable streams","apc_voucherTaxonomyRaw_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP4.00132.001","Bathymetric and morphological maps","bat_fieldData_pub","Field",60,42
+"AOS","NEON.DOM.SITE.DP4.00132.001","Bathymetric and morphological maps","bat_pointcollection_pub","Field",60,42
+"AOS","NEON.DOM.SITE.DP4.00132.001","Bathymetric and morphological maps","bat_sonarRecord_pub","Field",60,42
+"AOS","NEON.DOM.SITE.DP4.00132.001","Bathymetric and morphological maps","bat_resultsFile_pub","External",180,NA
+"AOS","NEON.DOM.SITE.DP1.20086.001","Benthic microbe community composition, Level 1","mcc_benthicTaxonTable_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20277.001","Benthic microbe group abundances","mga_benthicGroupAbundances_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20280.001","Benthic microbe marker gene sequences","amb_fieldParent_pub","Field",60,45
+"AOS","NEON.DOM.SITE.DP1.20280.001","Benthic microbe marker gene sequences","mmg_benthicDnaExtraction_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20280.001","Benthic microbe marker gene sequences","mmg_benthicMarkerGeneSequencing_16S_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20280.001","Benthic microbe marker gene sequences","mmg_benthicMarkerGeneSequencing_ITS_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20280.001","Benthic microbe marker gene sequences","mmg_benthicPcrAmplification_16S_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20280.001","Benthic microbe marker gene sequences","mmg_benthicPcrAmplification_ITS_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20279.001","Benthic microbe metagenome sequences","amb_fieldParent_pub","Field",NA,45
+"AOS","NEON.DOM.SITE.DP1.20279.001","Benthic microbe metagenome sequences","mms_benthicMetagenomeDnaExtraction_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20279.001","Benthic microbe metagenome sequences","mms_benthicMetagenomeSequencing_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20092.001","Chemical properties of groundwater","gwc_domainLabData_pub","Domain",60,28
+"AOS","NEON.DOM.SITE.DP1.20092.001","Chemical properties of groundwater","gwc_externalLabData_pub","External",150,NA
+"AOS","NEON.DOM.SITE.DP1.20092.001","Chemical properties of groundwater","gwc_fieldData_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20092.001","Chemical properties of groundwater","gwc_fieldSuperParent_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20093.001","Chemical properties of surface water","swc_domainLabData_pub","Domain",60,28
+"AOS","NEON.DOM.SITE.DP1.20093.001","Chemical properties of surface water","swc_externalLabData_pub","External",150,NA
+"AOS","NEON.DOM.SITE.DP1.20093.001","Chemical properties of surface water","swc_externalLabSummaryData_pub","External-Summary",14,NA
+"AOS","NEON.DOM.SITE.DP1.20093.001","Chemical properties of surface water","swc_fieldData_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20093.001","Chemical properties of surface water","swc_fieldSuperParent_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20254.001","Depth profile at specific depths","dep_profileData_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20254.001","Depth profile at specific depths","dep_profileHeader_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20097.001","Dissolved gases in surface water","sdg_externalLabData_pub","External",120,NA
+"AOS","NEON.DOM.SITE.DP1.20097.001","Dissolved gases in surface water","sdg_externalLabSummaryData_pub","External-Summary",14,NA
+"AOS","NEON.DOM.SITE.DP1.20097.001","Dissolved gases in surface water","sdg_fieldData_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20097.001","Dissolved gases in surface water","sdg_fieldDataAir_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20097.001","Dissolved gases in surface water","sdg_fieldDataProc_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20097.001","Dissolved gases in surface water","sdg_fieldSuperParent_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20107.001","Fish electrofishing, gill netting, and fyke netting counts","fsh_bulkCount_pub","Field",45,30
+"AOS","NEON.DOM.SITE.DP1.20107.001","Fish electrofishing, gill netting, and fyke netting counts","fsh_fieldData_pub","Field",45,30
+"AOS","NEON.DOM.SITE.DP1.20107.001","Fish electrofishing, gill netting, and fyke netting counts","fsh_morphospecies_pub","Field",390,360
+"AOS","NEON.DOM.SITE.DP1.20107.001","Fish electrofishing, gill netting, and fyke netting counts","fsh_perFish_pub","Field",45,30
+"AOS","NEON.DOM.SITE.DP1.20107.001","Fish electrofishing, gill netting, and fyke netting counts","fsh_perPass_pub","Field",45,30
+"AOS","NEON.DOM.SITE.DP1.20105.001","Fish sequences DNA barcode","fsh_BOLDcollectionData_pub","External",390,NA
+"AOS","NEON.DOM.SITE.DP1.20105.001","Fish sequences DNA barcode","fsh_BOLDspecimenDetails_pub","External",390,NA
+"AOS","NEON.DOM.SITE.DP1.20105.001","Fish sequences DNA barcode","fsh_BOLDtaxonomy_pub","External",390,NA
+"AOS","NEON.DOM.SITE.DP1.20105.001","Fish sequences DNA barcode","fsh_BOLDvoucherInfo_pub","External",390,NA
+"AOS","NEON.DOM.SITE.DP1.20267.001","Gauge height","gag_fieldData_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20120.001","Macroinvertebrate collection","inv_fieldData_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20120.001","Macroinvertebrate collection","inv_persample_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20120.001","Macroinvertebrate collection","inv_pervial_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20120.001","Macroinvertebrate collection","inv_taxonomyProcessed_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20120.001","Macroinvertebrate collection","inv_taxonomyRaw_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20126.001","Macroinvertebrate DNA barcode","inv_dnaExtraction_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20126.001","Macroinvertebrate DNA barcode","inv_markerGeneSequencing_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20126.001","Macroinvertebrate DNA barcode","inv_pcrAmplification_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20163.001","Periphyton, seston, and phytoplankton chemical properties","alg_algaeExternalLabDataPerSample_pub","External",180,NA
+"AOS","NEON.DOM.SITE.DP1.20163.001","Periphyton, seston, and phytoplankton chemical properties","alg_domainLabChemistry_pub","Domain",60,45
+"AOS","NEON.DOM.SITE.DP1.20166.001","Periphyton, seston, and phytoplankton collection","alg_biomass_pub","Domain",60,45
+"AOS","NEON.DOM.SITE.DP1.20166.001","Periphyton, seston, and phytoplankton collection","alg_biovolumes_pub","External",14,NA
+"AOS","NEON.DOM.SITE.DP1.20166.001","Periphyton, seston, and phytoplankton collection","alg_fieldData_pub","Field",60,45
+"AOS","NEON.DOM.SITE.DP1.20166.001","Periphyton, seston, and phytoplankton collection","alg_taxonomyProcessed_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20166.001","Periphyton, seston, and phytoplankton collection","alg_taxonomyRaw_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20190.001","Reaeration field and lab collection","rea_backgroundFieldCondData_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20190.001","Reaeration field and lab collection","rea_backgroundFieldSaltData_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20190.001","Reaeration field and lab collection","rea_conductivityFieldData_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20190.001","Reaeration field and lab collection","rea_externalLabDataGas_pub","External",120,NA
+"AOS","NEON.DOM.SITE.DP1.20190.001","Reaeration field and lab collection","rea_externalLabDataSalt_pub","External",120,NA
+"AOS","NEON.DOM.SITE.DP1.20190.001","Reaeration field and lab collection","rea_fieldData_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20190.001","Reaeration field and lab collection","rea_plateauMeasurementFieldData_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20190.001","Reaeration field and lab collection","rea_plateauSampleFieldData_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20190.001","Reaeration field and lab collection","rea_widthFieldData_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20275.001","Riparian composition and structure","rip_assessment_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20191.001","Riparian vegetation % cover","rip_percentComposition_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20193.001","Salt-based stream discharge","sbd_backgroundFieldCondData_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20193.001","Salt-based stream discharge","sbd_backgroundFieldSaltData_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20193.001","Salt-based stream discharge","sbd_conductivityFieldData_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20193.001","Salt-based stream discharge","sbd_externalLabDataSalt_pub","External",120,NA
+"AOS","NEON.DOM.SITE.DP1.20193.001","Salt-based stream discharge","sbd_fieldData_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20193.001","Salt-based stream discharge","sbd_plateauMeasurementFieldData_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20193.001","Salt-based stream discharge","sbd_plateauSampleFieldData_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20252.001","Secchi depth","dep_secchi_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20194.001","Sediment chemical properties","asc_externalLabData_pub","External",90,NA
+"AOS","NEON.DOM.SITE.DP1.20194.001","Sediment chemical properties","asc_externalLabSummary_pub","External-Summary",14,NA
+"AOS","NEON.DOM.SITE.DP1.20194.001","Sediment chemical properties","asc_fieldDataPoint_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20194.001","Sediment chemical properties","asc_fieldDataStation_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20194.001","Sediment chemical properties","asc_fieldDataZone_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20197.001","Sediment physical properties","asp_externalLabData_pub","External",90,NA
+"AOS","NEON.DOM.SITE.DP1.20276.001","Stable isotope concentrations in groundwater","gsi_externalLabH2OIsotopes_pub","External",120,NA
+"AOS","NEON.DOM.SITE.DP1.20276.001","Stable isotope concentrations in groundwater","gsi_fieldData_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20276.001","Stable isotope concentrations in groundwater","gsi_fieldSuperParent_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20206.001","Stable isotope concentrations in surface waters","asi_externalLabH2OIsotopes_pub","External",120,NA
+"AOS","NEON.DOM.SITE.DP1.20206.001","Stable isotope concentrations in surface waters","asi_externalLabPOMSummaryData_pub","External-Summary",14,NA
+"AOS","NEON.DOM.SITE.DP1.20206.001","Stable isotope concentrations in surface waters","asi_externalLabSummaryData_pub","External-Summary",14,NA
+"AOS","NEON.DOM.SITE.DP1.20206.001","Stable isotope concentrations in surface waters","asi_fieldData_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20206.001","Stable isotope concentrations in surface waters","asi_fieldSuperParent_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20206.001","Stable isotope concentrations in surface waters","asi_POMExternalLabDataPerSample_pub","External",180,NA
+"AOS","NEON.DOM.SITE.DP1.20048.001","Stream discharge field collection","dsc_fieldData_pub","Field",30,NA
+"AOS","NEON.DOM.SITE.DP1.20048.001","Stream discharge field collection","dsc_individualFieldData_pub","Field",30,NA
+"AOS","NEON.DOM.SITE.DP1.20048.001","Stream discharge field collection","dsc_individualFieldDataADCP_pub","Field",30,NA
+"AOS","NEON.DOM.SITE.DP4.00131.001","Stream morphology map","geo_mappedPointErrors_pub","Field",60,45
+"AOS","NEON.DOM.SITE.DP4.00131.001","Stream morphology map","geo_pebbleCount_pub","Field",60,45
+"AOS","NEON.DOM.SITE.DP4.00131.001","Stream morphology map","geo_featureInfo_pub","Field",60,45
+"AOS","NEON.DOM.SITE.DP4.00131.001","Stream morphology map","geo_totalStation_pub","Field",60,45
+"AOS","NEON.DOM.SITE.DP4.00131.001","Stream morphology map","geo_missingLine_pub","Field",60,45
+"AOS","NEON.DOM.SITE.DP4.00131.001","Stream morphology map","geo_surveyFieldData_pub","Field",60,45
+"AOS","NEON.DOM.SITE.DP4.00131.001","Stream morphology map","geo_resultsFile_pub","External",120,NA
+"AOS","NEON.DOM.SITE.DP4.00131.001","Stream morphology map","geo_controlInfo_pub","External",120,NA
+"AOS","NEON.DOM.SITE.DP4.00131.001","Stream morphology map","geo_priorParameters_pub","External",120,NA
+"AOS","NEON.DOM.SITE.DP4.00131.001","Stream morphology map","geo_controlType_pub","External",120,NA
+"AOS","NEON.DOM.SITE.DP1.20138.001","Surface water microbe cell count","amc_cellCountLabSummary_pub","External-Summary",14,NA
+"AOS","NEON.DOM.SITE.DP1.20138.001","Surface water microbe cell count","amc_cellCounts_pub","External",150,NA
+"AOS","NEON.DOM.SITE.DP1.20138.001","Surface water microbe cell count","amc_fieldCellCounts_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20138.001","Surface water microbe cell count","amc_fieldSuperParent_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20141.001","Surface water microbe community composition, Level 1","mcc_swTaxonTable_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20278.001","Surface water microbe group abundances","mga_swGroupAbundances_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20278.001","Surface water microbe marker gene sequences","amc_fieldGenetic_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20278.001","Surface water microbe marker gene sequences","mmg_swDnaExtraction_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20278.001","Surface water microbe marker gene sequences","mmg_swMarkerGeneSequencing_16S_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20278.001","Surface water microbe marker gene sequences","mmg_swMarkerGeneSequencing_ITS_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20278.001","Surface water microbe marker gene sequences","mmg_swPcrAmplification_16S_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20278.001","Surface water microbe marker gene sequences","mmg_swPcrAmplification_ITS_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20281.001","Surface water microbe metagenome sequences","mms_swMetagenomeDnaExtraction_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20281.001","Surface water microbe metagenome sequences","mms_swMetagenomeSequencing_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20219.001","Zooplankton collection","zoo_fieldData_pub","Field",30,14
+"AOS","NEON.DOM.SITE.DP1.20219.001","Zooplankton collection","zoo_perVial_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20219.001","Zooplankton collection","zoo_taxonomyProcessed_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20219.001","Zooplankton collection","zoo_taxonomyRaw_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20221.001","Zooplankton DNA barcode","zoo_dnaExtraction_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20221.001","Zooplankton DNA barcode","zoo_markerGeneSequencing_pub","External",240,NA
+"AOS","NEON.DOM.SITE.DP1.20221.001","Zooplankton DNA barcode","zoo_pcrAmplification_pub","External",240,NA
+"TIS","NEON.DOM.SITE.DP1.00013.001","Wet deposition chemical analysis","wdp_collection_pub","Field",30,14
+"TIS","NEON.DOM.SITE.DP1.00013.001","Wet deposition chemical analysis","wdp_collectionChem_pub","Field",30,14
+"TIS","NEON.DOM.SITE.DP1.00013.001","Wet deposition chemical analysis","wdp_chemLab_pub","External",120,NA
+"TIS","NEON.DOM.SITE.DP1.00038.001","Stable isotope concentrations in precipitation","wdi_collection_pub","Field",30,14
+"TIS","NEON.DOM.SITE.DP1.00038.001","Stable isotope concentrations in precipitation","wdi_collectionIso_pub","Field",30,14
+"TIS","NEON.DOM.SITE.DP1.00038.001","Stable isotope concentrations in precipitation","wdi_collectionIsoTest_pub","Field",30,14
+"TIS","NEON.DOM.SITE.DP1.00038.001","Stable isotope concentrations in precipitation","wdi_isoPerSample_pub","External",90,NA
+"TIS","NEON.DOM.SITE.DP1.00101.001","Particulate mass","dpm_field_pub","Field",30,14
+"TIS","NEON.DOM.SITE.DP1.00101.001","Particulate mass","dpm_lab_pub","External",90,NA

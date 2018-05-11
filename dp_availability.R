@@ -53,12 +53,56 @@ for(i in colnames(mat)[5:85]) {
   }
 }
 
-# for latency: import transition wait times google sheet
+# adding in 'have we ever sampled there'
+samp <- read.delim("~/sandbox/NEON-OS-DataAvailabilityBySiteByYear-v20170918.csv", sep=",")
+samp$DPID <- paste(substring(samp$DPID, 2, 10), ".001", sep="")
+
+current.os <- current[which((substring(current$DPID, 5, 5) %in% c(1,2) | 
+                              current$DPID %in% c("DP1.00101.001","DP1.00013.001","DP1.00038.001",
+                                                  "DP4.00131.001","DP4.00132.001","DP4.00133.001",
+                                                  "DP1.00096.001","DP1.00097.001")) 
+                            & !current$DPID %in% c("DP1.20002.001","DP1.20004.001","DP1.20015.001",
+                                                   "DP1.20016.001","DP1.20032.001","DP1.20033.001",
+                                                   "DP1.20042.001","DP1.20046.001","DP1.20053.001",
+                                                   "DP1.20059.001","DP1.20100.001","DP1.20217.001",
+                                                   "DP1.20261.001","DP1.20264.001","DP1.20271.001",
+                                                   "DP1.20288.001")),]
+
+for(i in current.os$DPID) {
+  if(length(which(samp$DPID==i))==0) {
+    print(paste("No sampling info for", i, current.os$DPName[which(current.os$DPID==i)], sep=" "))
+  } else {
+    for(j in colnames(current.os)[3:83]) {
+      cur.val <- current.os[which(current.os$DPID==i), which(colnames(current.os)==j)]
+      if(is.na(cur.val) | cur.val==1) {
+        next
+      } else {
+        samp.dp <- samp[which(samp$DPID==i & samp$Site==j),]
+        samp.sub <- samp.dp[,grep("X", colnames(samp.dp), fixed=T)]
+        if(all(is.na(samp.sub))) {
+          next
+        } else {
+          yr <- colnames(samp.sub)[min(which(samp.sub=="Y"), na.rm=T)]
+          current.os[which(current.os$DPID==i), which(colnames(current.os)==j)] <- substring(yr, 2, 5)
+        }
+      }
+  }
+  }
+}
+
+# write out status table
+write.table(current.os, "~/sandbox/os_status.csv", row.names=F, sep=",")
+
+
+# for operations latency: import transition wait times google sheet
 tran <- read.delim("~/sandbox/Transition_wait_times.csv", sep=",")
 
 # max transition time by product
 tranByProd <- ddply(tran, "DPName", summarise, latency=max(Transition.wait.time, na.rm=T))
 tranByProd$latency[which(tranByProd$latency==-Inf)] <- NA
 
-
+# remove re-pub rows
+tran <- tran[-which(tran$rePub.=="Y"),]
+tran <- tran[,-which(colnames(tran)=="rePub.")]
+write.table(tran, "~/sandbox/ongoing_latency.csv", row.names=F, sep=",")
 
