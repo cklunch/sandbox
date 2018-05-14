@@ -1,4 +1,4 @@
-﻿Domain,Site,Plot Type,Data Product Name,DPID,,Interannual Frequency,2013,2014,2015,2016,2017,2018,2019,2020
+Domain,Site,Plot Type,Data Product Name,DPID,,Interannual Frequency,2013,2014,2015,2016,2017,2018,2019,2020
 1,HOPB,,Aquatic plant bryophyte chemical properties ,.DP1.20063,,1,,,,Y,Y,Y,Y,Y
 2,LEWI,,Aquatic plant bryophyte chemical properties ,.DP1.20063,,1,,,,,Y,Y,Y,Y
 2,POSE,,Aquatic plant bryophyte chemical properties ,.DP1.20063,,1,,,,Y,Y,Y,Y,Y
@@ -1202,6 +1202,53 @@
 19,HEAL,D,,EO,.DP1.10045,6,,,,Y,,,,
 20,PUUM,T,,EO,.DP1.10045,1,,,,,,Y,Y,Y
 20,PUUM,D,,EO,.DP1.10045,3,,,,,,Y,,
+1,BART,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+1,HARV,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+2,BLAN,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+2,SCBI,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+2,SERC,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+3,DSNY,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+3,JERC,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+3,OSBS,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+4,GUAN,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+4,LAJA,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+5,STEI,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+5,TREE,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+5,UNDE,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+6,KONA,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+6,KONZ,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+6,UKFS,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+7,GRSM,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+7,MLBS,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+7,ORNL,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+8,DELA,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+8,LENO,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+8,TALL,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+9,DCFS,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+9,NOGP,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+9,WOOD,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+10,CPER,,Particulate Mass,.DP1.00101,,26,,,,,Y,Y,Y,Y
+10,RMNP,,Particulate Mass,.DP1.00101,,26,,,,,,Y,Y,Y
+10,STER,,Particulate Mass,.DP1.00101,,26,,,,,,Y,Y,Y
+11,CLBJ,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+11,OAES,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+12,YELL,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+13,NIWO,,Particulate Mass,.DP1.00101,,26,,,,,,Y,Y,Y
+13,MOAB,,Particulate Mass,.DP1.00101,,26,,,,,Y,Y,Y,Y
+14,JORN,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+14,SRER,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+15,ONAQ,,Particulate Mass,.DP1.00101,,26,,,,,Y,Y,Y,Y
+16,ABBY,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+16,WREF,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+17,SJER,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+17,SOAP,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+17,TEAK,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+18,BARR,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+18,TOOL,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+19,BONA,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+19,DEJU,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+19,HEAL,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
+20,PUUM,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
 1,HOPB,,"Periphyton, seston, and phytoplankton chemical properties ",.DP1.20163,,1,,,,Y,Y,Y,Y,Y
 2,LEWI,,"Periphyton, seston, and phytoplankton chemical properties ",.DP1.20163,,1,,,,,Y,Y,Y,Y
 2,POSE,,"Periphyton, seston, and phytoplankton chemical properties ",.DP1.20163,,1,,,,Y,Y,Y,Y,Y
@@ -2388,6 +2435,50 @@ v,CPER,T/D,Soil microbe metagenome sequences ,.DP1.10107,,1,Y,Y,,Y,Y,Y,Y,Y
 18,OKSR,,Stable isotope concentrations in groundwater ,.DP1.20276,,1,,,,,,Y,Y,Y
 18,TOOK,,Stable isotope concentrations in groundwater ,.DP1.20276,,1,,,,,,Y,Y,Y
 19,CARI,,Stable isotope concentrations in groundwater ,.DP1.20276,,1,,,,,,Y,Y,Y
+1,HARV,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+1,BART,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+2,SCBI,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+2,BLAN,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+2,SERC,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+3,OSBS,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,Y,Y,Y,Y
+3,JERC,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+4,CUPE,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+4,GUIL,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+4,GUAN,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+5,UNDE,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+5,STEI,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+6,KONZ,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+6,UKFS,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+7,ORNL,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+7,GRSM,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+7,MLBS,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+8,TALL,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+8,DELA,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+8,LENO,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+9,WOOD,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+9,NOGP,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+10,ARIK,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+10,CPER,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,Y,Y,Y,Y
+10,STER,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+10,RMNP,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+11,PRIN,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+11,BLUE,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+11,CLBJ,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+11,OAES,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+12,YELL,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+13,NIWO,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+13,MOAB,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+14,SYCA,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+14,SRER,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+15,REDB,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+15,ONAQ,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+16,WREF,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+17,SJER,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+18,TOOL,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+18,BARR,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+19,BONA,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+19,HEAL,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
+20,PUUM,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
 1,HOPB,,Stable isotope concentrations in surface waters ,.DP1.20206,,1,,,,Y,Y,Y,Y,Y
 2,LEWI,,Stable isotope concentrations in surface waters ,.DP1.20206,,1,,,,,Y,Y,Y,Y
 2,POSE,,Stable isotope concentrations in surface waters ,.DP1.20206,,1,,,,Y,Y,Y,Y,Y
@@ -2478,7 +2569,7 @@ v,CPER,T/D,Soil microbe metagenome sequences ,.DP1.10107,,1,Y,Y,,Y,Y,Y,Y,Y
 14,REDB,S,Stream morphology map ,.DP4.00131,,5,,,,,Y,,,
 15,MCRA,S,Stream morphology map ,.DP4.00131,,5,,,,,,,Y,
 16,TECR,S,Stream morphology map ,.DP4.00131,,5,,,,,,Y,,
-19,CARI,S,Stream morphology map ,.DP4.00131,,5,,,,,Y,,,
+16,CARI,S,Stream morphology map ,.DP4.00131,,5,,,,,Y,,,
 17,OKSR,S,Stream morphology map ,.DP4.00131,,5,,,,,,Y,,
 1,HOPB,,Surface water microbe cell count ,.DP1.20138,,1,,,,Y,Y,Y,Y,Y
 2,LEWI,,Surface water microbe cell count ,.DP1.20138,,1,,,,,Y,Y,Y,Y
@@ -2744,6 +2835,50 @@ v,CPER,T/D,Soil microbe metagenome sequences ,.DP1.10107,,1,Y,Y,,Y,Y,Y,Y,Y
 19,DEJU,D,Ticks sampled using drag cloths ,.DP1.10093,,1,,,,Y,Y,Y,Y,Y
 19,HEAL,D,Ticks sampled using drag cloths ,.DP1.10093,,1,,,Y,Y,Y,Y,Y,Y
 20,PUUM,D,Ticks sampled using drag cloths ,.DP1.10093,,1,,,,,,NA,NA,NA
+1,HARV,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+1,BART,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+2,SCBI,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+2,BLAN,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+2,SERC,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+3,OSBS,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,Y,Y,Y,Y
+3,JERC,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+4,CUPE,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+4,GUIL,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+4,GUAN,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+5,UNDE,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+5,STEI,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+6,KONZ,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+6,UKFS,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+7,ORNL,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+7,GRSM,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+7,MLBS,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+8,TALL,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+8,DELA,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+8,LENO,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+9,WOOD,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+9,NOGP,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+10,ARIK,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+10,CPER,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,Y,Y,Y,Y
+10,STER,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+10,RMNP,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+11,PRIN,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+11,BLUE,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+11,CLBJ,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+11,OAES,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+12,YELL,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+13,NIWO,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+13,MOAB,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+14,SYCA,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+14,SRER,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+15,REDB,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+15,ONAQ,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+16,WREF,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+17,SJER,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+18,TOOL,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+18,BARR,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+19,BONA,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+19,HEAL,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
+20,PUUM,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
 1,BART,T,Woody plant vegetation structure ,.DP1.10098,,1,,,Y,Y,Y,Y,Y,Y
 1,BART,D,Woody plant vegetation structure ,.DP1.10098,,3,,,,Y,,,Y,
 1,HARV,T,Woody plant vegetation structure ,.DP1.10098,,1,,Y,Y,Y,Y,Y,Y,Y
@@ -2871,544 +3006,4 @@ v,CPER,T/D,Soil microbe metagenome sequences ,.DP1.10107,,1,Y,Y,,Y,Y,Y,Y,Y
 17,TECR,,Zooplankton collection ,.DP1.20219,,1,NA,NA,NA,NA,NA,NA,NA,NA
 18,OKSR,,Zooplankton collection ,.DP1.20219,,1,NA,NA,NA,NA,NA,NA,NA,NA
 18,TOOK,,Zooplankton collection ,.DP1.20219,,1,,,,Y,Y,Y,Y,Y
-19,CARI,,Zooplankton collection ,.DP1.20219,,1,,,,NA,NA,NA,NA,NA
-1,BART,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,Y,Y,Y,Y,Y
-1,HARV,D,Small mammal sequences DNA barcode,.DP1.10076,,1,Y,,,Y,Y,Y,Y,Y
-2,BLAN,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,Y,Y,Y,Y,Y
-2,SCBI,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,Y,Y,Y,Y,Y
-2,SERC,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,Y,Y,Y,Y,Y
-3,DSNY,D,Small mammal sequences DNA barcode,.DP1.10076,,1,Y,,,Y,Y,Y,Y,Y
-3,JERC,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,Y,Y,Y,Y,Y
-3,OSBS,D,Small mammal sequences DNA barcode,.DP1.10076,,1,Y,,,Y,Y,Y,Y,Y
-4,GUAN,D,Small mammal sequences DNA barcode,.DP1.10076,,1,NA,NA,NA,NA,NA,NA,NA,NA
-4,LAJA,D,Small mammal sequences DNA barcode,.DP1.10076,,1,NA,NA,NA,NA,NA,NA,NA,NA
-5,STEI,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,Y,Y,Y,Y,Y
-5,TREE,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,Y,Y,Y,Y,Y
-5,UNDE,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,Y,Y,Y,Y,Y
-6,KONA,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,,Y,Y,Y,Y
-6,KONZ,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,Y,Y,Y,Y,Y
-6,UKFS,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,Y,Y,Y,Y,Y
-7,GRSM,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,Y,Y,Y,Y,Y
-7,MLBS,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,,Y,Y,Y,Y
-7,ORNL,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,Y,Y,Y,Y,Y
-8,DELA,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,Y,Y,Y,Y,Y
-8,LENO,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,Y,Y,Y,Y,Y
-8,TALL,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,Y,Y,Y,Y,Y
-9,DCFS,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,,Y,Y,Y,Y
-9,NOGP,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,Y,Y,Y,Y,Y
-9,WOOD,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,Y,Y,Y,Y,Y
-10,CPER,D,Small mammal sequences DNA barcode,.DP1.10076,,1,Y,Y,,Y,Y,Y,Y,Y
-10,RMNP,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,,Y,Y,Y,Y
-10,STER,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,Y,Y,Y,Y,Y
-11,CLBJ,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,Y,Y,Y,Y,Y
-11,OAES,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,Y,Y,Y,Y,Y
-12,YELL,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,Y,Y,Y,Y,Y
-13,NIWO,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,Y,Y,Y,Y,Y
-13,MOAB,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,Y,Y,Y,Y,Y
-14,JORN,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,Y,Y,Y,Y,Y
-14,SRER,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,Y,Y,Y,Y,Y
-15,ONAQ,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,Y,Y,Y,Y,Y
-16,ABBY,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,,Y,Y,Y,Y
-16,WREF,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,,Y,Y,Y,Y
-17,SJER,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,,Y,Y,Y,Y
-17,SOAP,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,,,Y,Y,Y
-17,TEAK,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,,,Y,Y,Y
-18,BARR,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,,Y,Y,Y,Y
-18,TOOL,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,,Y,Y,Y,Y
-19,BONA,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,,Y,Y,Y,Y
-19,DEJU,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,,Y,Y,Y,Y
-19,HEAL,D,Small mammal sequences DNA barcode,.DP1.10076,,1,,,,,Y,Y,Y,Y
-20,PUUM,D,Small mammal sequences DNA barcode,.DP1.10076,,1,NA,NA,NA,NA,NA,NA,NA,NA
-1,BART,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,Y,Y,Y,Y,Y,Y,Y
-1,HARV,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,Y,Y,Y,Y,Y,Y,Y
-2,BLAN,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-2,SCBI,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-2,SERC,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-3,DSNY,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-3,JERC,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-3,OSBS,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-4,GUAN,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-4,LAJA,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-5,STEI,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-5,TREE,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-5,UNDE,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-6,KONA,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,,Y,Y,Y,Y
-6,KONZ,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-6,UKFS,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-7,GRSM,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-7,MLBS,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,,Y,Y,Y,Y
-7,ORNL,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-8,DELA,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-8,LENO,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-8,TALL,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-9,DCFS,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,,Y,Y,Y,Y
-9,NOGP,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-9,WOOD,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-10,CPER,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,Y,Y,Y,Y,Y,Y,Y,Y
-10,RMNP,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,,Y,Y,Y,Y
-10,STER,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,Y,Y,Y,Y,Y,Y,Y,Y
-11,CLBJ,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-11,OAES,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-12,YELL,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-13,NIWO,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-13,MOAB,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-14,JORN,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-14,SRER,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-15,ONAQ,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-16,ABBY,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-16,WREF,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,,Y,Y,Y,Y
-17,SJER,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,,Y,Y,Y,Y
-17,SOAP,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,,,Y,Y,Y
-17,TEAK,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,,,Y,Y,Y
-18,BARR,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,,Y,Y,Y,Y
-18,TOOL,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,,Y,Y,Y,Y
-19,BONA,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,,Y,Y,Y,Y
-19,DEJU,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-19,HEAL,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,Y,Y,Y,Y,Y
-20,PUUM,D,Ground beetle sequences DNA barcode,.DP1.10020,,1,,,,,,Y,Y,Y
-1,BART,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-1,HARV,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-2,BLAN,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-2,SCBI,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-2,SERC,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-3,DSNY,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-3,JERC,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-3,OSBS,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-4,GUAN,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-4,LAJA,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-5,STEI,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-5,TREE,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-5,UNDE,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-6,KONA,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,,Y,Y,Y,Y
-6,KONZ,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-6,UKFS,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-7,GRSM,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-7,MLBS,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,,Y,Y,Y,Y
-7,ORNL,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-8,DELA,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-8,LENO,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-8,TALL,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-9,DCFS,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,,Y,Y,Y,Y
-9,NOGP,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-9,WOOD,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-10,CPER,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-10,RMNP,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,,Y,Y,Y,Y
-10,STER,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-11,CLBJ,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-11,OAES,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-12,YELL,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-13,NIWO,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-13,MOAB,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-14,JORN,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-14,SRER,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-15,ONAQ,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-16,ABBY,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-16,WREF,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,,Y,Y,Y,Y
-17,SJER,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,,Y,Y,Y,Y
-17,SOAP,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,,,Y,Y,Y
-17,TEAK,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,,,Y,Y,Y
-18,BARR,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,,Y,Y,Y,Y
-18,TOOL,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,,Y,Y,Y,Y
-19,BONA,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,,Y,Y,Y,Y
-19,DEJU,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-19,HEAL,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,Y,Y,Y,Y,Y
-20,PUUM,D,Mosquito sequences DNA barcode,.DP1.10038,,1,,,,,,Y,Y,Y
-1,BART,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,Y,,,,
-1,HARV,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,,Y,,,
-2,BLAN,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,,Y,,,
-2,SCBI,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,Y,,,,,
-2,SERC,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,Y,,,,
-3,DSNY,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,,Y,,,
-3,JERC,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,Y,,,,,
-3,OSBS,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,Y,,,,
-4,GUAN,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,,,Y,,
-4,LAJA,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,,Y,,,
-5,STEI,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,Y,,,,
-5,TREE,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,Y,,,,
-5,UNDE,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,Y,,,,
-6,KONA,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,,,Y,,
-6,KONZ,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,Y,,,,,
-6,UKFS,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,Y,,,,,
-7,GRSM,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,Y,,,,
-7,MLBS,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,,,Y,,
-7,ORNL,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,Y,,,,
-8,DELA,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,Y,,,,,
-8,LENO,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,,,Y,,
-8,TALL,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,Y,,,,
-9,DCFS,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,,Y,,,
-9,NOGP,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,Y,,,,
-9,WOOD,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,Y,,,,,
-10,CPER,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,Y,,,,
-10,RMNP,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,,Y,,,
-10,STER,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,Y,,,,,
-11,CLBJ,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,,Y,,,
-11,OAES,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,Y,,,,
-12,YELL,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,,,Y,,
-13,NIWO,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,,,Y,,
-13,MOAB,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,Y,,,,
-14,JORN,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,Y,,,,
-14,SRER,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,,,Y,,
-15,ONAQ,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,Y,,,,
-16,ABBY,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,,Y,,,
-16,WREF,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,,,Y,,
-17,SJER,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,,Y,,,
-17,SOAP,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,,,Y,,
-17,TEAK,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,,,Y,,
-18,BARR,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,,,Y,,
-18,TOOL,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,,,Y,,
-19,BONA,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,,,Y,,
-19,DEJU,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,,Y,,,
-19,HEAL,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,,Y,,,
-20,PUUM,D,Soil chemical properties (Distributed initial characterization),.DP1.10008,,0,,,,,,Y,,
-1,BART,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,Y,,,,
-1,HARV,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,,Y,,,
-2,BLAN,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,,Y,,,
-2,SCBI,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,Y,,,,,
-2,SERC,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,Y,,,,
-3,DSNY,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,,Y,,,
-3,JERC,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,Y,,,,,
-3,OSBS,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,Y,,,,
-4,GUAN,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,,,Y,,
-4,LAJA,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,,Y,,,
-5,STEI,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,Y,,,,
-5,TREE,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,Y,,,,
-5,UNDE,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,Y,,,,
-6,KONA,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,,,Y,,
-6,KONZ,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,Y,,,,,
-6,UKFS,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,Y,,,,,
-7,GRSM,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,Y,,,,
-7,MLBS,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,,,Y,,
-7,ORNL,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,Y,,,,
-8,DELA,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,Y,,,,,
-8,LENO,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,,,Y,,
-8,TALL,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,Y,,,,
-9,DCFS,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,,Y,,,
-9,NOGP,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,Y,,,,
-9,WOOD,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,Y,,,,,
-10,CPER,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,Y,,,,
-10,RMNP,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,,Y,,,
-10,STER,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,Y,,,,,
-11,CLBJ,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,,Y,,,
-11,OAES,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,Y,,,,
-12,YELL,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,,,Y,,
-13,NIWO,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,,,Y,,
-13,MOAB,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,Y,,,,
-14,JORN,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,Y,,,,
-14,SRER,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,,,Y,,
-15,ONAQ,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,Y,,,,
-16,ABBY,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,,Y,,,
-16,WREF,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,,,Y,,
-17,SJER,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,,Y,,,
-17,SOAP,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,,,Y,,
-17,TEAK,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,,,Y,,
-18,BARR,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,,,Y,,
-18,TOOL,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,,,Y,,
-19,BONA,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,,,Y,,
-19,DEJU,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,,Y,,,
-19,HEAL,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,,Y,,,
-20,PUUM,D,Soil physical properties (Distributed initial characterization),.DP1.10047,,0,,,,,,Y,,
-1,HOPB,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,,Y,Y,Y
-2,LEWI,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,,Y,Y,Y
-2,POSE,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,,Y,Y,Y
-3,BARC,,Fish sequences DNA barcode,.DP1.20105,,1,NA,NA,NA,NA,NA,NA,NA,NA
-3,FLNT,,Fish sequences DNA barcode,.DP1.20105,,1,NA,NA,NA,NA,NA,NA,NA,NA
-3,SUGG,,Fish sequences DNA barcode,.DP1.20105,,1,NA,NA,NA,NA,NA,NA,NA,NA
-4,CUPE,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,,Y,Y,Y
-4,GUIL,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,,Y,Y,Y
-5,CRAM,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,,Y,Y,Y
-5,LIRO,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,,Y,Y,Y
-6,KING,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,,Y,Y,Y
-6,MCDI,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,,Y,Y,Y
-7,LECO,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,,Y,Y,Y
-7,WALK,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,,Y,Y,Y
-8,BLWA,,Fish sequences DNA barcode,.DP1.20105,,1,NA,NA,NA,NA,NA,NA,NA,NA
-8,MAYF,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,,,,
-8,TOMB,,Fish sequences DNA barcode,.DP1.20105,,1,NA,NA,NA,NA,NA,NA,NA,NA
-9,PRLA,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,,Y,Y,Y
-9,PRPO,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,,Y,Y,Y
-10,ARIK,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,,Y,Y,Y
-11,BLUE,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,Y,Y,Y,Y
-11,PRIN,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,,Y,Y,Y
-12,BLDE,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,,Y,Y,Y
-13,COMO,,Fish sequences DNA barcode,.DP1.20105,,1,NA,NA,NA,NA,NA,NA,NA,NA
-13,WLOU,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,,Y,Y,Y
-14,SYCA,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,,Y,Y,Y
-15,REDB,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,,Y,Y,Y
-16,MART,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,,Y,Y,Y
-16,MCRA,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,,Y,Y,Y
-17,BIGC,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,,Y,Y,Y
-17,TECR,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,,Y,Y,Y
-18,OKSR,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,,Y,Y,Y
-18,TOOK,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,,Y,Y,Y
-19,CARI,,Fish sequences DNA barcode,.DP1.20105,,1,,,,,,Y,Y,Y
-1,HOPB,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-2,LEWI,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-2,POSE,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,Y,Y,Y,Y
-3,BARC,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,Y,Y,Y,Y
-3,FLNT,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-3,SUGG,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-4,CUPE,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-4,GUIL,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-5,CRAM,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-5,LIRO,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-6,KING,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-6,MCDI,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-7,LECO,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-7,WALK,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-8,BLWA,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-8,MAYF,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-8,TOMB,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-9,PRLA,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-9,PRPO,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-10,ARIK,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-11,BLUE,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-11,PRIN,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-12,BLDE,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-13,COMO,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-13,WLOU,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-14,SYCA,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-15,REDB,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-16,MART,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-16,MCRA,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-17,BIGC,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-17,TECR,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-18,OKSR,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-18,TOOK,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-19,CARI,,Macroinvertebrate DNA barcode,.DP1.20126,,1,,,,,,Y,Y,Y
-1,HOPB,,Zooplankton DNA barcode,.DP1.20221,,1,NA,NA,NA,NA,NA,NA,NA,NA
-2,LEWI,,Zooplankton DNA barcode,.DP1.20221,,1,NA,NA,NA,NA,NA,NA,NA,NA
-2,POSE,,Zooplankton DNA barcode,.DP1.20221,,1,NA,NA,NA,NA,NA,NA,NA,NA
-3,BARC,,Zooplankton DNA barcode,.DP1.20221,,1,,,,,Y,Y,Y,Y
-3,FLNT,,Zooplankton DNA barcode,.DP1.20221,,1,NA,NA,NA,NA,NA,NA,NA,NA
-3,SUGG,,Zooplankton DNA barcode,.DP1.20221,,1,,,,,Y,Y,Y,Y
-4,CUPE,,Zooplankton DNA barcode,.DP1.20221,,1,NA,NA,NA,NA,NA,NA,NA,NA
-4,GUIL,,Zooplankton DNA barcode,.DP1.20221,,1,NA,NA,NA,NA,NA,NA,NA,NA
-5,CRAM,,Zooplankton DNA barcode,.DP1.20221,,1,,,,,,Y,Y,Y
-5,LIRO,,Zooplankton DNA barcode,.DP1.20221,,1,,,,,,Y,Y,Y
-6,KING,,Zooplankton DNA barcode,.DP1.20221,,1,NA,NA,NA,NA,NA,NA,NA,NA
-6,MCDI,,Zooplankton DNA barcode,.DP1.20221,,1,NA,NA,NA,NA,NA,NA,NA,NA
-7,LECO,,Zooplankton DNA barcode,.DP1.20221,,1,NA,NA,NA,NA,NA,NA,NA,NA
-7,WALK,,Zooplankton DNA barcode,.DP1.20221,,1,NA,NA,NA,NA,NA,NA,NA,NA
-8,BLWA,,Zooplankton DNA barcode,.DP1.20221,,1,NA,NA,NA,NA,NA,NA,NA,NA
-8,MAYF,,Zooplankton DNA barcode,.DP1.20221,,1,NA,NA,NA,NA,NA,NA,NA,NA
-8,TOMB,,Zooplankton DNA barcode,.DP1.20221,,1,NA,NA,NA,NA,NA,NA,NA,NA
-9,PRLA,,Zooplankton DNA barcode,.DP1.20221,,1,,,,,,Y,Y,Y
-9,PRPO,,Zooplankton DNA barcode,.DP1.20221,,1,,,,,,Y,Y,Y
-10,ARIK,,Zooplankton DNA barcode,.DP1.20221,,1,NA,NA,NA,NA,NA,NA,NA,NA
-11,BLUE,,Zooplankton DNA barcode,.DP1.20221,,1,NA,NA,NA,NA,NA,NA,NA,NA
-11,PRIN,,Zooplankton DNA barcode,.DP1.20221,,1,NA,NA,NA,NA,NA,NA,NA,NA
-12,BLDE,,Zooplankton DNA barcode,.DP1.20221,,1,NA,NA,NA,NA,NA,NA,NA,NA
-13,COMO,,Zooplankton DNA barcode,.DP1.20221,,1,NA,NA,NA,NA,NA,NA,NA,NA
-13,WLOU,,Zooplankton DNA barcode,.DP1.20221,,1,NA,NA,NA,NA,NA,NA,NA,NA
-14,SYCA,,Zooplankton DNA barcode,.DP1.20221,,1,NA,NA,NA,NA,NA,NA,NA,NA
-15,REDB,,Zooplankton DNA barcode,.DP1.20221,,1,NA,NA,NA,NA,NA,NA,NA,NA
-16,MART,,Zooplankton DNA barcode,.DP1.20221,,1,NA,NA,NA,NA,NA,NA,NA,NA
-16,MCRA,,Zooplankton DNA barcode,.DP1.20221,,1,NA,NA,NA,NA,NA,NA,NA,NA
-17,BIGC,,Zooplankton DNA barcode,.DP1.20221,,1,NA,NA,NA,NA,NA,NA,NA,NA
-17,TECR,,Zooplankton DNA barcode,.DP1.20221,,1,NA,NA,NA,NA,NA,NA,NA,NA
-18,OKSR,,Zooplankton DNA barcode,.DP1.20221,,1,NA,NA,NA,NA,NA,NA,NA,NA
-18,TOOK,,Zooplankton DNA barcode,.DP1.20221,,1,,,,,,Y,Y,Y
-19,CARI,,Zooplankton DNA barcode,.DP1.20221,,1,,,,,,Y,Y,Y
-1,HOPB,,Gauge height,.DP1.20267 ,,1,,,,Y,Y,Y,Y,Y
-2,LEWI,,Gauge height,.DP1.20267 ,,1,,,,Y,Y,Y,Y,Y
-2,POSE,,Gauge height,.DP1.20267 ,,1,,Y,Y,Y,Y,Y,Y,Y
-3,BARC,,Gauge height,.DP1.20267 ,,1,,Y,Y,Y,Y,Y,Y,Y
-3,FLNT,,Gauge height,.DP1.20267 ,,1,,,,,Y,Y,Y,Y
-3,SUGG,,Gauge height,.DP1.20267 ,,1,,Y,Y,Y,Y,Y,Y,Y
-4,CUPE,,Gauge height,.DP1.20267 ,,1,,,Y,Y,Y,Y,Y,Y
-4,GUIL,,Gauge height,.DP1.20267 ,,1,,Y,Y,Y,Y,Y,Y,Y
-5,CRAM,,Gauge height,.DP1.20267 ,,1,,,Y,Y,Y,Y,Y,Y
-5,LIRO,,Gauge height,.DP1.20267 ,,1,,,,,Y,Y,Y,Y
-6,KING,,Gauge height,.DP1.20267 ,,1,,,Y,Y,Y,Y,Y,Y
-6,MCDI,,Gauge height,.DP1.20267 ,,1,,,,Y,Y,Y,Y,Y
-7,LECO,,Gauge height,.DP1.20267 ,,1,,,Y,Y,Y,Y,Y,Y
-7,WALK,,Gauge height,.DP1.20267 ,,1,,,Y,Y,Y,Y,Y,Y
-8,BLWA,,Gauge height,.DP1.20267 ,,1,,,,Y,Y,Y,Y,Y
-8,MAYF,,Gauge height,.DP1.20267 ,,1,,Y,Y,Y,Y,Y,Y,Y
-8,TOMB,,Gauge height,.DP1.20267 ,,1,,,,Y,Y,Y,Y,Y
-9,PRLA,,Gauge height,.DP1.20267 ,,1,,Y,Y,Y,Y,Y,Y,Y
-9,PRPO,,Gauge height,.DP1.20267 ,,1,,Y,Y,Y,Y,Y,Y,Y
-10,ARIK,,Gauge height,.DP1.20267 ,,1,,Y,Y,Y,Y,Y,Y,Y
-11,BLUE,,Gauge height,.DP1.20267 ,,1,,,,,Y,Y,Y,Y
-11,PRIN,,Gauge height,.DP1.20267 ,,1,,,,Y,Y,Y,Y,Y
-12,BLDE,,Gauge height,.DP1.20267 ,,1,,,,,,Y,Y,Y
-13,COMO,,Gauge height,.DP1.20267 ,,1,,,Y,Y,Y,Y,Y,Y
-13,WLOU,,Gauge height,.DP1.20267 ,,1,,,,Y,Y,Y,Y,Y
-14,SYCA,,Gauge height,.DP1.20267 ,,1,,,,,Y,Y,Y,Y
-15,REDB,,Gauge height,.DP1.20267 ,,1,,,Y,Y,Y,Y,Y,Y
-16,MART,,Gauge height,.DP1.20267 ,,1,,,,,Y,Y,Y,Y
-16,MCRA,,Gauge height,.DP1.20267 ,,1,,,,Y,Y,Y,Y,Y
-17,BIGC,,Gauge height,.DP1.20267 ,,1,,,,,Y,Y,Y,Y
-17,TECR,,Gauge height,.DP1.20267 ,,1,,,,,Y,Y,Y,Y
-18,OKSR,,Gauge height,.DP1.20267 ,,1,,,,Y,Y,Y,Y,Y
-18,TOOK,,Gauge height,.DP1.20267 ,,1,,,,Y,Y,Y,Y,Y
-19,CARI,,Gauge height,.DP1.20267 ,,1,,,,Y,Y,Y,Y,Y
-1,HOPB,,Stream discharge rating curve,.DP4.00133,,1,,,,,Y,Y,Y,Y
-2,LEWI,,Stream discharge rating curve,.DP4.00133,,1,,,,,,,Y,Y
-2,POSE,,Stream discharge rating curve,.DP4.00133,,1,,,,,Y,Y,Y,Y
-3,BARC,,Stream discharge rating curve,.DP4.00133,,1,NA,NA,NA,NA,NA,NA,NA,NA
-3,FLNT,,Stream discharge rating curve,.DP4.00133,,1,NA,NA,NA,NA,NA,NA,NA,NA
-3,SUGG,,Stream discharge rating curve,.DP4.00133,,1,NA,NA,NA,NA,NA,NA,NA,NA
-4,CUPE,,Stream discharge rating curve,.DP4.00133,,1,,,,,Y,Y,Y,Y
-4,GUIL,,Stream discharge rating curve,.DP4.00133,,1,,,,,Y,Y,Y,Y
-5,CRAM,,Stream discharge rating curve,.DP4.00133,,1,NA,NA,NA,NA,NA,NA,NA,NA
-5,LIRO,,Stream discharge rating curve,.DP4.00133,,1,NA,NA,NA,NA,NA,NA,NA,NA
-6,KING,,Stream discharge rating curve,.DP4.00133,,1,,,,,Y,Y,Y,Y
-6,MCDI,,Stream discharge rating curve,.DP4.00133,,1,,,,,,,Y,Y
-7,LECO,,Stream discharge rating curve,.DP4.00133,,1,,,,,,,Y,Y
-7,WALK,,Stream discharge rating curve,.DP4.00133,,1,,,,,Y,Y,Y,Y
-8,BLWA,,Stream discharge rating curve,.DP4.00133,,1,NA,NA,NA,NA,NA,NA,NA,NA
-8,MAYF,,Stream discharge rating curve,.DP4.00133,,1,,,,,Y,Y,Y,Y
-8,TOMB,,Stream discharge rating curve,.DP4.00133,,1,NA,NA,NA,NA,NA,NA,NA,NA
-9,PRLA,,Stream discharge rating curve,.DP4.00133,,1,NA,NA,NA,NA,NA,NA,NA,NA
-9,PRPO,,Stream discharge rating curve,.DP4.00133,,1,NA,NA,NA,NA,NA,NA,NA,NA
-10,ARIK,,Stream discharge rating curve,.DP4.00133,,1,,,,Y,Y,Y,Y,Y
-11,BLUE,,Stream discharge rating curve,.DP4.00133,,1,,,,,,Y,Y,Y
-11,PRIN,,Stream discharge rating curve,.DP4.00133,,1,,,,,,,Y,Y
-12,BLDE,,Stream discharge rating curve,.DP4.00133,,1,,,,,Y,Y,Y,Y
-13,COMO,,Stream discharge rating curve,.DP4.00133,,1,,,,,,Y,Y,Y
-13,WLOU,,Stream discharge rating curve,.DP4.00133,,1,,,,,,,Y,Y
-14,SYCA,,Stream discharge rating curve,.DP4.00133,,1,,,,,Y,Y,Y,Y
-15,REDB,,Stream discharge rating curve,.DP4.00133,,1,,,,,,Y,Y,Y
-16,MART,,Stream discharge rating curve,.DP4.00133,,1,,,,,,Y,Y,Y
-16,MCRA,,Stream discharge rating curve,.DP4.00133,,1,,,,,Y,Y,Y,Y
-17,BIGC,,Stream discharge rating curve,.DP4.00133,,1,,,,,,,Y,Y
-17,TECR,,Stream discharge rating curve,.DP4.00133,,1,,,,,,Y,Y,Y
-18,OKSR,,Stream discharge rating curve,.DP4.00133,,1,,,,,,Y,Y,Y
-18,TOOK,,Stream discharge rating curve,.DP4.00133,,1,NA,NA,NA,NA,NA,NA,NA,NA
-19,CARI,,Stream discharge rating curve,.DP4.00133,,1,,,,,Y,Y,Y,Y
-1,BART,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-1,HARV,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-2,BLAN,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-2,SCBI,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-2,SERC,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-3,DSNY,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-3,JERC,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-3,OSBS,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-4,GUAN,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-4,LAJA,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-5,STEI,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-5,TREE,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-5,UNDE,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-6,KONA,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-6,KONZ,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-6,UKFS,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-7,GRSM,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-7,MLBS,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-7,ORNL,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-8,DELA,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-8,LENO,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-8,TALL,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-9,DCFS,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-9,NOGP,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-9,WOOD,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-10,CPER,,Particulate Mass,.DP1.00101,,26,,,,,Y,Y,Y,Y
-10,RMNP,,Particulate Mass,.DP1.00101,,26,,,,,,Y,Y,Y
-10,STER,,Particulate Mass,.DP1.00101,,26,,,,,,Y,Y,Y
-11,CLBJ,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-11,OAES,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-12,YELL,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-13,NIWO,,Particulate Mass,.DP1.00101,,26,,,,,,Y,Y,Y
-13,MOAB,,Particulate Mass,.DP1.00101,,26,,,,,Y,Y,Y,Y
-14,JORN,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-14,SRER,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-15,ONAQ,,Particulate Mass,.DP1.00101,,26,,,,,Y,Y,Y,Y
-16,ABBY,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-16,WREF,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-17,SJER,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-17,SOAP,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-17,TEAK,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-18,BARR,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-18,TOOL,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-19,BONA,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-19,DEJU,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-19,HEAL,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-20,PUUM,,Particulate Mass,.DP1.00101,,,NA,NA,NA,NA,NA,NA,NA,NA
-1,HARV,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-1,BART,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-2,SCBI,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-2,BLAN,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-2,SERC,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-3,OSBS,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,Y,Y,Y,Y
-3,JERC,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-4,CUPE,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-4,GUIL,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-4,GUAN,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-5,UNDE,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-5,STEI,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-6,KONZ,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-6,UKFS,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-7,ORNL,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-7,GRSM,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-7,MLBS,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-8,TALL,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-8,DELA,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-8,LENO,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-9,WOOD,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-9,NOGP,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-10,ARIK,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-10,CPER,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,Y,Y,Y,Y
-10,STER,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-10,RMNP,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-11,PRIN,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-11,BLUE,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-11,CLBJ,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-11,OAES,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-12,YELL,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,,Y,Y
-13,NIWO,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-13,MOAB,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-14,SYCA,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-14,SRER,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-15,REDB,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-15,ONAQ,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-16,WREF,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-17,SJER,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-18,TOOL,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-18,BARR,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-19,BONA,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-19,HEAL,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,Y,Y,Y
-20,PUUM,,Stable isotope concentrations in precipitation,.DP1.00038,,26,,,,,,,Y,Y
-1,HARV,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-1,BART,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-2,SCBI,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-2,BLAN,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-2,SERC,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-3,OSBS,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,Y,Y,Y,Y
-3,JERC,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-4,CUPE,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-4,GUIL,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-4,GUAN,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-5,UNDE,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-5,STEI,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-6,KONZ,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-6,UKFS,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-7,ORNL,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-7,GRSM,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-7,MLBS,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-8,TALL,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-8,DELA,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-8,LENO,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-9,WOOD,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-9,NOGP,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-10,ARIK,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-10,CPER,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,Y,Y,Y,Y
-10,STER,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-10,RMNP,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-11,PRIN,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-11,BLUE,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-11,CLBJ,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-11,OAES,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-12,YELL,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,,Y,Y
-13,NIWO,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-13,MOAB,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-14,SYCA,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-14,SRER,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-15,REDB,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-15,ONAQ,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-16,WREF,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-17,SJER,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-18,TOOL,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-18,BARR,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-19,BONA,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-19,HEAL,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,Y,Y,Y
-20,PUUM,,Wet Deposition Chemical Analysis,.DP1.00013,,26,,,,,,,Y,Y
+19,CARI,,Zooplankton collection ,.DP1.20219,,1,NA,NA,NA,NA,NA,NA,NA,NA

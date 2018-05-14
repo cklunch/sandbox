@@ -57,6 +57,13 @@ for(i in colnames(mat)[5:85]) {
 samp <- read.delim("~/sandbox/NEON-OS-DataAvailabilityBySiteByYear-v20170918.csv", sep=",")
 samp$DPID <- paste(substring(samp$DPID, 2, 10), ".001", sep="")
 
+# find blank rows in samp spreadsheet
+samp.y <- samp[,grep("X", colnames(samp), fixed=T)]
+ind <- which(apply(samp.y, 1, FUN=function(x){all(x=="")}))
+dp.s <- cbind(samp$DPID[ind], samp$Data.Product.Name[ind], samp$Site[ind])
+write.table(dp.s, "~/sandbox/blank.lines.csv", sep=",", row.names=F)
+
+# subset to only OS products
 current.os <- current[which((substring(current$DPID, 5, 5) %in% c(1,2) | 
                               current$DPID %in% c("DP1.00101.001","DP1.00013.001","DP1.00038.001",
                                                   "DP4.00131.001","DP4.00132.001","DP4.00133.001",
@@ -68,11 +75,14 @@ current.os <- current[which((substring(current$DPID, 5, 5) %in% c(1,2) |
                                                    "DP1.20261.001","DP1.20264.001","DP1.20271.001",
                                                    "DP1.20288.001")),]
 
+# 1 if there are data on portal, YEAR of future sampling if it hasn't happened yet, 
+# 0 if sampling has happened but data aren't available, NA if never sampled
 for(i in current.os$DPID) {
   if(length(which(samp$DPID==i))==0) {
     print(paste("No sampling info for", i, current.os$DPName[which(current.os$DPID==i)], sep=" "))
   } else {
     for(j in colnames(current.os)[3:83]) {
+      #print(paste(i, j))
       cur.val <- current.os[which(current.os$DPID==i), which(colnames(current.os)==j)]
       if(is.na(cur.val) | cur.val==1) {
         next
@@ -82,15 +92,22 @@ for(i in current.os$DPID) {
         if(all(is.na(samp.sub))) {
           next
         } else {
-          yr <- colnames(samp.sub)[min(which(samp.sub=="Y"), na.rm=T)]
-          current.os[which(current.os$DPID==i), which(colnames(current.os)==j)] <- substring(yr, 2, 5)
+          if(nrow(samp.sub)>1) {
+            yr <- colnames(samp.sub)[min(which(samp.sub=="Y", arr.ind=T)[,2], na.rm=T)]
+          } else {
+            yr <- colnames(samp.sub)[min(which(samp.sub=="Y"), na.rm=T)]
+          }
+          if(as.numeric(substring(yr, 2, 5)) <= 2017) {
+            next
+          } else {
+            current.os[which(current.os$DPID==i), which(colnames(current.os)==j)] <- substring(yr, 2, 5)
+          }
         }
       }
   }
   }
 }
 
-# modify: if sampled in the past, put 0; only give years for 2018 forward
 
 # write out status table
 write.table(current.os, "~/sandbox/os_status.csv", row.names=F, sep=",")
