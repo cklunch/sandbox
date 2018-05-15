@@ -1118,22 +1118,22 @@
 2,SCBI,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 2,SERC,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 2,SERC,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-3,DSNY,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,,,,,,,,,,
+3,DSNY,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 3,DSNY,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,Y,,,Y,,,Y,
-3,JERC,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,,,,Y,Y,Y,Y,Y,Y,
-3,JERC,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,,Y,,,Y,,,
-3,OSBS,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,,,,Y,Y,Y,Y,Y,Y,
+3,JERC,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,,,,Y,Y,Y,Y,Y,Y,Y
+3,JERC,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,,Y,,,,,,Y
+3,OSBS,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,,,,Y,Y,Y,Y,Y,Y,Y
 3,OSBS,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,,Y,Y,,,Y,,
-4,GUAN,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,,,,Y,Y,Y,Y,Y,Y,
-4,GUAN,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,,Y,,,Y,,,
+4,GUAN,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,,,,Y,Y,Y,Y,Y,Y,Y
+4,GUAN,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,,Y,,,Y,,,Y
 4,LAJA,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 4,LAJA,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-5,STEI,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,,,,Y,Y,Y,Y,Y,Y,
+5,STEI,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,,,,Y,Y,Y,Y,Y,Y,Y
 5,STEI,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,,,Y,,,Y,,
-5,TREE,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,,,,Y,Y,Y,Y,Y,Y,
+5,TREE,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,,,,Y,Y,Y,Y,Y,Y,Y
 5,TREE,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,,,,Y,,,Y,
-5,UNDE,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,,,,Y,Y,Y,Y,Y,Y,
-5,UNDE,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,,Y,,,Y,,,
+5,UNDE,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,,,,Y,Y,Y,Y,Y,Y,Y
+5,UNDE,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,,Y,,,,,,Y
 6,KONA,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 6,KONA,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 6,KONZ,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
@@ -1142,8 +1142,8 @@
 6,UKFS,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 7,GRSM,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 7,GRSM,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-7,MLBS,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,,,,,,Y,Y,Y,Y,
-7,MLBS,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,,,,,Y,,,
+7,MLBS,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,,,,,,Y,Y,Y,Y,Y
+7,MLBS,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,,,,,Y,,,Y
 7,ORNL,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 7,ORNL,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 8,DELA,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
@@ -1158,13 +1158,13 @@
 9,NOGP,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 9,WOOD,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 9,WOOD,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-10,CPER,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,,,Y,Y,Y,Y,Y,Y,Y,
+10,CPER,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,,,Y,Y,Y,Y,Y,Y,Y,Y
 10,CPER,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,Y,,,Y,,,Y,
 10,RMNP,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 10,RMNP,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 10,STER,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 10,STER,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-11,CLBJ,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,,,,,Y,Y,Y,Y,Y,
+11,CLBJ,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,,,,,Y,Y,Y,Y,Y,Y
 11,CLBJ,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,,,Y,,,Y,,
 11,OAES,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 11,OAES,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
@@ -1172,11 +1172,11 @@
 12,YELL,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 13,NIWO,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 13,NIWO,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-13,MOAB,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,,Y,Y,,Y,,,
-13,MOAB,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,,Y,,,Y,,,
-14,JORN,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,,Y,Y,,Y,,,
-14,JORN,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,,,,,Y,,,
-14,SRER,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,,,,Y,,,Y,
+13,MOAB,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,,Y,Y,,Y,,,Y
+13,MOAB,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,,Y,,,,,,Y
+14,JORN,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,,Y,Y,,Y,,,Y
+14,JORN,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,,,,,Y,,,Y
+14,SRER,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 14,SRER,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,,,Y,,,,Y,
 15,ONAQ,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,,Y,Y,Y,,,Y,
 15,ONAQ,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,Y,,,Y,,,Y,
@@ -1200,8 +1200,8 @@
 19,DEJU,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 19,HEAL,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 19,HEAL,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-20,PUUM,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,,,,,,,Y,Y,Y,
-20,PUUM,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,,,,,Y,,,
+20,PUUM,T,Non-herbaceous perennial vegetation structure ,.DP1.10045,,1,,,,,,,Y,Y,Y,Y
+20,PUUM,D,Non-herbaceous perennial vegetation structure ,.DP1.10045,,3,,,,,,,Y,,,Y
 1,HOPB,,"Periphyton, seston, and phytoplankton chemical properties ",.DP1.20163,,1,,,,,Y,Y,Y,Y,Y,
 2,LEWI,,"Periphyton, seston, and phytoplankton chemical properties ",.DP1.20163,,1,,,,,,Y,Y,Y,Y,
 2,POSE,,"Periphyton, seston, and phytoplankton chemical properties ",.DP1.20163,,1,,,,,Y,Y,Y,Y,Y,
