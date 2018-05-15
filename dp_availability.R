@@ -89,7 +89,7 @@ for(i in current.os$DPID) {
       } else {
         samp.dp <- samp[which(samp$DPID==i & samp$Site==j),]
         samp.sub <- samp.dp[,grep("X", colnames(samp.dp), fixed=T)]
-        if(all(is.na(samp.sub))) {
+        if(all(is.na(samp.sub) | samp.sub=="")) {
           next
         } else {
           if(nrow(samp.sub)>1) {
