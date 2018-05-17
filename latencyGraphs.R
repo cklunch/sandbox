@@ -9,12 +9,64 @@ library(dplyr)
 library(stringr)
 library(tidyr)
 library(readxl)
+library(lubridate)
+library(ggplot2)
 
 dat <- read_excel(paste(mypathtoCKL, 'Latency.xlsx', sep = '/'), sheet = 1, na = "NA")
 
 statusByDp <- dat %>% group_by(`Data Product ID`, `Data Product Name`) %>% summarise(meanStatus = round(mean(`Legacy ingest status (%)`),0), minStatus = round(min(`Legacy ingest status (%)`),0), maxStatus = round(max(`Legacy ingest status (%)`),0))
 
-delayByDp <- dat %>% group_by(`Data Product ID`, `Data Product Name`, `Legacy delay driver`) %>% filter(!is.na(`Legacy delay driver`)) %>% summarise(completionDate = max(`Expected Legacy Ingest Completion`))
+delaysByDp <- dat %>% group_by(`Data Product ID`, `Data Product Name`, `Legacy delay driver`) %>% filter(!is.na(`Legacy delay driver`)) %>% summarise(completionDate = max(`Expected Legacy Ingest Completion`))
 
-completedDp <- dat %>% filter(`Legacy ingest status (%)` == 100) %>% distinct(`Data Product ID`, `Data Product Name`)
+delayByDp <- delaysByDp[1,]
+for (i in unique(delaysByDp$`Data Product ID`)){
+  temp  <- delaysByDp %>% filter(`Data Product ID` == i)
+  if (nrow(temp) > 1){
+    latestDate <- max(temp$completionDate)
+    temp2 <- temp %>% filter(completionDate == latestDate)
+    delayByDp <- rbind(delayByDp, temp2)
+  } else {
+    delayByDp <- rbind(delayByDp, temp)
+  }
+}
+delayByDp <- delayByDp[-1,]
+
+datByDp <- left_join(statusByDp, delayByDp, by = "Data Product ID")
+datByDp <- datByDp %>% select(-`Data Product Name.y`)
+datByDp$mo <- month(datByDp$completionDate)
+datByDp$`Legacy delay driver` <- ifelse(is.na(datByDp$`Legacy delay driver`), "no delay - complete", datByDp$`Legacy delay driver`)
+datByDp$mo <- ifelse(is.na(datByDp$mo), 4, datByDp$mo)
+
+ggplot(datByDp, aes(reorder(`Legacy delay driver`, completionDate, length))) + geom_bar() + coord_flip() + ylab("Number of OS Data Products") + xlab("Legacy Data Delay Driver") + theme_bw()
+
+ggsave("legacyDataDrivers.png")
+
+summaryDat <- datByDp %>% group_by(mo) %>% count()
+a = 1
+for (i in min(summaryDat$mo):max(summaryDat$mo)){
+  if(i %in% summaryDat$mo){
+    summaryDat$cumN[a] <- sum(summaryDat$n[1:a])
+    a = a + 1
+  } else {
+      mo <- i
+      n <- 0
+      cumN = summaryDat$cumN[summaryDat$mo == (i-1)]
+      summaryDat <- bind_rows(summaryDat, c(mo = mo, n = n, cumN = cumN))
+  }
+}
+
+summaryDat <- summaryDat[order(summaryDat$mo),]
+
+ggplot(summaryDat, aes(x = mo, y = ((cumN/82)*100))) + geom_col() + ylab("% of OS Data Products Completed") + theme_bw()
+
++ scale_x_discrete(name = "Month of 2018")
+
+breaks = as.character(summaryDat$mo))
+
++ scale_x_discrete(name = "Month of 2018", breaks = as.character(summaryDat$mo), labels = c("4" = "Apr", "5" = "May", "6"= "Jun", "7" = "Jul", "8" = "Aug","9" = "Sept","10" ="Oct", "11" = "Nov", "12" = "Dec"))
+
+ggsave('osDpTimeline.png')
+
+
+
 
