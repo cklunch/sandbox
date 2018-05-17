@@ -56,14 +56,9 @@ for (i in min(summaryDat$mo):max(summaryDat$mo)){
 }
 
 summaryDat <- summaryDat[order(summaryDat$mo),]
+summaryDat$month <- factor(summaryDat$mo, levels = summaryDat$mo[order(summaryDat$mo)])
 
-ggplot(summaryDat, aes(x = mo, y = ((cumN/82)*100))) + geom_col() + ylab("% of OS Data Products Completed") + theme_bw()
-
-+ scale_x_discrete(name = "Month of 2018")
-
-breaks = as.character(summaryDat$mo))
-
-+ scale_x_discrete(name = "Month of 2018", breaks = as.character(summaryDat$mo), labels = c("4" = "Apr", "5" = "May", "6"= "Jun", "7" = "Jul", "8" = "Aug","9" = "Sept","10" ="Oct", "11" = "Nov", "12" = "Dec"))
+ggplot(summaryDat, aes(x = month, y = ((cumN/82)*100))) + geom_col() + ylab("% of OS Data Products Completed") + theme_economist_white()+ scale_x_discrete(name = "Month of 2018", breaks = as.character(summaryDat$mo), labels = c("4" = "Apr", "5" = "May", "6"= "Jun", "7" = "Jul", "8" = "Aug","9" = "Sept","10" ="Oct", "11" = "Nov", "12" = "Dec"))
 
 ggsave('osDpTimeline.png')
 
