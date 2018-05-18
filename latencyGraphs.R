@@ -65,7 +65,7 @@ ggsave('osDpTimeline.png')
 ##histograms of latency
 external <- dat %>% filter(Location == 'External' & `Latency category` != "OT")
 
-ggplot(external, aes(`Transition wait time`)) + stat_bin(aes(y = (..count..)/sum(..count..)*100), binwidth = 40, color = "black", fill = "#CCCCCC") + theme_bw() + scale_y_continuous("% of OS data tables") + xlab("Latency (days since field collection)")
+ggplot(external, aes(`Transition wait time`)) + stat_bin(aes(y = (..count..)/sum(..count..)*100), binwidth = 25, color = "black", fill = "#CCCCCC") + theme_bw() + scale_y_continuous("% of OS data tables") + xlab("Latency (days since field collection)")
 
 ggsave("externalLabLatency.png", width = 3, height = 2)
 
@@ -77,6 +77,6 @@ ggsave("fieldDataLatency.png", width = 3, height = 2)
 
 domain <- dat %>% filter(Location == 'Domain')
 
-ggplot(field, aes(`Fulcrum load delay`)) + stat_bin(aes(y = (..count..)/sum(..count..)*100), binwidth = 25, color = "black", fill = "#CCCCCC") + theme_bw() + scale_y_continuous("% of OS data tables") + xlab("Latency (days since field collection)")
+ggplot(domain, aes(`Fulcrum load delay`)) + stat_bin(aes(y = (..count..)/sum(..count..)*100), binwidth = 25, color = "black", fill = "#CCCCCC") + theme_bw() + scale_y_continuous("% of OS data tables") + xlab("Latency (days since field collection)")
 
-ggsave("fieldDataLatency.png", width = 3, height = 2)
+ggsave("domainDataLatency.png", width = 3, height = 2)
