@@ -11,6 +11,10 @@ zipsByProduct(dpID="DP4.00200.001", site="BART", package="expanded", savepath="/
 
 # manually unzipped before moving forward
 
+stack.flux <- stackEC(filepath="/Users/clunch/Desktop/filesToStack00200",
+                      site="BART", level="dp04", var="fluxCo2", avg=NA)
+
+
 turb30 <- flattenH5EC(filepath="/Users/clunch/Desktop/filesToStack00200/NEON.D01.BART.DP4.00200.001.2017-09.expanded.20180424T184516Z/NEON.D01.BART.DP4.00200.001.nsae.2017-09-29.expanded.h5",
             site="BART", level="dp01", var="co2Turb", avg=30)
 

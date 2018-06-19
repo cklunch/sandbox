@@ -29,8 +29,9 @@ stackEC <- function(filepath, site, level, var, avg) {
   files <- files[grep(".h5", files)]
   
   # pass to flattenH5EC() and merge - this section adapted from stackDataFiles()
-  # would be better to allocate space up front
+  # would be better to allocate space up front, for now using rbind
   # set up progress bar
+  writeLines(paste0("Extracting ", var, " data"))
   pb <- utils::txtProgressBar(style=3)
   utils::setTxtProgressBar(pb, 0)
   utils::setTxtProgressBar(pb, 1/length(files))
@@ -41,7 +42,12 @@ stackEC <- function(filepath, site, level, var, avg) {
   # iterate through files and extract the variable(s) requested
   for(i in 2:length(files)) {
     i.df <- flattenH5EC(paste(filepath, files[i], sep="/"), site=site, level=level, var=var, avg=avg)
-    
+    df <- rbind(df, i.df, fill=T)
+    utils::setTxtProgressBar(pb, i/length(files))
   }
   
+  utils::setTxtProgressBar(pb, 1)
+  close(pb)
+  
+  return(df)
 }
