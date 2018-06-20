@@ -5,14 +5,19 @@ biocLite("rhdf5")
 library(rhdf5)
 library(neonUtilities)
 library(plyr)
+library(tidyr)
 
 # try it out
 zipsByProduct(dpID="DP4.00200.001", site="BART", package="expanded", savepath="/Users/clunch/Desktop")
+zipsByProduct(dpID="DP4.00200.001", site="CPER", package="expanded", savepath="/Users/clunch/Desktop")
 
 # manually unzipped before moving forward
 
 stack.flux <- stackEC(filepath="/Users/clunch/Desktop/filesToStack00200",
-                      site="BART", level="dp04", var="fluxCo2", avg=NA)
+                      site="CPER", level="dp04", var="fluxCo2", avg=NA)
+
+stack.h2o <- stackEC(filepath="/Users/clunch/Desktop/filesToStack00200",
+                      site="BART", level="dp04", var="fluxH2o", avg=NA)
 
 
 turb30 <- flattenH5EC(filepath="/Users/clunch/Desktop/filesToStack00200/NEON.D01.BART.DP4.00200.001.2017-09.expanded.20180424T184516Z/NEON.D01.BART.DP4.00200.001.nsae.2017-09-29.expanded.h5",

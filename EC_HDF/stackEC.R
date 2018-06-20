@@ -26,6 +26,16 @@ stackEC <- function(filepath, site, level, var, avg) {
   
   # get list of files
   files <- list.files(filepath, recursive=T)
+  
+  # unzip if necessary
+  # will this work on portal-downloaded data? not sure
+  if(length(grep(".zip", files))==length(files)) {
+    for(i in 1:length(files)) {
+      utils::unzip(paste(filepath, files[i], sep="/"), exdir=filepath)
+    }
+    files <- list.files(filepath, recursive=T)
+  }
+  
   files <- files[grep(".h5", files)]
   
   # pass to flattenH5EC() and merge - this section adapted from stackDataFiles()
@@ -42,7 +52,7 @@ stackEC <- function(filepath, site, level, var, avg) {
   # iterate through files and extract the variable(s) requested
   for(i in 2:length(files)) {
     i.df <- flattenH5EC(paste(filepath, files[i], sep="/"), site=site, level=level, var=var, avg=avg)
-    df <- rbind(df, i.df, fill=T)
+    df <- rbind(df, i.df)
     utils::setTxtProgressBar(pb, i/length(files))
   }
   
