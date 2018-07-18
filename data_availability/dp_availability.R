@@ -26,7 +26,7 @@ for(i in 1:nrow(current)) {
 }
 
 # next up: include NAs for sites that won't ever have product
-mat <- read.delim("~/sandbox/Master_product_siteMatrix.csv", sep=",", skip=5)
+mat <- read.delim("~/sandbox/data_availability/Master_product_siteMatrix.csv", sep=",", skip=5)
 mat <- mat[1:180,1:85]
 
 # precip wrangling
@@ -43,6 +43,8 @@ for(i in colnames(mat)[5:85]) {
       next
     } else {
       id <- substring(j, 15, 27)
+      print(id)
+      print(i)
       cur.val <- current[which(current$DPID==id), which(colnames(current)==i)]
       if(cur.val==0) {
         current[which(current$DPID==id), which(colnames(current)==i)] <- NA
@@ -54,14 +56,14 @@ for(i in colnames(mat)[5:85]) {
 }
 
 # adding in 'have we ever sampled there'
-samp <- read.delim("~/sandbox/NEON-OS-DataAvailabilityBySiteByYear-v20170918.csv", sep=",")
+samp <- read.delim("~/sandbox/data_availability/NEON-OS-DataAvailabilityBySiteByYear-v20170918.csv", sep=",")
 samp$DPID <- paste(substring(samp$DPID, 2, 10), ".001", sep="")
 
 # find blank rows in samp spreadsheet
 samp.y <- samp[,grep("X", colnames(samp), fixed=T)]
 ind <- which(apply(samp.y, 1, FUN=function(x){all(x=="")}))
 dp.s <- cbind(samp$DPID[ind], samp$Data.Product.Name[ind], samp$Site[ind])
-write.table(dp.s, "~/sandbox/blank.lines.csv", sep=",", row.names=F)
+write.table(dp.s, "~/sandbox/data_availability/blank.lines.csv", sep=",", row.names=F)
 
 # subset to only OS products
 current.os <- current[which((substring(current$DPID, 5, 5) %in% c(1,2) | 
@@ -110,11 +112,11 @@ for(i in current.os$DPID) {
 
 
 # write out status table
-write.table(current.os, "~/sandbox/os_status.csv", row.names=F, sep=",")
+write.table(current.os, "~/sandbox/data_availability/os_status.csv", row.names=F, sep=",")
 
 
 # for operations latency: import transition wait times google sheet
-tran <- read.delim("~/sandbox/Transition_wait_times.csv", sep=",")
+tran <- read.delim("~/sandbox/data_availability/Transition_wait_times.csv", sep=",")
 
 # max transition time by product
 tranByProd <- ddply(tran, "DPName", summarise, latency=max(Transition.wait.time, na.rm=T))
@@ -123,5 +125,5 @@ tranByProd$latency[which(tranByProd$latency==-Inf)] <- NA
 # remove re-pub rows
 tran <- tran[-which(tran$rePub.=="Y"),]
 tran <- tran[,-which(colnames(tran)=="rePub.")]
-write.table(tran, "~/sandbox/ongoing_latency.csv", row.names=F, sep=",")
+write.table(tran, "~/sandbox/data_availability/ongoing_latency.csv", row.names=F, sep=",")
 

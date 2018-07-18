@@ -18,6 +18,10 @@ prod.frm <- prod.list[[1]]
 
 ```{r per_product, echo=F, results='asis'}
 
+dd <- iconv(prod.frm$productDesignDescription, from="UTF-8", to="ASCII", sub="byte")
+stud <- iconv(prod.frm$productStudyDescription, from="UTF-8", to="ASCII", sub="byte")
+sen <- iconv(prod.frm$productSensor, from="UTF-8", to="ASCII", sub="byte")
+
 for(i in 1:nrow(prod.frm)) {
   
   cat("\\newpage", fill=T)
@@ -27,24 +31,25 @@ for(i in 1:nrow(prod.frm)) {
   cat("\n", "**Subsystem**", sep=" ", fill=T)
   cat("\n", prod.frm$productScienceTeam[i], sep=" ", fill=T)
   
-  # if(!is.na(prod.frm$productSensor[i])) {
-  #   cat("\n", "----------------------", fill=T)
-  #   cat("\n", "**Sensor**", sep=" ", fill=T)
-  #   cat("\n", prod.frm$productSensor[i], sep=" ", fill=T)
-  # }
+  if(!is.na(sen[i])) {
+    cat("\n", "----------------------", fill=T)
+    cat("\n", "**Sensor**", sep=" ", fill=T)
+    cat("\n", sen[i], sep=" ", fill=T)
+  }
 
-  # cat("\n", "----------------------", fill=T)
-  # cat("\n", "**Coverage**", sep=" ", fill=T)
-  # cat("\n", prod.frm$productStudyDescription[i], sep=" ", fill=T)
+  cat("\n", "----------------------", fill=T)
+  cat("\n", "**Coverage**", sep=" ", fill=T)
+  cat("\n", stud[i], sep=" ", fill=T)
   cat("\n", "----------------------", fill=T)
   cat("\n", "**Description**", sep=" ", fill=T)
   cat("\n", prod.frm$productDescription[i], sep=" ", fill=T)
   cat("\n", "----------------------", fill=T)
   cat("\n", "**Abstract**", sep=" ", fill=T)
   cat("\n", prod.frm$productAbstract[i], sep=" ", fill=T)
-  # cat("\n", "----------------------", fill=T)
-  # cat("\n", "**Design Description**", sep=" ", fill=T)
-  # cat("\n", prod.frm$productDesignDescription[i], sep=" ", fill=T)
+  
+  cat("\n", "----------------------", fill=T)
+  cat("\n", "**Design Description**", sep=" ", fill=T)
+  cat("\n", dd[i], sep=" ", fill=T)
 
   if(!is.na(prod.frm$productRemarks[i])) {
     cat("\n", "----------------------", fill=T)
@@ -53,14 +58,12 @@ for(i in 1:nrow(prod.frm)) {
   }
 
 
-  which(nchar(prod.frm$productDesignDescription, type="char")!=
-    nchar(prod.frm$productDesignDescription, type="bytes"))
-  which(nchar(prod.frm$productSensor, type="char")!=
-    nchar(prod.frm$productSensor, type="bytes"))
-  which(nchar(prod.frm$productStudyDescription, type="char")!=
-    nchar(prod.frm$productStudyDescription, type="bytes"))
-  
-  dum <- iconv(prod.frm$productDesignDescription, from="UTF-8", to="ASCII")
+  # which(nchar(prod.frm$productDesignDescription, type="char")!=
+  #   nchar(prod.frm$productDesignDescription, type="bytes"))
+  # which(nchar(prod.frm$productSensor, type="char")!=
+  #   nchar(prod.frm$productSensor, type="bytes"))
+  # which(nchar(prod.frm$productStudyDescription, type="char")!=
+  #   nchar(prod.frm$productStudyDescription, type="bytes"))
   
 }
 
