@@ -60,6 +60,8 @@ for(i in 1:nrow(prod.frm)) {
   which(nchar(prod.frm$productStudyDescription, type="char")!=
     nchar(prod.frm$productStudyDescription, type="bytes"))
   
+  dum <- iconv(prod.frm$productDesignDescription, from="UTF-8", to="ASCII")
+  
 }
 
 ```
