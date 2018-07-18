@@ -1,0 +1,66 @@
+---
+title: "NEON Data Product Catalog"
+date: "7/16/2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+
+library(httr)
+library(jsonlite)
+library(dplyr, quietly=T)
+library(devtools)
+req <- GET("http://data.neonscience.org/api/v0/products")
+prod.list <- fromJSON(content(req, as="text"), simplifyDataFrame=T, flatten=T)
+prod.frm <- prod.list[[1]]
+
+```
+
+```{r per_product, echo=F, results='asis'}
+
+for(i in 1:nrow(prod.frm)) {
+  
+  cat("\\newpage", fill=T)
+  cat(" ", "\n", fill=T)
+  cat("#", prod.frm$productCode[i], prod.frm$productName[i], sep=" ", fill=T)
+  cat("\n", "----------------------", fill=T)
+  cat("\n", "**Subsystem**", sep=" ", fill=T)
+  cat("\n", prod.frm$productScienceTeam[i], sep=" ", fill=T)
+  
+  # if(!is.na(prod.frm$productSensor[i])) {
+  #   cat("\n", "----------------------", fill=T)
+  #   cat("\n", "**Sensor**", sep=" ", fill=T)
+  #   cat("\n", prod.frm$productSensor[i], sep=" ", fill=T)
+  # }
+
+  # cat("\n", "----------------------", fill=T)
+  # cat("\n", "**Coverage**", sep=" ", fill=T)
+  # cat("\n", prod.frm$productStudyDescription[i], sep=" ", fill=T)
+  cat("\n", "----------------------", fill=T)
+  cat("\n", "**Description**", sep=" ", fill=T)
+  cat("\n", prod.frm$productDescription[i], sep=" ", fill=T)
+  cat("\n", "----------------------", fill=T)
+  cat("\n", "**Abstract**", sep=" ", fill=T)
+  cat("\n", prod.frm$productAbstract[i], sep=" ", fill=T)
+  # cat("\n", "----------------------", fill=T)
+  # cat("\n", "**Design Description**", sep=" ", fill=T)
+  # cat("\n", prod.frm$productDesignDescription[i], sep=" ", fill=T)
+
+  if(!is.na(prod.frm$productRemarks[i])) {
+    cat("\n", "----------------------", fill=T)
+    cat("\n", "**Usage Notes**", sep=" ", fill=T)
+    cat("\n", prod.frm$productRemarks[i], sep=" ", fill=T)
+  }
+
+
+  which(nchar(prod.frm$productDesignDescription, type="char")!=
+    nchar(prod.frm$productDesignDescription, type="bytes"))
+  which(nchar(prod.frm$productSensor, type="char")!=
+    nchar(prod.frm$productSensor, type="bytes"))
+  which(nchar(prod.frm$productStudyDescription, type="char")!=
+    nchar(prod.frm$productStudyDescription, type="bytes"))
+  
+}
+
+```
+
