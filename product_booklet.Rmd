@@ -13,6 +13,7 @@ library(devtools)
 req <- GET("http://data.neonscience.org/api/v0/products")
 prod.list <- fromJSON(content(req, as="text"), simplifyDataFrame=T, flatten=T)
 prod.frm <- prod.list[[1]]
+prod.frm <- prod.frm[order(prod.frm$productScienceTeam, prod.frm$productCode),]
 
 ```
 
@@ -51,11 +52,11 @@ for(i in 1:nrow(prod.frm)) {
   cat("\n", "**Design Description**", sep=" ", fill=T)
   cat("\n", dd[i], sep=" ", fill=T)
 
-  if(!is.na(prod.frm$productRemarks[i])) {
-    cat("\n", "----------------------", fill=T)
-    cat("\n", "**Usage Notes**", sep=" ", fill=T)
-    cat("\n", prod.frm$productRemarks[i], sep=" ", fill=T)
-  }
+  # if(!is.na(prod.frm$productRemarks[i])) {
+  #   cat("\n", "----------------------", fill=T)
+  #   cat("\n", "**Usage Notes**", sep=" ", fill=T)
+  #   cat("\n", prod.frm$productRemarks[i], sep=" ", fill=T)
+  # }
 
 
   # which(nchar(prod.frm$productDesignDescription, type="char")!=
