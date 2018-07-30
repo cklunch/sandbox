@@ -23,6 +23,17 @@ dd <- iconv(prod.frm$productDesignDescription, from="UTF-8", to="ASCII", sub="by
 stud <- iconv(prod.frm$productStudyDescription, from="UTF-8", to="ASCII", sub="byte")
 sen <- iconv(prod.frm$productSensor, from="UTF-8", to="ASCII", sub="byte")
 
+sc.convert <- read.delim("/Users/clunch/sandbox/sc_markdown_convert.txt", sep="\t")
+colnames(sc.convert) <- c("bytes","md")
+for(k in sc.convert$bytes) {
+  ind <- grep(k, dd)
+  dd[ind] <- gsub(k, sc.convert$md[which(sc.convert$bytes==k)], dd[ind])
+  ind.s <- grep(k, stud)
+  stud[ind.s] <- gsub(k, sc.convert$md[which(sc.convert$bytes==k)], stud[ind.s])
+  ind.n <- grep(k, sen)
+  sen[ind.n] <- gsub(k, sc.convert$md[which(sc.convert$bytes==k)], sen[ind.n])
+}
+
 for(i in 1:nrow(prod.frm)) {
   
   cat("\\newpage", fill=T)
