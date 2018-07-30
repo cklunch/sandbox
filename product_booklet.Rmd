@@ -1,6 +1,5 @@
 ---
 title: "NEON Data Product Catalog"
-date: "7/16/2018"
 output: pdf_document
 ---
 
@@ -13,7 +12,15 @@ library(devtools)
 req <- GET("http://data.neonscience.org/api/v0/products")
 prod.list <- fromJSON(content(req, as="text"), simplifyDataFrame=T, flatten=T)
 prod.frm <- prod.list[[1]]
-prod.frm <- prod.frm[order(prod.frm$productScienceTeam, prod.frm$productCode),]
+prod.frm <- prod.frm[order(prod.frm$productName),]
+prod.frm <- prod.frm[-grep("IP", prod.frm$productCode),]
+
+ind <- grep("*Note", prod.frm$productAbstract)
+for(j in ind) {
+  prod.frm$productAbstract[j] <- substring(prod.frm$productAbstract[j], 
+                                           1,
+                                           regexpr("*Note", prod.frm$productAbstract[j])[1]-2)
+}
 
 ```
 
@@ -39,27 +46,27 @@ for(i in 1:nrow(prod.frm)) {
   cat("\\newpage", fill=T)
   cat(" ", "\n", fill=T)
   cat("#", prod.frm$productCode[i], prod.frm$productName[i], sep=" ", fill=T)
-  cat("\n", "----------------------", fill=T)
+  #cat("\n", "----------------------", fill=T)
   cat("\n", "**Subsystem**", sep=" ", fill=T)
   cat("\n", prod.frm$productScienceTeam[i], sep=" ", fill=T)
   
   if(!is.na(sen[i])) {
-    cat("\n", "----------------------", fill=T)
+    #cat("\n", "----------------------", fill=T)
     cat("\n", "**Sensor**", sep=" ", fill=T)
     cat("\n", sen[i], sep=" ", fill=T)
   }
 
-  cat("\n", "----------------------", fill=T)
+  #cat("\n", "----------------------", fill=T)
   cat("\n", "**Coverage**", sep=" ", fill=T)
   cat("\n", stud[i], sep=" ", fill=T)
-  cat("\n", "----------------------", fill=T)
+  #cat("\n", "----------------------", fill=T)
   cat("\n", "**Description**", sep=" ", fill=T)
   cat("\n", prod.frm$productDescription[i], sep=" ", fill=T)
-  cat("\n", "----------------------", fill=T)
+  #cat("\n", "----------------------", fill=T)
   cat("\n", "**Abstract**", sep=" ", fill=T)
   cat("\n", prod.frm$productAbstract[i], sep=" ", fill=T)
   
-  cat("\n", "----------------------", fill=T)
+  #cat("\n", "----------------------", fill=T)
   cat("\n", "**Design Description**", sep=" ", fill=T)
   cat("\n", dd[i], sep=" ", fill=T)
 

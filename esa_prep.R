@@ -108,6 +108,19 @@ bufferCHM <- unlist(lapply(bufferCHMlist, base::max))
 plot(bufferCHM~vegsub$height, pch=20)
 lines(c(0,25), c(0,25), col="grey")
 
+# put trees in 1x1m boxes
+m.easting <- floor(vegsub$adjEasting)
+m.northing <- floor(vegsub$adjNorthing)
+vegsub <- cbind(vegsub, m.easting, m.northing)
+vegbin <- stats::aggregate(vegsub, by=list(vegsub$m.easting, vegsub$m.northing), FUN=max)
+binCHMlist <- extract(chm, cbind(vegbin$m.easting, vegbin$m.northing),
+                         buffer=vegbin$adjCoordinateUncertainty)
+binCHM <- unlist(lapply(binCHMlist, base::max))
+plot(binCHM~vegbin$height, pch=20)
+lines(c(0,25), c(0,25), col="grey")
+
+
+##
 resid <- bufferCHM - vegsub$height
 symbols(vegsub$adjEasting[which(vegsub$plotID=="UNDE_044")], 
         vegsub$adjNorthing[which(vegsub$plotID=="UNDE_044")], 
@@ -162,5 +175,40 @@ lines(c(0,25), c(0,25), col="grey")
 
 
 
+
+## candidates: STEI (weird UTM situation), GRSM (redacted spp), 
+#     ABBY (small #s), WREF (no canopyPosition)
+zipsByProduct(dpID="DP1.10098.001", site="BONA", package="expanded", 
+              savepath="/Users/clunch/Desktop/structBONA")
+stackByTable("/Users/clunch/Desktop/structBONA/filesToStack10098", folder=T)
+vegmap <- read.delim("/Users/clunch/Desktop/structBONA/filesToStack10098/stackedFiles/vst_mappingandtagging.csv",
+                     sep=",")
+vegmap <- geoCERT::def.calc.geo.os(vegmap, "vst_mappingandtagging")
+vegind <- read.delim("/Users/clunch/Desktop/structBONA/filesToStack10098/stackedFiles/vst_apparentindividual.csv",
+                     sep=",")
+veg <- merge(vegind, vegmap, by=c("individualID","namedLocation",
+                                  "domainID","siteID","plotID"))
+dat <- strptime(veg$date.x, format="%Y-%m-%d")
+symbols(veg$adjEasting[which(veg$canopyPosition!="")], 
+        veg$adjNorthing[which(veg$canopyPosition!="")], 
+        circles=veg$stemDiameter[which(veg$canopyPosition!="")]/100, 
+        inches=F, xlim=c(474000,475000), ylim=c(7225000,7226000))
+
+
+chm <- raster("/Users/clunch/Desktop/2017 ONAQ/FullSite/D15/2017_ONAQ_1/L3/DiscreteLidar/CanopyHeightModelGtif/NEON_D15_ONAQ_DP3_369000_4449000_CHM.tif")
+summary(chm)
+plot(chm, col=topo.colors(6))
+
+vegsub <- veg[which(dat >= strptime("2017-01-01", format="%Y-%m-%d") & 
+                      veg$adjEasting >= extent(chm)[1] &
+                      veg$adjEasting <= extent(chm)[2] &
+                      veg$adjNorthing >= extent(chm)[3] & 
+                      veg$adjNorthing <= extent(chm)[4]),]
+
+bufferCHMlist <- extract(chm, cbind(vegsub$adjEasting, vegsub$adjNorthing),
+                         buffer=vegsub$adjCoordinateUncertainty)
+bufferCHM <- unlist(lapply(bufferCHMlist, base::max))
+plot(bufferCHM~vegsub$height, pch=20)
+lines(c(0,25), c(0,25), col="grey")
 
 
