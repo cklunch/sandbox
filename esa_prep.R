@@ -178,29 +178,36 @@ lines(c(0,25), c(0,25), col="grey")
 
 ## candidates: STEI (weird UTM situation), GRSM (redacted spp), 
 #     ABBY (small #s), WREF (no canopyPosition)
-zipsByProduct(dpID="DP1.10098.001", site="BONA", package="expanded", 
-              savepath="/Users/clunch/Desktop/structBONA")
-stackByTable("/Users/clunch/Desktop/structBONA/filesToStack10098", folder=T)
-vegmap <- read.delim("/Users/clunch/Desktop/structBONA/filesToStack10098/stackedFiles/vst_mappingandtagging.csv",
+zipsByProduct(dpID="DP1.10098.001", site="WREF", package="expanded", 
+              savepath="/Users/clunch/Desktop/structWREF")
+stackByTable("/Users/clunch/Desktop/structWREF/filesToStack10098", folder=T)
+vegmap <- read.delim("/Users/clunch/Desktop/structWREF/filesToStack10098/stackedFiles/vst_mappingandtagging.csv",
                      sep=",")
 vegmap <- geoCERT::def.calc.geo.os(vegmap, "vst_mappingandtagging")
-vegind <- read.delim("/Users/clunch/Desktop/structBONA/filesToStack10098/stackedFiles/vst_apparentindividual.csv",
+vegind <- read.delim("/Users/clunch/Desktop/structWREF/filesToStack10098/stackedFiles/vst_apparentindividual.csv",
                      sep=",")
 veg <- merge(vegind, vegmap, by=c("individualID","namedLocation",
                                   "domainID","siteID","plotID"))
 dat <- strptime(veg$date.x, format="%Y-%m-%d")
-symbols(veg$adjEasting[which(veg$canopyPosition!="")], 
-        veg$adjNorthing[which(veg$canopyPosition!="")], 
-        circles=veg$stemDiameter[which(veg$canopyPosition!="")]/100, 
-        inches=F, xlim=c(474000,475000), ylim=c(7225000,7226000))
+symbols(veg$adjEasting[which(veg$height > 10)], 
+        veg$adjNorthing[which(veg$height > 10)], 
+        circles=veg$stemDiameter[which(veg$height > 10)], 
+        #inches=F, xlim=c(550000,552000), ylim=c(5068000,5070000))
+        inches=F)
 
+symbols(veg$adjEasting, 
+        veg$adjNorthing, 
+        circles=veg$stemDiameter/100, 
+        inches=F)
+grid()
 
-chm <- raster("/Users/clunch/Desktop/2017 ONAQ/FullSite/D15/2017_ONAQ_1/L3/DiscreteLidar/CanopyHeightModelGtif/NEON_D15_ONAQ_DP3_369000_4449000_CHM.tif")
+chm <- raster("/Users/clunch/Desktop/2017 WREF/FullSite/D16/2017_WREF_1/L3/DiscreteLidar/CanopyHeightModelGtif/NEON_D16_WREF_DP3_580000_5075000_CHM.tif")
 summary(chm)
 plot(chm, col=topo.colors(6))
+symbols(veg$adjEasting, veg$adjNorthing,
+        circles=rep(20, nrow(veg)), inches=F, add=T)
 
-vegsub <- veg[which(dat >= strptime("2017-01-01", format="%Y-%m-%d") & 
-                      veg$adjEasting >= extent(chm)[1] &
+vegsub <- veg[which(veg$adjEasting >= extent(chm)[1] &
                       veg$adjEasting <= extent(chm)[2] &
                       veg$adjNorthing >= extent(chm)[3] & 
                       veg$adjNorthing <= extent(chm)[4]),]
@@ -209,6 +216,216 @@ bufferCHMlist <- extract(chm, cbind(vegsub$adjEasting, vegsub$adjNorthing),
                          buffer=vegsub$adjCoordinateUncertainty)
 bufferCHM <- unlist(lapply(bufferCHMlist, base::max))
 plot(bufferCHM~vegsub$height, pch=20)
+lines(c(0,50), c(0,50), col="grey")
+
+cor(x=bufferCHM, y=vegsub$height, use="pairwise.complete.obs")
+
+# put trees in 1x1m boxes
+m.easting <- floor(vegsub$adjEasting)
+m.northing <- floor(vegsub$adjNorthing)
+vegsub <- cbind(vegsub, m.easting, m.northing)
+vegbin <- stats::aggregate(vegsub, by=list(vegsub$m.easting, vegsub$m.northing), FUN=max)
+binCHMlist <- extract(chm, cbind(vegbin$m.easting, vegbin$m.northing),
+                      buffer=vegbin$adjCoordinateUncertainty)
+binCHM <- unlist(lapply(binCHMlist, base::max))
+plot(binCHM~vegbin$height, pch=20)
+lines(c(0,50), c(0,50), col="grey")
+
+cor(x=binCHM, y=vegbin$height, use="pairwise.complete.obs")
+
+symbols(vegsub$adjEasting[which(vegsub$plotID=="WREF_085")], 
+        vegsub$adjNorthing[which(vegsub$plotID=="WREF_085")], 
+        circles=vegsub$stemDiameter[which(vegsub$plotID=="WREF_085")]/100, 
+        inches=F)
+
+# 10-meter boxes
+easting10 <- round(vegsub$adjEasting, digits=-1)
+northing10 <- round(vegsub$adjNorthing, digits=-1)
+vegsub <- cbind(vegsub, easting10, northing10)
+vegbin <- stats::aggregate(vegsub, by=list(vegsub$easting10, vegsub$northing10), FUN=max)
+binCHM <- extract(chm, cbind(vegbin$easting10, vegbin$northing10), buffer=7, fun=max)
+plot(binCHM~vegbin$height, pch=20)
+lines(c(0,50), c(0,50), col="grey")
+
+cor(x=binCHM, y=vegbin$height, use="pairwise.complete.obs")
+
+# lots of broken trees - only live?
+vegtree <- vegsub[which(vegsub$plantStatus=="Live"),]
+treeCHMlist <- extract(chm, cbind(vegtree$adjEasting, vegtree$adjNorthing),
+                       buffer=vegtree$adjCoordinateUncertainty)
+treeCHM <- unlist(lapply(treeCHMlist, base::max))
+plot(treeCHM~vegtree$height, pch=20)
+lines(c(0,50), c(0,50), col="grey")
+
+cor(x=treeCHM, y=vegtree$height, use="pairwise.complete.obs")
+
+
+
+
+# DEJU
+zipsByProduct(dpID="DP1.10098.001", site="DEJU", package="expanded", 
+              savepath="/Users/clunch/Desktop/structDEJU")
+stackByTable("/Users/clunch/Desktop/structDEJU/filesToStack10098", folder=T)
+vegmap <- read.delim("/Users/clunch/Desktop/structDEJU/filesToStack10098/stackedFiles/vst_mappingandtagging.csv",
+                     sep=",")
+vegmap <- geoCERT::def.calc.geo.os(vegmap, "vst_mappingandtagging")
+vegind <- read.delim("/Users/clunch/Desktop/structDEJU/filesToStack10098/stackedFiles/vst_apparentindividual.csv",
+                     sep=",")
+veg <- merge(vegind, vegmap, by=c("individualID","namedLocation",
+                                  "domainID","siteID","plotID"))
+
+vegcan <- veg[which(veg$plotID %in% c("DEJU_010","DEJU_003","DEJU_023",
+                                      "DEJU_004","DEJU_008","DEJU_005",
+                                      "DEJU_019","DEJU_001","DEJU_007",
+                                      "DEJU_015","DEJU_017","DEJU_006",
+                                      "DEJU_014","DEJU_021","DEJU_002",
+                                      "DEJU_024","DEJU_016","DEJU_009",
+                                      "DEJU_018","DEJU_020") & 
+                      veg$growthForm %in% c("single bole tree", "multi-bole tree")),]
+
+symbols(vegcan$adjEasting, 
+        vegcan$adjNorthing, 
+        circles=vegcan$stemDiameter/100, 
+        #inches=F)
+        inches=F, xlim=c(561000,562000), ylim=c(7079000,7080000))
+grid()
+
+chm <- raster("/Users/clunch/Desktop/2017 DEJU/FullSite/D19/2017_DEJU_1/L3/DiscreteLidar/CanopyHeightModelGtif/NEON_D19_DEJU_DP3_561000_7079000_CHM.tif")
+summary(chm)
+plot(chm, col=topo.colors(6))
+
+dat <- strptime(veg$date.x, format="%Y-%m-%d")
+vegsub <- veg[which(veg$adjEasting >= extent(chm)[1] &
+                      veg$adjEasting <= extent(chm)[2] &
+                      veg$adjNorthing >= extent(chm)[3] & 
+                      veg$adjNorthing <= extent(chm)[4]),]
+
+
+bufferCHMlist <- extract(chm, cbind(vegsub$adjEasting, vegsub$adjNorthing),
+                         buffer=vegsub$adjCoordinateUncertainty)
+bufferCHM <- unlist(lapply(bufferCHMlist, base::max))
+plot(bufferCHM~vegsub$height, pch=20)
+lines(c(0,50), c(0,50), col="grey")
+
+
+
+# ABBY
+zipsByProduct(dpID="DP1.10098.001", site="ABBY", package="expanded", 
+              savepath="/Users/clunch/Desktop/structABBY")
+stackByTable("/Users/clunch/Desktop/structABBY/filesToStack10098", folder=T)
+vegmap <- read.delim("/Users/clunch/Desktop/structABBY/filesToStack10098/stackedFiles/vst_mappingandtagging.csv",
+                     sep=",")
+vegmap <- geoCERT::def.calc.geo.os(vegmap, "vst_mappingandtagging")
+vegind <- read.delim("/Users/clunch/Desktop/structABBY/filesToStack10098/stackedFiles/vst_apparentindividual.csv",
+                     sep=",")
+veg <- merge(vegind, vegmap, by=c("individualID","namedLocation",
+                                  "domainID","siteID","plotID"))
+
+symbols(veg$adjEasting, 
+        veg$adjNorthing, 
+        circles=veg$stemDiameter/100, 
+        inches=F)
+grid()
+
+vegcan <- veg[which(veg$plotID %in% c("ABBY_007","ABBY_004","ABBY_009",
+                                      "ABBY_011","ABBY_023","ABBY_013",
+                                      "ABBY_010","ABBY_003","ABBY_018",
+                                      "ABBY_005","ABBY_012","ABBY_008",
+                                      "ABBY_016","ABBY_017","ABBY_014",
+                                      "ABBY_019","ABBY_001","ABBY_006",
+                                      "ABBY_002","ABBY_025") & 
+                      veg$growthForm %in% c("single bole tree", "multi-bole tree")),]
+
+symbols(vegcan$adjEasting, 
+        vegcan$adjNorthing, 
+        circles=vegcan$stemDiameter/100, 
+        inches=F)
+        #inches=F, xlim=c(561000,562000), ylim=c(7079000,7080000))
+grid()
+
+chm <- raster("/Users/clunch/Desktop/2017 ABBY/FullSite/D16/2017_ABBY_1/L3/DiscreteLidar/CanopyHeightModelGtif/NEON_D16_ABBY_DP3_548000_5067000_CHM.tif")
+summary(chm)
+plot(chm, col=topo.colors(6))
+symbols(veg$adjEasting, veg$adjNorthing,
+        circles=rep(20, nrow(veg)), inches=F, add=T)
+
+
+
+
+# GRSM
+zipsByProduct(dpID="DP1.10098.001", site="GRSM", package="expanded", 
+              savepath="/Users/clunch/Desktop/structGRSM")
+stackByTable("/Users/clunch/Desktop/structGRSM/filesToStack10098", folder=T)
+vegmap <- read.delim("/Users/clunch/Desktop/structGRSM/filesToStack10098/stackedFiles/vst_mappingandtagging.csv",
+                     sep=",")
+vegmap <- geoCERT::def.calc.geo.os(vegmap, "vst_mappingandtagging")
+vegind <- read.delim("/Users/clunch/Desktop/structGRSM/filesToStack10098/stackedFiles/vst_apparentindividual.csv",
+                     sep=",")
+veg <- merge(vegind, vegmap, by=c("individualID","namedLocation",
+                                  "domainID","siteID","plotID"))
+
+symbols(veg$adjEasting, 
+        veg$adjNorthing, 
+        circles=veg$stemDiameter/100, 
+        inches=F)
+grid()
+
+vegcan <- veg[which(veg$plotID %in% c("GRSM_007","GRSM_004","GRSM_009",
+                                      "GRSM_011","GRSM_015","GRSM_013",
+                                      "GRSM_010","GRSM_003","GRSM_018",
+                                      "GRSM_005","GRSM_012","GRSM_008",
+                                      "GRSM_016","GRSM_017","GRSM_014",
+                                      "GRSM_019","GRSM_001","GRSM_006",
+                                      "GRSM_002","GRSM_025") & 
+                      veg$growthForm %in% c("single bole tree", "multi-bole tree")),]
+
+symbols(vegcan$adjEasting, 
+        vegcan$adjNorthing, 
+        circles=vegcan$stemDiameter/100, 
+        #inches=F)
+        inches=F, xlim=c(260000,261000), ylim=c(3951000,3952000))
+
+symbols(vegcan$adjEasting, 
+        vegcan$adjNorthing, 
+        circles=vegcan$stemDiameter/100, 
+        #inches=F)
+        inches=F, xlim=c(271000,272000), ylim=c(3950000,3951000))
+
+chm <- raster("/Users/clunch/Desktop/2016 GRSM/FullSite/D07/2016_GRSM_2/L3/DiscreteLidar/CanopyHeightModelGtif/2016_GRSM_2_260000_3951000_pit_free_CHM.tif")
+summary(chm)
+plot(chm, col=topo.colors(6))
+symbols(veg$adjEasting, veg$adjNorthing,
+        circles=rep(20, nrow(veg)), inches=F, add=T)
+
+vegsub <- veg[which(veg$adjEasting >= extent(chm)[1] &
+                      veg$adjEasting <= extent(chm)[2] &
+                      veg$adjNorthing >= extent(chm)[3] & 
+                      veg$adjNorthing <= extent(chm)[4]),]
+
+bufferCHMlist <- extract(chm, cbind(vegsub$adjEasting, vegsub$adjNorthing),
+                         buffer=vegsub$adjCoordinateUncertainty)
+bufferCHM <- unlist(lapply(bufferCHMlist, base::max))
+plot(bufferCHM~vegsub$height, pch=20)
+lines(c(0,50), c(0,50), col="grey")
+
+vegtree <- vegsub[which(vegsub$canopyPosition %in% c("Full sun","Open grown")),]
+treeCHMlist <- extract(chm, cbind(vegtree$adjEasting, vegtree$adjNorthing),
+                       buffer=vegtree$adjCoordinateUncertainty)
+treeCHM <- unlist(lapply(treeCHMlist, base::max))
+plot(treeCHM~vegtree$height, pch=20)
 lines(c(0,25), c(0,25), col="grey")
+
+
+# get all veg structure data
+zipsByProduct(dpID="DP1.10098.001", site="all", package="basic", 
+              savepath="/Users/clunch/Desktop")
+stackByTable("/Users/clunch/Desktop/filesToStack10098", folder=T)
+vegmap <- read.delim("/Users/clunch/Desktop/filesToStack10098/stackedFiles/vst_mappingandtagging.csv",
+                     sep=",")
+vegmap <- geoCERT::def.calc.geo.os(vegmap, "vst_mappingandtagging")
+write.table(vegmap, 
+            "/Users/clunch/Desktop/filesToStack10098/stackedFiles/vst_mappingandtagging_geo.csv",
+            sep=",", row.names=F)
+
 
 
