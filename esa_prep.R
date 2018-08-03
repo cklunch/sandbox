@@ -49,10 +49,10 @@ zipsByProduct(dpID="DP1.10098.001", site="UNDE", package="expanded",
 stackByTable("/Users/clunch/Desktop/struct2/filesToStack10098/", folder=T)
 vegmap <- read.delim("/Users/clunch/Desktop/struct2/filesToStack10098/stackedFiles/vst_mappingandtagging.csv",
                   sep=",")
-vegmap <- geoCERT::def.calc.geo.os(vegmap, "vst_mappingandtagging")
+vegmap <- geoNEON::def.calc.geo.os(vegmap, "vst_mappingandtagging")
 # mappingandtagging has distance & azimuth, apparentindividual has height,
 # perplotperyear has plot coordinates
-vegind <- read.delim("/Users/clunch/Desktop/struct/filesToStack10098/stackedFiles/vst_apparentindividual.csv",
+vegind <- read.delim("/Users/clunch/Desktop/struct2/filesToStack10098/stackedFiles/vst_apparentindividual.csv",
                      sep=",")
 View(vegind)
 # vegp <- read.delim("/Users/clunch/Desktop/struct/filesToStack10098/stackedFiles/vst_perplotperyear.csv",
