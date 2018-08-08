@@ -60,10 +60,13 @@ download(cam.files$data$files$url[grep("NEON_D17_SJER_DP1_256000_4113000_classif
 
 # taxon
 req <- GET("http://data.neonscience.org/api/v0/taxonomy?taxonTypeCode=BIRD&offset=0&limit=100")
-req.tax <- content(req, as="parsed")
+req.tax <- jsonlite::fromJSON(content(req, as="text"))
 
 req <- GET("http://data.neonscience.org/api/v0/taxonomy?family=Pinaceae")
 req.tax <- content(req, as="parsed")
+
+req <- GET("http://data.neonscience.org/api/v0/taxonomy?taxonTypeCode=BIRD&offset=0&limit=1000&verbose=T")
+req.tax <- jsonlite::fromJSON(content(req, as="text"))
 
 
 # CRAN downloads
