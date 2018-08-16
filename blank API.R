@@ -37,8 +37,8 @@ downloader::download("https://neon-prod-pub-1.s3.data.neonscience.org/NEON.DOM.S
 
 
 # location
-req <- GET("http://data.neonscience.org/api/v0/locations/HARV_052.basePlot.vst")
-jsonlite::fromJSON(content(req, as="text"))
+req <- httr::GET("http://data.neonscience.org/api/v0/locations/SCBI_006.basePlot.cfc.31")
+jsonlite::fromJSON(httr::content(req, as="text"))
 #req.par <- content(req, as="parsed")
 
 # location on CERT
