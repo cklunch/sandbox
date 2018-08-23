@@ -1,0 +1,93 @@
+table,fieldName,description,dataType,units,downloadPkg
+tck_fielddata,uid,"Unique ID within NEON database; an identifier for the record",string,NA,basic
+tck_fielddata,namedLocation,"Name of the measurement location in the NEON database",string,NA,basic
+tck_fielddata,domainID,"Unique identifier of the NEON domain",string,NA,basic
+tck_fielddata,siteID,"NEON site code",string,NA,basic
+tck_fielddata,plotID,"Plot identifier (NEON site code_XXX)",string,NA,basic
+tck_fielddata,plotType,"NEON plot type in which sampling occurred: tower, distributed or gradient",string,NA,basic
+tck_fielddata,nlcdClass,"National Land Cover Database Vegetation Type Name",string,NA,basic
+tck_fielddata,decimalLatitude,"The geographic latitude (in decimal degrees, WGS84) of the geographic center of the reference area",real,decimalDegree,basic
+tck_fielddata,decimalLongitude,"The geographic longitude (in decimal degrees, WGS84) of the geographic center of the reference area",real,decimalDegree,basic
+tck_fielddata,geodeticDatum,"Model used to measure horizontal position on the earth",string,NA,basic
+tck_fielddata,coordinateUncertainty,"The horizontal distance (in meters) from the given decimalLatitude and decimalLongitude describing the smallest circle containing the whole of the Location. Zero is not a valid value for this term",real,meter,basic
+tck_fielddata,elevation,"Elevation (in meters) above sea level",real,meter,basic
+tck_fielddata,elevationUncertainty,"Uncertainty in elevation values (in meters)",real,meter,basic
+tck_fielddata,collectDate,"Date of the collection event",dateTime,NA,basic
+tck_fielddata,eventID,"An identifier for the set of information associated with the event, which includes information about the place and time of the event",string,NA,basic
+tck_fielddata,sampleID,"Identifier for sample",string,NA,basic
+tck_fielddata,sampleCode,"Barcode of a sample",string,NA,basic
+tck_fielddata,samplingMethod,"Name or code for the method used to collect or test a sample",string,NA,basic
+tck_fielddata,totalSampledArea,"Total area sampled",real,squareMeter,basic
+tck_fielddata,targetTaxaPresent,"Indicator of whether the sample contained individuals of the target taxa",string,NA,basic
+tck_fielddata,adultCount,"Number of adults",unsigned integer,number,basic
+tck_fielddata,nymphCount,"Number of nymphs",unsigned integer,number,basic
+tck_fielddata,larvaCount,"Number of larvae",unsigned integer,number,basic
+tck_fielddata,sampleCondition,"Condition of a sample",string,NA,basic
+tck_fielddata,samplingProtocolVersion,"The NEON document number and version where detailed information regarding the sampling method used is available; format NEON.DOC.######vX",string,NA,basic
+tck_fielddata,measuredBy,"An identifier for the technician who measured or collected the data",string,NA,basic
+tck_fielddata,remarks,"Technician notes; free text comments accompanying the record",string,NA,basic
+tck_fielddata,dataQF,"Data quality flag",string,NA,expanded
+tck_taxonomyRaw,uid,"Unique ID within NEON database; an identifier for the record",string,NA,expanded
+tck_taxonomyRaw,namedLocation,"Name of the measurement location in the NEON database",string,NA,expanded
+tck_taxonomyRaw,plotID,"Plot identifier (NEON site code_XXX)",string,NA,expanded
+tck_taxonomyRaw,collectDate,"Date of the collection event",dateTime,NA,expanded
+tck_taxonomyRaw,identifiedDate,"Date on which the sample, individual, or specimen was identified",dateTime,NA,expanded
+tck_taxonomyRaw,sampleID,"Identifier for sample",string,NA,expanded
+tck_taxonomyRaw,sampleCode,"Barcode of a sample",string,NA,expanded
+tck_taxonomyRaw,subsampleID,"Unique identifier associated with each subsample per sampleID",string,NA,expanded
+tck_taxonomyRaw,scientificName,"Scientific name, associated with the taxonID. This is the name of the lowest level taxonomic rank that can be determined",string,NA,expanded
+tck_taxonomyRaw,taxonID,"Species code, based on one or more sources",string,NA,expanded
+tck_taxonomyRaw,family,"The scientific name of the family in which the taxon is classified",string,NA,expanded
+tck_taxonomyRaw,subtribe,"The scientific name of the subtribe in which the taxon is classified",string,NA,expanded
+tck_taxonomyRaw,subfamily,"The scientific name of the subfamily in which the organism is classified",string,NA,expanded
+tck_taxonomyRaw,tribe,"The scientific name of the tribe in which the taxon is classified",string,NA,expanded
+tck_taxonomyRaw,genus,"The scientific name of the genus in which the organism is classified",string,NA,expanded
+tck_taxonomyRaw,subgenus,"The scientific name of the subgenus in which the taxon is classified. Values should include the genus to avoid homonym confusion",string,NA,expanded
+tck_taxonomyRaw,specificEpithet,"The specific epithet (second part of the species name) of the scientific name applied to the taxon",string,NA,expanded
+tck_taxonomyRaw,infraspecificEpithet,"The infraspecific epithet (scientific name below the rank of species) of the scientific name applied to the taxon",string,NA,expanded
+tck_taxonomyRaw,identificationQualifier,"A standard term to express the determiner's doubts about the Identification",string,NA,expanded
+tck_taxonomyRaw,scientificNameAuthorship,"Name of the individual(s) who designated the scientific name of the taxon",string,NA,expanded
+tck_taxonomyRaw,sexOrAge,"Sex of individual if detectable, age of individual if individual can not be sexed",string,NA,expanded
+tck_taxonomyRaw,individualCount,"Number of individuals of the same type",unsigned integer,number,expanded
+tck_taxonomyRaw,sampleCondition,"Condition of a sample",string,NA,expanded
+tck_taxonomyRaw,archiveMedium,"Method of preservation for the sample or specimen",string,NA,expanded
+tck_taxonomyRaw,archiveFacilityID,"Identifier at archive facility",string,NA,expanded
+tck_taxonomyRaw,deprecatedVialID,"Identifier on vial label, if different from standard ID",string,NA,expanded
+tck_taxonomyRaw,identifiedBy,"An identifier for the technician who identified the specimen",string,NA,expanded
+tck_taxonomyRaw,laboratoryName,"Name of the laboratory or facility that is processing the sample",string,NA,expanded
+tck_taxonomyRaw,remarks,"Technician notes; free text comments accompanying the record",string,NA,expanded
+tck_taxonomyRaw,identificationReferences,"A list of sources (concatenated and semicolon separated) used to derive the specific taxon concept; including field guide editions, books, or versions of NEON keys used",string,NA,expanded
+tck_taxonomyRaw,identificationProtocolVersion,"The protocol version used for specimen identification",string,NA,expanded
+tck_taxonomyRaw,dataQF,"Data quality flag",string,NA,expanded
+tck_taxonomyProcessed,uid,"Unique ID within NEON database; an identifier for the record",string,NA,basic
+tck_taxonomyProcessed,namedLocation,"Name of the measurement location in the NEON database",string,NA,basic
+tck_taxonomyProcessed,plotID,"Plot identifier (NEON site code_XXX)",string,NA,basic
+tck_taxonomyProcessed,collectDate,"Date of the collection event",dateTime,NA,basic
+tck_taxonomyProcessed,identifiedDate,"Date on which the sample, individual, or specimen was identified",dateTime,NA,basic
+tck_taxonomyProcessed,eventID,"An identifier for the set of information associated with the event, which includes information about the place and time of the event",string,NA,basic
+tck_taxonomyProcessed,subsampleID,"Unique identifier associated with each subsample per sampleID",string,NA,basic
+tck_taxonomyProcessed,scientificName,"Scientific name, associated with the taxonID. This is the name of the lowest level taxonomic rank that can be determined",string,NA,basic
+tck_taxonomyProcessed,acceptedTaxonID,"Accepted species code, based on one or more sources",string,NA,basic
+tck_taxonomyProcessed,taxonRank,"The lowest level taxonomic rank that can be determined for the individual or specimen",string,NA,basic
+tck_taxonomyProcessed,family,"The scientific name of the family in which the taxon is classified",string,NA,basic
+tck_taxonomyProcessed,subfamily,"The scientific name of the subfamily in which the organism is classified",string,NA,basic
+tck_taxonomyProcessed,tribe,"The scientific name of the tribe in which the taxon is classified",string,NA,basic
+tck_taxonomyProcessed,subtribe,"The scientific name of the subtribe in which the taxon is classified",string,NA,basic
+tck_taxonomyProcessed,genus,"The scientific name of the genus in which the organism is classified",string,NA,basic
+tck_taxonomyProcessed,subgenus,"The scientific name of the subgenus in which the taxon is classified. Values should include the genus to avoid homonym confusion",string,NA,basic
+tck_taxonomyProcessed,specificEpithet,"The specific epithet (second part of the species name) of the scientific name applied to the taxon",string,NA,basic
+tck_taxonomyProcessed,infraspecificEpithet,"The infraspecific epithet (scientific name below the rank of species) of the scientific name applied to the taxon",string,NA,basic
+tck_taxonomyProcessed,identificationQualifier,"A standard term to express the determiner's doubts about the Identification",string,NA,basic
+tck_taxonomyProcessed,identificationReferences,"A list of sources (concatenated and semicolon separated) used to derive the specific taxon concept; including field guide editions, books, or versions of NEON keys used",string,NA,basic
+tck_taxonomyProcessed,identificationProtocolVersion,"The protocol version used for specimen identification",string,NA,basic
+tck_taxonomyProcessed,scientificNameAuthorship,"Name of the individual(s) who designated the scientific name of the taxon",string,NA,basic
+tck_taxonomyProcessed,sexOrAge,"Sex of individual if detectable, age of individual if individual can not be sexed",string,NA,basic
+tck_taxonomyProcessed,individualCount,"Number of individuals of the same type",unsigned integer,number,basic
+tck_taxonomyProcessed,sampleCondition,"Condition of a sample",string,NA,basic
+tck_taxonomyProcessed,archiveMedium,"Method of preservation for the sample or specimen",string,NA,basic
+tck_taxonomyProcessed,archiveFacilityID,"Identifier at archive facility",string,NA,basic
+tck_taxonomyProcessed,deprecatedVialID,"Identifier on vial label, if different from standard ID",string,NA,basic
+tck_taxonomyProcessed,identifiedBy,"An identifier for the technician who identified the specimen",string,NA,basic
+tck_taxonomyProcessed,laboratoryName,"Name of the laboratory or facility that is processing the sample",string,NA,basic
+tck_taxonomyProcessed,remarks,"Technician notes; free text comments accompanying the record",string,NA,basic
+tck_taxonomyProcessed,dataQF,"Data quality flag",string,NA,expanded

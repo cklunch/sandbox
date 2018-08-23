@@ -1,0 +1,77 @@
+table,fieldName,description,dataType,units,parserToCreate,entryValidationRulesParser,entryValidationRulesForm
+tck_identification,identifiedDate,"Date on which the sample, individual, or specimen was identified",dateTime,NA,"[CONVERT_TO_UTC(laboratoryName)]","[GREATER_THAN_OR_EQUAL_TO(endDate)][REQUIRE]",
+tck_identification,dataQF,"Data quality flag",string,NA,,"[ASCII]",
+tck_identification,tribe,"The scientific name of the tribe in which the taxon is classified",string,NA,,"[ASCII]",
+tck_identification,identificationQualifier,"A standard term to express the determiner's doubts about the Identification",string,NA,,"[LOV][IF(targetTaxaPresent='N'), REQUIRE_NULL]",
+tck_identification,subkingdom,"The scientific name of the subkingdom in which the taxon is classified",string,NA,,"[ASCII]",
+tck_identification,suborder,"The scientific name of the suborder in which the taxon is classified",string,NA,,"[ASCII]",
+tck_identification,infraclass,"The scientific name of the infraclass in which the taxon is classified",string,NA,,"[ASCII]",
+tck_identification,sampleCondition,"Condition of a sample",string,NA,,"[LOV][REQUIRE]",
+tck_identification,plotID,"Plot identifier (NEON site code_XXX)",string,NA,"[DERIVE_FROM_SAMPLE_TREE('tck_collection_in.sampleID')]","[NAMED_LOCATION_TYPE('OS Plot - tck')]",
+tck_identification,subsampleFate,"Fate of a subsample",string,NA,"[IF(IS_NOT_BLANK(subsampleID)), DEFAULT_TO('active')]","[IF(IS_BLANK(subsampleID)), REQUIRE_NULL][IF(IS_NOT_BLANK(subsampleID)), REQUIRE]",
+tck_identification,order,"The scientific name of the order in which the taxon is classified",string,NA,,"[ASCII]",
+tck_identification,specificEpithet,"The specific epithet (second part of the species name) of the scientific name applied to the taxon",string,NA,,"[ASCII]",
+tck_identification,targetTaxaPresent,"Indicator of whether the sample contained individuals of the target taxa",string,NA,,"[LOV][REQUIRE]",
+tck_identification,genus,"The scientific name of the genus in which the organism is classified",string,NA,,"[ASCII]",
+tck_identification,individualCount,"Number of individuals of the same type",unsigned integer,number,,"[IF(targetTaxaPresent='Y'), REQUIRE][IF(targetTaxaPresent='N'), REQUIRE_NULL]",
+tck_identification,subsampleCode,"Barcode of a subsample",string,NA,,,
+tck_identification,family,"The scientific name of the family in which the taxon is classified",string,NA,,"[ASCII]",
+tck_identification,identificationReferences,"A list of sources (concatenated and semicolon separated) used to derive the specific taxon concept; including field guide editions, books, or versions of NEON keys used",string,NA,,"[LOV]",
+tck_identification,remarks,"Technician notes; free text comments accompanying the record",string,NA,,"[ASCII][IF(sampleCondition!='OK'), REQUIRE]",
+tck_identification,sexOrAge,"Sex of individual if detectable, age of individual if individual can not be sexed",string,NA,,"[LOV][IF(targetTaxaPresent='Y'), REQUIRE][IF(targetTaxaPresent='N'), REQUIRE_NULL]",
+tck_identification,sampleID,"Identifier for sample",string,NA,,"[EXISTS][REQUIRE]",
+tck_identification,subclass,"The scientific name of the subclass in which the taxon is classified",string,NA,,"[ASCII]",
+tck_identification,subfamily,"The scientific name of the subfamily in which the organism is classified",string,NA,,"[ASCII]",
+tck_identification,infraorder,"The scientific name of the infraorder in which the taxon is classified",string,NA,,"[ASCII]",
+tck_identification,kingdom,"The scientific name of the kingdom in which the taxon is classified",string,NA,,"[ASCII]",
+tck_identification,identifiedBy,"An identifier for the technician who identified the specimen",string,NA,,"[IF(targetTaxaPresent='Y'), REQUIRE][IF(targetTaxaPresent='N'), REQUIRE_NULL]",
+tck_identification,subtribe,"The scientific name of the subtribe in which the taxon is classified",string,NA,,"[ASCII]",
+tck_identification,archiveFacilityID,"Identifier at archive facility",string,NA,,"[ASCII]",
+tck_identification,subphylum,"The scientific name of the subphylum in which the taxon is classified",string,NA,,"[ASCII]",
+tck_identification,scientificNameAuthorship,"Name of the individual(s) who designated the scientific name of the taxon",string,NA,,"[ASCII]",
+tck_identification,laboratoryName,"Name of the laboratory or facility that is processing the sample",string,NA,"[DEFAULT_TO_LAB_LOGGED_IN]","[NAMED_LOCATION_TYPE('External Lab')]",
+tck_identification,superclass,"The scientific name of the superclass in which the taxon is classified",string,NA,,"[ASCII]",
+tck_identification,batchID,"Identifier for batch or analytical run",string,NA,,,
+tck_identification,subgenus,"The scientific name of the subgenus in which the taxon is classified. Values should include the genus to avoid homonym confusion",string,NA,,"[ASCII]",
+tck_identification,subsampleID,"Unique identifier associated with each subsample per sampleID",string,NA,,"[DOES_NOT_EXIST][IF(targetTaxaPresent='Y'), REQUIRE]",
+tck_identification,deprecatedVialID,"Identifier on vial label, if different from standard ID",string,NA,,"[ASCII]",
+tck_identification,identificationProtocolVersion,"The protocol version used for specimen identification",string,NA,,"[LOV][REQUIRE]",
+tck_identification,infraphylum,"The scientific name of the infraphylum in which the taxon is classified",string,NA,,"[ASCII]",
+tck_identification,startDate,"The start date-time or interval during which an event occurred",dateTime,NA,"[DERIVE_FROM_SAMPLE_TREE('tck_collection_in.sampleID')]","[ASCII]",
+tck_identification,superorder,"The scientific name of the superorder in which the taxon is classified",string,NA,,"[ASCII]",
+tck_identification,sampleCode,"Barcode of a sample",string,NA,,"[ASCII]",
+tck_identification,endDate,"The end date-time or interval during which an event occurred",dateTime,NA,"[DERIVE_FROM_SAMPLE_TREE('tck_collection_in.sampleID')]","[ASCII]",
+tck_identification,phylum,"The scientific name of the phylum or division in which the taxon is classified",string,NA,,"[ASCII]",
+tck_identification,infrakingdom,"The scientific name of the infrakingdom in which the taxon is classified",string,NA,,"[ASCII]",
+tck_identification,uid,"Unique ID within NEON database; an identifier for the record",string,NA,"[CREATE_UID]",,
+tck_identification,class,"The scientific name of the class in which the taxon is classified",string,NA,,"[ASCII]",
+tck_identification,archiveMedium,"Method of preservation for the sample or specimen",string,NA,,"[LOV]",
+tck_identification,infraspecificEpithet,"The infraspecific epithet (scientific name below the rank of species) of the scientific name applied to the taxon",string,NA,,"[ASCII]",
+tck_identification,superphylum,"The scientific name of the superphylum in which the taxon is classified",string,NA,,"[ASCII]",
+tck_identification,scientificName,"Scientific name, associated with the taxonID. This is the name of the lowest level taxonomic rank that can be determined",string,NA,,"[IF(targetTaxaPresent='Y'), REQUIRE][IF(targetTaxaPresent='N'), REQUIRE_NULL][IF(targetTaxaPresent='Y'), ELEMENT_OF('TICK','scientificName','F')]",
+tck_identification,superfamily,"The scientific name of the superfamily in which the taxon is classified",string,NA,,"[ASCII]",
+tck_identification,sampleFate,"Fate of a sample",string,NA,"[DEFAULT_TO('processed')]","[ASCII]",
+tck_collection,samplingProtocolVersion,"The NEON document number and version where detailed information regarding the sampling method used is available; format NEON.DOC.######vX",string,NA,,"[REQUIRE][LOV]","[REQUIRE][LOV]"
+tck_collection,dataQF,"Data quality flag",string,NA,,"[ASCII]",
+tck_collection,plotID,"Plot identifier (NEON site code_XXX)",string,NA,,"[REQUIRE][NAMED_LOCATION_TYPE('OS Plot - tck')]","[REQUIRE][NAMED_LOCATION_TYPE('OS Plot - tck')]"
+tck_collection,uid,"Unique ID within NEON database; an identifier for the record",string,NA,"[CREATE_UID]",,
+tck_collection,sampleFate,"Fate of a sample",string,NA,,"[LOV][IF(IS_BLANK(sampleID)), REQUIRE_NULL][IF(IS_NOT_BLANK(sampleID)), REQUIRE]","[LOV][IF(IS_BLANK(sampleID)), REQUIRE_NULL][IF(IS_NOT_BLANK(sampleID)), REQUIRE]"
+tck_collection,adultCount,"Number of adults",unsigned integer,number,,"[GREATER_THAN_OR_EQUAL_TO(0)][LESS_THAN(3500)]","[GREATER_THAN_OR_EQUAL_TO(0)][LESS_THAN(3500)][REQUIRE]"
+tck_collection,platformInfo,"Operating System and browser information (where applicable) of computer used during data entry",string,NA,,"[ASCII]",
+tck_collection,nymphCount,"Number of nymphs",unsigned integer,number,,"[GREATER_THAN_OR_EQUAL_TO(0)][LESS_THAN_OR_EQUAL_TO(3500)]","[GREATER_THAN_OR_EQUAL_TO(0)][LESS_THAN_OR_EQUAL_TO(3500)][REQUIRE]"
+tck_collection,samplingMethod,"Name or code for the method used to collect or test a sample",string,NA,,"[REQUIRE][LOV]","[REQUIRE][LOV]"
+tck_collection,recordedBy,"An identifier for the technician who recorded the data",string,NA,,"[ASCII]","[FROM_TABLE(PERSONNEL)][REQUIRE]"
+tck_collection,sampleCode,"Barcode of a sample",string,NA,,,"[HIDDEN]"
+tck_collection,measuredBy,"An identifier for the technician who measured or collected the data",string,NA,,"[ASCII]","[FROM_TABLE(PERSONNEL)][REQUIRE]"
+tck_collection,targetTaxaPresent,"Indicator of whether the sample contained individuals of the target taxa",string,NA,"[IF (adultCount+larvaCount+nymphCount)>0, 'Y'][IF (adultCount+larvaCount+nymphCount)=0, 'N']","[LOV]",
+tck_collection,sampleCondition,"Condition of a sample",string,NA,,"[LOV]","[LOV]"
+tck_collection,larvaCount,"Number of larvae",unsigned integer,number,,"[GREATER_THAN_OR_EQUAL_TO(0)][LESS_THAN(30000)]","[GREATER_THAN_OR_EQUAL_TO(0)][LESS_THAN(30000)][REQUIRE]"
+tck_collection,remarks,"Technician notes; free text comments accompanying the record",string,NA,,"[ASCII][IF(sampleCondition='Other (described in remarks)'), REQUIRE]","[ASCII][IF(sampleCondition='Other (described in remarks)'), REQUIRE]"
+tck_collection,numVialsSampleID,"Number of vials associated with a sampleID",unsigned integer,number,,"[GREATER_THAN_OR_EQUAL_TO(0)]","[GREATER_THAN_OR_EQUAL_TO(0)]"
+tck_collection,totalSampledArea,"Total area sampled",real,squareMeter,,"[GREATER_THAN_OR_EQUAL_TO(80)][REQUIRE][LESS_THAN_OR_EQUAL_TO(200)]","[GREATER_THAN_OR_EQUAL_TO(80)][REQUIRE][LESS_THAN_OR_EQUAL_TO(200)]"
+tck_collection,fulcrumVersion,"Version of the Fulcrum application used during data entry",string,NA,,"[ASCII]",
+tck_collection,startDate,"The start date-time or interval during which an event occurred",dateTime,NA,"[CONVERT_TO_UTC(namedLocation)]","[ASCII]","[DATE_FORMAT('YYYY-MM-DDTHH:MM')][REQUIRE]"
+tck_collection,archiveMedium,"Method of preservation for the sample or specimen",string,NA,,"[LOV]","[LOV]"
+tck_collection,eventID,"An identifier for the set of information associated with the event, which includes information about the place and time of the event",string,NA,,"MATCH_REGULAR_EXPRESSION('[A-Z]{4}.20[1-3]{1}[0-9]{1}.[0-9]{1,2}$')","[siteID+year+weekNum)]"
+tck_collection,sampleID,"Identifier for sample",string,NA,,"[DOES_NOT_EXIST][IF SUM(adultCount,larvaCount,nymphCount)=0, REQUIRE_NULL]","[IF SUM(adultCount,larvaCount,nymphCount)>0, DEFAULT_TO(PLOTID+'.'endDate)][IF SUM(adultCount,larvaCount,nymphCount)=0, REQUIRE_NULL]"
+tck_collection,endDate,"The end date-time or interval during which an event occurred",dateTime,NA,"[CONVERT_TO_UTC(namedLocation)]","[ASCII]","[DATE_FORMAT('YYYY-MM-DDTHH:MM')][REQUIRE]"

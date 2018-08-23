@@ -1,0 +1,39 @@
+table,fieldName,description,dataType,units,downloadPkg
+tck_pathogen,uid,"Unique ID within NEON database; an identifier for the record",string,NA,basic
+tck_pathogen,namedLocation,"Name of the measurement location in the NEON database",string,NA,basic
+tck_pathogen,domainID,"Unique identifier of the NEON domain",string,NA,basic
+tck_pathogen,siteID,"NEON site code",string,NA,basic
+tck_pathogen,plotID,"Plot identifier (NEON site code_XXX)",string,NA,basic
+tck_pathogen,plotType,"NEON plot type in which sampling occurred: tower, distributed or gradient",string,NA,basic
+tck_pathogen,nlcdClass,"National Land Cover Database Vegetation Type Name",string,NA,basic
+tck_pathogen,decimalLatitude,"The geographic latitude (in decimal degrees, WGS84) of the geographic center of the reference area",real,decimalDegree,basic
+tck_pathogen,decimalLongitude,"The geographic longitude (in decimal degrees, WGS84) of the geographic center of the reference area",real,decimalDegree,basic
+tck_pathogen,geodeticDatum,"Model used to measure horizontal position on the earth",string,NA,basic
+tck_pathogen,coordinateUncertainty,"The horizontal distance (in meters) from the given decimalLatitude and decimalLongitude describing the smallest circle containing the whole of the Location. Zero is not a valid value for this term",real,meter,basic
+tck_pathogen,elevation,"Elevation (in meters) above sea level",real,meter,basic
+tck_pathogen,elevationUncertainty,"Uncertainty in elevation values (in meters)",real,meter,basic
+tck_pathogen,collectDate,"Date of the collection event",dateTime,NA,basic
+tck_pathogen,endDate,"The end date-time or interval during which an event occurred",dateTime,NA,basic
+tck_pathogen,subsampleID,"Unique identifier associated with each subsample per sampleID",string,NA,basic
+tck_pathogen,testedDate,"Date test was conducted",dateTime,NA,basic
+tck_pathogen,testingID,"Identifier for the group of specimens for testing",string,NA,basic
+tck_pathogen,batchID,"Identifier for batch or analytical run",string,NA,basic
+tck_pathogen,individualCount,"Number of individuals of the same type",unsigned integer,number,basic
+tck_pathogen,sampleCondition,"Condition of a sample",string,NA,basic
+tck_pathogen,testProtocolVersion,"The protocol version used to test the sample",string,NA,basic
+tck_pathogen,testResult,"Result of the test",string,NA,basic
+tck_pathogen,testPathogenName,"The name of the pathogen",string,NA,basic
+tck_pathogen,remarks,"Technician notes; free text comments accompanying the record",string,NA,basic
+tck_pathogen,testedBy,"An identifier for the technician who tested the sample",string,NA,basic
+tck_pathogen,laboratoryName,"Name of the laboratory or facility that is processing the sample",string,NA,basic
+tck_pathogen,dataQF,"Data quality flag",string,NA,expanded
+tck_pathogenqa,uid,"Unique ID within NEON database; an identifier for the record",string,NA,expanded
+tck_pathogenqa,startDate,"The start date-time or interval during which an event occurred",dateTime,NA,expanded
+tck_pathogenqa,endDate,"The end date-time or interval during which an event occurred",dateTime,NA,expanded
+tck_pathogenqa,namedLocation,"Name of the measurement location in the NEON database",string,NA,expanded
+tck_pathogenqa,testedDate,"Date test was conducted",dateTime,NA,expanded
+tck_pathogenqa,batchID,"Identifier for batch or analytical run",string,NA,expanded
+tck_pathogenqa,controlType,"Control type for test or experiment",string,NA,expanded
+tck_pathogenqa,criteriaMet,"Whether or not criteria are met",string,NA,expanded
+tck_pathogenqa,remarks,"Technician notes; free text comments accompanying the record",string,NA,expanded
+tck_pathogenqa,dataQF,"Data quality flag",string,NA,expanded
