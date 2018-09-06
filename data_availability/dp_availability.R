@@ -46,10 +46,14 @@ for(i in colnames(mat)[5:85]) {
       print(id)
       print(i)
       cur.val <- current[which(current$DPID==id), which(colnames(current)==i)]
-      if(cur.val==0) {
-        current[which(current$DPID==id), which(colnames(current)==i)] <- NA
+      if(length(cur.val)==0) {
+        print(paste("Data product", id, " not found"))
       } else {
-        print(paste("Data available for ", id, " at ", i, " but not in matrix", sep=""))
+        if(cur.val==0) {
+          current[which(current$DPID==id), which(colnames(current)==i)] <- NA
+        } else {
+          print(paste("Data available for ", id, " at ", i, " but not in matrix", sep=""))
+        }
       }
     }
   }
@@ -113,6 +117,12 @@ for(i in current.os$DPID) {
 
 # write out status table
 write.table(current.os, "~/sandbox/data_availability/os_status.csv", row.names=F, sep=",")
+
+# percent complete-ish
+expected <- length(which(current.os==0 | current.os==1))
+avail <- length(which(current.os==1))
+avail/expected
+
 
 
 # for operations latency: import transition wait times google sheet

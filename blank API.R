@@ -2,21 +2,22 @@ library(httr)
 library(jsonlite)
 library(dplyr, quietly=T)
 library(devtools)
-req <- GET("http://data.neonscience.org/api/v0/products/DP1.10098.001")
+req <- GET("http://data.neonscience.org/api/v0/products/DP3.30010.001")
 avail <- fromJSON(content(req, as="text"), simplifyDataFrame=T, flatten=T)
 avail
 avail$data$siteCodes
 urls <- unlist(avail$data$siteCodes$availableDataUrls)
 urls
-fls <- GET(urls[grep("TEAK", urls)])
+fls <- GET(urls[grep("BONA", urls)])
 list.files <- fromJSON(content(fls, as="text"))
 list.files$data$files
 #brd.count <- read.delim(brd.files$data$files$url
 #                        [intersect(grep("countdata", brd.files$data$files$name),
 #                                   grep("basic", brd.files$data$files$name))], sep=",")
-downloader::download(list.files$data$files$url[grep("NEON_D17_TEAK_DP3_316000_4106000_DTM", list.files$data$files$name)],
-         paste(getwd(), list.files$data$files$name[grep("NEON_D17_TEAK_DP3_316000_4106000_DTM", list.files$data$files$name)], sep="/"))
-
+Sys.time()
+downloader::download(list.files$data$files$url[grep("468000_7220000_image", list.files$data$files$name)],
+         paste(getwd(), list.files$data$files$name[grep("468000_7220000_image", list.files$data$files$name)], sep="/"))
+Sys.time()
 
 #library(downloader)
 #download(aop.files$data$files$url[grep("20170328192931", aop.files$data$files$name, fixed=T)],
