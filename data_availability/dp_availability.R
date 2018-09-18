@@ -123,6 +123,17 @@ expected <- length(which(current.os==0 | current.os==1))
 avail <- length(which(current.os==1))
 avail/expected
 
+# percent not expected
+total <- length(which(!is.na(current.os)))
+future <- length(which(current.os > 2018))
+thisyear <- length(which(current.os==2018))
+future/total
+thisyear/total
+
+# figure
+barplot(cbind(c(avail,expected-avail,thisyear,future),c(NA,NA,NA,NA)),beside=F,
+        legend.text=c("Available","Collected but not available",
+                      "First collection in 2018","First collection in 2019+"))
 
 
 # for operations latency: import transition wait times google sheet
@@ -136,4 +147,50 @@ tranByProd$latency[which(tranByProd$latency==-Inf)] <- NA
 tran <- tran[-which(tran$rePub.=="Y"),]
 tran <- tran[,-which(colnames(tran)=="rePub.")]
 write.table(tran, "~/sandbox/data_availability/ongoing_latency.csv", row.names=F, sep=",")
+
+
+#----------
+# this time include all data, not just os
+# 1 if there are data on portal, YEAR of future sampling if it hasn't happened yet, 
+# 0 if sampling has happened but data aren't available, NA if never sampled
+for(i in current$DPID) {
+  if(length(which(samp$DPID==i))==0) {
+    print(paste("No sampling info for", i, current$DPName[which(current$DPID==i)], sep=" "))
+  } else {
+    for(j in colnames(current)[3:83]) {
+      #print(paste(i, j))
+      cur.val <- current[which(current$DPID==i), which(colnames(current)==j)]
+      if(is.na(cur.val) | cur.val==1) {
+        next
+      } else {
+        samp.dp <- samp[which(samp$DPID==i & samp$Site==j),]
+        samp.sub <- samp.dp[,grep("X", colnames(samp.dp), fixed=T)]
+        if(all(is.na(samp.sub) | samp.sub=="")) {
+          next
+        } else {
+          if(nrow(samp.sub)>1) {
+            yr <- colnames(samp.sub)[min(which(samp.sub=="Y", arr.ind=T)[,2], na.rm=T)]
+          } else {
+            yr <- colnames(samp.sub)[min(which(samp.sub=="Y"), na.rm=T)]
+          }
+          if(as.numeric(substring(yr, 2, 5)) <= 2017) {
+            next
+          } else {
+            current[which(current$DPID==i), which(colnames(current)==j)] <- substring(yr, 2, 5)
+          }
+        }
+      }
+    }
+  }
+}
+
+# write out status table
+write.table(current, "~/sandbox/data_availability/all_status.csv", row.names=F, sep=",")
+
+# remove ' products and MDP
+current <- current[which(!current$DPID %in% c("DP4.50036.001","IP1.00009.001",
+                                              "IP1.00118.001","IP2.00118.001")),]
+
+length(which(current>0))/length(which(!is.na(current)))
+# does not capture EC products accurately
 
