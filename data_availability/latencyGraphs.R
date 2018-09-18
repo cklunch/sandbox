@@ -1,6 +1,10 @@
 
 if (file.exists('/Users/kthibault/')){
-  mypathtoCKL <- '/Users/kthibault/Documents/GitHub/sandbox'
+  mypathtoCKL <- '/Users/kthibault/Documents/GitHub/sandbox/data_availability'
+}
+
+if (file.exists('/Users/clunch/')){
+  mypathtoCKL <- '/Users/clunch/sandbox/data_availability'
 }
 
 options(stringsAsFactors=F)
@@ -40,6 +44,10 @@ datByDp$mo <- ifelse(is.na(datByDp$mo), 4, datByDp$mo)
 ggplot(datByDp, aes(reorder(`Legacy delay driver`, completionDate, length))) + geom_bar() + coord_flip() + ylab("Number of OS Data Products") + xlab("Legacy Data Delay Driver") + theme_bw()
 
 ggsave("legacyDataDrivers.png")
+
+ggplot(datByDp[-which(datByDp$`Legacy delay driver`=="no delay - complete"),], aes(reorder(`Legacy delay driver`, completionDate, length))) + geom_bar() + coord_flip() + ylab("Number of OS Data Products") + xlab("Legacy Data Delay Driver") + theme_bw() + scale_x_discrete(labels=c("Field staff time","Science staff time","Contracting","External lab processing"))
+ggsave("legacyDataDriversWithoutComplete.png")
+
 
 summaryDat <- datByDp %>% group_by(mo) %>% count()
 a = 1

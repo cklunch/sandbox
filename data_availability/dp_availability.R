@@ -117,6 +117,7 @@ for(i in current.os$DPID) {
 
 # write out status table
 write.table(current.os, "~/sandbox/data_availability/os_status.csv", row.names=F, sep=",")
+# current.os <- read.delim("~/sandbox/data_availability/os_status.csv", sep=",")
 
 # percent complete-ish
 expected <- length(which(current.os==0 | current.os==1))
@@ -133,8 +134,9 @@ thisyear/total
 # figure
 barplot(cbind(c(avail,expected-avail,thisyear,future),c(NA,NA,NA,NA)),beside=F,
         legend.text=c("Available","Collected but not available",
-                      "First collection in 2018","First collection in 2019+"))
-
+                      "First collection in 2018","First collection in 2019+"),
+        ylab="Data product by site combinations")
+#savePlot("~/sandbox/data_availability/OS_aggregate_status.jpg", type="jpeg")
 
 # for operations latency: import transition wait times google sheet
 tran <- read.delim("~/sandbox/data_availability/Transition_wait_times.csv", sep=",")
