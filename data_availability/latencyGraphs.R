@@ -76,13 +76,18 @@ datLat <- dat %>% filter(`Latency category` != "OT")
 ggplot(datLat, aes(`Transition wait time`)) + stat_bin(aes(y = (..count..)/sum(..count..)*100), binwidth = 30, color = "black", fill = "#CCCCCC") + theme_bw() + scale_y_continuous("% of OS data tables") + xlab("Latency (days since field collection)")
 
 # distribution of types
-ggplot(datLat, aes(reorder(`Latency category`, X=`Transition wait time`))) + geom_bar()+ coord_flip() + ylab("Number of OS Data Tables") + xlab("General Latency Category") + theme_bw() + scale_x_discrete(labels=c("Field Data","Domain Lab Data","External Analysis - Rolling","External Analysis - Bulk"))
+ggplot(datLat, aes(reorder(`Latency category`, X=`Transition wait time`))) + geom_bar() + coord_flip() + ylab("Number of OS Data Tables") + xlab("General Latency Category") + theme_bw() + scale_x_discrete(labels=c("Field Data","Domain Lab Data","External Analysis - Rolling","External Analysis - Bulk"))
 
 # alternative approach
 meanByType <- datLat %>% group_by(`Latency category`) %>% summarise(mbt=mean(`Transition wait time`))
 latType <- count(datLat, `Latency category`)
 latencyBins <- cbind(latType, meanByType$mbt)
 colnames(latencyBins) <- c("category","n","mn")
+latencyBins <- latencyBins[order(latencyBins$mn, decreasing = T),]
+latencyBins$category <- c("DELS","CELF","BDD","AFD")
+
+ggplot(latencyBins, aes(category, n)) + geom_bar(stat="identity") + coord_flip() + ylab("Number of OS Data Tables") + xlab("General Latency Category") + theme_bw() + scale_x_discrete(labels=c("Field Data","Domain Lab Data","External Analysis - Rolling","External Analysis - Bulk"))
+
 
 # by type
 external <- dat %>% filter(Location == 'External' & `Latency category` != "OT")
