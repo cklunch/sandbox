@@ -135,7 +135,8 @@ thisyear/total
 barplot(cbind(c(avail,expected-avail,thisyear,future),c(NA,NA,NA,NA)),beside=F,
         legend.text=c("Available","Collected but not available",
                       "First collection in 2018","First collection in 2019+"),
-        ylab="Data product by site combinations")
+        ylab="Data product by site combinations",
+        col=c("green","grey30","grey50","grey80"))
 #savePlot("~/sandbox/data_availability/OS_aggregate_status.jpg", type="jpeg")
 
 # for operations latency: import transition wait times google sheet

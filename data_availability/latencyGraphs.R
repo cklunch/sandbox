@@ -48,6 +48,7 @@ ggsave("legacyDataDrivers.png")
 ggplot(datByDp[-which(datByDp$`Legacy delay driver`=="no delay - complete"),], aes(reorder(`Legacy delay driver`, completionDate, length))) + geom_bar() + coord_flip() + ylab("Number of OS Data Products") + xlab("Legacy Data Delay Driver") + theme_bw() + scale_x_discrete(labels=c("Field staff time","Science staff time","Contracting","External lab processing"))
 ggsave("legacyDataDriversWithoutComplete.png")
 
+delayed <- datByDp[-which(datByDp$`Legacy delay driver`=="no delay - complete"),]
 
 summaryDat <- datByDp %>% group_by(mo) %>% count()
 a = 1
