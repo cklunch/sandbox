@@ -2,13 +2,13 @@ library(httr)
 library(jsonlite)
 library(dplyr, quietly=T)
 library(devtools)
-req <- GET("http://data.neonscience.org/api/v0/products/DP3.30010.001")
+req <- GET("http://data.neonscience.org/api/v0/products/DP1.10072.001")
 avail <- fromJSON(content(req, as="text"), simplifyDataFrame=T, flatten=T)
 avail
 avail$data$siteCodes
 urls <- unlist(avail$data$siteCodes$availableDataUrls)
 urls
-fls <- GET(urls[grep("BONA", urls)])
+fls <- GET(urls[grep("BONA/2018-07", urls)])
 list.files <- fromJSON(content(fls, as="text"))
 list.files$data$files
 #brd.count <- read.delim(brd.files$data$files$url
