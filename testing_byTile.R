@@ -8,5 +8,5 @@ veg.loc <- def.calc.geo.os(veg, "vst_mappingandtagging")
 east <- veg.loc$adjEasting
 north <- veg.loc$adjNorthing
 
-byTileAOP(dpID="DP3.30026.001", site="SJER", year="2017", 
+byTileAOP(dpID="DP3.30026.001", site="SJER", year="2017", buffer=200,
           easting=east, northing=north, savepath="/Users/clunch/Desktop")
