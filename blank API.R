@@ -42,6 +42,8 @@ req <- httr::GET("http://data.neonscience.org/api/v0/locations/SCBI_006.basePlot
 jsonlite::fromJSON(httr::content(req, as="text"))
 #req.par <- content(req, as="parsed")
 
+req <- httr::GET("http://data.neonscience.org/api/v0/locations/SCBI")
+
 # location on CERT
 req <- GET("https://cert-data.ci.neoninternal.org/api/v0/locations/HARV_052.basePlot.vst")
 jsonlite::fromJSON(content(req, as="text"))
