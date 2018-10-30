@@ -82,4 +82,7 @@ neoD <- cran_downloads("nneo", from="2017-06-15", to="last-day")
 mean(neoD$count)
 sum(neoD$count)
 
+# sites
+req <- GET("http://data.neonscience.org/api/v0/sites/NIWO")
+req.site <- jsonlite::fromJSON(content(req, as="text"))
 
