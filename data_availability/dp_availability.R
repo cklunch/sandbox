@@ -13,7 +13,7 @@ s.req <- GET("http://data.neonscience.org/api/v0/sites")
 sites <- fromJSON(content(s.req, as="text"))
 
 # set up data frame
-current <- data.frame(matrix(0, nrow=180, ncol=83))
+current <- data.frame(matrix(0, nrow=179, ncol=83))
 colnames(current)[1:2] <- c("DPID","DPName")
 colnames(current)[3:83] <- sites[[1]]$siteCode
 current$DPID <- ls[[1]]$productCode
@@ -26,7 +26,7 @@ for(i in 1:nrow(current)) {
 }
 
 # next up: include NAs for sites that won't ever have product
-mat <- read.delim("~/sandbox/data_availability/Master_product_siteMatrix.csv", sep=",", skip=5)
+mat <- read.delim("~/GitHub/sandbox/data_availability/Master_product_siteMatrix.csv", sep=",", skip=5)
 mat <- mat[1:180,1:85]
 
 # precip wrangling
@@ -60,14 +60,14 @@ for(i in colnames(mat)[5:85]) {
 }
 
 # adding in 'have we ever sampled there'
-samp <- read.delim("~/sandbox/data_availability/NEON-OS-DataAvailabilityBySiteByYear-v20170918.csv", sep=",")
+samp <- read.delim("~/GitHub/sandbox/data_availability/NEON-OS-DataAvailabilityBySiteByYear-v20170918.csv", sep=",")
 samp$DPID <- paste(substring(samp$DPID, 2, 10), ".001", sep="")
 
 # find blank rows in samp spreadsheet
 samp.y <- samp[,grep("X", colnames(samp), fixed=T)]
 ind <- which(apply(samp.y, 1, FUN=function(x){all(x=="")}))
 dp.s <- cbind(samp$DPID[ind], samp$Data.Product.Name[ind], samp$Site[ind])
-write.table(dp.s, "~/sandbox/data_availability/blank.lines.csv", sep=",", row.names=F)
+write.table(dp.s, "~/GitHub/sandbox/data_availability/blank.lines.csv", sep=",", row.names=F)
 
 # subset to only OS products
 current.os <- current[which((substring(current$DPID, 5, 5) %in% c(1,2) | 
@@ -116,8 +116,10 @@ for(i in current.os$DPID) {
 
 
 # write out status table
-write.table(current.os, "~/sandbox/data_availability/os_status.csv", row.names=F, sep=",")
+write.table(current.os, "~/GitHub/sandbox/data_availability/os_status.csv", row.names=F, sep=",")
 # current.os <- read.delim("~/sandbox/data_availability/os_status.csv", sep=",")
+
+#write.table(current.os, "~/GitHub/sandbox/data_availability/all_status.csv", row.names=F, sep=",")
 
 # percent complete-ish
 expected <- length(which(current.os==0 | current.os==1))
