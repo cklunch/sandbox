@@ -1,6 +1,7 @@
 library(httr)
 library(jsonlite)
 library(plyr)
+library(xlsx)
 
 options(stringsAsFactors=F)
 
@@ -64,16 +65,16 @@ samp <- read.delim("~/GitHub/sandbox/data_availability/NEON-OS-DataAvailabilityB
 samp$DPID <- paste(substring(samp$DPID, 2, 10), ".001", sep="")
 
 
-# 1 if there are data on portal, YEAR of future sampling if it hasn't happened yet, 
-# 0 if sampling has happened but data aren't available, NA if never sampled
-for(i in current$DPID) {
+# make matrix of first year sampled
+first <- current
+for(i in first$DPID) {
   if(length(which(samp$DPID==i))==0) {
-    print(paste("No sampling info for", i, current$DPName[which(current$DPID==i)], sep=" "))
+    print(paste("No sampling info for", i, first$DPName[which(first$DPID==i)], sep=" "))
   } else {
-    for(j in colnames(current)[3:83]) {
+    for(j in colnames(first)[3:83]) {
       #print(paste(i, j))
-      cur.val <- current[which(current$DPID==i), which(colnames(current)==j)]
-      if(is.na(cur.val) | cur.val==1) {
+      first.val <- first[which(first$DPID==i), which(colnames(first)==j)]
+      if(is.na(first.val)) {
         next
       } else {
         samp.dp <- samp[which(samp$DPID==i & samp$Site==j),]
@@ -86,16 +87,15 @@ for(i in current$DPID) {
           } else {
             yr <- colnames(samp.sub)[min(which(samp.sub=="Y"), na.rm=T)]
           }
-          if(as.numeric(substring(yr, 2, 5)) <= 2017) {
-            next
-          } else {
-            current[which(current$DPID==i), which(colnames(current)==j)] <- substring(yr, 2, 5)
-          }
+          first[which(first$DPID==i), which(colnames(first)==j)] <- substring(yr, 2, 5)
         }
       }
   }
   }
 }
+
+# color cells according to availability
+
 
 # remove MDP and itemized EC products
 current <- current[which(!current$DPID %in% c("DP4.50036.001","DP1.00007.001","DP1.00010.001",
