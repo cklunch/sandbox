@@ -1,7 +1,7 @@
 library(httr)
 library(jsonlite)
 library(plyr)
-library(xlsx)
+library(openxlsx)
 
 options(stringsAsFactors=F)
 
@@ -20,7 +20,7 @@ colnames(current)[3:83] <- sites[[1]]$siteCode
 current$DPID <- ls[[1]]$productCode
 current$DPName <- ls[[1]]$productName
 
-# populate with 1 for availability, 0 for no
+# populate with 1 for available, 0 for no data on portal
 for(i in 1:nrow(current)) {
   dp.sites <- ls[[1]]$siteCodes[[i]]$siteCode
   current[i,which(colnames(current) %in% dp.sites)] <- 1
@@ -65,6 +65,16 @@ samp <- read.delim("~/GitHub/sandbox/data_availability/NEON-OS-DataAvailabilityB
 samp$DPID <- paste(substring(samp$DPID, 2, 10), ".001", sep="")
 
 
+# remove MDP and itemized EC products
+current <- current[which(!current$DPID %in% c("DP4.50036.001","DP1.00007.001","DP1.00010.001",
+                                              "DP1.00034.001","DP1.00035.001","DP1.00036.001",
+                                              "DP1.00036.001","DP1.00037.001","DP1.00099.001",
+                                              "DP1.00100.001","DP2.00008.001","DP2.00009.001",
+                                              "DP2.00024.001","DP3.00008.001","DP3.00009.001",
+                                              "DP3.00010.001","DP4.00002.001","DP4.00007.001",
+                                              "DP4.00067.001","DP4.00137.001","DP4.00201.001")),]
+
+
 # make matrix of first year sampled
 first <- current
 for(i in first$DPID) {
@@ -94,18 +104,16 @@ for(i in first$DPID) {
   }
 }
 
-# color cells according to availability
+# make an xlsx workbook and color cells according to availability
+wb <- createWorkbook()
+addWorksheet(wb, "currentAvailability")
+writeData(wb, 1, current)
+setColWidths(wb, 1, cols=1:ncol(current), widths="auto")
+colorStyle <- createStyle(fgFill="#1aff1a")
+avail <- which(current==1, arr.ind=T)
+avail[,1] <- avail[,1]+1
+addStyle(wb, 1, colorStyle, rows=avail[,1], cols=avail[,2])
+saveWorkbook(wb, "/Users/clunch/Desktop/all_status.xlsx")
 
 
-# remove MDP and itemized EC products
-current <- current[which(!current$DPID %in% c("DP4.50036.001","DP1.00007.001","DP1.00010.001",
-                                              "DP1.00034.001","DP1.00035.001","DP1.00036.001",
-                                              "DP1.00036.001","DP1.00037.001","DP1.00099.001",
-                                              "DP1.00100.001","DP2.00008.001","DP2.00009.001",
-                                              "DP2.00024.001","DP3.00008.001","DP3.00009.001",
-                                              "DP3.00010.001","DP4.00002.001","DP4.00007.001",
-                                              "DP4.00067.001","DP4.00137.001","DP4.00201.001")),]
-
-# write out status table
-write.table(current, "~/GitHub/sandbox/data_availability/all_status.csv", row.names=F, sep=",")
 
