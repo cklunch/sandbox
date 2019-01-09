@@ -27,13 +27,13 @@ for(i in 1:nrow(current)) {
 }
 
 # get sampling initiation schedule
-mat <- read.delim("~/sandbox/data_availability/firstCollection.csv", sep=",", header=T)
+mat <- read.delim("~/GitHub/sandbox/data_availability/firstCollection.csv", sep=",", header=T)
 #mat <- mat[1:180,1:85]
 
 # precip wrangling
 precip <- apply(t(mat[which(mat$Code=="DP1.00006"),4:84]), 
                 2, as.numeric)
-precip <- apply(precip, 1, min)
+precip <- apply(precip, 1, min, na.rm=T)
 mat <- mat[-which(mat$Code=="DP1.00006"),]
 mat <- rbind(mat, c("Precipitation", "DP1.00006", "TIS", precip))
 
@@ -75,6 +75,7 @@ for(i in 4:38) {
 }
 
 # convert NAs to string "NA" for write to xlsx
+mat[mat=="Inf"] <- NA
 mat[is.na(mat)] <- "NA"
 
 # make an xlsx workbook and color cells according to availability
@@ -86,7 +87,7 @@ colorStyle <- createStyle(fgFill="#1aff1a")
 availInd <- which(avail==1, arr.ind=T)
 availInd[,1] <- availInd[,1]+1
 addStyle(wb, 1, colorStyle, rows=availInd[,1], cols=availInd[,2])
-saveWorkbook(wb, "/Users/clunch/sandbox/data_availability/all_status.xlsx", overwrite=T)
+saveWorkbook(wb, "/Users/clunch/GitHub/sandbox/data_availability/all_status.xlsx", overwrite=T)
 
 
 
