@@ -96,7 +96,7 @@ addStyle(wb, 1, colorStyle, rows=availInd[,1], cols=availInd[,2])
 leg <- data.frame(cbind(c("Legend","NA","20XX","20XX"), 
                         c("","Data collection is not planned for this site and data product combination",
                           "Earliest year in which data have been or will be collected",
-                          "Earliest year in which data have been or will be collected; data are currently available for download")))
+                          "Earliest year in which data have been or will be collected; partial or full data are currently available for download")))
 writeData(wb, 2, leg, colNames=F)
 setColWidths(wb, 2, cols=1:ncol(leg), widths="auto")
 addStyle(wb, 2, colorStyle, rows=4, cols=1)
