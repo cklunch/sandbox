@@ -79,14 +79,28 @@ mat[mat=="Inf"] <- NA
 mat[is.na(mat)] <- "NA"
 
 # make an xlsx workbook and color cells according to availability
+# make workbook
 wb <- createWorkbook()
-addWorksheet(wb, "currentAvailability")
+addWorksheet(wb, "Current Availability")
+addWorksheet(wb, "Legend")
+
+# add availability data
 writeData(wb, 1, mat)
 setColWidths(wb, 1, cols=1:ncol(mat), widths="auto")
 colorStyle <- createStyle(fgFill="#1aff1a")
 availInd <- which(avail==1, arr.ind=T)
 availInd[,1] <- availInd[,1]+1
 addStyle(wb, 1, colorStyle, rows=availInd[,1], cols=availInd[,2])
+
+# make legend tab
+leg <- data.frame(cbind(c("Legend","NA","20XX","20XX"), 
+                        c("","Data collection is not planned for this site and data product combination",
+                          "Earliest year in which data have been or will be collected",
+                          "Earliest year in which data have been or will be collected; data are currently available for download")))
+writeData(wb, 2, leg, colNames=F)
+setColWidths(wb, 2, cols=1:ncol(leg), widths="auto")
+addStyle(wb, 2, colorStyle, rows=4, cols=1)
+
 saveWorkbook(wb, "/Users/clunch/GitHub/sandbox/data_availability/all_status.xlsx", overwrite=T)
 
 
