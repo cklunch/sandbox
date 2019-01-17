@@ -2,6 +2,7 @@ library(httr)
 library(jsonlite)
 library(dplyr, quietly=T)
 library(devtools)
+options(stringsAsFactors = F)
 req <- GET("http://data.neonscience.org/api/v0/products/DP1.10072.001")
 avail <- fromJSON(content(req, as="text"), simplifyDataFrame=T, flatten=T)
 avail
