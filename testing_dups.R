@@ -10,6 +10,8 @@ data <- cfc
 
 source('~/GitHub/how-to-make-a-data-product/Publication workbook OS/removeDups.R')
 
+cfc.var <- cfc.var[-which(!cfc.var$fieldName %in% names(cfc)),]
+
 data.rem <- removeDups(data=cfc, variables=cfc.var, table='cfc_lignin_pub')
 
 pb <- utils::txtProgressBar(style=3)
