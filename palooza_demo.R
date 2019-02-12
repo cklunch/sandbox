@@ -1,3 +1,6 @@
+# We're going to do a demo without you following along, then we have time for you to 
+# try stuff with us here to help.
+
 # load packages
 install.packages("neonUtilities")
 library(neonUtilities)
