@@ -68,11 +68,73 @@ for(i in colnames(mat)[4:84]) {
   }
 }
 
-# hard code 1's for AQU AOP data
-for(i in 4:38) {
-  avail[which(avail$Supplier=="AOP" & avail$Code!="DP1.30012.001"),i] <- 
-    ifelse(mat[which(avail$Supplier=="AOP" & avail$Code!="DP1.30012.001"),i] < 2017, 1, 0)
+## get AQU AOP availability
+# first, get full file list for mosaicked DPs
+file.list <- vector("list", 17)
+names(file.list) <- current$DPID[151:167]
+ind <- 0
+for(j in 151:167) {
+  ind <- ind+1
+  urls <- unlist(ls[[1]]$siteCodes[[j]]$availableDataUrls)
+  if(length(urls)==0) {
+    file.list[[ind]] <- NA
+    next
+  } else {
+    for(k in 1:length(urls)) {
+      a.req <- GET(urls[k])
+      files <- fromJSON(content(a.req, as="text"))$data$files$name
+      file.list[[ind]] <- c(file.list[[ind]], files)
+    }
+  }
 }
+
+# get locations for AQU sites and look for coordinates in mosaic files
+for(i in 4:38) {
+
+  # get site locations - approx center of sampling reach
+  site <- names(avail)[i]
+  site.req <- GET(paste("http://data.neonscience.org/api/v0/locations/", site, sep=""))
+  site.loc <- fromJSON(content(site.req, as="text"))
+  
+  # these should be the coordinates of the tile where the center of the reach appears
+  easting <- floor(site.loc$data$locationUtmEasting/1000)*1000
+  northing <- floor(site.loc$data$locationUtmNorthing/1000)*1000
+  
+  # look for these coordinates in mosaicked DPs
+  for(j in names(file.list)) {
+    flag <- intersect(grep(easting, file.list[[j]]), grep(northing, file.list[[j]]))
+    if(length(flag)==0) {
+      avail[which(avail$Code==j),i] <- 0
+    } else {
+      if(length(flag)>0) {
+        avail[which(avail$Code==j),i] <- 1
+      }
+    }
+  }
+  
+  # extrapolate from mosaicked DPs to flightlines
+  for(k in avail$Code[which(avail$Supplier=="AOP" & !(avail$Code %in% names(file.list)))]) {
+    ksub <- k
+    substring(ksub, 3, 3) <- "3"
+    if(ksub %in% avail$Code & k!= "DP1.30012.001") {
+      avail[which(avail$Code==k),i] <- avail[which(avail$Code==ksub),i]
+    } else {
+      if(k=="DP1.30012.001") {
+        next
+      }
+      if(k=="DP1.30001.001") {
+        next
+      }
+      if(k=="DP1.30008.001") {
+        avail[which(avail$Code==k),i] <- avail[which(avail$Code=="DP3.30006.001"),i]
+      }
+      if(k=="DP1.30003.001") {
+        avail[which(avail$Code==k),i] <- avail[which(avail$Code=="DP3.30024.001"),i]
+      }
+    }
+  }
+}
+
 
 # convert NAs to string "NA" for write to xlsx
 mat[mat=="Inf"] <- NA
