@@ -143,7 +143,7 @@ mat[is.na(mat)] <- "NA"
 # make an xlsx workbook and color cells according to availability
 # make workbook
 wb <- createWorkbook()
-addWorksheet(wb, "Current Availability")
+addWorksheet(wb, paste("Availability as of ", Sys.Date(), sep=""))
 addWorksheet(wb, "Legend")
 
 # add availability data
