@@ -4,9 +4,9 @@ library(ggplot2)
 library(animation)
 options(stringsAsFactors=F)
 
-source('~/sandbox/EC_HDF/H5ECtoDF.R')
-source('~/sandbox/EC_HDF/flattenH5EC.R')
-source('~/sandbox/EC_HDF/stackEC.R')
+source('~/GitHub/sandbox/EC_HDF/H5ECtoDF.R')
+source('~/GitHub/sandbox/EC_HDF/flattenH5EC.R')
+source('~/GitHub/sandbox/EC_HDF/stackEC.R')
 
 stack.co2.profile <- stackEC(filepath="/Users/clunch/Desktop/EC/NEON_eddy-flux",
                           site="UNDE", level="dp01", var="co2Stor", avg="30")
