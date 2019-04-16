@@ -5,10 +5,8 @@ library(devtools)
 options(stringsAsFactors = F)
 req <- GET("https://data.neonscience.org/api/v0/products/DP1.10072.001")
 avail <- fromJSON(content(req, as="text"), simplifyDataFrame=T, flatten=T)
+months <- unlist(avail$data$siteCodes$availableDataUrls)
 
-
-avail
-avail$data$siteCodes
 urls <- unlist(avail$data$siteCodes$availableDataUrls)
 urls
 fls <- GET(urls[grep("BONA/2018-07", urls)])
@@ -88,4 +86,42 @@ sum(neoD$count)
 # sites
 req <- GET("http://data.neonscience.org/api/v0/sites/NIWO")
 req.site <- jsonlite::fromJSON(content(req, as="text"))
+
+# testing http v https
+req <- GET("http://data.neonscience.org/api/v0/products/DP1.10072.001")
+avail <- fromJSON(content(req, as="text"), simplifyDataFrame=T, flatten=T)
+months <- unlist(avail$data$siteCodes$availableDataUrls)
+
+req.s <- GET("https://data.neonscience.org/api/v0/products/DP1.10072.001")
+avail.s <- fromJSON(content(req.s, as="text"), simplifyDataFrame=T, flatten=T)
+months.s <- unlist(avail.s$data$siteCodes$availableDataUrls)
+
+
+# Christine's test
+get_products <- function(ht="http"){
+  pr <- jsonlite::fromJSON(txt = paste0(ht, "://data.neonscience.org/api/v0/products"))
+  pr <- pr[["data"]]
+  return(pr)
+}
+
+getURLs <- function(ulist){
+  uvec <- character()
+  for(i in 1:nrow(ulist))
+  {
+    uvec <- c(uvec, unlist(ulist$siteCodes[[i]]$availableDataUrls))
+  }
+  return(uvec)
+}
+
+pr_http <- get_products("http")
+http_dataURLs <- getURLs(pr_http)
+
+pr_https <- get_products("https")
+https_dataURLs <- getURLs(pr_https)
+
+in_http_not_https <- setdiff(http_dataURLs, https_dataURLs)
+in_https_not_http <- setdiff(https_dataURLs, http_dataURLs)
+
+write.csv(in_https_not_http, "~/Downloads/in_https_not_http.csv", row.names = F)
+write.csv(in_http_not_https, "~/Downloads/in_http_not_https.csv", row.names = F)
 
