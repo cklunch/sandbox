@@ -3,15 +3,15 @@ library(jsonlite)
 library(dplyr, quietly=T)
 library(devtools)
 options(stringsAsFactors = F)
-req <- GET("https://data.neonscience.org/api/v0/products/DP1.10072.001")
+req <- GET("https://data.neonscience.org/api/v0/products/DP4.00200.001")
 avail <- fromJSON(content(req, as="text"), simplifyDataFrame=T, flatten=T)
 months <- unlist(avail$data$siteCodes$availableDataUrls)
 
 urls <- unlist(avail$data$siteCodes$availableDataUrls)
 urls
-fls <- GET(urls[grep("BONA/2018-07", urls)])
+fls <- GET(urls[grep("UKFS/2017-09", urls)])
 list.files <- fromJSON(content(fls, as="text"))
-list.files$data$files
+head(list.files$data$files)
 #brd.count <- read.delim(brd.files$data$files$url
 #                        [intersect(grep("countdata", brd.files$data$files$name),
 #                                   grep("basic", brd.files$data$files$name))], sep=",")
