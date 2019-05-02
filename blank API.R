@@ -52,15 +52,15 @@ jsonlite::fromJSON(content(req, as="text"))
 
 # testing AOP problems
 
-req.aop <- GET("http://data.neonscience.org/api/v0/products/DP1.30003.001")
+req.aop <- httr::GET("http://data.neonscience.org/api/v0/products/DP3.30006.001")
 avail.aop <- fromJSON(content(req.aop, as="text"), simplifyDataFrame=T, flatten=T)
 cam.urls <- unlist(avail.aop$data$siteCodes$availableDataUrls)
-cam <- GET(cam.urls[grep("SJER/2017-03", cam.urls)])
+cam <- httr::GET(cam.urls[grep("ORNL/2017", cam.urls)])
 cam.files <- fromJSON(content(cam, as="text"))
 head(cam.files$data$files$name)
 download(cam.files$data$files$url[grep("NEON_D17_SJER_DP1_256000_4113000_classified_point_cloud_colorized", cam.files$data$files$name)],
          paste(getwd(), "/ptcloud.laz", sep=""))
-
+downloader::download(cam.files$data$files$url[1], "/Users/clunch/Desktop/ORNL_DP3_30006_test.h5")
 
 # taxon
 req <- GET("http://data.neonscience.org/api/v0/taxonomy?taxonTypeCode=BIRD&offset=0&limit=100")
