@@ -1,17 +1,7 @@
-filepath <- "/Users/clunch/Desktop/filesToStack00200/"
-level <- "dp01"
-var <- "rtioMoleDryCo2"
-avg <- 30
+library(neonUtilities)
+zipsByProduct(dpID="DP4.00200.001", package="basic", site="BONA",
+              savepath="/Users/clunch/Desktop", check.size=F)
+# level, var, and avg are the defaults here
+nsae <- stackEC(filepath="/Users/clunch/Desktop/filesToStack00200/",
+                    level="dp04", var=c("nsae","stor","turb"), avg=NA)
 
-lst <- rhdf5::h5ls(paste(filepath, files[1], sep="/"))
-lst[intersect(grep(level, lst$group), grep(var, lst$name)),]
-
-# from def.hdf5.extr()
-rpt <- list()
-listObj <- rhdf5::h5ls(paste(filepath, files[1], sep="/"))
-listObjName <- base::paste(listObj$group, listObj$name, sep = "/")
-listDataObj <- listObj[listObj$otype == "H5I_DATASET",]
-listDataName <- base::paste(listDataObj$group, listDataObj$name, sep = "/")
-
-rpt$listData <- base::lapply(listDataName, rhdf5::h5read, file = paste(filepath, files[1], sep="/"))
-base::names(rpt$listData) <- listDataName
