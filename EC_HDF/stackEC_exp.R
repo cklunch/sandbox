@@ -1,7 +1,7 @@
-level <- "dp03"
+level <- "dp01"
 filepath <- "/Users/clunch/Desktop/filesToStack00200/"
-var <- NA
-avg <- NA
+var <- "rtioMoleDryCo2"
+avg <- 30
 
 library(neonUtilities)
 zipsByProduct(dpID="DP4.00200.001", package="basic", 
