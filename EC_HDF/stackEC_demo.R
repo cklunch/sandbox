@@ -29,4 +29,10 @@ View(iso$BONA)
 raw.iso <- stackEddy(filepath="/Users/clunch/Desktop/filesToStack00200/NEON.D13.NIWO.DP4.00200.001.nsae.2018-07.basic.h5",
                      level="dp01", var=c("rtioMoleDry12CCo2","rtioMoleDry13CCo2"), avg=9)
 
+# footprint
+zipsByProduct(dpID="DP4.00200.001", package="expanded", 
+              site="ABBY", startdate="2018-07", enddate="2018-07",
+              savepath="/Users/clunch/Desktop/expanded", check.size=F)
+ft <- footRaster("/Users/clunch/Desktop/expanded/filesToStack00200")
+# no data for ABBY. put in exceptions in function?
 
