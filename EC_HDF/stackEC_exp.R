@@ -1,7 +1,7 @@
-level <- "dp04"
-filepath <- "/Users/clunch/Desktop/filesToStack00200/NEON.D10.CPER.DP4.00200.001.nsae.2018-02.basic.h5"
-var <- c("rtioMoleDryCo2","rtioMoleDryH2o")
-avg <- 2
+level <- "dp01"
+filepath <- "/Users/clunch/Desktop/filesToStack00200/NEON.D01.HARV.DP4.00200.001.nsae.2018-07.basic.h5"
+var <- c("veloXaxsErth")
+avg <- 30
 var <- NA
 avg <- NA
 
@@ -20,10 +20,10 @@ prof <- stackEddy(filepath="/Users/clunch/Desktop/filesToStack00200/",
 temp.prof <- stackEddy(filepath="/Users/clunch/Desktop/filesToStack00200/",
                 level="dp02", var=NA, avg=NA)
 
-raw <- stackEddy(filepath="/Users/clunch/Desktop/filesToStack00200/NEON.D10.CPER.DP4.00200.001.nsae.2018-02.basic.h5",
-                level="dp01", var=c("rtioMoleDryCo2","rtioMoleDryH2o"), avg=2)
+raw <- stackEddy(filepath="/Users/clunch/Desktop/filesToStack00200/NEON.D13.NIWO.DP4.00200.001.nsae.2018-07.basic.h5",
+                level="dp01", var=NA, avg=30)
 
-raw.iso <- stackEddy(filepath="/Users/clunch/Desktop/filesToStack00200/NEON.D10.CPER.DP4.00200.001.nsae.2018-02.basic.h5",
+raw.iso <- stackEddy(filepath="/Users/clunch/Desktop/filesToStack00200/NEON.D13.NIWO.DP4.00200.001.nsae.2018-07.basic.h5",
                  level="dp01", var=c("rtioMoleDry12CCo2","rtioMoleDry13CCo2"), avg=9)
 
 isoC <- stackEddy(filepath="/Users/clunch/Desktop/filesToStack00200/",
@@ -49,7 +49,7 @@ zipsByProduct(dpID="DP4.00200.001", package="expanded",
               site=c("BONA", "DEJU"), startdate="2017-12", enddate="2018-02",
               savepath="/Users/clunch/Desktop", check.size=F)
 zipsByProduct(dpID="DP4.00200.001", package="expanded", 
-              site="NIWO", startdate="2018-07", enddate="2018-07",
+              site="ABBY", startdate="2018-07", enddate="2018-07",
               savepath="/Users/clunch/Desktop/expanded", check.size=F)
 filepath <- "/Users/clunch/Desktop/expanded/filesToStack00200"
 ex.m <- getVarsEddy(filepath="/Users/clunch/Desktop/filesToStack00200/NEON.D19.BONA.DP4.00200.001.nsae.2017-12-01.expanded.h5")
