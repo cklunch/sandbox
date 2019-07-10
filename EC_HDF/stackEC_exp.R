@@ -66,3 +66,11 @@ isoC <- stackEddy(filepath="/Users/clunch/Desktop/filesToStack00200/",
                 level="dp01", var=c("dlta13CCo2"), avg=30)
 
 
+
+g <- ggplot(iso.7, aes(y=verticalPosition)) + 
+  geom_path(aes(x=data.co2Stor.rtioMoleDryCo2.mean, group=timeBgn, col=timeBgn)) + 
+  theme(legend.position="none")
+g
+
+
+
