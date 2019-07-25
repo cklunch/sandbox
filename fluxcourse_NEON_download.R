@@ -1,5 +1,8 @@
+# Preparatory NEON data download for flux course
+# You'll need to be using R v3.4 or higher
+
 # Install neonUtilities even if you've installed it before!
-# You'll need to have the most recent version, v1.3.0
+# We released a new version, v1.3.0, on July 6
 install.packages('neonUtilities')
 library(neonUtilities)
 
