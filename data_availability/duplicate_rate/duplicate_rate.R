@@ -78,7 +78,7 @@ dupRate <- data.frame(dupRate)
 names(dupRate) <- c('table', 'records', 'year', 'month', 'resolved', 'unresolved')
 
 datMerg <- ymd(paste(dupRate$year, dupRate$month, '01', sep='-'))
-dupCt <- dupRate$resolved + dupRate$unresolved
+dupCt <- dupRate$resolved + dupRate$unresolved/2
 dupPct <- dupCt/dupRate$records
 
 pctByMonth <- aggregate(dupPct, by=list(datMerg), mean)
