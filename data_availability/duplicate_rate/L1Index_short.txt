@@ -1,0 +1,26 @@
+DPName	DPID	pathToPub
+Plant presence and percent cover (Plant Div)	DP1.10058.001	/organismalIPT/plantdiv/defData/div_datapub_NEON.DOC.001410.txt
+Reaeration field and lab collection	DP1.20190.001	/biogeochemistryIPT/reaeration/defData/rea_datapub.txt
+Dissolved gases in surface water	DP1.20097.001	/biogeochemistryIPT/dissolvedGasInWater/defData/sdg_datapub_NEONDOC003690.txt
+Stream discharge field collection	DP1.20048.001	/landWaterSoilIPT/stream_discharge/defData/dsc_dataPub.txt
+Gauge Height	DP1.20267.001	/landWaterSoilIPT/gaugeHeight/defData/PublicationWorkbook_Gaugeheight.txt
+Fish electrofishing, gill netting, and fyke netting counts	DP1.20107.001	/organismalIPT/fish/defData/fsh_dataPub_20190404.txt
+Riparian vegetation % Cover	DP1.20191.001	/organismalIPT/riparianAssessment/defData/rip_percentCoverPub_NEONDOC004528.txt
+Riparian composition and structure	DP1.20275.001	/organismalIPT/riparianAssessment/defData/rip_compositionPub_NEONDOC004529.txt
+Herbaceous clip harvest	DP1.10023.001	/organismalIPT/herbiomass/defData/hbp_datapub_NEON.DOC.001931.txt
+Litterfall and fine woody debris sampling	DP1.10033.001	/organismalIPT/litter/defData/ltr_datapub_NEON.DOC.001935.txt
+Woody plant vegetation structure	DP1.10098.001	/organismalIPT/vegStructure/defData/vst_datapub_NEON.DOC.001939.txt
+Non-herbaceous perennial vegetation structure	DP1.10045.001	/organismalIPT/vegStructure/defData/nst_datapub_NEON.DOC.003801.txt
+Ground beetles sampled from pitfall traps	DP1.10022.001	/organismalIPT/beetles/defData/bet_datapub_NEON.DOC.001411.txt
+Breeding landbird point counts	DP1.10003.001	/organismalIPT/birds/defData/brd_datapub_NEON.DOC.001418.txt
+Stable isotope concentrations in surface waters	DP1.20206.001	/biogeochemistryIPT/AquaticStableIsotopes/defData/asiSurface_datapub_NEON.DOC.003677.txt
+Stable isotope concentrations in Groundwater	DP1.20276.001	/biogeochemistryIPT/AquaticStableIsotopes/defData/asiGround_datapub_NEON.DOC.003678.txt
+Small mammal box trapping	DP1.10072.001	/organismalIPT/smammal/defData/mam_datapub_NEONDOC001417.txt
+Plant phenology observations	DP1.10055.001	/organismalIPT/phenology/defData/phe_datapub_NEONDOC001420.txt
+Chemical properties of groundwater	DP1.20092.001	/biogeochemistryIPT/StreamWaterChem/defData/gwc_datapub_NEONDOC002290.txt
+Chemical properties of surface water	DP1.20093.001	/biogeochemistryIPT/StreamWaterChem/defData/swc_datapub_NEONDOC002292.txt
+Mosquitoes sampled from CO2 traps	DP1.10043.001	/organismalIPT/mosquitoes/defData/mos_datapub_NEON.DOC.001412.txt
+Ticks sampled using drag cloths	DP1.10093.001	/organismalIPT/ticks/defData/tck_datapub_NEON.DOC.003662.txt
+Aquatic plant, bryophyte, lichen, and macroalgae point counts in wadeable streams	DP1.20072.001	/organismalIPT/aquaticPlantPointTransect/defData/apc_datapub_NEON.DOC.003472.txt
+Aquatic plant bryophyte macroalgae clip harvest	DP1.20066.001	/organismalIPT/aquaticPlantClipHarvest/defData/apl_datapub.txt
+Rodent-borne pathogen status	DP1.10064.001	/organismalIPT/rodentPathogens/defData/rpt_datapub_NEON.DOC.001413.txt
