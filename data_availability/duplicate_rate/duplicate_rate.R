@@ -4,38 +4,57 @@ library(lubridate)
 library(neonUtilities)
 library(neonOSbase)
 
-wd <- '/Users/clunch/GitHub'
-l1Index <- read.delim('/Users/clunch/GitHub/sandbox/data_availability/duplicate_rate/L1Index_short.txt',
-                      sep='\t')
+wd <- '/Users/clunch/GitHub/definitional-data/pubWBs'
+#l1Index <- read.delim('/Users/clunch/GitHub/sandbox/data_availability/duplicate_rate/L1Index_short.txt',
+#                      sep='\t')
+deflist <- list.files(wd)
 
-dupRate <- c(NA, NA, NA, NA, NA, NA)
-for(i in c(17:18)) {
-  
-  dpID <- l1Index$DPID[i]
-  dpend <- l1Index$pathToPub[i]
+dupRate <- matrix(data=NA, ncol=6, nrow=1)
+dupRate <- data.frame(dupRate)
+names(dupRate) <- c('table', 'records', 'year', 'month', 'resolved', 'unresolved')
 
-  vars <- read.delim(paste(wd, dpend, sep=''), sep='\t')
-  datList <- loadByProduct(dpID, check.size=F)
+tableResult <- matrix(data=NA, ncol=3, nrow=1)
+tableResult <- data.frame(tableResult)
+names(tableResult) <- c('dpID', 'table', 'outcome')
+
+for(i in c(54:length(deflist))) {
   
-  for(j in 1:length(datList)) {
+  vars <- read.delim(paste(wd, deflist[i], sep='/'), sep='\t')
+  dpID <- substring(unique(vars$dpID), 15, 28)
+  if(length(dpID)!=1) {
+    cat(paste('Could not find dpID for row ', i, sep=''))
+    next
+  }
+  
+  datList <- try(loadByProduct(dpID, check.size=F, startdate='2017-05', enddate='2018-08'))
+  
+  if(class(datList)=='try-error') {
+    dres <- c(dpID, '', 'No data found for 2017-05 to 2018-08')
+    tableResult <- rbind(tableResult, dres)
+    next
+  }
+  
+  for(j in names(datList)) {
     
-    if(names(datList)[j] %in% c('variables','validation','rea_conductivityFieldData')) {
+    if(j %in% c('variables','validation','rea_conductivityFieldData','sbd_conductivityFieldData')) {
       next
     }
     
     datListDup <- try(removeDups(datList[[j]], vars, 
-                             paste(names(datList)[j], '_pub', sep='')), silent=T)
+                             paste(j, '_pub', sep='')), silent=T)
     
     if(class(datListDup)=='try-error') {
-      cat(paste('No output for table', names(datList)[j]))
+      dupres <- c(dpID, j, 'removeDups() failed')
+      tableResult <- rbind(tableResult, dupres)
       next
     }
     
-    dateR <- names(datListDup)[grep('Date', names(datListDup))][1]
+    dateR <- names(datListDup)[grep('Date', names(datListDup), ignore.case=T)][1]
     dateS <- try(strptime(datListDup[,dateR], format='%Y-%m-%dT%H:%M', tz='GMT'), silent=T)
     
     if(class(dateS)[1]=='try-error') {
-      cat(paste('Date field not found for table', names(datList)[j]))
+      datres <- c(dpID, j, 'Date field not found')
+      tableResult <- rbind(tableResult, datres)
       next
     }
     
@@ -61,11 +80,17 @@ for(i in c(17:18)) {
     ct <- aggregate(datListDup$uid,
                     by=list(dateY, dateM),
                     FUN=length)
-    dupByDate <- cbind(rep(names(datList)[j], nrow(dupByDate)), 
+    dupByDate <- cbind(rep(j, nrow(dupByDate)), 
                        ct$x, dupByDate)
+
     names(dupByDate) <- names(dupRate)
     dupRate <- rbind(dupRate, dupByDate)
     
+    ctall <- nrow(datListDup)
+    dupall <- length(which(datListDup$duplicateRecordQF!=0))
+    endres <- c(dpID, j, paste(ctall, 'records and ', dupall, 'duplicates'))
+    tableResult <- rbind(tableResult, endres)
+
   }
   
   remove(datList)
@@ -73,9 +98,15 @@ for(i in c(17:18)) {
 
 }
 
+write.table(tableResult, 
+            '/Users/clunch/GitHub/sandbox/data_availability/duplicate_rate/tableResults.csv',
+            sep=',', row.names=F)
+
+write.table(dupRate, 
+            '/Users/clunch/GitHub/sandbox/data_availability/duplicate_rate/duplicateRate.csv',
+            sep=',', row.names=F)
+
 dupRate <- dupRate[-1,]
-dupRate <- data.frame(dupRate)
-names(dupRate) <- c('table', 'records', 'year', 'month', 'resolved', 'unresolved')
 
 datMerg <- ymd(paste(dupRate$year, dupRate$month, '01', sep='-'))
 dupCt <- dupRate$resolved + dupRate$unresolved/2

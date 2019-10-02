@@ -1,0 +1,1723 @@
+Downloading 6 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table agw_groundwaterFieldData
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 1 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked agw_groundwaterFieldData which has 153 out of the expected 153 rows (100%).
+Stacking took 0.3303831 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!Downloading 128 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table alg_algaeExternalLabDataPerSample
+  |============================================================================================| 100%
+Stacking table alg_domainLabChemistry
+  |============================================================================================| 100%
+Stacking table alg_fieldData
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 3 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked alg_algaeExternalLabDataPerSample which has 9433 out of the expected 9433 rows (100%).
+Stacked alg_domainLabChemistry which has 4313 out of the expected 4313 rows (100%).
+Stacked alg_fieldData which has 1090 out of the expected 1090 rows (100%).
+Stacking took 2.019249 secs
+All unzipped monthly data folders have been removed.
+Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+20 duplicated key values found, representing 48 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+0 resolveable duplicates merged into matching records
+0 resolved records flagged with duplicateRecordQF=1
+48 unresolveable duplicates flagged with duplicateRecordQF=2Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+1 duplicated key values found, representing 2 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+1 resolveable duplicates merged into matching records
+1 resolved records flagged with duplicateRecordQF=1
+0 unresolveable duplicates flagged with duplicateRecordQF=2Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+2 duplicated key values found, representing 8 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+4 resolveable duplicates merged into matching records
+1 resolved records flagged with duplicateRecordQF=1
+3 unresolveable duplicates flagged with duplicateRecordQF=2Downloading 134 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table alg_biomass
+  |============================================================================================| 100%
+Stacking table alg_fieldData
+  |============================================================================================| 100%
+Stacking table alg_taxonomyProcessed
+  |============================================================================================| 100%
+Stacking table alg_taxonomyRaw
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 4 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked alg_biomass which has 2099 out of the expected 2099 rows (100%).
+Stacked alg_fieldData which has 1100 out of the expected 1100 rows (100%).
+Stacked alg_taxonomyProcessed which has 116258 out of the expected 116258 rows (100%).
+Stacked alg_taxonomyRaw which has 116258 out of the expected 116258 rows (100%).
+Stacking took 8.227195 secs
+All unzipped monthly data folders have been removed.
+Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+2 duplicated key values found, representing 8 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+4 resolveable duplicates merged into matching records
+1 resolved records flagged with duplicateRecordQF=1
+3 unresolveable duplicates flagged with duplicateRecordQF=2Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+16788 duplicated key values found, representing 34072 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+16716 resolveable duplicates merged into matching records
+16220 resolved records flagged with duplicateRecordQF=1
+1136 unresolveable duplicates flagged with duplicateRecordQF=2Downloading 389 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table amc_cellCounts
+  |============================================================================================| 100%
+Stacking table amc_fieldCellCounts
+  |============================================================================================| 100%
+Stacking table amc_fieldSuperParent
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 3 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked amc_cellCounts which has 482 out of the expected 482 rows (100%).
+Stacked amc_fieldCellCounts which has 493 out of the expected 493 rows (100%).
+Stacked amc_fieldSuperParent which has 518 out of the expected 518 rows (100%).
+Stacking took 4.255455 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+25 duplicated key values found, representing 50 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+25 resolveable duplicates merged into matching records
+25 resolved records flagged with duplicateRecordQF=1
+0 unresolveable duplicates flagged with duplicateRecordQF=2Downloading 89 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table apc_perTaxon
+  |============================================================================================| 100%
+Stacking table apc_pointTransect
+  |============================================================================================| 100%
+Stacking table apc_taxonomyProcessed
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 3 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked apc_perTaxon which has 2240 out of the expected 2240 rows (100%).
+Stacked apc_pointTransect which has 17267 out of the expected 17267 rows (100%).
+Stacked apc_taxonomyProcessed which has 283 out of the expected 283 rows (100%).
+Stacking took 1.157661 secs
+All unzipped monthly data folders have been removed.
+Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+12 duplicated key values found, representing 24 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+12 resolveable duplicates merged into matching records
+12 resolved records flagged with duplicateRecordQF=1
+0 unresolveable duplicates flagged with duplicateRecordQF=2No duplicated key values found!No duplicated key values found!Downloading 29 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table apl_biomass
+  |============================================================================================| 100%
+Stacking table apl_clipHarvest
+  |============================================================================================| 100%
+Stacking table apl_plantExternalLabDataPerSample
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 3 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked apl_biomass which has 266 out of the expected 266 rows (100%).
+Stacked apl_clipHarvest which has 307 out of the expected 307 rows (100%).
+Stacked apl_plantExternalLabDataPerSample which has 640 out of the expected 640 rows (100%).
+Stacking took 0.3793418 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!No duplicated key values found!No duplicated key values found!Downloading 102 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table apl_biomass
+  |============================================================================================| 100%
+Stacking table apl_clipHarvest
+  |============================================================================================| 100%
+Stacking table apl_taxonomyProcessed
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 3 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked apl_biomass which has 350 out of the expected 350 rows (100%).
+Stacked apl_clipHarvest which has 1027 out of the expected 1027 rows (100%).
+Stacked apl_taxonomyProcessed which has 151 out of the expected 151 rows (100%).
+Stacking took 0.803386 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!No duplicated key values found!No duplicated key values found!Downloading 63 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table gsi_fieldData
+  |============================================================================================| 100%
+Stacking table gsi_fieldSuperParent
+  |============================================================================================| 100%
+Stacking table gsi_externalLabH2OIsotopes
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 3 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked gsi_fieldData which has 211 out of the expected 211 rows (100%).
+Stacked gsi_fieldSuperParent which has 222 out of the expected 222 rows (100%).
+Stacked gsi_externalLabH2OIsotopes which has 94 out of the expected 94 rows (100%).
+Stacking took 0.6551769 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!No duplicated key values found!No duplicated key values found!Downloading 460 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table asi_fieldData
+  |============================================================================================| 100%
+Stacking table asi_fieldSuperParent
+  |============================================================================================| 100%
+Stacking table asi_POMExternalLabDataPerSample
+  |============================================================================================| 100%
+Stacking table asi_externalLabH2OIsotopes
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 4 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked asi_fieldData which has 1105 out of the expected 1105 rows (100%).
+Stacked asi_fieldSuperParent which has 1081 out of the expected 1081 rows (100%).
+Stacked asi_POMExternalLabDataPerSample which has 4268 out of the expected 4268 rows (100%).
+Stacked asi_externalLabH2OIsotopes which has 428 out of the expected 428 rows (100%).
+Stacking took 5.981281 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!No duplicated key values found!No duplicated key values found!4 duplicated key values found, representing 8 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+0 resolveable duplicates merged into matching records
+0 resolved records flagged with duplicateRecordQF=1
+8 unresolveable duplicates flagged with duplicateRecordQF=2Downloading 4 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table bat_fieldData
+  |============================================================================================| 100%
+Stacking table bat_resultsFile
+  |============================================================================================| 100%
+Stacking table bat_sonarRecord
+  |============================================================================================| 100%
+Stacking table bat_pointcollection
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 4 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked bat_fieldData which has 3 out of the expected 3 rows (100%).
+Stacked bat_resultsFile which has 3 out of the expected 3 rows (100%).
+Stacked bat_sonarRecord which has 12 out of the expected 12 rows (100%).
+Stacked bat_pointcollection which has 20 out of the expected 20 rows (100%).
+Stacking took 0.05614519 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!2 duplicated key values found, representing 20 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+0 resolveable duplicates merged into matching records
+0 resolved records flagged with duplicateRecordQF=1
+20 unresolveable duplicates flagged with duplicateRecordQF=2No duplicated key values found!No duplicated key values found!Downloading 26 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table bbc_chemistryPooling
+  |============================================================================================| 100%
+Stacking table bbc_dilution
+  |============================================================================================| 100%
+Stacking table bbc_percore
+  |============================================================================================| 100%
+Stacking table bbc_rootmass
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 4 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked bbc_chemistryPooling which has 1989 out of the expected 1989 rows (100%).
+Stacked bbc_dilution which has 2950 out of the expected 2950 rows (100%).
+Stacked bbc_percore which has 1026 out of the expected 1026 rows (100%).
+Stacked bbc_rootmass which has 8782 out of the expected 8782 rows (100%).
+Stacking took 0.5550611 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!No duplicated key values found!No duplicated key values found!1 duplicated key values found, representing 2 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+0 resolveable duplicates merged into matching records
+0 resolved records flagged with duplicateRecordQF=1
+2 unresolveable duplicates flagged with duplicateRecordQF=2Downloading 187 files
+  |============================================================================================| 100%
+No files found for site OD/2 and month 17-12
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table bet_BOLDcollectionData
+  |============================================================================================| 100%
+Stacking table bet_BOLDspecimenDetails
+  |============================================================================================| 100%
+Stacking table bet_BOLDtaxonomy
+  |============================================================================================| 100%
+Stacking table bet_BOLDvoucherInfo
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 4 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked bet_BOLDcollectionData which has 3365 out of the expected 3365 rows (100%).
+Stacked bet_BOLDspecimenDetails which has 3365 out of the expected 3365 rows (100%).
+Stacked bet_BOLDtaxonomy which has 3365 out of the expected 3365 rows (100%).
+Stacked bet_BOLDvoucherInfo which has 3365 out of the expected 3365 rows (100%).
+Stacking took 2.364564 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!Error in aggregate.data.frame(as.data.frame(x), ...) :
+  no rows to aggregate
+Downloading 386 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table bet_archivepooling
+  |============================================================================================| 100%
+Stacking table bet_expertTaxonomistIDProcessed
+  |============================================================================================| 100%
+Stacking table bet_fielddata
+  |============================================================================================| 100%
+Stacking table bet_parataxonomistID
+  |============================================================================================| 100%
+Stacking table bet_sorting
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 5 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked bet_archivepooling which has 9025 out of the expected 9025 rows (100%).
+Stacked bet_expertTaxonomistIDProcessed which has 9817 out of the expected 9817 rows (100%).
+Stacked bet_fielddata which has 26365 out of the expected 26365 rows (100%).
+Stacked bet_parataxonomistID which has 23952 out of the expected 23952 rows (100%).
+Stacked bet_sorting which has 48033 out of the expected 48033 rows (100%).
+Stacking took 14.43073 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!27 duplicated key values found, representing 54 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+19 resolveable duplicates merged into matching records
+19 resolved records flagged with duplicateRecordQF=1
+16 unresolveable duplicates flagged with duplicateRecordQF=2No duplicated key values found!No duplicated key values found!No duplicated key values found!Downloading 110 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table brd_countdata
+  |============================================================================================| 100%
+Stacking table brd_perpoint
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 2 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked brd_countdata which has 87856 out of the expected 87856 rows (100%).
+Stacked brd_perpoint which has 6249 out of the expected 6249 rows (100%).
+Stacking took 3.129376 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!Downloading 18 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table cdw_densitydisk
+  |============================================================================================| 100%
+Stacking table cdw_densitylog
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 2 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked cdw_densitydisk which has 1039 out of the expected 1039 rows (100%).
+Stacked cdw_densitylog which has 471 out of the expected 471 rows (100%).
+Stacking took 0.220263 secs
+All unzipped monthly data folders have been removed.
+171 duplicated key values found, representing 344 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+2 resolveable duplicates merged into matching records
+0 resolved records flagged with duplicateRecordQF=1
+342 unresolveable duplicates flagged with duplicateRecordQF=2Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+2 duplicated key values found, representing 4 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+0 resolveable duplicates merged into matching records
+0 resolved records flagged with duplicateRecordQF=1
+4 unresolveable duplicates flagged with duplicateRecordQF=2Downloading 30 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table cdw_fieldtally
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 1 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked cdw_fieldtally which has 2358 out of the expected 2358 rows (100%).
+Stacking took 0.2742689 secs
+All unzipped monthly data folders have been removed.
+Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+27 duplicated key values found, representing 65 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+4 resolveable duplicates merged into matching records
+4 resolved records flagged with duplicateRecordQF=1
+57 unresolveable duplicates flagged with duplicateRecordQF=2Downloading 144 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table dep_profileData
+  |============================================================================================| 100%
+Stacking table dep_profileHeader
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 2 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked dep_profileData which has 2615 out of the expected 2615 rows (100%).
+Stacked dep_profileHeader which has 273 out of the expected 273 rows (100%).
+Stacking took 0.9339089 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!No duplicated key values found!Downloading 144 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table dep_secchi
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 1 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked dep_secchi which has 273 out of the expected 273 rows (100%).
+Stacking took 0.5942419 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!Downloading 480 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table dhp_perimagefile
+  |============================================================================================| 100%
+Stacking table dhp_perplot
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 2 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked dhp_perimagefile which has 64515 out of the expected 64515 rows (100%).
+Stacked dhp_perplot which has 3371 out of the expected 3371 rows (100%).
+Stacking took 7.871239 secs
+All unzipped monthly data folders have been removed.
+Downloading 185 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table div_10m2Data100m2Data
+  |============================================================================================| 100%
+Stacking table div_1m2Data
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 2 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked div_10m2Data100m2Data which has 171638 out of the expected 171638 rows (100%).
+Stacked div_1m2Data which has 279780 out of the expected 279780 rows (100%).
+Stacking took 35.45494 secs
+All unzipped monthly data folders have been removed.
+Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+20526 duplicated key values found, representing 41321 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+864 resolveable duplicates merged into matching records
+11114 resolved records flagged with duplicateRecordQF=1
+29343 unresolveable duplicates flagged with duplicateRecordQF=2Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+80667 duplicated key values found, representing 162620 non-unique records. Attempting to resolve.
+  |======                                                                                      |   6%
+>Downloading 17 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table dpm_field
+  |============================================================================================| 100%
+Stacking table dpm_lab
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 2 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked dpm_field which has 29 out of the expected 29 rows (100%).
+Stacked dpm_lab which has 31 out of the expected 31 rows (100%).
+Stacking took 0.180701 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!3 duplicated key values found, representing 7 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+2 resolveable duplicates merged into matching records
+1 resolved records flagged with duplicateRecordQF=1
+4 unresolveable duplicates flagged with duplicateRecordQF=2Downloading 302 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table dsc_fieldData
+  |============================================================================================| 100%
+Stacking table dsc_individualFieldData
+  |============================================================================================| 100%
+Stacking table dsc_fieldDataADCP
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 3 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked dsc_fieldData which has 683 out of the expected 683 rows (100%).
+Stacked dsc_individualFieldData which has 17355 out of the expected 17355 rows (100%).
+Stacked dsc_fieldDataADCP which has 2 out of the expected 2 rows (100%).
+Stacking took 3.574401 secs
+All unzipped monthly data folders have been removed.
+12 duplicated key values found, representing 25 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+0 resolveable duplicates merged into matching records
+0 resolved records flagged with duplicateRecordQF=1
+25 unresolveable duplicates flagged with duplicateRecordQF=2No duplicated key values found!283 duplicated key values found, representing 588 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+0 resolveable duplicates merged into matching records
+0 resolved records flagged with duplicateRecordQF=1
+588 unresolveable duplicates flagged with duplicateRecordQF=2Downloading 17 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table fsh_BOLDcollectionData
+  |============================================================================================| 100%
+Stacking table fsh_BOLDspecimenDetails
+  |============================================================================================| 100%
+Stacking table fsh_BOLDtaxonomy
+  |============================================================================================| 100%
+Stacking table fsh_BOLDvoucherInfo
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 4 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked fsh_BOLDcollectionData which has 284 out of the expected 284 rows (100%).
+Stacked fsh_BOLDspecimenDetails which has 284 out of the expected 284 rows (100%).
+Stacked fsh_BOLDtaxonomy which has 284 out of the expected 284 rows (100%).
+Stacked fsh_BOLDvoucherInfo which has 284 out of the expected 284 rows (100%).
+Stacking took 0.250988 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!Error in aggregate.data.frame(as.data.frame(x), ...) :
+  no rows to aggregate
+> for(i in c(24:length(deflist))) {
++
++   vars <- read.delim(paste(wd, deflist[i], sep='/'), sep='\t')
++   dpID <- substring(unique(vars$dpID), 15, 28)
++   if(length(dpID)!=1) {
++     cat(paste('Could not find dpID for row ', i, sep=''))
++     next
++   }
++
++   datList <- try(loadByProduct(dpID, check.size=F, startdate='2017-05', enddate='2018-08'))
++
++   if(class(datList)=='try-error') {
++     dres <- c(dpID, '', 'No data found for 2017-05 to 2018-08')
++     tableResult <- rbind(tableResult, dres)
++     next
++   }
++
++   for(j in names(datList)) {
++
++     if(j %in% c('variables','validation','rea_conductivityFieldData')) {
++       next
++     }
++
++     datListDup <- try(removeDups(datList[[j]], vars,
++                              paste(j, '_pub', sep='')), silent=T)
++
++     if(class(datListDup)=='try-error') {
++       dupres <- c(dpID, j, 'removeDups() failed')
++       tableResult <- rbind(tableResult, dupres)
++       next
++     }
++
++     dateR <- names(datListDup)[grep('Date', names(datListDup), ignore.case=T)][1]
++     dateS <- try(strptime(datListDup[,dateR], format='%Y-%m-%dT%H:%M', tz='GMT'), silent=T)
++
++     if(class(dateS)[1]=='try-error') {
++       datres <- c(dpID, j, 'Date field not found')
++       tableResult <- rbind(tableResult, datres)
++       next
++     }
++
++     if(all(is.na(dateS))) {
++       dateS <- try(strptime(datListDup[,dateR], format='%Y-%m-%dT%H', tz='GMT'), silent=T)
++     }
++
++     if(all(is.na(dateS))) {
++       dateS <- try(strptime(datListDup[,dateR], format='%Y-%m-%d', tz='GMT'), silent=T)
++     }
++
++     dateM <- month(dateS)
++     dateY <- year(dateS)
++
++     dups1 <- datListDup$duplicateRecordQF
++     dups2 <- datListDup$duplicateRecordQF
++     dups1[which(dups1==2)] <- 0
++     dups2[which(dups2==1)] <- 0
++
++     dupByDate <- aggregate(cbind(dups1, dups2),
++                            by=list(dateY, dateM),
++                            FUN=sum, na.rm=T)
++     ct <- aggregate(datListDup$uid,
++                     by=list(dateY, dateM),
++                     FUN=length)
++     dupByDate <- cbind(rep(j, nrow(dupByDate)),
++                        ct$x, dupByDate)
++
++     names(dupByDate) <- names(dupRate)
++     dupRate <- rbind(dupRate, dupByDate)
++
++     ctall <- nrow(datListDup)
++     dupall <- length(which(datListDup$duplicateRecordQF!=0))
++     endres <- c(dpID, j, paste(ctall, 'records and ', dupall, 'duplicates'))
++     tableResult <- rbind(tableResult, endres)
++
++   }
++
++   remove(datList)
++   remove(vars)
++
++ }
+Downloading 71 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table fsh_bulkCount
+  |============================================================================================| 100%
+Stacking table fsh_fieldData
+  |============================================================================================| 100%
+Stacking table fsh_perFish
+  |============================================================================================| 100%
+Stacking table fsh_perPass
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 4 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked fsh_bulkCount which has 311 out of the expected 311 rows (100%).
+Stacked fsh_fieldData which has 334 out of the expected 334 rows (100%).
+Stacked fsh_perFish which has 20649 out of the expected 20649 rows (100%).
+Stacked fsh_perPass which has 783 out of the expected 783 rows (100%).
+Stacking took 1.271881 secs
+All unzipped monthly data folders have been removed.
+19 duplicated key values found, representing 46 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+13 resolveable duplicates merged into matching records
+6 resolved records flagged with duplicateRecordQF=1
+27 unresolveable duplicates flagged with duplicateRecordQF=249 duplicated key values found, representing 99 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+17 resolveable duplicates merged into matching records
+17 resolved records flagged with duplicateRecordQF=1
+65 unresolveable duplicates flagged with duplicateRecordQF=2Downloading 503 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table gag_fieldData
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 1 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked gag_fieldData which has 1977 out of the expected 1977 rows (100%).
+Stacking took 2.627671 secs
+All unzipped monthly data folders have been removed.
+3 duplicated key values found, representing 6 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+2 resolveable duplicates merged into matching records
+2 resolved records flagged with duplicateRecordQF=1
+2 unresolveable duplicates flagged with duplicateRecordQF=2Downloading 18 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table geo_featureInfo
+  |============================================================================================| 100%
+Stacking table geo_pebbleCount
+  |============================================================================================| 100%
+Stacking table geo_resultsFile
+  |============================================================================================| 100%
+Stacking table geo_surveyFieldData
+  |============================================================================================| 100%
+Stacking table geo_totalStation
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 5 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked geo_featureInfo which has 223 out of the expected 223 rows (100%).
+Stacked geo_pebbleCount which has 3029 out of the expected 3029 rows (100%).
+Stacked geo_resultsFile which has 15 out of the expected 15 rows (100%).
+Stacked geo_surveyFieldData which has 18 out of the expected 18 rows (100%).
+Stacked geo_totalStation which has 425 out of the expected 425 rows (100%).
+Stacking took 0.319293 secs
+All unzipped monthly data folders have been removed.
+2 duplicated key values found, representing 5 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+0 resolveable duplicates merged into matching records
+0 resolved records flagged with duplicateRecordQF=1
+5 unresolveable duplicates flagged with duplicateRecordQF=2No duplicated key values found!No duplicated key values found!Downloading 64 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table gwc_externalLabData
+  |============================================================================================| 100%
+Stacking table gwc_fieldData
+  |============================================================================================| 100%
+Stacking table gwc_fieldSuperParent
+  |============================================================================================| 100%
+Stacking table gwc_domainLabData
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 4 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked gwc_externalLabData which has 210 out of the expected 210 rows (100%).
+Stacked gwc_fieldData which has 214 out of the expected 214 rows (100%).
+Stacked gwc_fieldSuperParent which has 233 out of the expected 233 rows (100%).
+Stacked gwc_domainLabData which has 179 out of the expected 179 rows (100%).
+Stacking took 0.986886 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!No duplicated key values found!No duplicated key values found!Downloading 162 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table hbp_massdata
+  |============================================================================================| 100%
+Stacking table hbp_perbout
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 2 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked hbp_massdata which has 23917 out of the expected 23917 rows (100%).
+Stacked hbp_perbout which has 5942 out of the expected 5942 rows (100%).
+Stacking took 2.30017 secs
+All unzipped monthly data folders have been removed.
+Downloading 133 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table inv_fieldData
+  |============================================================================================| 100%
+Stacking table inv_dnaExtraction
+  |============================================================================================| 100%
+Stacking table inv_markerGeneSequencing
+  |============================================================================================| 100%
+Stacking table inv_pcrAmplification
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 4 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked inv_fieldData which has 1086 out of the expected 1086 rows (100%).
+Stacked inv_dnaExtraction which has 95 out of the expected 95 rows (100%).
+Stacked inv_markerGeneSequencing which has 48 out of the expected 48 rows (100%).
+Stacked inv_pcrAmplification which has 48 out of the expected 48 rows (100%).
+Stacking took 0.8429 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+58 duplicated key values found, representing 122 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+63 resolveable duplicates merged into matching records
+57 resolved records flagged with duplicateRecordQF=1
+2 unresolveable duplicates flagged with duplicateRecordQF=2Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+12 duplicated key values found, representing 48 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+0 resolveable duplicates merged into matching records
+0 resolved records flagged with duplicateRecordQF=1
+48 unresolveable duplicates flagged with duplicateRecordQF=2Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+12 duplicated key values found, representing 48 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+0 resolveable duplicates merged into matching records
+0 resolved records flagged with duplicateRecordQF=1
+48 unresolveable duplicates flagged with duplicateRecordQF=2Downloading 133 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table inv_fieldData
+  |============================================================================================| 100%
+Stacking table inv_persample
+  |============================================================================================| 100%
+Stacking table inv_taxonomyProcessed
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 3 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked inv_fieldData which has 1030 out of the expected 1030 rows (100%).
+Stacked inv_persample which has 991 out of the expected 991 rows (100%).
+Stacked inv_taxonomyProcessed which has 57639 out of the expected 57639 rows (100%).
+Stacking took 4.848912 secs
+All unzipped monthly data folders have been removed.
+Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+2 duplicated key values found, representing 10 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+7 resolveable duplicates merged into matching records
+1 resolved records flagged with duplicateRecordQF=1
+2 unresolveable duplicates flagged with duplicateRecordQF=2Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+483 duplicated key values found, representing 1105 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+219 resolveable duplicates merged into matching records
+147 resolved records flagged with duplicateRecordQF=1
+739 unresolveable duplicates flagged with duplicateRecordQF=2Downloading 203 files
+  |============================================================================================| 100%
+No files found for site RN/2 and month 17-07
+No files found for site RN/2 and month 17-08
+No files found for site RN/2 and month 18-07
+No files found for site RN/2 and month 18-08
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table mam_BOLDcollectionData
+  |============================================================================================| 100%
+Stacking table mam_BOLDspecimenDetails
+  |============================================================================================| 100%
+Stacking table mam_BOLDtaxonomy
+  |============================================================================================| 100%
+Stacking table mam_BOLDvoucherInfo
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 4 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked mam_BOLDcollectionData which has 2536 out of the expected 2536 rows (100%).
+Stacked mam_BOLDspecimenDetails which has 2536 out of the expected 2536 rows (100%).
+Stacked mam_BOLDtaxonomy which has 2536 out of the expected 2536 rows (100%).
+Stacked mam_BOLDvoucherInfo which has 2536 out of the expected 2536 rows (100%).
+Stacking took 2.368249 secs
+All unzipped monthly data folders have been removed.
+1 duplicated key values found, representing 2 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%1 duplicated key values found, representing 2 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%1 duplicated key values found, representing 2 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%1 duplicated key values found, representing 2 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%Downloading 291 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table mam_perplotnight
+  |============================================================================================| 100%
+Stacking table mam_pertrapnight
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 2 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked mam_perplotnight which has 3465 out of the expected 3465 rows (100%).
+Stacked mam_pertrapnight which has 346369 out of the expected 346369 rows (100%).
+Stacking took 1.134303 mins
+All unzipped monthly data folders have been removed.
+8 duplicated key values found, representing 16 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+4 resolveable duplicates merged into matching records
+4 resolved records flagged with duplicateRecordQF=1
+8 unresolveable duplicates flagged with duplicateRecordQF=2Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+1649 duplicated key values found, representing 3300 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+192 resolveable duplicates merged into matching records
+191 resolved records flagged with duplicateRecordQF=1
+2917 unresolveable duplicates flagged with duplicateRecordQF=2Downloading 59 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table mcc_benthicTaxonTableMetadata_16S
+  |============================================================================================| 100%
+Stacking table mcc_benthicTaxonTableMetadata_ITS
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 2 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked mcc_benthicTaxonTableMetadata_16S which has 323 out of the expected 323 rows (100%).
+Stacked mcc_benthicTaxonTableMetadata_ITS which has 359 out of the expected 359 rows (100%).
+Stacking took 0.475188 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!No duplicated key values found!Downloading 88 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table mcc_soilTaxonTableMetadata_16S
+  |============================================================================================| 100%
+Stacking table mcc_soilTaxonTableMetadata_ITS
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 2 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked mcc_soilTaxonTableMetadata_16S which has 2280 out of the expected 2280 rows (100%).
+Stacked mcc_soilTaxonTableMetadata_ITS which has 2057 out of the expected 2057 rows (100%).
+Stacking took 0.632267 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!No duplicated key values found!Downloading 181 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table mcc_swTaxonTableMetadata_16S
+  |============================================================================================| 100%
+Stacking table mcc_swTaxonTableMetadata_ITS
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 2 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked mcc_swTaxonTableMetadata_16S which has 234 out of the expected 234 rows (100%).
+Stacked mcc_swTaxonTableMetadata_ITS which has 213 out of the expected 213 rows (100%).
+Stacking took 1.017794 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!No duplicated key values found!Downloading 86 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table mga_benthicGroupAbundances
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 1 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked mga_benthicGroupAbundances which has 1214 out of the expected 1214 rows (100%).
+Stacking took 0.452595 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!Downloading 101 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table mga_soilGroupAbundances
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 1 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked mga_soilGroupAbundances which has 5645 out of the expected 5645 rows (100%).
+Stacking took 0.571353 secs
+All unzipped monthly data folders have been removed.
+Downloading 364 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table mga_swGroupAbundances
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 1 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked mga_swGroupAbundances which has 866 out of the expected 866 rows (100%).
+Stacking took 1.502272 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!Downloading 3 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table mgc_perarchivesample
+  |============================================================================================| 100%
+Stacking table mgc_perbiogeosample
+  |============================================================================================| 100%
+Stacking table mgc_perhorizon
+  |============================================================================================| 100%
+Stacking table mgc_permegapit
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 4 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked mgc_perarchivesample which has 26 out of the expected 26 rows (100%).
+Stacked mgc_perbiogeosample which has 26 out of the expected 26 rows (100%).
+Stacked mgc_perhorizon which has 22 out of the expected 22 rows (100%).
+Stacked mgc_permegapit which has 3 out of the expected 3 rows (100%).
+Stacking took 0.05698705 secs
+All unzipped monthly data folders have been removed.
+1 duplicated key values found, representing 5 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+4 resolveable duplicates merged into matching records
+1 resolved records flagged with duplicateRecordQF=1
+0 unresolveable duplicates flagged with duplicateRecordQF=21 duplicated key values found, representing 5 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+0 resolveable duplicates merged into matching records
+0 resolved records flagged with duplicateRecordQF=1
+5 unresolveable duplicates flagged with duplicateRecordQF=2No duplicated key values found!No duplicated key values found!Downloading 3 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table mgp_perarchivesample
+  |============================================================================================| 100%
+Stacking table mgp_perbiogeosample
+  |============================================================================================| 100%
+Stacking table mgp_perbulksample
+  |============================================================================================| 100%
+Stacking table mgp_perhorizon
+  |============================================================================================| 100%
+Stacking table mgp_permegapit
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 5 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked mgp_perarchivesample which has 26 out of the expected 26 rows (100%).
+Stacked mgp_perbiogeosample which has 26 out of the expected 26 rows (100%).
+Stacked mgp_perbulksample which has 26 out of the expected 26 rows (100%).
+Stacked mgp_perhorizon which has 22 out of the expected 22 rows (100%).
+Stacked mgp_permegapit which has 3 out of the expected 3 rows (100%).
+Stacking took 0.05956292 secs
+All unzipped monthly data folders have been removed.
+3 duplicated key values found, representing 26 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+4 resolveable duplicates merged into matching records
+0 resolved records flagged with duplicateRecordQF=1
+22 unresolveable duplicates flagged with duplicateRecordQF=2No duplicated key values found!1 duplicated key values found, representing 5 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+4 resolveable duplicates merged into matching records
+1 resolved records flagged with duplicateRecordQF=1
+0 unresolveable duplicates flagged with duplicateRecordQF=2No duplicated key values found!No duplicated key values found!Downloading 86 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table amb_fieldParent
+  |============================================================================================| 100%
+Stacking table mms_benthicMetagenomeDnaExtraction
+  |============================================================================================| 100%
+Stacking table mms_benthicMetagenomeSequencing
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 3 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked amb_fieldParent which has 669 out of the expected 669 rows (100%).
+Stacked mms_benthicMetagenomeDnaExtraction which has 645 out of the expected 645 rows (100%).
+Stacked mms_benthicMetagenomeSequencing which has 300 out of the expected 300 rows (100%).
+Stacking took 0.8175218 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!No duplicated key values found!No duplicated key values found!Downloading 59 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table mms_metagenomeDnaExtraction
+  |============================================================================================| 100%
+Stacking table mms_metagenomeSequencing
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 2 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked mms_metagenomeDnaExtraction which has 2274 out of the expected 2274 rows (100%).
+Stacked mms_metagenomeSequencing which has 587 out of the expected 587 rows (100%).
+Stacking took 0.4639308 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!No duplicated key values found!Downloading 58 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table amc_fieldGenetic
+  |============================================================================================| 100%
+Stacking table amc_fieldSuperParent
+  |============================================================================================| 100%
+Stacking table mms_swMetagenomeDnaExtraction
+  |============================================================================================| 100%
+Stacking table mms_swMetagenomeSequencing
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 4 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked amc_fieldGenetic which has 81 out of the expected 81 rows (100%).
+Stacked amc_fieldSuperParent which has 166 out of the expected 166 rows (100%).
+Stacked mms_swMetagenomeDnaExtraction which has 80 out of the expected 80 rows (100%).
+Stacked mms_swMetagenomeSequencing which has 73 out of the expected 73 rows (100%).
+Stacking took 0.8000238 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+81 duplicated key values found, representing 166 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+82 resolveable duplicates merged into matching records
+78 resolved records flagged with duplicateRecordQF=1
+6 unresolveable duplicates flagged with duplicateRecordQF=2No duplicated key values found!No duplicated key values found!Downloading 324 files
+  |============================================================================================| 100%
+No files found for site NL/2 and month 17-12
+No files found for site ER/2 and month 17-09
+No files found for site ER/2 and month 17-10
+No files found for site ER/2 and month 17-12
+No files found for site AL/2 and month 17-09
+No files found for site AL/2 and month 17-10
+No files found for site AL/2 and month 17-12
+No files found for site LL/2 and month 17-12
+No files found for site JA/2 and month 17-09
+No files found for site FS/2 and month 17-06
+No files found for site FS/2 and month 17-11
+No files found for site FS/2 and month 17-12
+No files found for site NZ/2 and month 17-09
+No files found for site NZ/2 and month 17-12
+No files found for site ER/2 and month 17-05
+No files found for site RN/2 and month 17-05
+No files found for site ES/2 and month 17-06
+No files found for site ES/2 and month 17-07
+No files found for site BY/2 and month 17-05
+No files found for site EE/2 and month 18-01
+No files found for site AN/2 and month 17-06
+No files found for site AN/2 and month 17-11
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table mos_BOLDcollectionData
+  |============================================================================================| 100%
+Stacking table mos_BOLDspecimenDetails
+  |============================================================================================| 100%
+Stacking table mos_BOLDtaxonomy
+  |============================================================================================| 100%
+Stacking table mos_BOLDvoucherInfo
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 4 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked mos_BOLDcollectionData which has 2932 out of the expected 2932 rows (100%).
+Stacked mos_BOLDspecimenDetails which has 2932 out of the expected 2932 rows (100%).
+Stacked mos_BOLDtaxonomy which has 2932 out of the expected 2932 rows (100%).
+Stacked mos_BOLDvoucherInfo which has 2932 out of the expected 2932 rows (100%).
+Stacking took 3.618208 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!Error in aggregate.data.frame(as.data.frame(x), ...) :
+  no rows to aggregate
+  Downloading 543 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table mos_archivepooling
+  |============================================================================================| 100%
+Stacking table mos_barcoding
+  |============================================================================================| 100%
+Stacking table mos_expertTaxonomistIDProcessed
+  |============================================================================================| 100%
+Stacking table mos_expertTaxonomistIDRaw
+  |============================================================================================| 100%
+Stacking table mos_sorting
+  |============================================================================================| 100%
+Stacking table mos_trapping
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 6 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked mos_archivepooling which has 2853 out of the expected 2853 rows (100%).
+Stacked mos_barcoding which has 2932 out of the expected 2932 rows (100%).
+Stacked mos_expertTaxonomistIDProcessed which has 42540 out of the expected 42540 rows (100%).
+Stacked mos_expertTaxonomistIDRaw which has 42540 out of the expected 42540 rows (100%).
+Stacked mos_sorting which has 11411 out of the expected 11411 rows (100%).
+Stacked mos_trapping which has 20297 out of the expected 20297 rows (100%).
+Stacking took 17.10554 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!No duplicated key values found!No duplicated key values found!2 duplicated key values found, representing 4 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+0 resolveable duplicates merged into matching records
+0 resolved records flagged with duplicateRecordQF=1
+4 unresolveable duplicates flagged with duplicateRecordQF=2Downloading 167 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table mos_pathogenpooling
+  |============================================================================================| 100%
+Stacking table mos_pathogenresults
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 2 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked mos_pathogenpooling which has 5282 out of the expected 5282 rows (100%).
+Stacked mos_pathogenresults which has 15890 out of the expected 15890 rows (100%).
+Stacking took 2.029002 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!No duplicated key values found!Downloading 2 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table mpr_perdepthincrement
+  |============================================================================================| 100%
+Stacking table mpr_perpitprofile
+  |============================================================================================| 100%
+Stacking table mpr_perrootsample
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 3 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked mpr_perdepthincrement which has 90 out of the expected 90 rows (100%).
+Stacked mpr_perpitprofile which has 24 out of the expected 24 rows (100%).
+Stacked mpr_perrootsample which has 198 out of the expected 198 rows (100%).
+Stacking took 0.03521895 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!No duplicated key values found!No duplicated key values found!Downloading 74 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table nst_perindividual
+  |============================================================================================| 100%
+Stacking table vst_perplotperyear
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 2 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked nst_perindividual which has 24877 out of the expected 24877 rows (100%).
+Stacked vst_perplotperyear which has 678 out of the expected 678 rows (100%).
+Stacking took 1.03383 secs
+All unzipped monthly data folders have been removed.
+Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+44 duplicated key values found, representing 23724 non-unique records. Attempting to resolve.
+  |==
+  Downloading 539 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table phe_perindividual
+  |============================================================================================| 100%
+Stacking table phe_statusintensity
+  |============================================================================================| 100%
+Stacking table phe_perindividualperyear
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 3 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked phe_perindividual which has 15986 out of the expected 15986 rows (100%).
+Stacked phe_statusintensity which has 959495 out of the expected 959495 rows (100%).
+Stacked phe_perindividualperyear which has 3529 out of the expected 3529 rows (100%).
+Stacking took 2.251854 mins
+All unzipped monthly data folders have been removed.
+707 duplicated key values found, representing 1476 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+623 resolveable duplicates merged into matching records
+561 resolved records flagged with duplicateRecordQF=1
+292 unresolveable duplicates flagged with duplicateRecordQF=26 duplicated key values found, representing 12 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+0 resolveable duplicates merged into matching records
+0 resolved records flagged with duplicateRecordQF=1
+12 unresolveable duplicates flagged with duplicateRecordQF=217250 duplicated key values found, representing 35901 non-unique records. Attempting to resolve.
+  |====                                                                                        |   4%
+> Downloading 171 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table rea_backgroundFieldCondData
+  |============================================================================================| 100%
+Stacking table rea_backgroundFieldSaltData
+  |============================================================================================| 100%
+Stacking table rea_conductivityFieldData
+  |============================================================================================| 100%
+Stacking table rea_fieldData
+  |============================================================================================| 100%
+Stacking table rea_plateauMeasurementFieldData
+  |============================================================================================| 100%
+Stacking table rea_plateauSampleFieldData
+  |============================================================================================| 100%
+Stacking table rea_widthFieldData
+  |============================================================================================| 100%
+Stacking table rea_externalLabDataGas
+  |============================================================================================| 100%
+Stacking table rea_externalLabDataSalt
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 9 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked rea_backgroundFieldCondData which has 430 out of the expected 430 rows (100%).
+Stacked rea_backgroundFieldSaltData which has 808 out of the expected 808 rows (100%).
+Stacked rea_conductivityFieldData which has 1492184 out of the expected 1492184 rows (100%).
+Stacked rea_fieldData which has 215 out of the expected 215 rows (100%).
+Stacked rea_plateauMeasurementFieldData which has 806 out of the expected 806 rows (100%).
+Stacked rea_plateauSampleFieldData which has 4010 out of the expected 4010 rows (100%).
+Stacked rea_widthFieldData which has 6391 out of the expected 6391 rows (100%).
+Stacked rea_externalLabDataGas which has 3894 out of the expected 3894 rows (100%).
+Stacked rea_externalLabDataSalt which has 4802 out of the expected 4802 rows (100%).
+Stacking took 47.33615 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!No duplicated key values found!No duplicated key values found!No duplicated key values found!No duplicated key values found!No duplicated key values found!Downloading 171 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table sbd_backgroundFieldCondData
+  |============================================================================================| 100%
+Stacking table sbd_backgroundFieldSaltData
+  |============================================================================================| 100%
+Stacking table sbd_conductivityFieldData
+  |============================================================================================| 100%
+Stacking table sbd_fieldData
+  |============================================================================================| 100%
+Stacking table sbd_plateauMeasurementFieldData
+  |============================================================================================| 100%
+Stacking table sbd_plateauSampleFieldData
+  |============================================================================================| 100%
+Stacking table sbd_externalLabDataSalt
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 7 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked sbd_backgroundFieldCondData which has 834 out of the expected 834 rows (100%).
+Stacked sbd_backgroundFieldSaltData which has 808 out of the expected 808 rows (100%).
+Stacked sbd_conductivityFieldData which has 1489899 out of the expected 1489899 rows (100%).
+Stacked sbd_fieldData which has 215 out of the expected 215 rows (100%).
+Stacked sbd_plateauMeasurementFieldData which has 806 out of the expected 806 rows (100%).
+Stacked sbd_plateauSampleFieldData which has 4010 out of the expected 4010 rows (100%).
+Stacked sbd_externalLabDataSalt which has 4802 out of the expected 4802 rows (100%).
+Stacking took 41.58799 secs
+All unzipped monthly data folders have been removed.
+Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+1 duplicated key values found, representing 404 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%No duplicated key values found!17698 duplicated key values found, representing 43813 non-unique records. Attempting to resolve.
+  |=
+  Downloading 171 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table sbd_backgroundFieldCondData
+  |============================================================================================| 100%
+Stacking table sbd_backgroundFieldSaltData
+  |============================================================================================| 100%
+Stacking table sbd_conductivityFieldData
+  |============================================================================================| 100%
+Stacking table sbd_fieldData
+  |============================================================================================| 100%
+Stacking table sbd_plateauMeasurementFieldData
+  |============================================================================================| 100%
+Stacking table sbd_plateauSampleFieldData
+  |============================================================================================| 100%
+Stacking table sbd_externalLabDataSalt
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 7 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked sbd_backgroundFieldCondData which has 834 out of the expected 834 rows (100%).
+Stacked sbd_backgroundFieldSaltData which has 808 out of the expected 808 rows (100%).
+Stacked sbd_conductivityFieldData which has 1489899 out of the expected 1489899 rows (100%).
+Stacked sbd_fieldData which has 215 out of the expected 215 rows (100%).
+Stacked sbd_plateauMeasurementFieldData which has 806 out of the expected 806 rows (100%).
+Stacked sbd_plateauSampleFieldData which has 4010 out of the expected 4010 rows (100%).
+Stacked sbd_externalLabDataSalt which has 4802 out of the expected 4802 rows (100%).
+Stacking took 39.73306 secs
+All unzipped monthly data folders have been removed.
+Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+1 duplicated key values found, representing 404 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%No duplicated key values found!No duplicated key values found!No duplicated key values found!No duplicated key values found!Downloading 61 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table rip_assessment
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 1 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked rip_assessment which has 1198 out of the expected 1198 rows (100%).
+Stacking took 0.3682098 secs
+All unzipped monthly data folders have been removed.
+Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+1 duplicated key values found, representing 1198 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+0 resolveable duplicates merged into matching records
+0 resolved records flagged with duplicateRecordQF=1
+1198 unresolveable duplicates flagged with duplicateRecordQF=2Downloading 40 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table rip_percentComposition
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 1 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked rip_percentComposition which has 2841 out of the expected 2841 rows (100%).
+Stacking took 0.2052751 secs
+All unzipped monthly data folders have been removed.
+Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+1 duplicated key values found, representing 2841 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+> Downloading 121 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table rpt_bloodtesting
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 1 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked rpt_bloodtesting which has 2446 out of the expected 2446 rows (100%).
+Stacking took 0.5117218 secs
+All unzipped monthly data folders have been removed.
+Downloading 459 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table sdg_externalLabData
+  |============================================================================================| 100%
+Stacking table sdg_fieldData
+  |============================================================================================| 100%
+Stacking table sdg_fieldDataAir
+  |============================================================================================| 100%
+Stacking table sdg_fieldDataProc
+  |============================================================================================| 100%
+Stacking table sdg_fieldSuperParent
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 5 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked sdg_externalLabData which has 1957 out of the expected 1957 rows (100%).
+Stacked sdg_fieldData which has 1071 out of the expected 1071 rows (100%).
+Stacked sdg_fieldDataAir which has 947 out of the expected 947 rows (100%).
+Stacked sdg_fieldDataProc which has 1071 out of the expected 1071 rows (100%).
+Stacked sdg_fieldSuperParent which has 1078 out of the expected 1078 rows (100%).
+Stacking took 6.718547 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!No duplicated key values found!No duplicated key values found!No duplicated key values found!Downloading 100 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table asc_externalLabData
+  |============================================================================================| 100%
+Stacking table asc_fieldDataPoint
+  |============================================================================================| 100%
+Stacking table asc_fieldDataStation
+  |============================================================================================| 100%
+Stacking table asc_fieldDataZone
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 4 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked asc_externalLabData which has 9750 out of the expected 9750 rows (100%).
+Stacked asc_fieldDataPoint which has 2126 out of the expected 2126 rows (100%).
+Stacked asc_fieldDataStation which has 199 out of the expected 199 rows (100%).
+Stacked asc_fieldDataZone which has 732 out of the expected 732 rows (100%).
+Stacking took 1.431687 secs
+All unzipped monthly data folders have been removed.
+Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+177 duplicated key values found, representing 2486 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+128 resolveable duplicates merged into matching records
+128 resolved records flagged with duplicateRecordQF=1
+2230 unresolveable duplicates flagged with duplicateRecordQF=2No duplicated key values found!2 duplicated key values found, representing 4 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+0 resolveable duplicates merged into matching records
+0 resolved records flagged with duplicateRecordQF=1
+4 unresolveable duplicates flagged with duplicateRecordQF=2No duplicated key values found!Downloading 100 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table asc_fieldDataPoint
+  |============================================================================================| 100%
+Stacking table asc_fieldDataStation
+  |============================================================================================| 100%
+Stacking table asc_fieldDataZone
+  |============================================================================================| 100%
+Stacking table asp_externalLabData
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 4 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked asc_fieldDataPoint which has 2126 out of the expected 2126 rows (100%).
+Stacked asc_fieldDataStation which has 199 out of the expected 199 rows (100%).
+Stacked asc_fieldDataZone which has 732 out of the expected 732 rows (100%).
+Stacked asp_externalLabData which has 821 out of the expected 821 rows (100%).
+Stacking took 1.180978 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!2 duplicated key values found, representing 4 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+0 resolveable duplicates merged into matching records
+0 resolved records flagged with duplicateRecordQF=1
+4 unresolveable duplicates flagged with duplicateRecordQF=2No duplicated key values found!Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+10 duplicated key values found, representing 73 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+9 resolveable duplicates merged into matching records
+9 resolved records flagged with duplicateRecordQF=1
+55 unresolveable duplicates flagged with duplicateRecordQF=2Downloading 118 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table sim_eventData
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 1 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked sim_eventData which has 208 out of the expected 208 rows (100%).
+Stacking took 0.424535 secs
+All unzipped monthly data folders have been removed.
+Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+20 duplicated key values found, representing 45 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+4 resolveable duplicates merged into matching records
+2 resolved records flagged with duplicateRecordQF=1
+39 unresolveable duplicates flagged with duplicateRecordQF=2Downloading 193 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table sls_soilCoreCollection
+  |============================================================================================| 100%
+Stacking table sls_soilMoisture
+  |============================================================================================| 100%
+Stacking table sls_soilpH
+  |============================================================================================| 100%
+Stacking table sls_metagenomicsPooling
+  |============================================================================================| 100%
+Stacking table sls_bgcSubsampling
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 5 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked sls_soilCoreCollection which has 6396 out of the expected 6396 rows (100%).
+Stacked sls_soilMoisture which has 6266 out of the expected 6266 rows (100%).
+Stacked sls_soilpH which has 5015 out of the expected 5015 rows (100%).
+Stacked sls_metagenomicsPooling which has 683 out of the expected 683 rows (100%).
+Stacked sls_bgcSubsampling which has 681 out of the expected 681 rows (100%).
+Stacking took 2.905321 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!Downloading 32 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table sme_microbialBiomass
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 1 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked sme_microbialBiomass which has 778 out of the expected 778 rows (100%).
+Stacking took 0.2712481 secs
+All unzipped monthly data folders have been removed.
+27 duplicated key values found, representing 54 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+0 resolveable duplicates merged into matching records
+0 resolved records flagged with duplicateRecordQF=1
+54 unresolveable duplicates flagged with duplicateRecordQF=2Downloading 32 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table spc_biogeochem
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 1 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked spc_biogeochem which has 1266 out of the expected 1266 rows (100%).
+Stacking took 0.3335769 secs
+All unzipped monthly data folders have been removed.
+Downloading 32 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table spc_bulkdensity
+  |============================================================================================| 100%
+Stacking table spc_particlesize
+  |============================================================================================| 100%
+Stacking table spc_perhorizon
+  |============================================================================================| 100%
+Stacking table spc_perplot
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 4 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked spc_bulkdensity which has 621 out of the expected 621 rows (100%).
+Stacked spc_particlesize which has 1259 out of the expected 1259 rows (100%).
+Stacked spc_perhorizon which has 1406 out of the expected 1406 rows (100%).
+Stacked spc_perplot which has 311 out of the expected 311 rows (100%).
+Stacking took 0.507935 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!No duplicated key values found!No duplicated key values found!No duplicated key values found!Downloading 460 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table swc_domainLabData
+  |============================================================================================| 100%
+Stacking table swc_externalLabData
+  |============================================================================================| 100%
+Stacking table swc_fieldData
+  |============================================================================================| 100%
+Stacking table swc_fieldSuperParent
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 4 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked swc_domainLabData which has 1964 out of the expected 1964 rows (100%).
+Stacked swc_externalLabData which has 1200 out of the expected 1200 rows (100%).
+Stacked swc_fieldData which has 1206 out of the expected 1206 rows (100%).
+Stacked swc_fieldSuperParent which has 1082 out of the expected 1082 rows (100%).
+Stacking took 6.284173 secs
+All unzipped monthly data folders have been removed.
+2 duplicated key values found, representing 4 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+1 resolveable duplicates merged into matching records
+1 resolved records flagged with duplicateRecordQF=1
+2 unresolveable duplicates flagged with duplicateRecordQF=2No duplicated key values found!No duplicated key values found!Downloading 371 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table tck_fielddata
+  |============================================================================================| 100%
+Stacking table tck_taxonomyProcessed
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 2 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked tck_fielddata which has 2735 out of the expected 2735 rows (100%).
+Stacked tck_taxonomyProcessed which has 1729 out of the expected 1729 rows (100%).
+Stacking took 2.436074 secs
+All unzipped monthly data folders have been removed.
+Downloading 40 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table tck_pathogen
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 1 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked tck_pathogen which has 29134 out of the expected 29134 rows (100%).
+Stacking took 0.639852 secs
+All unzipped monthly data folders have been removed.
+Downloading 104 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table vst_apparentindividual
+  |============================================================================================| 100%
+Stacking table vst_mappingandtagging
+  |============================================================================================| 100%
+Stacking table vst_perplotperyear
+  |============================================================================================| 100%
+Stacking table vst_shrubgroup
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 4 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked vst_apparentindividual which has 83087 out of the expected 83087 rows (100%).
+Stacked vst_mappingandtagging which has 105358 out of the expected 105358 rows (100%).
+Stacked vst_perplotperyear which has 995 out of the expected 995 rows (100%).
+Stacked vst_shrubgroup which has 125 out of the expected 125 rows (100%).
+Stacking took 4.402702 secs
+All unzipped monthly data folders have been removed.
+Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+9241 duplicated key values found, representing 27852 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+2288 resolveable duplicates merged into matching records
+809 resolved records flagged with duplicateRecordQF=1
+24755 unresolveable duplicates flagged with duplicateRecordQF=21675 duplicated key values found, representing 3351 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+1670 resolveable duplicates merged into matching records
+1669 resolved records flagged with duplicateRecordQF=1
+12 unresolveable duplicates flagged with duplicateRecordQF=282 duplicated key values found, representing 170 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+5 resolveable duplicates merged into matching records
+5 resolved records flagged with duplicateRecordQF=1
+160 unresolveable duplicates flagged with duplicateRecordQF=22 duplicated key values found, representing 4 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+0 resolveable duplicates merged into matching records
+0 resolved records flagged with duplicateRecordQF=1
+4 unresolveable duplicates flagged with duplicateRecordQF=2Downloading 5 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table wdp_chemLab
+  |============================================================================================| 100%
+Stacking table wdp_collection
+  |============================================================================================| 100%
+Stacking table wdp_collectionChem
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 3 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked wdp_chemLab which has 9 out of the expected 9 rows (100%).
+Stacked wdp_collection which has 8 out of the expected 8 rows (100%).
+Stacked wdp_collectionChem which has 8 out of the expected 8 rows (100%).
+Stacking took 0.05379105 secs
+All unzipped monthly data folders have been removed.
+1 duplicated key values found, representing 2 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+1 resolveable duplicates merged into matching records
+1 resolved records flagged with duplicateRecordQF=1
+0 unresolveable duplicates flagged with duplicateRecordQF=2No duplicated key values found!No duplicated key values found!Downloading 5 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table wdi_collection
+  |============================================================================================| 100%
+Stacking table wdi_collectionIso
+  |============================================================================================| 100%
+Stacking table wdi_collectionIsoTest
+  |============================================================================================| 100%
+Stacking table wdi_isoPerSample
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 4 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked wdi_collection which has 8 out of the expected 8 rows (100%).
+Stacked wdi_collectionIso which has 8 out of the expected 8 rows (100%).
+Stacked wdi_collectionIsoTest which has 8 out of the expected 8 rows (100%).
+Stacked wdi_isoPerSample which has 1 out of the expected 1 rows (100%).
+Stacking took 0.0521369 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!No duplicated key values found!No duplicated key values found!Downloading 16 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table zoo_dnaExtraction
+  |============================================================================================| 100%
+Stacking table zoo_fieldData
+  |============================================================================================| 100%
+Stacking table zoo_markerGeneSequencing
+  |============================================================================================| 100%
+Stacking table zoo_pcrAmplification
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 4 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked zoo_dnaExtraction which has 27 out of the expected 27 rows (100%).
+Stacked zoo_fieldData which has 48 out of the expected 48 rows (100%).
+Stacked zoo_markerGeneSequencing which has 48 out of the expected 48 rows (100%).
+Stacked zoo_pcrAmplification which has 90 out of the expected 90 rows (100%).
+Stacking took 0.2304039 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!No duplicated key values found!Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+12 duplicated key values found, representing 48 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+0 resolveable duplicates merged into matching records
+0 resolved records flagged with duplicateRecordQF=1
+48 unresolveable duplicates flagged with duplicateRecordQF=2Primary key fields contain NA values and/or empty strings. Results may be unreliable; check input data carefully.
+12 duplicated key values found, representing 48 non-unique records. Attempting to resolve.
+  |============================================================================================| 100%
+0 resolveable duplicates merged into matching records
+0 resolved records flagged with duplicateRecordQF=1
+48 unresolveable duplicates flagged with duplicateRecordQF=2Downloading 30 files
+  |============================================================================================| 100%
+
+Unpacking zip files
+  |============================================================================================| 100%
+Stacking table zoo_fieldData
+  |============================================================================================| 100%
+Stacking table zoo_taxonomyProcessed
+  |============================================================================================| 100%
+Finished: All of the data are stacked into 2 tables!
+Copied the first available variable definition file to /stackedFiles and renamed as variables.csv
+Copied the first available validation file to /stackedFiles and renamed as validation.csv
+Stacked zoo_fieldData which has 90 out of the expected 90 rows (100%).
+Stacked zoo_taxonomyProcessed which has 1163 out of the expected 1163 rows (100%).
+Stacking took 0.2999511 secs
+All unzipped monthly data folders have been removed.
+No duplicated key values found!No duplicated key values found!
+> 
