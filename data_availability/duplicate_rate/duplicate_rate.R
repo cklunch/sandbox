@@ -98,15 +98,22 @@ for(i in c(54:length(deflist))) {
 
 }
 
-write.table(tableResult, 
-            '/Users/clunch/GitHub/sandbox/data_availability/duplicate_rate/tableResults.csv',
-            sep=',', row.names=F)
+dupRate <- dupRate[-1,]
 
 write.table(dupRate, 
             '/Users/clunch/GitHub/sandbox/data_availability/duplicate_rate/duplicateRate.csv',
             sep=',', row.names=F)
 
-dupRate <- dupRate[-1,]
+tabResSpl <- tidyr::separate(tableResult, 'outcome', sep=' ', 
+                             into=c('records', NA, NA, NA, 'dupNum', NA), 
+                             fill='right')
+tabResSpl <- tabResSpl[-1,]
+tabResSpl$dupPct <- 100*as.numeric(tabResSpl$dupNum)/as.numeric(tabResSpl$records)
+
+write.table(tabResSpl, 
+            '/Users/clunch/GitHub/sandbox/data_availability/duplicate_rate/tableResults.csv',
+            sep=',', row.names=F)
+
 
 datMerg <- ymd(paste(dupRate$year, dupRate$month, '01', sep='-'))
 dupCt <- dupRate$resolved + dupRate$unresolved/2
