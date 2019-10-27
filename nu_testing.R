@@ -5,49 +5,64 @@ options(stringsAsFactors = F)
 
 pr <- loadByProduct(dpID='DP1.00024.001', site=c('WREF','ABBY'),
               startdate='2019-07', enddate='2019-08')
-#Error in stackDataFilesParallel(savepath, nCores, forceParallel, forceStack) : 
-#  argument "nCores" is missing, with no default
+#ssh: Could not resolve hostname false: nodename nor servname provided, or not known
 
 pr <- loadByProduct(dpID='DP1.00024.001', site=c('WREF','ABBY'),
               startdate='2019-07', enddate='2019-08',
               nCores=1)
-#Error in loadByProduct(dpID = "DP1.00024.001", site = c("WREF", "ABBY"),  : 
-#                         unused argument (nCores = 1)
+#ssh: Could not resolve hostname false: nodename nor servname provided, or not known
 
 zipsByProduct(dpID='DP1.00024.001', site=c('WREF','ABBY'),
               startdate='2019-07', enddate='2019-08',
               savepath='/Users/clunch/Desktop')
 stackByTable('/Users/clunch/Desktop/filesToStack00024', folder=T, nCores=1)
-#Parallelizing stacking operation across 8 cores.
-#Stacking table PARPAR_1min
-#|++++++++++++++++++++++++++++++++++++++++++++++++++| 100% elapsed=05s  
-#Stacking table PARPAR_30min
-#|++++++++++++++++++++++++++++++++++++++++++++++++++| 100% elapsed=00s  
-#Stacking table sensor_positions
-#|++++++++++++++++++++++++++++++++++++++++++++++++++| 100% elapsed=00s  
-#Stacking ReadMe documentation
-#|                                                  | 0 % ~calculating  Error in str_detect(X1, "Date-Time for Data Publication") : 
-#  could not find function "str_detect"
+# Unpacking zip files using 8 cores.
+# |++++++++++++++++++++++++++++++++++++++++++++++++++| 100% elapsed=01s  
+# File requirements do not meet the threshold for automatic parallelization, please see forceParallel to run stacking operation across multiple cores. Running on single core.
+# Stacking table PARPAR_1min
+# |++++++++++++++++++++++++++++++++++++++++++++++++++| 100% elapsed=03s  
+# Stacking table PARPAR_30min
+# |++++++++++++++++++++++++++++++++++++++++++++++++++| 100% elapsed=00s  
+# Stacking table sensor_positions
+# |++++++++++++++++++++++++++++++++++++++++++++++++++| 100% elapsed=00s  
+# Stacking ReadMe documentation
+# |++++++++++++++++++++++++++++++++++++++++++++++++++| 100% elapsed=00s  
+# All unzipped monthly data folders have been removed.
 
-library(stringr)
-stackByTable('/Users/clunch/Desktop/filesToStack00024', folder=T, nCores=1)
-#Parallelizing stacking operation across 8 cores.
-#Skipping PARPAR_1min because /Users/clunch/Desktop/filesToStack00024/stackedFiles/PARPAR_1min.csv already exists.
-#Skipping PARPAR_30min because /Users/clunch/Desktop/filesToStack00024/stackedFiles/PARPAR_30min.csv already exists.
-#Skipping sensor_positions because /Users/clunch/Desktop/filesToStack00024/stackedFiles/sensor_positions.csv already exists.
-#Stacking ReadMe documentation
-#|                                                  | 0 % ~calculating  Error in as_factor(splitter[2]) : could not find function "as_factor"
+zipsByProduct(dpID='DP1.10098.001', site=c('WREF','ABBY'),
+              savepath='/Users/clunch/Desktop')
+stackByTable('/Users/clunch/Desktop/filesToStack10098', folder=T, nCores=1)
+#Error in if (input == "" || length(grep("\\n|\\r", input))) { : 
+#missing value where TRUE/FALSE needed
+#In addition: There were 34 warnings (use warnings() to see them)
+#Warning messages:
+#  1: In grep(sites, x) :
+#  argument 'pattern' has length > 1 and only the first element will be used
+#2: In grep(sites, tblnames) :
+  
+zipsByProduct(dpID='DP1.10026.001', site=c('WREF','ABBY'),
+              savepath='/Users/clunch/Desktop', package='expanded')
+stackByTable('/Users/clunch/Desktop/filesToStack10026', folder=T, nCores=1)
+# this only downloaded one site, and worked - no data at ABBY
 
-library(haven)
-stackByTable('/Users/clunch/Desktop/filesToStack00024', folder=T, nCores=1)
-#Parallelizing stacking operation across 8 cores.
-#Skipping PARPAR_1min because /Users/clunch/Desktop/filesToStack00024/stackedFiles/PARPAR_1min.csv already exists.
-#Skipping PARPAR_30min because /Users/clunch/Desktop/filesToStack00024/stackedFiles/PARPAR_30min.csv already exists.
-#Skipping sensor_positions because /Users/clunch/Desktop/filesToStack00024/stackedFiles/sensor_positions.csv already exists.
-#Stacking ReadMe documentation
-#|++++++++++++++++++++++++++++++++++++++++++++++++++| 100% elapsed=00s  
-#Error in filter(., !str_detect(value, "Date-Time for Data Publication:"),  : 
-#                  unused arguments (!str_detect(value, "Additional documentation"), !str_detect(value, "This zip package also contains"), !str_detect(value, "Basic download package definition"), !str_detect(value, "Expanded download package definition"))
+zipsByProduct(dpID='DP1.10026.001', site=c('WREF','SCBI'),
+              savepath='/Users/clunch/Desktop', package='expanded')
+stackByTable('/Users/clunch/Desktop/filesToStack10026', folder=T, nCores=1)
+#Error in if (input == "" || length(grep("\\n|\\r", input))) { : 
+# missing value where TRUE/FALSE needed
+# In addition: Warning messages:
+#   1: In grep(sites, x) :
+#   argument 'pattern' has length > 1 and only the first element will be used
+# 2: In grep(sites, tblnames) :
+#   argument 'pattern' has length > 1 and only the first element will be used
+# 3: In grep(sites, x) :
+#   argument 'pattern' has length > 1 and only the first element will be used
+# 4: In grep(sites, tblnames) :
+#   argument 'pattern' has length > 1 and only the first element will be used
+# 5: In grep(sites, x) :
+#   argument 'pattern' has length > 1 and only the first element will be used
+# 6: In grep(sites, tblnames) :
+#   argument 'pattern' has length > 1 and only the first element will be used
 
 
 
