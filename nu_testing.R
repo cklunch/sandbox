@@ -5,7 +5,8 @@ options(stringsAsFactors = F)
 
 pr <- loadByProduct(dpID='DP1.00024.001', site=c('WREF','ABBY'),
               startdate='2019-07', enddate='2019-08')
-#ssh: Could not resolve hostname false: nodename nor servname provided, or not known
+#Error in str_split(., "\\.|T") : could not find function "str_split"
+library(stringr)
 
 pr <- loadByProduct(dpID='DP1.00024.001', site=c('WREF','ABBY'),
               startdate='2019-07', enddate='2019-08',
