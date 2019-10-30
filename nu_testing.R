@@ -5,13 +5,10 @@ options(stringsAsFactors = F)
 
 pr <- loadByProduct(dpID='DP1.00024.001', site=c('WREF','ABBY'),
               startdate='2019-07', enddate='2019-08')
-#Error in str_split(., "\\.|T") : could not find function "str_split"
-library(stringr)
 
-pr <- loadByProduct(dpID='DP1.00024.001', site=c('WREF','ABBY'),
-              startdate='2019-07', enddate='2019-08',
-              nCores=1)
-#ssh: Could not resolve hostname false: nodename nor servname provided, or not known
+cfc <- loadByProduct(dpID='DP1.10026.001', site=c('WREF','SCBI'),
+             package='expanded')
+
 
 zipsByProduct(dpID='DP1.00024.001', site=c('WREF','ABBY'),
               startdate='2019-07', enddate='2019-08',
