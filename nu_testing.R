@@ -20,7 +20,7 @@ dst <- loadByProduct(dpID='DP1.00017.001', site=c('RMNP','CPER','ONAQ'),
 
 
 zipsByProduct(dpID='DP1.00024.001', site=c('WREF','ABBY'),
-              startdate='2019-07', enddate='2019-08',
+              startdate='2019-07', enddate='2019-09',
               savepath='/Users/clunch/Desktop')
 stackByTable('/Users/clunch/Desktop/filesToStack00024', folder=T, nCores=1)
 
@@ -33,5 +33,24 @@ zipsByProduct(dpID='DP1.10026.001',
 stackByTable('/Users/clunch/Desktop/filesToStack10026', folder=T, nCores=1)
 
 stackByTable('/Users/clunch/Desktop/NEON_gp.zip')
+stackByTable('/Users/clunch/Desktop/NEON_size-dust-particulate.zip')
+stackByTable('/Users/clunch/Desktop/filesToStack10026', folder=T, nCores=1)
+stackByTable('/Users/clunch/Desktop/filesToStack00022', folder=T, nCores=3)
+stackByTable('/Users/clunch/Desktop/filesToStack00024', nCores=3)
+stackByTable('/Users/clunch/Desktop/filesToStack00024v131', folder=T)
 
+pr30 <- read.csv('/Users/clunch/Desktop/filesToStack00024/stackedFiles/PARPAR_30min.csv')
+pr30v131 <- read.csv('/Users/clunch/Desktop/filesToStack00024v131/stackedFiles/PARPAR_30min.csv')
+pr30 <- read.csv('/Users/clunch/Desktop/filesToStack00024/stackedFiles/PARPAR_30min.csv')
+pr30v131 <- read.csv('/Users/clunch/Desktop/filesToStack00024v131/stackedFiles/PARPAR_30min.csv')
+setdiff(names(pr30),names(pr30v131))
+pr30key <- paste0(pr30$siteID, pr30$verticalPosition, pr30$endDateTime)
+pr131key <- paste0(pr30v131$siteID, pr30v131$verticalPosition, pr30v131$endDateTime)
+all(pr30key %in% pr131key)
+all(pr131key %in% pr30key)
+
+pr30key <- paste0(pr30$siteID, pr30$verticalPosition, pr30$endDateTime, pr30$PARMean)
+pr131key <- paste0(pr30v131$siteID, pr30v131$verticalPosition, pr30v131$endDateTime, pr30v131$PARMean)
+all(pr30key %in% pr131key)
+all(pr131key %in% pr30key)
 
