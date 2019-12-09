@@ -32,6 +32,14 @@ zipsByProduct(dpID='DP1.10026.001',
               savepath='/Users/clunch/Desktop', package='expanded')
 stackByTable('/Users/clunch/Desktop/filesToStack10026', folder=T, nCores=1)
 
+zipsByProduct(dpID='DP1.10026.001',
+              savepath='/Users/clunch/Desktop', package='expanded')
+stackByTable('/Users/clunch/Desktop/filesToStack10026', folder=T, nCores=1)
+
+zipsByProduct(dpID='DP1.20288.001',
+              savepath='/Users/clunch/Desktop', package='expanded')
+stackByTable('/Users/clunch/Desktop/filesToStack20288', nCores=5)
+
 stackByTable('/Users/clunch/Desktop/NEON_gp.zip')
 stackByTable('/Users/clunch/Desktop/NEON_size-dust-particulate.zip')
 stackByTable('/Users/clunch/Desktop/filesToStack10026', folder=T, nCores=1)
