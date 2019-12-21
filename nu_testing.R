@@ -16,7 +16,11 @@ wch <- loadByProduct(dpID='DP1.20093.001', site=c('ARIK','POSE'),
                      package='expanded', check.size=F)
 
 dst <- loadByProduct(dpID='DP1.00017.001', site=c('RMNP','CPER','ONAQ'),
-                     startdate='2019-01', enddate='2019-10', check.size=F)
+                     startdate='2019-01', enddate='2019-10', check.size=F,
+                     avg=60)
+
+rh <- loadByProduct(dpID='DP1.00098.001', site='HARV', startdate='2019-06',
+                    avg=30, check.size=F)
 
 
 zipsByProduct(dpID='DP1.00024.001', site=c('WREF','ABBY'),
@@ -39,6 +43,13 @@ stackByTable('/Users/clunch/Desktop/filesToStack10026', folder=T, nCores=1)
 zipsByProduct(dpID='DP1.20288.001',
               savepath='/Users/clunch/Desktop', package='expanded')
 stackByTable('/Users/clunch/Desktop/filesToStack20288', nCores=5)
+
+zipsByProduct(dpID='DP1.00017.001', site=c('RMNP','CPER','ONAQ'),
+              startdate='2019-01', enddate='2019-10', check.size=F,
+              avg=60, savepath='/Users/clunch/Desktop')
+stackByTable('/Users/clunch/Desktop/filesToStack00017')
+dst <- readTableNEON('/Users/clunch/Desktop/filesToStack00017/stackedFiles/dpsd_60_minutes.csv',
+              '/Users/clunch/Desktop/filesToStack00017/stackedFiles/variables.csv')
 
 stackByTable('/Users/clunch/Desktop/NEON_gp.zip')
 stackByTable('/Users/clunch/Desktop/NEON_size-dust-particulate.zip')
