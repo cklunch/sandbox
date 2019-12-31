@@ -1,5 +1,6 @@
 library(devtools)
-install_github('NateMietk/NEON-utilities/neonUtilities')
+#install_github('NateMietk/NEON-utilities/neonUtilities')
+install('.')
 library(neonUtilities)
 options(stringsAsFactors = F)
 
