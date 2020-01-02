@@ -16,6 +16,9 @@ gwe <- loadByProduct(dpID='DP1.20100.001', site=c('MART','WLOU'),
 wch <- loadByProduct(dpID='DP1.20093.001', site=c('ARIK','POSE'),
                      package='expanded', check.size=F)
 
+wdp <- loadByProduct(dpID='DP1.00013.001', site=c('RMNP','NIWO'),
+                     package='expanded', check.size=F)
+
 dst <- loadByProduct(dpID='DP1.00017.001', site=c('RMNP','CPER','ONAQ'),
                      startdate='2019-01', enddate='2019-10', check.size=F,
                      avg=60)
@@ -54,8 +57,8 @@ dst <- readTableNEON('/Users/clunch/Desktop/filesToStack00017/stackedFiles/dpsd_
 
 stackByTable('/Users/clunch/Desktop/NEON_gp.zip')
 stackByTable('/Users/clunch/Desktop/NEON_size-dust-particulate.zip')
-stackByTable('/Users/clunch/Desktop/filesToStack10026', folder=T, nCores=1)
-stackByTable('/Users/clunch/Desktop/filesToStack00022', folder=T, nCores=3)
+stackByTable('/Users/clunch/Desktop/filesToStack10026', nCores=1)
+stackByTable('/Users/clunch/Desktop/filesToStack00022', nCores=3)
 stackByTable('/Users/clunch/Desktop/filesToStack00024', nCores=3)
 stackByTable('/Users/clunch/Desktop/filesToStack00024v131', folder=T)
 
