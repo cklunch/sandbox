@@ -26,6 +26,9 @@ dst <- loadByProduct(dpID='DP1.00017.001', site=c('RMNP','CPER','ONAQ'),
 rh <- loadByProduct(dpID='DP1.00098.001', site='HARV', startdate='2019-06',
                     avg=30, check.size=F)
 
+alg <- loadByProduct(dpID='DP1.20166.001', startdate='2017-05', enddate='2018-08',
+                     check.size=F)
+
 
 zipsByProduct(dpID='DP1.00024.001', site=c('WREF','ABBY'),
               startdate='2019-07', enddate='2019-09',
