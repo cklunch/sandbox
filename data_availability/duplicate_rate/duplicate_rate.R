@@ -13,11 +13,11 @@ dupRate <- matrix(data=NA, ncol=6, nrow=1)
 dupRate <- data.frame(dupRate)
 names(dupRate) <- c('table', 'records', 'year', 'month', 'resolved', 'unresolved')
 
-tableResult <- matrix(data=NA, ncol=3, nrow=1)
+tableResult <- matrix(data=NA, ncol=4, nrow=1)
 tableResult <- data.frame(tableResult)
-names(tableResult) <- c('dpID', 'table', 'outcome')
+names(tableResult) <- c('dpID', 'table', 'records', 'duplicates')
 
-for(i in c(54:length(deflist))) {
+for(i in c(17:length(deflist))) {
   
   vars <- read.delim(paste(wd, deflist[i], sep='/'), sep='\t')
   dpID <- substring(unique(vars$dpID), 15, 28)
@@ -29,41 +29,36 @@ for(i in c(54:length(deflist))) {
   datList <- try(loadByProduct(dpID, check.size=F, startdate='2017-05', enddate='2018-08'))
   
   if(class(datList)=='try-error') {
-    dres <- c(dpID, '', 'No data found for 2017-05 to 2018-08')
+    dres <- c(dpID, '', 'No data found for 2017-05 to 2018-08', '')
     tableResult <- rbind(tableResult, dres)
     next
   }
   
   for(j in names(datList)) {
     
-    if(j %in% c('variables','validation','rea_conductivityFieldData','sbd_conductivityFieldData')) {
+    if(j %in% c('rea_conductivityFieldData','sbd_conductivityFieldData') | 
+       length(grep('variables', j))>0 | length(grep('validation', j))>0 | 
+       length(grep('readme', j))>0) {
       next
     }
+    
+    datList[[j]] <- datList[[j]][,-which(names(datList[[j]])=='publicationDate')]
     
     datListDup <- try(removeDups(datList[[j]], vars, 
                              paste(j, '_pub', sep='')), silent=T)
     
     if(class(datListDup)=='try-error') {
-      dupres <- c(dpID, j, 'removeDups() failed')
+      dupres <- c(dpID, j, 'removeDups() failed', '')
       tableResult <- rbind(tableResult, dupres)
       next
     }
     
-    dateR <- names(datListDup)[grep('Date', names(datListDup), ignore.case=T)][1]
-    dateS <- try(strptime(datListDup[,dateR], format='%Y-%m-%dT%H:%M', tz='GMT'), silent=T)
-    
-    if(class(dateS)[1]=='try-error') {
-      datres <- c(dpID, j, 'Date field not found')
+    dateS <- try(datListDup[,grep('Date', names(datListDup), ignore.case=T)[1]], silent=T)
+
+    if(class(dateS)[1]!='POSIXct') {
+      datres <- c(dpID, j, 'Date field not found', '')
       tableResult <- rbind(tableResult, datres)
       next
-    }
-    
-    if(all(is.na(dateS))) {
-      dateS <- try(strptime(datListDup[,dateR], format='%Y-%m-%dT%H', tz='GMT'), silent=T)
-    }
-    
-    if(all(is.na(dateS))) {
-      dateS <- try(strptime(datListDup[,dateR], format='%Y-%m-%d', tz='GMT'), silent=T)
     }
     
     dateM <- month(dateS)
@@ -77,9 +72,14 @@ for(i in c(54:length(deflist))) {
     dupByDate <- aggregate(cbind(dups1, dups2), 
                            by=list(dateY, dateM), 
                            FUN=sum, na.rm=T)
-    ct <- aggregate(datListDup$uid,
+    ct <- try(aggregate(datListDup$uid,
                     by=list(dateY, dateM),
-                    FUN=length)
+                    FUN=length), silent=T)
+    if(class(ct)=='try-error') {
+      datres <- c(dpID, j, 'No uid found', '')
+      tableResult <- rbind(tableResult, datres)
+      next
+    }
     dupByDate <- cbind(rep(j, nrow(dupByDate)), 
                        ct$x, dupByDate)
 
@@ -88,7 +88,7 @@ for(i in c(54:length(deflist))) {
     
     ctall <- nrow(datListDup)
     dupall <- length(which(datListDup$duplicateRecordQF!=0))
-    endres <- c(dpID, j, paste(ctall, 'records and ', dupall, 'duplicates'))
+    endres <- c(dpID, j, ctall, dupall)
     tableResult <- rbind(tableResult, endres)
 
   }

@@ -55,6 +55,10 @@ stackByTable('/Users/clunch/Desktop/filesToStack00017')
 dst <- readTableNEON('/Users/clunch/Desktop/filesToStack00017/stackedFiles/dpsd_60_minutes.csv',
               '/Users/clunch/Desktop/filesToStack00017/stackedFiles/variables.csv')
 
+zipsByProduct(dpID='DP1.20099.001', savepath='/Users/clunch/Desktop',
+              check.size=F)
+stackByTable('/Users/clunch/Desktop/filesToStack20099')
+
 stackByTable('/Users/clunch/Desktop/NEON_gp.zip')
 stackByTable('/Users/clunch/Desktop/NEON_size-dust-particulate.zip')
 stackByTable('/Users/clunch/Desktop/filesToStack10026', nCores=1)
