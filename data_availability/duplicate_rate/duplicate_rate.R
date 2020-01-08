@@ -17,7 +17,7 @@ tableResult <- matrix(data=NA, ncol=4, nrow=1)
 tableResult <- data.frame(tableResult)
 names(tableResult) <- c('dpID', 'table', 'records', 'duplicates')
 
-for(i in c(1:length(deflist))) {
+for(i in c(63:length(deflist))) {
   
   vars <- read.delim(paste(wd, deflist[i], sep='/'), sep='\t')
   dpID <- substring(unique(vars$dpID), 15, 28)
