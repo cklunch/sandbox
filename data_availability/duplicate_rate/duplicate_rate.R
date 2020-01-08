@@ -17,7 +17,7 @@ tableResult <- matrix(data=NA, ncol=4, nrow=1)
 tableResult <- data.frame(tableResult)
 names(tableResult) <- c('dpID', 'table', 'records', 'duplicates')
 
-for(i in c(17:length(deflist))) {
+for(i in c(1:length(deflist))) {
   
   vars <- read.delim(paste(wd, deflist[i], sep='/'), sep='\t')
   dpID <- substring(unique(vars$dpID), 15, 28)
@@ -104,13 +104,13 @@ write.table(dupRate,
             '/Users/clunch/GitHub/sandbox/data_availability/duplicate_rate/duplicateRate.csv',
             sep=',', row.names=F)
 
-tabResSpl <- tidyr::separate(tableResult, 'outcome', sep=' ', 
-                             into=c('records', NA, NA, NA, 'dupNum', NA), 
-                             fill='right')
-tabResSpl <- tabResSpl[-1,]
-tabResSpl$dupPct <- 100*as.numeric(tabResSpl$dupNum)/as.numeric(tabResSpl$records)
+# tabResSpl <- tidyr::separate(tableResult, 'outcome', sep=' ', 
+#                              into=c('records', NA, NA, NA, 'dupNum', NA), 
+#                              fill='right')
+# tabResSpl <- tabResSpl[-1,]
+# tabResSpl$dupPct <- 100*as.numeric(tabResSpl$dupNum)/as.numeric(tabResSpl$records)
 
-write.table(tabResSpl, 
+write.table(tableResult, 
             '/Users/clunch/GitHub/sandbox/data_availability/duplicate_rate/tableResults.csv',
             sep=',', row.names=F)
 
