@@ -1,13 +1,13 @@
 "dpID","table","records","duplicates"
 NA,NA,NA,NA
-"DP1.20099.001","agw_groundwaterFieldData","Date field not found",""
+"DP1.20099.001","agw_groundwaterFieldData","Date field not found",NA
 "DP1.20163.001","alg_algaeExternalLabDataPerSample","9433","48"
 "DP1.20163.001","alg_domainLabChemistry","4312","1"
 "DP1.20163.001","alg_fieldData","1086","4"
 "DP1.20166.001","alg_biomass","2099","0"
 "DP1.20166.001","alg_fieldData","1096","4"
 "DP1.20166.001","alg_taxonomyProcessed","133610","20890"
-"DP1.20138.001","amc_cellCounts","removeDups() failed",""
+"DP1.20138.001","amc_cellCounts","removeDups() failed",NA
 "DP1.20138.001","amc_fieldCellCounts","493","0"
 "DP1.20138.001","amc_fieldSuperParent","493","25"
 "DP1.20072.001","apc_perTaxon","2228","12"
@@ -21,10 +21,10 @@ NA,NA,NA,NA
 "DP1.20066.001","apl_taxonomyProcessed","151","0"
 "DP1.20194.001","asc_externalLabData","9622","2358"
 "DP1.20194.001","asc_fieldDataPoint","2126","0"
-"DP1.20194.001","asc_fieldDataStation","Date field not found",""
+"DP1.20194.001","asc_fieldDataStation","Date field not found",NA
 "DP1.20194.001","asc_fieldDataZone","732","0"
 "DP1.20197.001","asc_fieldDataPoint","2126","0"
-"DP1.20197.001","asc_fieldDataStation","Date field not found",""
+"DP1.20197.001","asc_fieldDataStation","Date field not found",NA
 "DP1.20197.001","asc_fieldDataZone","732","0"
 "DP1.20197.001","asp_externalLabData","812","64"
 "DP1.20276.001","gsi_externalLabH2OIsotopes","94","0"
@@ -34,95 +34,71 @@ NA,NA,NA,NA
 "DP1.20206.001","asi_fieldData","1105","0"
 "DP1.20206.001","asi_fieldSuperParent","1081","0"
 "DP1.20206.001","asi_POMExternalLabDataPerSample","4268","8"
-"DP4.00132.001","bat_fieldData","Date field not found",""
-"DP4.00132.001","bat_pointcollection","Date field not found",""
+"DP4.00132.001","bat_fieldData","Date field not found",NA
+"DP4.00132.001","bat_pointcollection","Date field not found",NA
 "DP4.00132.001","bat_resultsFile","3","0"
-"DP4.00132.001","bat_sonarRecord","Date field not found",""
+"DP4.00132.001","bat_sonarRecord","Date field not found",NA
 "DP1.10102.001","bbc_rootChemistry","2424","0"
 "DP1.10067.001","bbc_chemistryPooling","1989","0"
 "DP1.10067.001","bbc_dilution","2950","0"
 "DP1.10067.001","bbc_percore","1026","0"
 "DP1.10067.001","bbc_rootmass","8782","2"
 "DP1.10099.001","bbc_rootStableIsotopes","2424","0"
-"DP1.10020.001","bet_BOLDcollectionData","No uid found",""
-"DP1.10020.001","bet_BOLDspecimenDetails","Date field not found",""
-"DP1.10020.001","bet_BOLDtaxonomy","Date field not found",""
-"DP1.10020.001","bet_BOLDvoucherInfo","Date field not found",""
+"DP1.10020.001","bet_BOLDcollectionData","No uid found",NA
+"DP1.10020.001","bet_BOLDspecimenDetails","Date field not found",NA
+"DP1.10020.001","bet_BOLDtaxonomy","Date field not found",NA
+"DP1.10020.001","bet_BOLDvoucherInfo","Date field not found",NA
 "DP1.10022.001","bet_archivepooling","9025","0"
 "DP1.10022.001","bet_expertTaxonomistIDProcessed","9798","35"
 "DP1.10022.001","bet_fielddata","26365","0"
 "DP1.10022.001","bet_parataxonomistID","23952","0"
 "DP1.10022.001","bet_sorting","48033","0"
-"DP1.10003.001","brd_countdata","removeDups() failed",""
+"DP1.10003.001","brd_countdata","removeDups() failed",NA
 "DP1.10003.001","brd_perpoint","6249","0"
-"DP1.10014.001","cdw_densitydisk","removeDups() failed",""
-"DP1.10014.001","cdw_densitylog","removeDups() failed",""
-"DP1.10010.001","cdw_fieldtally","Date field not found",""
+"DP1.10014.001","cdw_densitydisk","removeDups() failed",NA
+"DP1.10014.001","cdw_densitylog","removeDups() failed",NA
+"DP1.10010.001","cdw_fieldtally","Date field not found",NA
 "DP1.10026.001","cfc_carbonNitrogen","590","0"
 "DP1.10026.001","cfc_chemistrySubsampling","552","0"
-"DP1.10026.001","cfc_chlorophyll","removeDups() failed",""
-"DP1.10026.001","cfc_elements","removeDups() failed",""
+"DP1.10026.001","cfc_chlorophyll","removeDups() failed",NA
+"DP1.10026.001","cfc_elements","removeDups() failed",NA
 "DP1.10026.001","cfc_fieldData","558","0"
 "DP1.10026.001","cfc_lignin","583","0"
 "DP1.10026.001","cfc_LMA","549","2"
 "DP1.10053.001","cfc_foliarStableIsotopes","590","0"
-"DP4.00130.001","","No data found for 2017-05 to 2018-08",""
+"DP4.00130.001","","No data found for 2017-05 to 2018-08",NA
 "DP1.20254.001","dep_profileData","2615","0"
 "DP1.20254.001","dep_profileHeader","273","0"
 "DP1.20252.001","dep_secchi","273","0"
-"DP1.10017.001","dhp_perimagefile","removeDups() failed",""
-"DP1.10017.001","dhp_perplot","removeDups() failed",""
-"DP1.10022.001","bet_archivepooling","9025","0"
-"DP1.10022.001","bet_expertTaxonomistIDProcessed","9798","35"
-"DP1.10022.001","bet_fielddata","26365","0"
-"DP1.10022.001","bet_parataxonomistID","23952","0"
-"DP1.10022.001","bet_sorting","48033","0"
-"DP1.10003.001","brd_countdata","removeDups() failed",""
-"DP1.10003.001","brd_perpoint","6249","0"
-"DP1.10014.001","cdw_densitydisk","removeDups() failed",""
-"DP1.10014.001","cdw_densitylog","removeDups() failed",""
-"DP1.10010.001","cdw_fieldtally","Date field not found",""
-"DP1.10026.001","cfc_carbonNitrogen","590","0"
-"DP1.10026.001","cfc_chemistrySubsampling","552","0"
-"DP1.10026.001","cfc_chlorophyll","removeDups() failed",""
-"DP1.10026.001","cfc_elements","removeDups() failed",""
-"DP1.10026.001","cfc_fieldData","558","0"
-"DP1.10026.001","cfc_lignin","583","0"
-"DP1.10026.001","cfc_LMA","549","2"
-"DP1.10053.001","cfc_foliarStableIsotopes","590","0"
-"DP4.00130.001","","No data found for 2017-05 to 2018-08",""
-"DP1.20254.001","dep_profileData","2615","0"
-"DP1.20254.001","dep_profileHeader","273","0"
-"DP1.20252.001","dep_secchi","273","0"
-"DP1.10017.001","dhp_perimagefile","removeDups() failed",""
-"DP1.10017.001","dhp_perplot","removeDups() failed",""
+"DP1.10017.001","dhp_perimagefile","removeDups() failed",NA
+"DP1.10017.001","dhp_perplot","removeDups() failed",NA
 "DP1.10058.001","div_10m2Data100m2Data","170652","40499"
 "DP1.00101.001","dpm_field","29","0"
 "DP1.00101.001","dpm_lab","29","5"
 "DP1.20048.001","dsc_fieldData","683","25"
-"DP1.20048.001","dsc_fieldDataADCP","Date field not found",""
+"DP1.20048.001","dsc_fieldDataADCP","Date field not found",NA
 "DP1.20048.001","dsc_individualFieldData","17355","588"
-"DP1.20105.001","fsh_BOLDcollectionData","No uid found",""
-"DP1.20105.001","fsh_BOLDspecimenDetails","Date field not found",""
-"DP1.20105.001","fsh_BOLDtaxonomy","Date field not found",""
-"DP1.20105.001","fsh_BOLDvoucherInfo","Date field not found",""
-"DP1.20107.001","fsh_bulkCount","removeDups() failed",""
+"DP1.20105.001","fsh_BOLDcollectionData","No uid found",NA
+"DP1.20105.001","fsh_BOLDspecimenDetails","Date field not found",NA
+"DP1.20105.001","fsh_BOLDtaxonomy","Date field not found",NA
+"DP1.20105.001","fsh_BOLDvoucherInfo","Date field not found",NA
+"DP1.20107.001","fsh_bulkCount","removeDups() failed",NA
 "DP1.20107.001","fsh_fieldData","321","33"
-"DP1.20107.001","fsh_perFish","removeDups() failed",""
-"DP1.20107.001","fsh_perPass","Date field not found",""
-"DP1.30012.001","","No data found for 2017-05 to 2018-08",""
-"DP1.20267.001","gag_fieldData","Date field not found",""
-"DP4.00131.001","geo_featureInfo","Date field not found",""
-"DP4.00131.001","geo_pebbleCount","removeDups() failed",""
+"DP1.20107.001","fsh_perFish","removeDups() failed",NA
+"DP1.20107.001","fsh_perPass","Date field not found",NA
+"DP1.30012.001","","No data found for 2017-05 to 2018-08",NA
+"DP1.20267.001","gag_fieldData","Date field not found",NA
+"DP4.00131.001","geo_featureInfo","Date field not found",NA
+"DP4.00131.001","geo_pebbleCount","removeDups() failed",NA
 "DP4.00131.001","geo_resultsFile","16","0"
-"DP4.00131.001","geo_surveyFieldData","removeDups() failed",""
-"DP4.00131.001","geo_totalStation","Date field not found",""
-"DP1.20092.001","gwc_domainLabData","removeDups() failed",""
+"DP4.00131.001","geo_surveyFieldData","removeDups() failed",NA
+"DP4.00131.001","geo_totalStation","Date field not found",NA
+"DP1.20092.001","gwc_domainLabData","removeDups() failed",NA
 "DP1.20092.001","gwc_externalLabData","210","0"
 "DP1.20092.001","gwc_fieldData","214","0"
 "DP1.20092.001","gwc_fieldSuperParent","233","0"
-"DP1.10023.001","hbp_massdata","removeDups() failed",""
-"DP1.10023.001","hbp_perbout","removeDups() failed",""
+"DP1.10023.001","hbp_massdata","removeDups() failed",NA
+"DP1.10023.001","hbp_perbout","removeDups() failed",NA
 "DP1.20126.001","inv_dnaExtraction","95","0"
 "DP1.20126.001","inv_fieldData","1023","59"
 "DP1.20126.001","inv_markerGeneSequencing","48","48"
@@ -137,17 +113,17 @@ NA,NA,NA,NA
 "DP1.10033.001","ltr_massdata","71169","70"
 "DP1.10033.001","ltr_pertrap","2124","28"
 "DP1.10101.001","ltr_litterStableIsotopes","137","0"
-"DP1.10076.001","mam_BOLDcollectionData","removeDups() failed",""
-"DP1.10076.001","mam_BOLDspecimenDetails","removeDups() failed",""
-"DP1.10076.001","mam_BOLDtaxonomy","removeDups() failed",""
-"DP1.10076.001","mam_BOLDvoucherInfo","removeDups() failed",""
+"DP1.10076.001","mam_BOLDcollectionData","removeDups() failed",NA
+"DP1.10076.001","mam_BOLDspecimenDetails","removeDups() failed",NA
+"DP1.10076.001","mam_BOLDtaxonomy","removeDups() failed",NA
+"DP1.10076.001","mam_BOLDvoucherInfo","removeDups() failed",NA
 "DP1.10072.001","mam_perplotnight","3461","12"
-"DP1.10072.001","mam_pertrapnight","Date field not found",""
-"DP1.20086.001","","No data found for 2017-05 to 2018-08",""
-"DP1.10081.001","","No data found for 2017-05 to 2018-08",""
-"DP1.20141.001","","No data found for 2017-05 to 2018-08",""
+"DP1.10072.001","mam_pertrapnight","Date field not found",NA
+"DP1.20086.001","","No data found for 2017-05 to 2018-08",NA
+"DP1.10081.001","","No data found for 2017-05 to 2018-08",NA
+"DP1.20141.001","","No data found for 2017-05 to 2018-08",NA
 "DP1.20277.001","mga_benthicGroupAbundances","1214","0"
-"DP1.10109.001","mga_soilGroupAbundances","removeDups() failed",""
+"DP1.10109.001","mga_soilGroupAbundances","removeDups() failed",NA
 "DP1.20278.001","mga_swGroupAbundances","866","0"
 "DP1.00097.001","mgc_perarchivesample","22","1"
 "DP1.00097.001","mgc_perbiogeosample","26","5"
@@ -185,18 +161,80 @@ NA,NA,NA,NA
 "DP1.20281.001","amc_fieldSuperParent","85","85"
 "DP1.20281.001","mms_swMetagenomeDnaExtraction","81","0"
 "DP1.20281.001","mms_swMetagenomeSequencing","73","0"
-"DP1.10038.001","mos_BOLDcollectionData","No uid found",""
-"DP1.10038.001","mos_BOLDspecimenDetails","Date field not found",""
-"DP1.10038.001","mos_BOLDtaxonomy","Date field not found",""
-"DP1.10038.001","mos_BOLDvoucherInfo","Date field not found",""
+"DP1.10038.001","mos_BOLDcollectionData","No uid found",NA
+"DP1.10038.001","mos_BOLDspecimenDetails","Date field not found",NA
+"DP1.10038.001","mos_BOLDtaxonomy","Date field not found",NA
+"DP1.10038.001","mos_BOLDvoucherInfo","Date field not found",NA
 "DP1.10043.001","mos_archivepooling","2853","0"
 "DP1.10043.001","mos_barcoding","2932","0"
-"DP1.10043.001","mos_expertTaxonomistIDProcessed","removeDups() failed",""
-"DP1.10043.001","mos_expertTaxonomistIDRaw","removeDups() failed",""
+"DP1.10043.001","mos_expertTaxonomistIDProcessed","removeDups() failed",NA
+"DP1.10043.001","mos_expertTaxonomistIDRaw","removeDups() failed",NA
 "DP1.10043.001","mos_sorting","11411","0"
-"DP1.10043.001","mos_trapping","removeDups() failed",""
+"DP1.10043.001","mos_trapping","removeDups() failed",NA
 "DP1.10041.001","mos_pathogenpooling","5282","0"
 "DP1.10041.001","mos_pathogenresults","15890","0"
 "DP1.10066.001","mpr_perdepthincrement","90","0"
 "DP1.10066.001","mpr_perpitprofile","24","0"
 "DP1.10066.001","mpr_perrootsample","198","0"
+"DP1.10080.001","ntr_externalLab","2959","0"
+"DP1.10080.001","ntr_internalLab","2517","0"
+"DP1.10080.001","ntr_internalLabBlanks","151","0"
+"DP1.10080.001","sls_soilMoisture","2432","2"
+"DP1.10055.001","phe_perindividual","Date field not found",""
+"DP1.10055.001","phe_perindividualperyear","Date field not found",""
+"DP1.20190.001","rea_backgroundFieldCondData","430","0"
+"DP1.20190.001","rea_backgroundFieldSaltData","Date field not found",""
+"DP1.20190.001","rea_externalLabDataGas","removeDups() failed",""
+"DP1.20190.001","rea_externalLabDataSalt","removeDups() failed",""
+"DP1.20190.001","rea_fieldData","Date field not found",""
+"DP1.20190.001","rea_plateauMeasurementFieldData","Date field not found",""
+"DP1.20190.001","rea_plateauSampleFieldData","4010","0"
+"DP1.20190.001","rea_widthFieldData","Date field not found",""
+"DP1.20193.001","sbd_backgroundFieldCondData","removeDups() failed",""
+"DP1.20193.001","sbd_backgroundFieldSaltData","Date field not found",""
+"DP1.20193.001","sbd_externalLabDataSalt","removeDups() failed",""
+"DP1.20193.001","sbd_fieldData","Date field not found",""
+"DP1.20193.001","sbd_plateauMeasurementFieldData","Date field not found",""
+"DP1.20193.001","sbd_plateauSampleFieldData","4010","0"
+"DP1.20275.001","rip_assessment","1198","1198"
+"DP1.20191.001","rip_percentComposition","2837","2837"
+"DP1.10064.001","rpt_bloodtesting","removeDups() failed",""
+"DP1.20097.001","sdg_externalLabData","removeDups() failed",""
+"DP1.20097.001","sdg_fieldData","1071","0"
+"DP1.20097.001","sdg_fieldDataAir","947","0"
+"DP1.20097.001","sdg_fieldDataProc","1071","0"
+"DP1.20097.001","sdg_fieldSuperParent","1078","0"
+"DP4.00133.001","sdrc_posteriorParameters","Date field not found",""
+"DP4.00133.001","sdrc_stageDischargeCurveInfo","Date field not found",""
+"DP1.10111.001","sim_eventData","209","10"
+"DP1.10078.001","sls_soilChemistry","884","0"
+"DP1.10086.001","sls_bgcSubsampling","removeDups() failed",""
+"DP1.10086.001","sls_metagenomicsPooling","683","0"
+"DP1.10086.001","sls_soilCoreCollection","removeDups() failed",""
+"DP1.10086.001","sls_soilMoisture","removeDups() failed",""
+"DP1.10086.001","sls_soilpH","removeDups() failed",""
+"DP1.10100.001","sls_soilStableIsotopes","884","0"
+"DP1.10104.001","sme_microbialBiomass","865","54"
+"DP1.10008.001","spc_biogeochem","removeDups() failed",""
+"DP1.10047.001","spc_bulkdensity","621","0"
+"DP1.10047.001","spc_particlesize","1266","0"
+"DP1.10047.001","spc_perhorizon","1406","0"
+"DP1.10047.001","spc_perplot","311","0"
+"DP1.20093.001","swc_domainLabData","removeDups() failed",""
+"DP1.20093.001","swc_externalLabData","1199","3"
+"DP1.20093.001","swc_fieldData","1206","0"
+"DP1.20093.001","swc_fieldSuperParent","1082","0"
+"DP1.10093.001","tck_fielddata","removeDups() failed",""
+"DP1.10093.001","tck_taxonomyProcessed","removeDups() failed",""
+"DP1.10092.001","tck_pathogen","removeDups() failed",""
+"DP1.10098.001","vst_apparentindividual","80799","25564"
+"DP1.10098.001","vst_mappingandtagging","103688","1681"
+"DP1.10098.001","vst_perplotperyear","990","165"
+"DP1.10098.001","vst_shrubgroup","125","4"
+"DP1.00013.001","wdp_chemLab","8","1"
+"DP1.00013.001","wdp_collection","8","0"
+"DP1.00013.001","wdp_collectionChem","8","0"
+"DP1.00038.001","wdi_collection","8","0"
+"DP1.00038.001","wdi_collectionIso","8","0"
+"DP1.00038.001","wdi_collectionIsoTest","8","0"
+"DP1.00038.001","wdi_isoPerSample","removeDups() failed",""

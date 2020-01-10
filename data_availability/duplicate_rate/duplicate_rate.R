@@ -12,12 +12,14 @@ deflist <- list.files(wd)
 dupRate <- matrix(data=NA, ncol=6, nrow=1)
 dupRate <- data.frame(dupRate)
 names(dupRate) <- c('table', 'records', 'year', 'month', 'resolved', 'unresolved')
+#dupRate <- read.csv('/Users/clunch/GitHub/sandbox/data_availability/duplicate_rate/duplicateRate.csv')
 
 tableResult <- matrix(data=NA, ncol=4, nrow=1)
 tableResult <- data.frame(tableResult)
 names(tableResult) <- c('dpID', 'table', 'records', 'duplicates')
+#tableResult <- read.csv('/Users/clunch/GitHub/sandbox/data_availability/duplicate_rate/tableResults.csv')
 
-for(i in c(63:length(deflist))) {
+for(i in c(65:length(deflist))) {
   
   vars <- read.delim(paste(wd, deflist[i], sep='/'), sep='\t')
   dpID <- substring(unique(vars$dpID), 15, 28)
