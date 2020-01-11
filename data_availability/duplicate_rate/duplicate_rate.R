@@ -19,8 +19,8 @@ tableResult <- data.frame(tableResult)
 names(tableResult) <- c('dpID', 'table', 'records', 'duplicates')
 #tableResult <- read.csv('/Users/clunch/GitHub/sandbox/data_availability/duplicate_rate/tableResults.csv')
 
-for(i in c(65:length(deflist))) {
-  
+for(i in c(1:length(deflist))) {
+
   vars <- read.delim(paste(wd, deflist[i], sep='/'), sep='\t')
   dpID <- substring(unique(vars$dpID), 15, 28)
   if(length(dpID)!=1) {
@@ -55,11 +55,17 @@ for(i in c(65:length(deflist))) {
       next
     }
     
+    ctall <- nrow(datListDup)
+    dupall <- length(which(datListDup$duplicateRecordQF!=0))
+    endres <- c(dpID, j, ctall, dupall)
+    tableResult <- rbind(tableResult, endres)
+    #tableResult[which(tableResult$table==j),] <- endres
+    
     dateS <- try(datListDup[,grep('Date', names(datListDup), ignore.case=T)[1]], silent=T)
 
     if(class(dateS)[1]!='POSIXct') {
       datres <- c(dpID, j, 'Date field not found', '')
-      tableResult <- rbind(tableResult, datres)
+      #tableResult <- rbind(tableResult, datres)
       next
     }
     
@@ -79,7 +85,7 @@ for(i in c(65:length(deflist))) {
                     FUN=length), silent=T)
     if(class(ct)=='try-error') {
       datres <- c(dpID, j, 'No uid found', '')
-      tableResult <- rbind(tableResult, datres)
+      #tableResult <- rbind(tableResult, datres)
       next
     }
     dupByDate <- cbind(rep(j, nrow(dupByDate)), 
@@ -88,11 +94,6 @@ for(i in c(65:length(deflist))) {
     names(dupByDate) <- names(dupRate)
     dupRate <- rbind(dupRate, dupByDate)
     
-    ctall <- nrow(datListDup)
-    dupall <- length(which(datListDup$duplicateRecordQF!=0))
-    endres <- c(dpID, j, ctall, dupall)
-    tableResult <- rbind(tableResult, endres)
-
   }
   
   remove(datList)
@@ -112,6 +113,7 @@ write.table(dupRate,
 # tabResSpl <- tabResSpl[-1,]
 # tabResSpl$dupPct <- 100*as.numeric(tabResSpl$dupNum)/as.numeric(tabResSpl$records)
 
+tableResult <- tableResult[-1,]
 write.table(tableResult, 
             '/Users/clunch/GitHub/sandbox/data_availability/duplicate_rate/tableResults.csv',
             sep=',', row.names=F)
