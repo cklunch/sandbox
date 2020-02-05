@@ -7,6 +7,7 @@ options(stringsAsFactors = F)
 library(raster)
 library(httr)
 library(jsonlite)
+library(SDMTools)
 
 site.req <- GET('https://data.neonscience.org/api/v0/locations/sites')
 site.locs <- fromJSON(content(site.req, as='text'))
