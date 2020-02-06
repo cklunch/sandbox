@@ -3,13 +3,13 @@ library(jsonlite)
 library(dplyr, quietly=T)
 library(devtools)
 options(stringsAsFactors = F)
-req <- GET("https://data.neonscience.org/api/v0/products/DP4.00200.001")
+req <- GET("https://data.neonscience.org/api/v0/products/DP1.20288.001")
 avail <- fromJSON(content(req, as="text"), simplifyDataFrame=T, flatten=T)
 months <- unlist(avail$data$siteCodes$availableDataUrls)
 
 urls <- unlist(avail$data$siteCodes$availableDataUrls)
 urls
-fls <- GET(urls[grep("UKFS/2017-09", urls)])
+fls <- GET(urls[grep("WLOU/2019-07", urls)])
 list.files <- fromJSON(content(fls, as="text"))
 head(list.files$data$files)
 #brd.count <- read.delim(brd.files$data$files$url
@@ -20,9 +20,9 @@ downloader::download(list.files$data$files$url[grep("468000_7220000_image", list
          paste(getwd(), list.files$data$files$name[grep("468000_7220000_image", list.files$data$files$name)], sep="/"))
 Sys.time()
 
-#library(downloader)
-#download(aop.files$data$files$url[grep("20170328192931", aop.files$data$files$name, fixed=T)],
-#         paste(getwd(), "/image.tif", sep=""))
+library(downloader)
+download(list.files$data$files$url[grep("waq_instantaneous", list.files$data$files$name, fixed=T)[1]],
+        '/Users/clunch/Desktop/test.csv')
 
 # downloader
 req <- httr::GET("http://data.neonscience.org/api/v0/data/DP1.10055.001/TALL/2016-07")
