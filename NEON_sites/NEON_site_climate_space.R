@@ -22,6 +22,20 @@ sites$longitude <- as.numeric(sites$longitude)
 sites$easting <- as.numeric(sites$easting)
 sites$northing <- as.numeric(sites$northing)
 
-ppt.norm <- raster('/Users/clunch/Dropbox/data/NEON data/prism/PRISM_ppt_30yr_normal_4kmM2_all_bil/PRISM_ppt_30yr_normal_4kmM2_01_bil.bil')
+ppt.norm <- raster('/Users/clunch/Dropbox/data/NEON data/prism/PRISM_ppt_30yr_normal_4kmM2_all_bil/PRISM_ppt_30yr_normal_4kmM2_annual_bil.bil')
 ppt.site <- extract(x=ppt.norm, y=cbind(sites$longitude, sites$latitude))
+
+site.clim <- cbind(sites$site, ppt.site)
+site.clim <- data.frame(site.clim)
+names(site.clim) <- c('site','ppt.30yr.mean')
+site.clim$ppt.30yr.mean <- as.numeric(site.clim$ppt.30yr.mean)*25.4
+
+temp.norm <- raster('/Users/clunch/Dropbox/data/NEON data/prism/PRISM_tmean_30yr_normal_4kmM2_annual_bil/PRISM_tmean_30yr_normal_4kmM2_annual_bil.bil')
+temp.site <- extract(x=temp.norm, y=cbind(sites$longitude, sites$latitude))
+site.clim <- cbind(site.clim, temp.site)
+names(site.clim)[3] <- 'temp.30yr.mean'
+
+plot(site.clim$ppt.30yr.mean~site.clim$temp.30yr.mean, pch=20, tck=0.01,
+     xlab='Mean annual temperature (C)', ylab='Mean annual rainfall (mm)')
+
 
