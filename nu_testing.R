@@ -1,6 +1,6 @@
 library(devtools)
-#install_github('NateMietk/NEON-utilities/neonUtilities')
-install('.')
+install_github('NateMietk/NEON-utilities/neonUtilities', ref='issue-72')
+#install('.')
 library(neonUtilities)
 options(stringsAsFactors = F)
 
@@ -65,8 +65,10 @@ dst <- readTableNEON('/Users/clunch/Desktop/filesToStack00017/stackedFiles/dpsd_
 
 zipsByProduct(dpID='DP1.20099.001', savepath='/Users/clunch/Desktop',
               check.size=F)
+
 stackByTable('/Users/clunch/Desktop/filesToStack20099')
 
+stackByTable('/Users/clunch/Desktop/NEON_par.zip')
 stackByTable('/Users/clunch/Desktop/NEON_gp.zip')
 stackByTable('/Users/clunch/Desktop/NEON_size-dust-particulate.zip')
 stackByTable('/Users/clunch/Desktop/filesToStack10026', nCores=1)
