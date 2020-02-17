@@ -1,8 +1,30 @@
 library(devtools)
-install_github('NateMietk/NEON-utilities/neonUtilities', ref='issue-72')
-#install('.')
+setwd("/Users/clunch/GitHub/NateFork/NEON-utilities/neonUtilities")
+install_github('NateMietk/NEON-utilities/neonUtilities', ref='issue-69')
+install('.')
 library(neonUtilities)
 options(stringsAsFactors = F)
+
+byTileAOP(dpID = "DP3.30006.001", site = "ORNL", year = "2016", 
+          easting = 744000, northing = 983000, check.size = FALSE)
+
+byTileAOP(dpID = "DP3.30006.001", site = "ORNL", year = "2016", 
+          easting = c(743000,747000), 
+          northing = c(3984000,3984000), 
+          savepath='/Users/clunch/Desktop', check.size = FALSE)
+
+byTileAOP(dpID = "DP3.30025.001", site = "ORNL", year = "2016", 
+          easting = c(743000,747000), 
+          northing = c(3984000,3984000), 
+          savepath='/Users/clunch/Desktop', check.size = FALSE)
+
+byTileAOP(dpID = "DP3.30015.001", site = "WREF", year = "2017", 
+          easting = c(571000,743000,578000), 
+          northing = c(5079000,3984000,5080000), 
+          savepath='/Users/clunch/Desktop', check.size = FALSE)
+
+byFileAOP(dpID='DP3.30015.001', site='SJER', year=2017, check.size=F, 
+          savepath='/Users/clunch/Desktop') # started ~9:18, 713 files = 477.8 MB
 
 pr <- loadByProduct(dpID='DP1.00024.001', site=c('WREF','ABBY'),
               startdate='2019-07', enddate='2019-08')
