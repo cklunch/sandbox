@@ -1,6 +1,6 @@
 library(devtools)
-setwd("/Users/clunch/GitHub/NateFork/NEON-utilities/neonUtilities")
-install_github('NateMietk/NEON-utilities/neonUtilities', ref='issue-69')
+setwd("/Users/clunch/GitHub/NEON-utilities/neonUtilities")
+#install_github('NateMietk/NEON-utilities/neonUtilities', ref='issue-69')
 install('.')
 library(neonUtilities)
 options(stringsAsFactors = F)
