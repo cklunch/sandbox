@@ -9,3 +9,5 @@ bird <- loadByProduct(dpID='DP1.10003.001', site='WREF', check.size=F)
 bird$brd_perpoint <- getLocByName(bird$brd_perpoint)
 bird$brd_countdata <- getLocTOS(bird$brd_countdata, 'brd_countdata')
 
+phe <- loadByProduct(dpID='DP1.10055.001', site='MOAB', check.size=F)
+phe.loc <- getLocTOS(phe$phe_perindividual, 'phe_perindividual')
