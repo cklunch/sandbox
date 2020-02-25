@@ -1,9 +1,12 @@
 library(devtools)
 setwd("/Users/clunch/GitHub/NEON-utilities/neonUtilities")
-install_github('NateMietk/NEON-utilities/neonUtilities', ref='issue-75')
+install_github('NateMietk/NEON-utilities/neonUtilities', ref='issue-25')
 install('.')
 library(neonUtilities)
 options(stringsAsFactors = F)
+
+setwd("~/GitHub/utilities-test-suite/testUtilities")
+test()
 
 byTileAOP(dpID = "DP3.30006.001", site = "ORNL", year = "2016", 
           easting = 744000, northing = 983000, check.size = FALSE)
@@ -23,10 +26,23 @@ byTileAOP(dpID = "DP3.30015.001", site = "WREF", year = "2017",
           northing = c(5079000,3984000,5080000), 
           savepath='/Users/clunch/Desktop', check.size = FALSE)
 
+byFileAOP(dpID='DP3.30015.001', site='SJER', year=2017, check.size=F, 
+          savepath='/Users/clunch/Desktop')
+
+byFileAOP(dpID='DP3.30019.001', site='OAES', year=2019, check.size=F, 
+          savepath='/Users/clunch/Desktop')
+
+
 # test for data download that should take >1 hour
 Sys.time()
 byFileAOP(dpID='DP1.30006.001', site='HARV', year=2017, check.size=F, 
           savepath='/Users/clunch/Desktop')
+
+# test for data download that should take >1 hour
+Sys.time()
+zipsByProduct(dpID='DP1.00094.001', site='SERC', check.size=F, 
+          savepath='/Users/clunch/Desktop')
+
 
 pr <- loadByProduct(dpID='DP1.00024.001', site=c('WREF','ABBY'),
               startdate='2019-07', enddate='2019-08')
