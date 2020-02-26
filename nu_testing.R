@@ -40,7 +40,7 @@ byFileAOP(dpID='DP1.30006.001', site='HARV', year=2017, check.size=F,
 
 # test for data download that should take >1 hour
 Sys.time()
-zipsByProduct(dpID='DP1.00094.001', site='SERC', check.size=F, 
+zipsByProduct(dpID='DP4.00200.001', site='all', check.size=F, 
           savepath='/Users/clunch/Desktop')
 
 
