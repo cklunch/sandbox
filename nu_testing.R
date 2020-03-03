@@ -101,7 +101,7 @@ zipsByProduct(dpID='DP1.00017.001', site=c('RMNP','CPER','ONAQ'),
               avg=60, savepath='/Users/clunch/Desktop')
 stackByTable('/Users/clunch/Desktop/filesToStack00017')
 dst <- readTableNEON('/Users/clunch/Desktop/filesToStack00017/stackedFiles/dpsd_60_minutes.csv',
-              '/Users/clunch/Desktop/filesToStack00017/stackedFiles/variables.csv')
+              '/Users/clunch/Desktop/filesToStack00017/stackedFiles/variables_00017.csv')
 
 zipsByProduct(dpID='DP1.20099.001', savepath='/Users/clunch/Desktop',
               check.size=F)
