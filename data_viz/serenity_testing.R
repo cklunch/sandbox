@@ -1,3 +1,4 @@
+devtools::install_github('serenity-r/serenity.viz')
 library(neonUtilities)
 library(serenity.viz)
 
