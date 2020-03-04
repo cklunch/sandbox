@@ -75,6 +75,14 @@ buoyT <- loadByProduct(dpID='DP1.20046.001', site='BARC',
 bat <- loadByProduct(dpID='DP4.00132.001', startdate='2017-05',
                      enddate='2018-08', check.size=F)
 
+# should display message about avg= and download all data
+waq <- loadByProduct(dpID='DP1.20288.001', site=c('ARIK','MCRA'),
+                     avg=5, check.size=F)
+
+# should fail with informative message
+sae <- loadByProduct(dpID='DP4.00200.001', site='WREF', check.size=F)
+
+
 zipsByProduct(dpID='DP1.00024.001', site=c('WREF','ABBY'),
               startdate='2019-07', enddate='2019-09',
               savepath='/Users/clunch/Desktop')
