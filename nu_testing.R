@@ -1,9 +1,12 @@
 library(devtools)
 setwd("/Users/clunch/GitHub/NEON-utilities/neonUtilities")
-#install_github('NateMietk/NEON-utilities/neonUtilities', ref='issue-69')
+install_github('NateMietk/NEON-utilities/neonUtilities', ref='master')
 install('.')
 library(neonUtilities)
 options(stringsAsFactors = F)
+
+setwd("~/GitHub/utilities-test-suite/testUtilities")
+test()
 
 byTileAOP(dpID = "DP3.30006.001", site = "ORNL", year = "2016", 
           easting = 744000, northing = 983000, check.size = FALSE)
@@ -24,7 +27,22 @@ byTileAOP(dpID = "DP3.30015.001", site = "WREF", year = "2017",
           savepath='/Users/clunch/Desktop', check.size = FALSE)
 
 byFileAOP(dpID='DP3.30015.001', site='SJER', year=2017, check.size=F, 
-          savepath='/Users/clunch/Desktop') # started ~9:18, 713 files = 477.8 MB
+          savepath='/Users/clunch/Desktop')
+
+byFileAOP(dpID='DP3.30019.001', site='OAES', year=2019, check.size=F, 
+          savepath='/Users/clunch/Desktop')
+
+
+# test for data download that should take >1 hour
+Sys.time()
+byFileAOP(dpID='DP1.30006.001', site='HARV', year=2017, check.size=F, 
+          savepath='/Users/clunch/Desktop')
+
+# test for data download that should take >1 hour
+Sys.time()
+zipsByProduct(dpID='DP4.00200.001', site='all', check.size=F, 
+          savepath='/Users/clunch/Desktop')
+
 
 pr <- loadByProduct(dpID='DP1.00024.001', site=c('WREF','ABBY'),
               startdate='2019-07', enddate='2019-08')
@@ -57,6 +75,14 @@ buoyT <- loadByProduct(dpID='DP1.20046.001', site='BARC',
 bat <- loadByProduct(dpID='DP4.00132.001', startdate='2017-05',
                      enddate='2018-08', check.size=F)
 
+# should display message about avg= and download all data
+waq <- loadByProduct(dpID='DP1.20288.001', site=c('ARIK','MCRA'),
+                     avg=5, check.size=F)
+
+# should fail with informative message
+sae <- loadByProduct(dpID='DP4.00200.001', site='WREF', check.size=F)
+
+
 zipsByProduct(dpID='DP1.00024.001', site=c('WREF','ABBY'),
               startdate='2019-07', enddate='2019-09',
               savepath='/Users/clunch/Desktop')
@@ -83,7 +109,7 @@ zipsByProduct(dpID='DP1.00017.001', site=c('RMNP','CPER','ONAQ'),
               avg=60, savepath='/Users/clunch/Desktop')
 stackByTable('/Users/clunch/Desktop/filesToStack00017')
 dst <- readTableNEON('/Users/clunch/Desktop/filesToStack00017/stackedFiles/dpsd_60_minutes.csv',
-              '/Users/clunch/Desktop/filesToStack00017/stackedFiles/variables.csv')
+              '/Users/clunch/Desktop/filesToStack00017/stackedFiles/variables_00017.csv')
 
 zipsByProduct(dpID='DP1.20099.001', savepath='/Users/clunch/Desktop',
               check.size=F)
