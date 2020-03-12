@@ -12,10 +12,12 @@ countdata.loc <- getLocTOS(bird$brd_countdata, 'brd_countdata')
 phe <- loadByProduct(dpID='DP1.10055.001', site='MOAB', check.size=F)
 phe.loc <- getLocTOS(phe$phe_perindividual, 'phe_perindividual')
 
-vst <- loadByProduct(dpID='DP1.10098.001', site='STEI', check.size=F,
-                     package='expanded')
+vst <- loadByProduct(dpID='DP1.10098.001', site='STEI', check.size=F)
 vst.loc <- getLocTOS(vst$vst_mappingandtagging[which(!is.na(vst$vst_mappingandtagging$pointID)),], 
                      'vst_mappingandtagging')
+byTileAOP(dpID='DP3.30015.001', site='STEI', year=2017,
+          easting=vst.loc$adjEasting, northing=vst.loc$adjNorthing,
+          savepath='/Users/clunch/Desktop')
 
 req <- httr::GET("http://data.neonscience.org/api/v0/locations/SCBI")
 loc <- jsonlite::fromJSON(httr::content(req, as='text', encoding='UTF-8'))
