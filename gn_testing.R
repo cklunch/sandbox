@@ -12,9 +12,18 @@ countdata.loc <- getLocTOS(bird$brd_countdata, 'brd_countdata')
 phe <- loadByProduct(dpID='DP1.10055.001', site='MOAB', check.size=F)
 phe.loc <- getLocTOS(phe$phe_perindividual, 'phe_perindividual')
 
+bet <- loadByProduct(dpID='DP1.10022.001', site='TALL', check.size=F)
+
+mos <- loadByProduct(dpID='DP1.10043.001', site='NIWO', check.size=F)
+
+tick <- loadByProduct(dpID='DP1.10093.001', site=c('TALL','CLBJ'), check.size=F)
+
+root <- loadByProduct(dpID='DP1.10067.001', site=c('TREE','SOAP'), check.size=F)
+
+dhp <- loadByProduct(dpID='DP1.10017.001', site='SJER', check.size=F)
+
 vst <- loadByProduct(dpID='DP1.10098.001', site='STEI', check.size=F)
-vst.loc <- getLocTOS(vst$vst_mappingandtagging[which(!is.na(vst$vst_mappingandtagging$pointID)),], 
-                     'vst_mappingandtagging')
+vst.loc <- getLocTOS(vst$vst_mappingandtagging, 'vst_mappingandtagging')
 byTileAOP(dpID='DP3.30015.001', site='STEI', year=2017,
           easting=vst.loc$adjEasting, northing=vst.loc$adjNorthing,
           savepath='/Users/clunch/Desktop')
