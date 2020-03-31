@@ -18,15 +18,26 @@ mos <- loadByProduct(dpID='DP1.10043.001', site='NIWO', check.size=F)
 
 tick <- loadByProduct(dpID='DP1.10093.001', site=c('TALL','CLBJ'), check.size=F)
 
-root <- loadByProduct(dpID='DP1.10067.001', site=c('TREE','SOAP'), check.size=F)
+root <- loadByProduct(dpID='DP1.10067.001', site=c('TREE','TALL'), check.size=F)
+root.loc <- getLocTOS(root$bbc_percore, 'bbc_percore')
 
 dhp <- loadByProduct(dpID='DP1.10017.001', site='SJER', check.size=F)
+
+cdw.tally <- loadByProduct(dpID='DP1.10010.001', check.size=F)
+cdw.density <- loadByProduct(dpID='DP1.10014.001', check.size=F)
 
 vst <- loadByProduct(dpID='DP1.10098.001', site='STEI', check.size=F)
 vst.loc <- getLocTOS(vst$vst_mappingandtagging, 'vst_mappingandtagging')
 byTileAOP(dpID='DP3.30015.001', site='STEI', year=2017,
           easting=vst.loc$adjEasting, northing=vst.loc$adjNorthing,
           savepath='/Users/clunch/Desktop')
+
+veg <- loadByProduct(dpID='DP1.10098.001', check.size=F)
+veg.loc <- getLocTOS(veg$vst_mappingandtagging, 'vst_mappingandtagging')
+badpoints <- veg.loc$points[which((!is.na(veg.loc$pointID)) & is.na(veg.loc$adjEasting) & 
+                                    (!is.na(veg.loc$stemDistance)) & (!is.na(veg.loc$stemAzimuth)))]
+badpoints <- unique(badpoints)
+write.table(badpoints, '/Users/clunch/Desktop/vegpoints.csv', sep=',', quote=F, row.names=F)
 
 req <- httr::GET("http://data.neonscience.org/api/v0/locations/SCBI")
 loc <- jsonlite::fromJSON(httr::content(req, as='text', encoding='UTF-8'))
