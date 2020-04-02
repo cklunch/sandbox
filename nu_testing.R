@@ -1,6 +1,6 @@
 library(devtools)
 setwd("/Users/clunch/GitHub/NEON-utilities/neonUtilities")
-install_github('NateMietk/NEON-utilities/neonUtilities', ref='master')
+#install_github('NateMietk/NEON-utilities/neonUtilities', ref='master')
 install('.')
 library(neonUtilities)
 options(stringsAsFactors = F)
@@ -32,6 +32,19 @@ byFileAOP(dpID='DP3.30015.001', site='SJER', year=2017, check.size=F,
 byFileAOP(dpID='DP3.30019.001', site='OAES', year=2019, check.size=F, 
           savepath='/Users/clunch/Desktop')
 
+# sites that are flown under another site's name
+byFileAOP(dpID='DP3.30015.001', site='TREE', year=2017, check.size=F, 
+          savepath='/Users/clunch/Desktop')
+
+
+
+# test for Blandy UTM zones
+veg <- loadByProduct(dpID='DP1.10098.001', site='BLAN', check.size=F)
+veg.loc <- geoNEON::getLocTOS(veg$vst_mappingandtagging, 'vst_mappingandtagging')
+ea <- veg.loc$adjEasting[which(!is.na(veg.loc$adjEasting))]
+no <- veg.loc$adjNorthing[which(!is.na(veg.loc$adjNorthing))]
+byTileAOP(dpID='DP3.30015.001', site='BLAN', year=2017, 
+          easting=ea, northing=no, buffer=10, savepath='/Users/clunch/Desktop')
 
 # test for data download that should take >1 hour
 Sys.time()
