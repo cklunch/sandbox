@@ -42,8 +42,8 @@ write.table(badpoints, '/Users/clunch/Desktop/vegpoints.csv', sep=',', quote=F, 
 req <- httr::GET("http://data.neonscience.org/api/v0/locations/SCBI")
 loc <- jsonlite::fromJSON(httr::content(req, as='text', encoding='UTF-8'))
 
-#SOILAR100590 TOWER100594
-req <- httr::GET("http://data.neonscience.org/api/v0/locations/CFGLOC103160")
-loc <- jsonlite::fromJSON(httr::content(req, as='text', encoding='UTF-8'))
+# #SOILAR100590 TOWER100594
+# req <- httr::GET("http://data.neonscience.org/api/v0/locations/CFGLOC103160")
+# loc <- jsonlite::fromJSON(httr::content(req, as='text', encoding='UTF-8'))
 
 loc$data$locationChildrenUrls[which(substring(loc$data$locationChildren, 1, 4)!='SCBI')]
