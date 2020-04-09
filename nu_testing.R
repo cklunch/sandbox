@@ -36,6 +36,11 @@ byFileAOP(dpID='DP3.30019.001', site='OAES', year=2019, check.size=F,
 byFileAOP(dpID='DP3.30015.001', site='TREE', year=2017, check.size=F, 
           savepath='/Users/clunch/Desktop')
 
+# sites that are flown under another site's name
+byTileAOP(dpID='DP3.30025.001', site='SUGG', year=2018, check.size=F, 
+          easting=c(401890,401930), northing=c(3284680,3284690),
+          savepath='/Users/clunch/Desktop')
+
 
 
 # test for Blandy UTM zones
