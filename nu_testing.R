@@ -8,6 +8,10 @@ options(stringsAsFactors = F)
 setwd("~/GitHub/utilities-test-suite/testUtilities")
 test()
 
+waq <- loadByProduct(dpID='DP1.20288.001', site=c('ARIK','HOPB'), 
+                     startdate='2017-03', enddate='2018-03', 
+                     package='expanded', check.size=F)
+
 byTileAOP(dpID = "DP3.30006.001", site = "ORNL", year = "2016", 
           easting = 744000, northing = 983000, check.size = FALSE)
 
