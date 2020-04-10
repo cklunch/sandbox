@@ -91,6 +91,10 @@ rh <- loadByProduct(dpID='DP1.00098.001', site='HARV', startdate='2019-06',
 alg <- loadByProduct(dpID='DP1.20166.001', startdate='2017-05', enddate='2018-08',
                      check.size=F)
 
+alg <- loadByProduct(dpID='DP1.20166.001', startdate='2017-05', enddate='2018-08',
+                     site=c('MAYF','PRIN'), package='expanded',
+                     check.size=F)
+
 buoyT <- loadByProduct(dpID='DP1.20046.001', site='BARC',
                      check.size=F)
 
