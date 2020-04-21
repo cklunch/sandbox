@@ -1,12 +1,33 @@
 library(devtools)
 setwd("/Users/clunch/GitHub/NEON-utilities/neonUtilities")
-#install_github('NateMietk/NEON-utilities/neonUtilities', ref='master')
+install_github('NateMietk/NEON-utilities/neonUtilities', ref='master')
 install('.')
 library(neonUtilities)
 options(stringsAsFactors = F)
 
 setwd("~/GitHub/utilities-test-suite/testUtilities")
 test()
+
+
+# token testing
+waq <- loadByProduct(dpID='DP1.20288.001', site=c('ARIK','HOPB'), 
+                     startdate='2017-03', enddate='2018-03', 
+                     package='expanded', check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+byTileAOP(dpID = "DP3.30015.001", site = "WREF", year = "2017", 
+          easting = c(571000,743000,578000), 
+          northing = c(5079000,3984000,5080000), 
+          savepath='/Users/clunch/Desktop', check.size = FALSE,
+          token=Sys.getenv('NEON_TOKEN'))
+
+byFileAOP(dpID='DP3.30015.001', site='SJER', year=2017, check.size=F, 
+          savepath='/Users/clunch/Desktop', token=Sys.getenv('NEON_TOKEN'))
+
+zipsByProduct(dpID='DP1.10098.001', site=c('WREF','ABBY'),
+              savepath='/Users/clunch/Desktop', token=Sys.getenv('NEON_TOKEN'))
+stackByTable('/Users/clunch/Desktop/filesToStack10098')
+
+
 
 waq <- loadByProduct(dpID='DP1.20288.001', site=c('ARIK','HOPB'), 
                      startdate='2017-03', enddate='2018-03', 
