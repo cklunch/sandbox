@@ -7,6 +7,7 @@ install('.')
 
 loc <- getLocBySite('ARIK', type='all')
 loc.is <- getLocBySite('ARIK', type='IS')
+loc.os <- getLocBySite('ARIK', type='OS')
 
 bird <- loadByProduct(dpID='DP1.10003.001', site='WREF', check.size=F)
 perpoint.loc <- getLocByName(bird$brd_perpoint)
