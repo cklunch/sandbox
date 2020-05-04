@@ -5,7 +5,8 @@ setwd("/Users/clunch/GitHub/NEON-geolocation/geoNEON")
 options(stringsAsFactors = F)
 install('.')
 
-loc <- getLocBySite('ARIK', type='all')
+loc <- getLocBySite('ARIK', type='AQU')
+loc <- getLocBySite('SYCA', type='all', history=T)
 loc.is <- getLocBySite('ARIK', type='IS')
 loc.os <- getLocBySite('ARIK', type='OS')
 
@@ -46,7 +47,11 @@ badpoints <- unique(badpoints)
 write.table(badpoints, '/Users/clunch/Desktop/vegpoints.csv', sep=',', quote=F, row.names=F)
 
 req <- httr::GET("http://data.neonscience.org/api/v0/locations/SCBI")
+req <- httr::GET("http://data.neonscience.org/api/v0/locations/ARIK")
 loc <- jsonlite::fromJSON(httr::content(req, as='text', encoding='UTF-8'))
+
+req <- httr::GET("http://data.neonscience.org/api/v0/locations/S2LOC100103")
+
 
 # #SOILAR100590 TOWER100594
 # req <- httr::GET("http://data.neonscience.org/api/v0/locations/CFGLOC103160")
@@ -57,5 +62,8 @@ loc$data$locationChildrenUrls[which(substring(loc$data$locationChildren, 1, 4)!=
 
 
 req <- httr::GET("http://data.neonscience.org/api/v0/locations/S2LOC111011?history=true")
+loc <- jsonlite::fromJSON(httr::content(req, as='text', encoding='UTF-8'))
+
+req <- httr::GET("http://data.neonscience.org/api/v0/locations/GWWELL112553?history=true")
 loc <- jsonlite::fromJSON(httr::content(req, as='text', encoding='UTF-8'))
 

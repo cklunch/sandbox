@@ -1,7 +1,7 @@
 library(devtools)
-#setwd("/Users/clunch/GitHub/NEON-utilities/neonUtilities")
+setwd("/Users/clunch/GitHub/NEON-utilities/neonUtilities")
 #install_github('NateMietk/NEON-utilities/neonUtilities', ref='master')
-setwd("/Users/clunch/GitHub/NateFork/NEON-utilities/neonUtilities")
+#setwd("/Users/clunch/GitHub/NateFork/NEON-utilities/neonUtilities")
 install('.')
 library(neonUtilities)
 options(stringsAsFactors = F)
@@ -28,6 +28,10 @@ zipsByProduct(dpID='DP1.10098.001', site=c('WREF','ABBY'),
               savepath='/Users/clunch/Desktop', token=Sys.getenv('NEON_TOKEN'))
 stackByTable('/Users/clunch/Desktop/filesToStack10098')
 
+
+# LOV files
+rea <- loadByProduct(dpID='DP1.20190.001', site='WALK', check.size=F)
+zipsByProduct(dpID='DP1.20190.001', savepath='/Users/clunch/Desktop')
 
 
 waq <- loadByProduct(dpID='DP1.20288.001', site=c('ARIK','HOPB'), 
@@ -88,6 +92,8 @@ zipsByProduct(dpID='DP4.00200.001', site='all', check.size=F,
           savepath='/Users/clunch/Desktop')
 
 
+fs <- loadByProduct(dpID='DP1.30012.001', check.size=F)
+
 pr <- loadByProduct(dpID='DP1.00024.001', site=c('WREF','ABBY'),
               startdate='2019-07', enddate='2019-08')
 
@@ -96,6 +102,9 @@ cfc <- loadByProduct(dpID='DP1.10026.001', package='expanded',
 
 gwe <- loadByProduct(dpID='DP1.20100.001', site=c('MART','WLOU'),
                     startdate='2019-07', enddate='2019-09', check.size=F, nCores=5)
+
+swe <- loadByProduct(dpID='DP1.20016.001', site=c('MART','WLOU'),
+                     startdate='2019-07', enddate='2019-09', check.size=F, nCores=5)
 
 wch <- loadByProduct(dpID='DP1.20093.001', site=c('ARIK','POSE'),
                      package='expanded', check.size=F)
@@ -107,6 +116,10 @@ dst <- loadByProduct(dpID='DP1.00017.001', site=c('RMNP','CPER','ONAQ'),
                      startdate='2019-01', enddate='2019-10', check.size=F,
                      avg=60)
 
+dst <- loadByProduct(dpID='DP1.00017.001', site='CPER',
+                     startdate='2016-05', enddate='2018-06', check.size=F,
+                     avg=60)
+
 rh <- loadByProduct(dpID='DP1.00098.001', site='HARV', startdate='2019-06',
                     avg=30, check.size=F)
 
@@ -116,6 +129,9 @@ alg <- loadByProduct(dpID='DP1.20166.001', startdate='2017-05', enddate='2018-08
 alg <- loadByProduct(dpID='DP1.20166.001', startdate='2017-05', enddate='2018-08',
                      site=c('MAYF','PRIN'), package='expanded',
                      check.size=F)
+
+sms <- loadByProduct(dpID='DP1.00094.001', startdate='2018-06', enddate='2018-07',
+                     site='NIWO', check.size=F)
 
 buoyT <- loadByProduct(dpID='DP1.20046.001', site='BARC',
                      check.size=F)
@@ -142,11 +158,7 @@ stackByTable('/Users/clunch/Desktop/filesToStack10098')
 
 zipsByProduct(dpID='DP1.10026.001',
               savepath='/Users/clunch/Desktop', package='expanded')
-stackByTable('/Users/clunch/Desktop/filesToStack10026', folder=T, nCores=1)
-
-zipsByProduct(dpID='DP1.10026.001',
-              savepath='/Users/clunch/Desktop', package='expanded')
-stackByTable('/Users/clunch/Desktop/filesToStack10026', folder=T, nCores=1)
+stackByTable('/Users/clunch/Desktop/filesToStack10026', nCores=1)
 
 zipsByProduct(dpID='DP1.20288.001',
               savepath='/Users/clunch/Desktop', package='expanded')
@@ -161,6 +173,12 @@ dst <- readTableNEON('/Users/clunch/Desktop/filesToStack00017/stackedFiles/dpsd_
 
 zipsByProduct(dpID='DP1.20099.001', savepath='/Users/clunch/Desktop',
               check.size=F)
+
+zipsByProduct(dpID='DP4.00200.001', site='TEAK', startdate='2018-06', enddate='2018-09',
+              savepath='/Users/clunch/Desktop')
+flux <- stackEddy('/Users/clunch/Desktop/filesToStack00200TEAK/')
+
+foot <- footRaster('/Users/clunch/Desktop/filesToStack00200WREF/NEON.D16.WREF.DP4.00200.001.nsae.2018-07-04.expanded.h5')
 
 stackByTable('/Users/clunch/Desktop/filesToStack20099')
 
