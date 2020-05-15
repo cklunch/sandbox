@@ -2,11 +2,9 @@ options(stringsAsFactors = F)
 library(devtools)
 library(lubridate)
 library(neonUtilities)
-library(neonOSbase)
+library(neonOS)
 
 wd <- '/Users/clunch/GitHub/definitional-data/pubWBs'
-#l1Index <- read.delim('/Users/clunch/GitHub/sandbox/data_availability/duplicate_rate/L1Index_short.txt',
-#                      sep='\t')
 deflist <- list.files(wd)
 
 dupRate <- matrix(data=NA, ncol=6, nrow=1)
@@ -19,7 +17,7 @@ tableResult <- data.frame(tableResult)
 names(tableResult) <- c('dpID', 'table', 'records', 'duplicates')
 #tableResult <- read.csv('/Users/clunch/GitHub/sandbox/data_availability/duplicate_rate/tableResults.csv')
 
-for(i in c(1:length(deflist))) {
+for(i in c(65:length(deflist))) {
 
   vars <- read.delim(paste(wd, deflist[i], sep='/'), sep='\t')
   dpID <- substring(unique(vars$dpID), 15, 28)
@@ -28,7 +26,9 @@ for(i in c(1:length(deflist))) {
     next
   }
   
-  datList <- try(loadByProduct(dpID, check.size=F, startdate='2017-05', enddate='2018-08'))
+  datList <- try(loadByProduct(dpID, check.size=F, package='expanded',
+                               startdate='2017-05', enddate='2018-08',
+                               token=Sys.getenv('NEON_TOKEN')))
   
   if(class(datList)=='try-error') {
     dres <- c(dpID, '', 'No data found for 2017-05 to 2018-08', '')
@@ -40,17 +40,18 @@ for(i in c(1:length(deflist))) {
     
     if(j %in% c('rea_conductivityFieldData','sbd_conductivityFieldData') | 
        length(grep('variables', j))>0 | length(grep('validation', j))>0 | 
-       length(grep('readme', j))>0) {
+       length(grep('readme', j))>0 | length(grep('categoricalCodes', j))>0) {
       next
     }
     
     datList[[j]] <- datList[[j]][,-which(names(datList[[j]])=='publicationDate')]
     
-    datListDup <- try(removeDups(datList[[j]], vars, 
-                             paste(j, '_pub', sep='')), silent=T)
+    datListDup <- try(removeDups(datList[[j]], 
+                                 vars, 
+                                 paste(j, '_pub', sep='')), silent=T)
     
     if(class(datListDup)=='try-error') {
-      dupres <- c(dpID, j, 'removeDups() failed', '')
+      dupres <- c(dpID, j, datListDup[1], '')
       tableResult <- rbind(tableResult, dupres)
       next
     }

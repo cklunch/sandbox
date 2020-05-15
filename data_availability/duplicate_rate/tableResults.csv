@@ -1,245 +1,449 @@
-"dpID","table","records","duplicates","dupPct","comments"
-"DP1.20099.001","agw_groundwaterFieldData","153","0",0,NA
-"DP1.20163.001","alg_algaeExternalLabDataPerSample","9433","48",0.51,NA
-"DP1.20163.001","alg_domainLabChemistry","4312","1",0.02,NA
-"DP1.20163.001","alg_fieldData","1086","4",0.37,NA
-"DP1.20166.001","alg_biomass","2099","0",0,NA
-"DP1.20166.001","alg_fieldData","1096","4",0.36,NA
-"DP1.20166.001","alg_taxonomyProcessed","133610","20890",15.64,NA
-"DP1.20138.001","amc_cellCounts","removeDups() failed",NA,NA,NA
-"DP1.20138.001","amc_fieldCellCounts","493","0",0,NA
-"DP1.20138.001","amc_fieldSuperParent","493","25",5.07,NA
-"DP1.20072.001","apc_perTaxon","2228","12",0.54,NA
-"DP1.20072.001","apc_pointTransect","17267","0",0,NA
-"DP1.20072.001","apc_taxonomyProcessed","296","0",0,NA
-"DP1.20063.001","apl_biomass","266","0",0,NA
-"DP1.20063.001","apl_clipHarvest","307","0",0,NA
-"DP1.20063.001","apl_plantExternalLabDataPerSample","640","0",0,NA
-"DP1.20066.001","apl_biomass","350","0",0,NA
-"DP1.20066.001","apl_clipHarvest","1027","0",0,NA
-"DP1.20066.001","apl_taxonomyProcessed","151","0",0,NA
-"DP1.20194.001","asc_externalLabData","9622","2358",24.51,NA
-"DP1.20194.001","asc_fieldDataPoint","2126","0",0,NA
-"DP1.20194.001","asc_fieldDataStation","199","4",2.01,NA
-"DP1.20194.001","asc_fieldDataZone","732","0",0,NA
-"DP1.20197.001","asc_fieldDataPoint","2126","0",0,NA
-"DP1.20197.001","asc_fieldDataStation","199","4",2.01,NA
-"DP1.20197.001","asc_fieldDataZone","732","0",0,NA
-"DP1.20197.001","asp_externalLabData","812","64",7.88,NA
-"DP1.20276.001","gsi_externalLabH2OIsotopes","94","0",0,NA
-"DP1.20276.001","gsi_fieldData","211","0",0,NA
-"DP1.20276.001","gsi_fieldSuperParent","222","0",0,NA
-"DP1.20206.001","asi_externalLabH2OIsotopes","428","0",0,NA
-"DP1.20206.001","asi_fieldData","1105","0",0,NA
-"DP1.20206.001","asi_fieldSuperParent","1081","0",0,NA
-"DP1.20206.001","asi_POMExternalLabDataPerSample","4268","8",0.19,NA
-"DP4.00132.001","bat_fieldData","3","0",0,NA
-"DP4.00132.001","bat_pointcollection","20","20",100,"Add waypoint to the primary key?"
-"DP4.00132.001","bat_resultsFile","3","0",0,NA
-"DP4.00132.001","bat_sonarRecord","12","0",0,NA
-"DP1.10102.001","bbc_rootChemistry","2424","0",0,NA
-"DP1.10067.001","bbc_chemistryPooling","1989","0",0,NA
-"DP1.10067.001","bbc_dilution","2950","0",0,NA
-"DP1.10067.001","bbc_percore","1026","0",0,NA
-"DP1.10067.001","bbc_rootmass","8782","2",0.02,NA
-"DP1.10099.001","bbc_rootStableIsotopes","2424","0",0,NA
-"DP1.10020.001","bet_BOLDcollectionData","3365","0",0,NA
-"DP1.10020.001","bet_BOLDspecimenDetails","3365","0",0,NA
-"DP1.10020.001","bet_BOLDtaxonomy","3365","0",0,NA
-"DP1.10020.001","bet_BOLDvoucherInfo","3365","0",0,NA
-"DP1.10022.001","bet_archivepooling","9025","0",0,NA
-"DP1.10022.001","bet_expertTaxonomistIDProcessed","9798","35",0.36,NA
-"DP1.10022.001","bet_fielddata","26365","0",0,NA
-"DP1.10022.001","bet_parataxonomistID","23952","0",0,NA
-"DP1.10022.001","bet_sorting","48033","0",0,NA
-"DP1.10003.001","brd_countdata","removeDups() failed",NA,NA,NA
-"DP1.10003.001","brd_perpoint","6249","0",0,NA
-"DP1.10014.001","cdw_densitydisk","removeDups() failed",NA,NA,NA
-"DP1.10014.001","cdw_densitylog","removeDups() failed",NA,NA,NA
-"DP1.10010.001","cdw_fieldtally","2472","61",2.47,NA
-"DP1.10026.001","cfc_carbonNitrogen","590","0",0,NA
-"DP1.10026.001","cfc_chemistrySubsampling","552","0",0,NA
-"DP1.10026.001","cfc_chlorophyll","removeDups() failed",NA,NA,NA
-"DP1.10026.001","cfc_elements","removeDups() failed",NA,NA,NA
-"DP1.10026.001","cfc_fieldData","558","0",0,NA
-"DP1.10026.001","cfc_lignin","583","0",0,NA
-"DP1.10026.001","cfc_LMA","549","2",0.36,NA
-"DP1.10053.001","cfc_foliarStableIsotopes","590","0",0,NA
-"DP4.00130.001","","No data found for 2017-05 to 2018-08",NA,NA,NA
-"DP1.20254.001","dep_profileData","2615","0",0,NA
-"DP1.20254.001","dep_profileHeader","273","0",0,NA
-"DP1.20252.001","dep_secchi","273","0",0,NA
-"DP1.10017.001","dhp_perimagefile","removeDups() failed",NA,NA,NA
-"DP1.10017.001","dhp_perplot","removeDups() failed",NA,NA,NA
-"DP1.10058.001","div_10m2Data100m2Data","170652","40499",23.73,"Year needs to be included in the primary key, for this and the other table (stopped processing because it was huge). But right now there is no year field. Need to talk to Barnett."
-"DP1.00101.001","dpm_field","29","0",0,NA
-"DP1.00101.001","dpm_lab","29","5",17.24,"Looks like legit duplicates, except some of the archive IDs don't quite match. Should probably investigate with lab, but primary key looks good."
-"DP1.20048.001","dsc_fieldData","683","25",3.66,NA
-"DP1.20048.001","dsc_fieldDataADCP","2","0",0,NA
-"DP1.20048.001","dsc_individualFieldData","17355","588",3.39,NA
-"DP1.20105.001","fsh_BOLDcollectionData","284","0",0,NA
-"DP1.20105.001","fsh_BOLDspecimenDetails","284","0",0,NA
-"DP1.20105.001","fsh_BOLDtaxonomy","284","0",0,NA
-"DP1.20105.001","fsh_BOLDvoucherInfo","284","0",0,NA
-"DP1.20107.001","fsh_bulkCount","removeDups() failed",NA,NA,NA
-"DP1.20107.001","fsh_fieldData","321","33",10.28,NA
-"DP1.20107.001","fsh_perFish","removeDups() failed",NA,NA,NA
-"DP1.20107.001","fsh_perPass","783","82",10.47,NA
-"DP1.30012.001","","No data found for 2017-05 to 2018-08",NA,NA,NA
-"DP1.20267.001","gag_fieldData","1975","4",0.2,NA
-"DP4.00131.001","geo_featureInfo","223","5",2.24,NA
-"DP4.00131.001","geo_pebbleCount","removeDups() failed",NA,NA,NA
-"DP4.00131.001","geo_resultsFile","16","0",0,NA
-"DP4.00131.001","geo_surveyFieldData","removeDups() failed",NA,NA,NA
-"DP4.00131.001","geo_totalStation","425","0",0,NA
-"DP1.20092.001","gwc_domainLabData","removeDups() failed",NA,NA,NA
-"DP1.20092.001","gwc_externalLabData","210","0",0,NA
-"DP1.20092.001","gwc_fieldData","214","0",0,NA
-"DP1.20092.001","gwc_fieldSuperParent","233","0",0,NA
-"DP1.10023.001","hbp_massdata","removeDups() failed",NA,NA,NA
-"DP1.10023.001","hbp_perbout","removeDups() failed",NA,NA,NA
-"DP1.20126.001","inv_dnaExtraction","95","0",0,NA
-"DP1.20126.001","inv_fieldData","1023","59",5.77,NA
-"DP1.20126.001","inv_markerGeneSequencing","48","48",100,"Add targetSubfragment to primary key?"
-"DP1.20126.001","inv_pcrAmplification","48","48",100,"Add targetSubfragment to primary key?"
-"DP1.20120.001","inv_fieldData","1023","3",0.29,NA
-"DP1.20120.001","inv_persample","999","6",0.6,NA
-"DP1.20120.001","inv_taxonomyProcessed","57968","767",1.32,NA
-"DP1.10031.001","ltr_litterCarbonNitrogen","137","0",0,NA
-"DP1.10031.001","ltr_litterLignin","119","0",0,NA
-"DP1.10033.001","ltr_chemistrySubsampling","122","0",0,NA
-"DP1.10033.001","ltr_fielddata","11708","1",0.01,NA
-"DP1.10033.001","ltr_massdata","71169","70",0.1,NA
-"DP1.10033.001","ltr_pertrap","2124","28",1.32,NA
-"DP1.10101.001","ltr_litterStableIsotopes","137","0",0,NA
-"DP1.10076.001","mam_BOLDcollectionData","removeDups() failed",NA,NA,NA
-"DP1.10076.001","mam_BOLDspecimenDetails","removeDups() failed",NA,NA,NA
-"DP1.10076.001","mam_BOLDtaxonomy","removeDups() failed",NA,NA,NA
-"DP1.10076.001","mam_BOLDvoucherInfo","removeDups() failed",NA,NA,NA
-"DP1.10072.001","mam_perplotnight","3461","12",0.35,NA
-"DP1.10072.001","mam_pertrapnight","346177","3108",0.9,NA
-"DP1.20086.001","","No data found for 2017-05 to 2018-08",NA,NA,NA
-"DP1.10081.001","","No data found for 2017-05 to 2018-08",NA,NA,NA
-"DP1.20141.001","","No data found for 2017-05 to 2018-08",NA,NA,NA
-"DP1.20277.001","mga_benthicGroupAbundances","1214","0",0,NA
-"DP1.10109.001","mga_soilGroupAbundances","removeDups() failed",NA,NA,NA
-"DP1.20278.001","mga_swGroupAbundances","866","0",0,NA
-"DP1.00097.001","mgc_perarchivesample","22","1",4.55,NA
-"DP1.00097.001","mgc_perbiogeosample","26","5",19.23,NA
-"DP1.00097.001","mgc_perhorizon","22","0",0,NA
-"DP1.00097.001","mgc_permegapit","3","0",0,NA
-"DP1.00096.001","mgp_perarchivesample","22","22",100,NA
-"DP1.00096.001","mgp_perbiogeosample","26","0",0,NA
-"DP1.00096.001","mgp_perbulksample","22","1",4.55,NA
-"DP1.00096.001","mgp_perhorizon","22","0",0,NA
-"DP1.00096.001","mgp_permegapit","3","0",0,NA
-"DP1.20280.001","amb_fieldParent","213","104",48.83,NA
-"DP1.20280.001","mmg_benthicDnaExtraction","197","0",0,NA
-"DP1.20280.001","mmg_benthicMarkerGeneSequencing_16S","191","0",0,NA
-"DP1.20280.001","mmg_benthicMarkerGeneSequencing_ITS","136","0",0,NA
-"DP1.20280.001","mmg_benthicPcrAmplification_16S","149","0",0,NA
-"DP1.20280.001","mmg_benthicPcrAmplification_ITS","164","0",0,NA
-"DP1.10108.001","mmg_soilDnaExtraction","4476","0",0,NA
-"DP1.10108.001","mmg_soilMarkerGeneSequencing_16S","3768","36",0.96,NA
-"DP1.10108.001","mmg_soilMarkerGeneSequencing_ITS","3350","2",0.06,NA
-"DP1.10108.001","mmg_soilPcrAmplification_16S","4043","426",10.54,NA
-"DP1.10108.001","mmg_soilPcrAmplification_ITS","4627","1633",35.29,NA
-"DP1.20282.001","amc_fieldGenetic","468","0",0,NA
-"DP1.20282.001","amc_fieldSuperParent","485","485",100,NA
-"DP1.20282.001","mmg_swDnaExtraction","454","0",0,NA
-"DP1.20282.001","mmg_swMarkerGeneSequencing_16S","449","4",0.89,NA
-"DP1.20282.001","mmg_swMarkerGeneSequencing_ITS","258","0",0,NA
-"DP1.20282.001","mmg_swPcrAmplification_16S","248","0",0,NA
-"DP1.20282.001","mmg_swPcrAmplification_ITS","255","0",0,NA
-"DP1.20279.001","amb_fieldParent","339","0",0,NA
-"DP1.20279.001","mms_benthicMetagenomeDnaExtraction","325","0",0,NA
-"DP1.20279.001","mms_benthicMetagenomeSequencing","300","0",0,NA
-"DP1.10107.001","mms_metagenomeDnaExtraction","2416","0",0,NA
-"DP1.10107.001","mms_metagenomeSequencing","599","0",0,NA
-"DP1.20281.001","amc_fieldGenetic","82","0",0,NA
-"DP1.20281.001","amc_fieldSuperParent","85","85",100,NA
-"DP1.20281.001","mms_swMetagenomeDnaExtraction","81","0",0,NA
-"DP1.20281.001","mms_swMetagenomeSequencing","73","0",0,NA
-"DP1.10038.001","mos_BOLDcollectionData","2932","0",0,NA
-"DP1.10038.001","mos_BOLDspecimenDetails","2932","0",0,NA
-"DP1.10038.001","mos_BOLDtaxonomy","2932","0",0,NA
-"DP1.10038.001","mos_BOLDvoucherInfo","2932","0",0,NA
-"DP1.10043.001","mos_archivepooling","2853","0",0,NA
-"DP1.10043.001","mos_barcoding","2932","0",0,NA
-"DP1.10043.001","mos_expertTaxonomistIDProcessed","removeDups() failed",NA,NA,NA
-"DP1.10043.001","mos_expertTaxonomistIDRaw","removeDups() failed",NA,NA,NA
-"DP1.10043.001","mos_sorting","11411","0",0,NA
-"DP1.10043.001","mos_trapping","removeDups() failed",NA,NA,NA
-"DP1.10041.001","mos_pathogenpooling","5282","0",0,NA
-"DP1.10041.001","mos_pathogenresults","15890","0",0,NA
-"DP1.10066.001","mpr_perdepthincrement","90","0",0,NA
-"DP1.10066.001","mpr_perpitprofile","24","0",0,NA
-"DP1.10066.001","mpr_perrootsample","198","0",0,NA
-"DP1.10080.001","ntr_externalLab","2959","0",0,NA
-"DP1.10080.001","ntr_internalLab","2517","0",0,NA
-"DP1.10080.001","ntr_internalLabBlanks","151","0",0,NA
-"DP1.10080.001","sls_soilMoisture","2432","2",0.08,NA
-"DP1.10055.001","phe_perindividual","15363","853",5.55,NA
-"DP1.10055.001","phe_perindividualperyear","3529","12",0.34,NA
-"DP1.20190.001","rea_backgroundFieldCondData","430","0",0,NA
-"DP1.20190.001","rea_backgroundFieldSaltData","808","0",0,NA
-"DP1.20190.001","rea_externalLabDataGas","removeDups() failed",NA,NA,NA
-"DP1.20190.001","rea_externalLabDataSalt","removeDups() failed",NA,NA,NA
-"DP1.20190.001","rea_fieldData","215","0",0,NA
-"DP1.20190.001","rea_plateauMeasurementFieldData","806","0",0,NA
-"DP1.20190.001","rea_plateauSampleFieldData","4010","0",0,NA
-"DP1.20190.001","rea_widthFieldData","6391","0",0,NA
-"DP1.20193.001","sbd_backgroundFieldCondData","removeDups() failed",NA,NA,NA
-"DP1.20193.001","sbd_backgroundFieldSaltData","808","0",0,NA
-"DP1.20193.001","sbd_externalLabDataSalt","removeDups() failed",NA,NA,NA
-"DP1.20193.001","sbd_fieldData","215","0",0,NA
-"DP1.20193.001","sbd_plateauMeasurementFieldData","806","0",0,NA
-"DP1.20193.001","sbd_plateauSampleFieldData","4010","0",0,NA
-"DP1.20275.001","rip_assessment","1198","1198",100,NA
-"DP1.20191.001","rip_percentComposition","2837","2837",100,NA
-"DP1.10064.001","rpt_bloodtesting","removeDups() failed",NA,NA,NA
-"DP1.20097.001","sdg_externalLabData","removeDups() failed",NA,NA,NA
-"DP1.20097.001","sdg_fieldData","1071","0",0,NA
-"DP1.20097.001","sdg_fieldDataAir","947","0",0,NA
-"DP1.20097.001","sdg_fieldDataProc","1071","0",0,NA
-"DP1.20097.001","sdg_fieldSuperParent","1078","0",0,NA
-"DP4.00133.001","sdrc_posteriorParameters","6","6",100,NA
-"DP4.00133.001","sdrc_stageDischargeCurveInfo","2","0",0,NA
-"DP1.10111.001","sim_eventData","209","10",4.78,NA
-"DP1.10078.001","sls_soilChemistry","884","0",0,NA
-"DP1.10086.001","sls_bgcSubsampling","removeDups() failed",NA,NA,NA
-"DP1.10086.001","sls_metagenomicsPooling","683","0",0,NA
-"DP1.10086.001","sls_soilCoreCollection","removeDups() failed",NA,NA,NA
-"DP1.10086.001","sls_soilMoisture","removeDups() failed",NA,NA,NA
-"DP1.10086.001","sls_soilpH","removeDups() failed",NA,NA,NA
-"DP1.10100.001","sls_soilStableIsotopes","884","0",0,NA
-"DP1.10104.001","sme_microbialBiomass","865","54",6.24,NA
-"DP1.10008.001","spc_biogeochem","removeDups() failed",NA,NA,NA
-"DP1.10047.001","spc_bulkdensity","621","0",0,NA
-"DP1.10047.001","spc_particlesize","1266","0",0,NA
-"DP1.10047.001","spc_perhorizon","1406","0",0,NA
-"DP1.10047.001","spc_perplot","311","0",0,NA
-"DP1.20093.001","swc_domainLabData","removeDups() failed",NA,NA,NA
-"DP1.20093.001","swc_externalLabData","1199","3",0.25,NA
-"DP1.20093.001","swc_fieldData","1206","0",0,NA
-"DP1.20093.001","swc_fieldSuperParent","1082","0",0,NA
-"DP1.10093.001","tck_fielddata","removeDups() failed",NA,NA,NA
-"DP1.10093.001","tck_taxonomyProcessed","removeDups() failed",NA,NA,NA
-"DP1.10092.001","tck_pathogen","removeDups() failed",NA,NA,NA
-"DP1.10098.001","vst_apparentindividual","80799","25564",31.64,NA
-"DP1.10098.001","vst_mappingandtagging","103688","1681",1.62,NA
-"DP1.10098.001","vst_perplotperyear","990","165",16.67,NA
-"DP1.10098.001","vst_shrubgroup","125","4",3.2,NA
-"DP1.00013.001","wdp_chemLab","8","1",12.5,NA
-"DP1.00013.001","wdp_collection","8","0",0,NA
-"DP1.00013.001","wdp_collectionChem","8","0",0,NA
-"DP1.00038.001","wdi_collection","8","0",0,NA
-"DP1.00038.001","wdi_collectionIso","8","0",0,NA
-"DP1.00038.001","wdi_collectionIsoTest","8","0",0,NA
-"DP1.00038.001","wdi_isoPerSample","removeDups() failed",NA,NA,NA
-"DP4.00131.001","geo_pebbleCount","removeDups() failed","",NA,NA
-"DP4.00131.001","geo_surveyFieldData","removeDups() failed","",NA,NA
-"DP1.20190.001","rea_externalLabDataGas","removeDups() failed","",NA,NA
-"DP1.20190.001","rea_externalLabDataSalt","removeDups() failed","",NA,NA
-"DP1.20193.001","sbd_backgroundFieldCondData","removeDups() failed","",NA,NA
-"DP1.20193.001","sbd_externalLabDataSalt","removeDups() failed","",NA,NA
+"dpID","table","records","duplicates"
+"DP1.20099.001","agw_groundwaterFieldData","153","0"
+"DP1.20163.001","alg_algaeExternalLabDataPerSample","9433","48"
+"DP1.20163.001","alg_domainLabChemistry","4312","1"
+"DP1.20163.001","alg_fieldData","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Field names in data do not match variables file.
+biophysicalCriteria affectedByWind are in variables file and not in data.
+",""
+"DP1.20166.001","alg_archive","2651","0"
+"DP1.20166.001","alg_biomass","2099","0"
+"DP1.20166.001","alg_fieldData","1096","4"
+"DP1.20166.001","alg_taxonomyProcessed","134844","22120"
+"DP1.20166.001","alg_taxonomyRaw","134864","22140"
+"DP1.20166.001","NEON.Academy_of_Natural_Sciences_of_Drexel_University.alg_biovolumes","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.20138.001","amc_cellCounts","482","0"
+"DP1.20138.001","amc_fieldCellCounts","493","0"
+"DP1.20138.001","amc_fieldSuperParent","493","0"
+"DP1.20072.001","apc_morphospecies","24","0"
+"DP1.20072.001","apc_perTaxon","2228","12"
+"DP1.20072.001","apc_pointTransect","17267","0"
+"DP1.20072.001","apc_taxonomyProcessed","296","0"
+"DP1.20072.001","apc_taxonomyRaw","296","0"
+"DP1.20072.001","apc_voucher","109","0"
+"DP1.20072.001","apc_voucherTaxonomyProcessed","4","0"
+"DP1.20072.001","apc_voucherTaxonomyRaw","4","0"
+"DP1.20063.001","apl_biomass","266","0"
+"DP1.20063.001","apl_clipHarvest","307","0"
+"DP1.20063.001","apl_plantExternalLabDataPerSample","640","0"
+"DP1.20066.001","apc_morphospecies","23","0"
+"DP1.20066.001","apl_biomass","350","0"
+"DP1.20066.001","apl_clipHarvest","1042","1"
+"DP1.20066.001","apl_taxonomyProcessed","156","0"
+"DP1.20066.001","apl_taxonomyRaw","156","0"
+"DP1.20194.001","asc_externalLabData","9975","128"
+"DP1.20194.001","asc_fieldDataPoint","2126","0"
+"DP1.20194.001","asc_fieldDataStation","199","4"
+"DP1.20194.001","asc_fieldDataZone","732","0"
+"DP1.20194.001","NEON.ACZ_Laboratories,_Inc..asc_externalLabSummary","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.20197.001","asc_fieldDataPoint","2126","0"
+"DP1.20197.001","asc_fieldDataStation","199","4"
+"DP1.20197.001","asc_fieldDataZone","732","0"
+"DP1.20197.001","asp_externalLabData","773","9"
+"DP1.20197.001","NEON.ACZ_Laboratories,_Inc..asc_externalLabSummary","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.20276.001","gsi_externalLabH2OIsotopes","94","0"
+"DP1.20276.001","gsi_fieldData","215","0"
+"DP1.20276.001","gsi_fieldSuperParent","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Field names in data do not match variables file.
+isotopeSamplesCollected adequateSampleVol are in variables file and not in data.
+",""
+"DP1.20276.001","NEON.SIRFER_Lab_at_University_of_Utah.asi_externalLabSummaryData","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.20206.001","asi_externalLabH2OIsotopes","428","0"
+"DP1.20206.001","asi_fieldData","1104","0"
+"DP1.20206.001","asi_fieldSuperParent","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Field names in data do not match variables file.
+isotopeSamplesCollected are in variables file and not in data.
+",""
+"DP1.20206.001","asi_POMExternalLabDataPerSample","4316","8"
+"DP1.20206.001","NEON.SIRFER_Lab_at_University_of_Utah.asi_externalLabSummaryData","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP4.00132.001","bat_fieldData","5","0"
+"DP4.00132.001","bat_pointcollection","93","93"
+"DP4.00132.001","bat_resultsFile","5","0"
+"DP4.00132.001","bat_sonarRecord","45","0"
+"DP1.10102.001","bbc_rootChemistry","2423","9"
+"DP1.10102.001","NEON.University_of_Wyoming_Stable_Isotope_Facility.bgc_CNiso_externalSummary","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.10067.001","bbc_chemistryPooling","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Field names in data do not match variables file.
+samplingImpractical are in variables file and not in data.
+",""
+"DP1.10067.001","bbc_dilution","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Field names in data do not match variables file.
+samplingImpractical are in variables file and not in data.
+",""
+"DP1.10067.001","bbc_percore","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Field names in data do not match variables file.
+samplingImpractical are in variables file and not in data.
+",""
+"DP1.10067.001","bbc_rootmass","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Field names in data do not match variables file.
+samplingImpractical are in variables file and not in data.
+",""
+"DP1.10099.001","bbc_rootStableIsotopes","2424","10"
+"DP1.10099.001","NEON.University_of_Wyoming_Stable_Isotope_Facility.bgc_CNiso_externalSummary","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.10020.001","bet_BOLDcollectionData","3365","0"
+"DP1.10020.001","bet_BOLDspecimenDetails","3365","0"
+"DP1.10020.001","bet_BOLDtaxonomy","3365","0"
+"DP1.10020.001","bet_BOLDvoucherInfo","3365","0"
+"DP1.10022.001","bet_archivepooling","9055","0"
+"DP1.10022.001","bet_expertTaxonomistIDProcessed","16750","25"
+"DP1.10022.001","bet_fielddata","26366","0"
+"DP1.10022.001","bet_parataxonomistID","26711","0"
+"DP1.10022.001","bet_sorting","48362","0"
+"DP1.10003.001","brd_countdata","87427","778"
+"DP1.10003.001","brd_perpoint","6249","0"
+"DP1.10003.001","brd_references","158","10"
+"DP1.10003.001","NEON.Bird_Conservancy_of_the_Rockies.brd_personnel","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.10014.001","cdw_densitydisk","1037","342"
+"DP1.10014.001","cdw_densitylog","561","2"
+"DP1.10010.001","cdw_fieldtally","2468","61"
+"DP1.10026.001","cfc_carbonNitrogen","590","0"
+"DP1.10026.001","cfc_chemistrySubsampling","552","0"
+"DP1.10026.001","cfc_chlorophyll","555","2"
+"DP1.10026.001","cfc_elements","68","0"
+"DP1.10026.001","cfc_fieldData","555","0"
+"DP1.10026.001","cfc_lignin","583","0"
+"DP1.10026.001","cfc_LMA","549","0"
+"DP1.10026.001","NEON.EcoAnalysts_Inc..cfc_chlorophyllParameters","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.10026.001","NEON.EcoAnalysts_Inc..cfc_chlorophyllSummary","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.10026.001","NEON.University_of_Florida_Wetland_Biogeochemistry_Laboratory.cfc_elementsSummary","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.10026.001","NEON.University_of_Florida_Wetland_Biogeochemistry_Laboratory.lig_externalSummary","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.10026.001","NEON.University_of_Wyoming_Stable_Isotope_Facility.bgc_CNiso_externalSummary","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.10026.001","vst_mappingandtagging","49702","12"
+"DP1.10053.001","cfc_foliarStableIsotopes","590","0"
+"DP1.10053.001","NEON.University_of_Wyoming_Stable_Isotope_Facility.bgc_CNiso_externalSummary","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP4.00130.001","csd_continuousDischarge","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Field names in data do not match variables file.
+siteID stationHorizontalID namedLocation endDate curveID calibratedPressure equivalentStage nonSystematicUnc systematicUnc stageUnc maxpostDischarge withParaUncQMedian withParaUncQlower2Std withParaUncQupper2Std withParaUncQlower1Std withParaUncQupper1Std withParaUncQMean withParaUncQStdDev withRemnUncQMedian withRemnUncQlower2Std withRemnUncQUpper2Std withRemnUncQlower1Std withRemnUncQupper1Std withRemnUncQMean withRemnUncQStdDev dischargeRangeQF dischargeStepQF dischargeNullQF dischargeGapQF dischargeValidCalQF dischargeSuspectCalQF dischargePersistQF dischargeFinalQF dischargeFinalQFSciRvw are in variables file and not in data.
+",""
+"DP4.00130.001","csd_pressureGaugeRelationship","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Input data appear to be the basic download package. The expanded data package is required for removeDups() to identify all duplicates correctly.
+",""
+"DP4.00130.001","sensor_positions_00130","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.20254.001","dep_profileData","2615","0"
+"DP1.20254.001","dep_profileHeader","273","0"
+"DP1.20252.001","dep_secchi","273","0"
+"DP1.10058.001","div_10m2Data100m2Data","170652","40499"
+"DP1.00101.001","dpm_field","29","0"
+"DP1.00101.001","dpm_lab","29","5"
+"DP1.00101.001","dpm_sensor","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Field names in data do not match variables file.
+domainID siteID horizontalPosition verticalPosition are in data and not in variables file;
+
+",""
+"DP1.20048.001","dsc_fieldData","678","21"
+"DP1.20048.001","dsc_fieldDataADCP","2","0"
+"DP1.20048.001","dsc_individualFieldData","17393","588"
+"DP1.20105.001","fsh_BOLDcollectionData","284","0"
+"DP1.20105.001","fsh_BOLDspecimenDetails","284","0"
+"DP1.20105.001","fsh_BOLDtaxonomy","284","0"
+"DP1.20105.001","fsh_BOLDvoucherInfo","284","0"
+"DP1.20107.001","fsh_bulkCount","305","14"
+"DP1.20107.001","fsh_fieldData","321","33"
+"DP1.20107.001","fsh_morphospecies","5","0"
+"DP1.20107.001","fsh_perFish","20685","2033"
+"DP1.20107.001","fsh_perPass","766","82"
+"DP1.30012.001","","No data found for 2017-05 to 2018-08",""
+"DP1.20267.001","gag_fieldData","1976","4"
+"DP4.00131.001","geo_controlInfo","18","0"
+"DP4.00131.001","geo_controlType","6","0"
+"DP4.00131.001","geo_featureInfo","223","5"
+"DP4.00131.001","geo_mappedPointErrors","459","3"
+"DP4.00131.001","geo_missingLine","9","0"
+"DP4.00131.001","geo_pebbleCount","3018","0"
+"DP4.00131.001","geo_priorParameters","6","0"
+"DP4.00131.001","geo_resultsFile","16","0"
+"DP4.00131.001","geo_surveyFieldData","18","0"
+"DP4.00131.001","geo_totalStation","425","0"
+"DP1.20092.001","gwc_domainLabData","183","0"
+"DP1.20092.001","gwc_externalLabDataByAnalyte","7276","0"
+"DP1.20092.001","gwc_fieldData","218","0"
+"DP1.20092.001","gwc_fieldSuperParent","237","0"
+"DP1.20092.001","NEON.EcoCore_CSU.swc_externalLabSummaryData","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.10023.001","hbp_massdata","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Input data appear to be the basic download package. The expanded data package is required for removeDups() to identify all duplicates correctly.
+",""
+"DP1.10023.001","hbp_perbout","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Input data appear to be the basic download package. The expanded data package is required for removeDups() to identify all duplicates correctly.
+",""
+"DP1.20126.001","inv_dnaExtraction","95","0"
+"DP1.20126.001","inv_dnaRawDataFiles","202","202"
+"DP1.20126.001","inv_fieldData","1057","1057"
+"DP1.20126.001","inv_markerGeneSequencing","226","48"
+"DP1.20126.001","inv_pcrAmplification","226","48"
+"DP1.20120.001","inv_fieldData","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Field names in data do not match variables file.
+biophysicalCriteria are in variables file and not in data.
+",""
+"DP1.20120.001","inv_persample","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Field names in data do not match variables file.
+largeInvertVialID largeInvertVialCode are in variables file and not in data.
+",""
+"DP1.20120.001","inv_pervial","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Input data appear to be the basic download package. The expanded data package is required for removeDups() to identify all duplicates correctly.
+",""
+"DP1.20120.001","inv_taxonomyProcessed","57968","767"
+"DP1.20120.001","inv_taxonomyRaw","57968","767"
+"DP1.10031.001","ltr_litterCarbonNitrogen","142","0"
+"DP1.10031.001","ltr_litterLignin","124","0"
+"DP1.10031.001","NEON.University_of_Florida_Wetland_Biogeochemistry_Laboratory.lig_externalSummary","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.10031.001","NEON.University_of_Wyoming_Stable_Isotope_Facility.bgc_CNiso_externalSummary","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.10033.001","ltr_chemistrySubsampling","122","0"
+"DP1.10033.001","ltr_fielddata","11684","0"
+"DP1.10033.001","ltr_massdata","71169","61"
+"DP1.10033.001","ltr_pertrap","2241","53"
+"DP1.10101.001","ltr_litterStableIsotopes","137","0"
+"DP1.10101.001","NEON.University_of_Wyoming_Stable_Isotope_Facility.bgc_CNiso_externalSummary","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.10076.001","mam_BOLDcollectionData","Error in `[.data.frame`(data.dup, , k) : undefined columns selected
+",""
+"DP1.10076.001","mam_BOLDspecimenDetails","Error in `[.data.frame`(data.dup, , k) : undefined columns selected
+",""
+"DP1.10076.001","mam_BOLDtaxonomy","Error in `[.data.frame`(data.dup, , k) : undefined columns selected
+",""
+"DP1.10076.001","mam_BOLDvoucherInfo","Error in `[.data.frame`(data.dup, , k) : undefined columns selected
+",""
+"DP1.10072.001","mam_perplotnight","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Field names in data do not match variables file.
+trapsNotSet are in data and not in variables file;
+samplingImpractical are in variables file and not in data.
+",""
+"DP1.10072.001","mam_pertrapnight","345971","2649"
+"DP1.20086.001","","No data found for 2017-05 to 2018-08",""
+"DP1.10081.001","","No data found for 2017-05 to 2018-08",""
+"DP1.20141.001","","No data found for 2017-05 to 2018-08",""
+"DP1.20277.001","mga_benthicGroupAbundances","1214","0"
+"DP1.20277.001","NEON.Battelle_Applied_Genomics.mga_batchResults","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.20277.001","NEON.Battelle_Applied_Genomics.mga_labSummary","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.10109.001","mga_soilGroupAbundances","5645","0"
+"DP1.10109.001","NEON.Battelle_Applied_Genomics.mga_batchResults","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.10109.001","NEON.Battelle_Applied_Genomics.mga_labSummary","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.20278.001","mga_swGroupAbundances","866","0"
+"DP1.20278.001","NEON.Battelle_Applied_Genomics.mga_batchResults","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.20278.001","NEON.Battelle_Applied_Genomics.mga_labSummary","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.00097.001","mgc_perarchivesample","22","1"
+"DP1.00097.001","mgc_perbiogeosample","26","5"
+"DP1.00097.001","mgc_perhorizon","22","0"
+"DP1.00097.001","mgc_permegapit","3","0"
+"DP1.00096.001","mgp_perarchivesample","22","22"
+"DP1.00096.001","mgp_perbiogeosample","26","0"
+"DP1.00096.001","mgp_perbulksample","22","1"
+"DP1.00096.001","mgp_perhorizon","22","0"
+"DP1.00096.001","mgp_permegapit","3","0"
+"DP1.20280.001","amb_fieldParent","669","631"
+"DP1.20280.001","mmg_benthicDnaExtraction","645","0"
+"DP1.20280.001","mmg_benthicMarkerGeneSequencing_16S","633","2"
+"DP1.20280.001","mmg_benthicMarkerGeneSequencing_ITS","545","0"
+"DP1.20280.001","mmg_benthicPcrAmplification_16S","664","51"
+"DP1.20280.001","mmg_benthicPcrAmplification_ITS","674","60"
+"DP1.20280.001","mmg_benthicRawDataFiles","2102","24"
+"DP1.10108.001","mmg_soilDnaExtraction","4476","0"
+"DP1.10108.001","mmg_soilMarkerGeneSequencing_16S","3768","36"
+"DP1.10108.001","mmg_soilMarkerGeneSequencing_ITS","3350","2"
+"DP1.10108.001","mmg_soilPcrAmplification_16S","4043","426"
+"DP1.10108.001","mmg_soilPcrAmplification_ITS","4627","1633"
+"DP1.10108.001","mmg_soilRawDataFiles","16284","48"
+"DP1.20282.001","amc_fieldGenetic","466","0"
+"DP1.20282.001","amc_fieldSuperParent","466","0"
+"DP1.20282.001","mmg_swDnaExtraction","452","0"
+"DP1.20282.001","mmg_swMarkerGeneSequencing_16S","449","4"
+"DP1.20282.001","mmg_swMarkerGeneSequencing_ITS","332","0"
+"DP1.20282.001","mmg_swPcrAmplification_16S","247","0"
+"DP1.20282.001","mmg_swPcrAmplification_ITS","254","0"
+"DP1.20282.001","mmg_swRawDataFiles","1288","12"
+"DP1.20279.001","amb_fieldParent","339","0"
+"DP1.20279.001","mms_benthicMetagenomeDnaExtraction","325","0"
+"DP1.20279.001","mms_benthicMetagenomeSequencing","300","0"
+"DP1.20279.001","mms_benthicRawDataFiles","614","614"
+"DP1.10107.001","mms_metagenomeDnaExtraction","2416","0"
+"DP1.10107.001","mms_metagenomeSequencing","599","0"
+"DP1.10107.001","mms_rawDataFiles","1224","0"
+"DP1.20281.001","amc_fieldGenetic","82","0"
+"DP1.20281.001","amc_fieldSuperParent","85","85"
+"DP1.20281.001","mms_swMetagenomeDnaExtraction","81","0"
+"DP1.20281.001","mms_swMetagenomeSequencing","73","0"
+"DP1.20281.001","mms_swRawDataFiles","148","0"
+"DP1.10038.001","mos_BOLDcollectionData","2932","0"
+"DP1.10038.001","mos_BOLDspecimenDetails","2932","0"
+"DP1.10038.001","mos_BOLDtaxonomy","2932","0"
+"DP1.10038.001","mos_BOLDvoucherInfo","2932","0"
+"DP1.10043.001","mos_archivepooling","4766","0"
+"DP1.10043.001","mos_barcoding","2932","0"
+"DP1.10043.001","mos_expertTaxonomistIDProcessed","42528","29"
+"DP1.10043.001","mos_expertTaxonomistIDRaw","42528","29"
+"DP1.10043.001","mos_sorting","11414","0"
+"DP1.10043.001","mos_trapping","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Field names in data do not match variables file.
+samplingImpractical are in variables file and not in data.
+",""
+"DP1.10041.001","mos_pathogenpooling","9205","0"
+"DP1.10041.001","mos_pathogenresults","27789","67"
+"DP1.10066.001","mpr_perdepthincrement","90","0"
+"DP1.10066.001","mpr_perpitprofile","24","0"
+"DP1.10066.001","mpr_perrootsample","198","0"
+"DP1.10080.001","ntr_externalLab","2959","0"
+"DP1.10080.001","ntr_internalLab","2517","0"
+"DP1.10080.001","ntr_internalLabBlanks","151","0"
+"DP1.10080.001","sls_soilMoisture","2432","2"
+"DP1.10055.001","phe_perindividual","15885","853"
+"DP1.10055.001","phe_perindividualperyear","3709","12"
+"DP1.20190.001","NEON.Aquatic_Biogeochemistry_Lab_at_Utah_State_University.sdg_externalLabSummaryData","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.20190.001","NEON.Loecke_Lab_at_University_of_Kansas.sdg_externalLabSummaryData","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.20190.001","rea_backgroundFieldCondData","442","0"
+"DP1.20190.001","rea_backgroundFieldSaltData","808","0"
+"DP1.20190.001","rea_externalLabDataGas","3894","0"
+"DP1.20190.001","rea_externalLabDataSalt","4801","0"
+"DP1.20190.001","rea_fieldData","221","0"
+"DP1.20190.001","rea_plateauMeasurementFieldData","806","0"
+"DP1.20190.001","rea_plateauSampleFieldData","4010","0"
+"DP1.20190.001","rea_widthFieldData","6571","0"
+"DP1.20193.001","NEON.Aquatic_Biogeochemistry_Lab_at_Utah_State_University.sdg_externalLabSummaryData","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.20193.001","NEON.Loecke_Lab_at_University_of_Kansas.sdg_externalLabSummaryData","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.20193.001","sbd_backgroundFieldCondData","Error in Ops.data.frame(data.dup[k, -which(colnames(data.dup) %in% c(\"uid\",  : 
+  ‘==’ only defined for equally-sized data frames
+",""
+"DP1.20193.001","sbd_backgroundFieldSaltData","808","0"
+"DP1.20193.001","sbd_externalLabDataSalt","4801","0"
+"DP1.20193.001","sbd_fieldData","215","0"
+"DP1.20193.001","sbd_plateauMeasurementFieldData","806","0"
+"DP1.20193.001","sbd_plateauSampleFieldData","4010","0"
+"DP1.20275.001","rip_assessment","1198","1198"
+"DP1.20191.001","rip_percentComposition","2837","2837"
+"DP1.10064.001","rpt_bloodtesting","5359","18"
+"DP1.20097.001","NEON.Loecke_Lab_at_University_of_Kansas.sdg_externalLabSummaryData","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.20097.001","sdg_externalLabData","2010","14"
+"DP1.20097.001","sdg_fieldData","1071","0"
+"DP1.20097.001","sdg_fieldDataAir","947","0"
+"DP1.20097.001","sdg_fieldDataProc","1071","0"
+"DP1.20097.001","sdg_fieldSuperParent","1078","0"
+"DP4.00133.001","sdrc_gaugeDischargeMeas","49","49"
+"DP4.00133.001","sdrc_posteriorParameters","6","6"
+"DP4.00133.001","sdrc_resultsResiduals","67","0"
+"DP4.00133.001","sdrc_sampledParameters","3000","3000"
+"DP4.00133.001","sdrc_stageDischargeCurveInfo","2","0"
+"DP1.10111.001","sim_eventData","210","10"
+"DP1.10078.001","NEON.University_of_Wyoming_Stable_Isotope_Facility.bgc_CNiso_externalSummary","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.10078.001","sls_soilChemistry","884","0"
+"DP1.10086.001","sls_bgcSubsampling","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Field names in data do not match variables file.
+bgcArchiveMass toxicodendronPossible are in variables file and not in data.
+",""
+"DP1.10086.001","sls_metagenomicsPooling","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Field names in data do not match variables file.
+eventID are in variables file and not in data.
+",""
+"DP1.10086.001","sls_soilCoreCollection","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Field names in data do not match variables file.
+subplotID biophysicalCriteria eventID boutType samplingImpractical toxicodendronPossible horizonDetails biomassSampleCondition are in variables file and not in data.
+",""
+"DP1.10086.001","sls_soilMoisture","6277","14"
+"DP1.10086.001","sls_soilpH","5015","0"
+"DP1.10100.001","NEON.University_of_Wyoming_Stable_Isotope_Facility.bgc_CNiso_externalSummary","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.10100.001","sls_soilStableIsotopes","884","0"
+"DP1.10104.001","NEON.EcoCore_CSU.sme_batchResults","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.10104.001","sme_microbialBiomass","865","54"
+"DP1.10008.001","spc_biogeochem","1266","0"
+"DP1.10047.001","spc_bulkdensity","621","0"
+"DP1.10047.001","spc_particlesize","1266","0"
+"DP1.10047.001","spc_perhorizon","1399","0"
+"DP1.10047.001","spc_perplot","311","0"
+"DP1.20093.001","NEON.EcoCore_CSU.swc_externalLabSummaryData","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.20093.001","swc_domainLabData","1964","0"
+"DP1.20093.001","swc_externalLabDataByAnalyte","40844","0"
+"DP1.20093.001","swc_fieldData","1206","0"
+"DP1.20093.001","swc_fieldSuperParent","1082","0"
+"DP1.10093.001","tck_fielddata","2738","0"
+"DP1.10093.001","tck_taxonomyProcessed","1732","0"
+"DP1.10093.001","tck_taxonomyRaw","1732","0"
+"DP1.10092.001","NEON.University_of_Massachusetts_Laboratory_of_Medical_Zoology.tck_pathogenqa","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Table name does not match any table in variables file.
+",""
+"DP1.10092.001","tck_pathogen","66668","0"
+"DP1.10098.001","vst_apparentindividual","82016","26613"
+"DP1.10098.001","vst_mappingandtagging","108374","1681"
+"DP1.10098.001","vst_perplotperyear","989","165"
+"DP1.10098.001","vst_shrubgroup","125","4"
+"DP1.00013.001","wdp_chemLab","8","1"
+"DP1.00013.001","wdp_collection","8","0"
+"DP1.00013.001","wdp_collectionChem","8","0"
+"DP1.00013.001","wdp_sensor","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Field names in data do not match variables file.
+domainID siteID horizontalPosition verticalPosition are in data and not in variables file;
+
+",""
+"DP1.00038.001","wdi_collection","8","0"
+"DP1.00038.001","wdi_collectionIso","8","0"
+"DP1.00038.001","wdi_collectionIsoTest","8","0"
+"DP1.00038.001","wdi_isoPerSample","Error in `[.data.frame`(data.low, , key) : undefined columns selected
+",""
+"DP1.00038.001","wdp_sensor","Error in removeDups(datList[[j]], vars, paste(j, \"_pub\", sep = \"\")) : 
+  Field names in data do not match variables file.
+domainID siteID horizontalPosition verticalPosition are in data and not in variables file;
+
+",""
