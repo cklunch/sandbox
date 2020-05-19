@@ -119,7 +119,6 @@ write.table(tableResult,
             '/Users/clunch/GitHub/sandbox/data_availability/duplicate_rate/tableResults.csv',
             sep=',', row.names=F)
 
-
 datMerg <- ymd(paste(dupRate$year, dupRate$month, '01', sep='-'))
 dupCt <- dupRate$resolved + dupRate$unresolved/2
 dupPct <- dupCt/dupRate$records

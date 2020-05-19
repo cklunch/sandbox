@@ -156,7 +156,7 @@ zipsByProduct(dpID='DP1.10098.001', site=c('WREF','ABBY'),
               savepath='/Users/clunch/Desktop')
 stackByTable('/Users/clunch/Desktop/filesToStack10098')
 
-zipsByProduct(dpID='DP1.10026.001',
+zipsByProduct(dpID='DP1.10026.001', site=c('SCBI','WOOD'),
               savepath='/Users/clunch/Desktop', package='expanded')
 stackByTable('/Users/clunch/Desktop/filesToStack10026', nCores=1)
 
