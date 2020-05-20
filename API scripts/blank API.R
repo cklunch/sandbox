@@ -73,6 +73,12 @@ req <- GET("http://data.neonscience.org/api/v0/taxonomy?taxonTypeCode=BIRD&offse
 req.tax <- jsonlite::fromJSON(content(req, as="text"))
 
 
+# testing
+req <- httr::GET("http://data.neonscience.org/api/v0/data/DP1.20166.001/PRLA/2017-09")
+avail <- jsonlite::fromJSON(httr::content(req, as="text"))
+
+
+
 # CRAN downloads
 install_github("metacran/cranlogs")
 metD <- cran_downloads("metScanR", from="2017-01-01", to="last-day")

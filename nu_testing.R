@@ -112,6 +112,8 @@ wch <- loadByProduct(dpID='DP1.20093.001', site=c('ARIK','POSE'),
 wdp <- loadByProduct(dpID='DP1.00013.001', site=c('RMNP','NIWO'),
                      package='expanded', check.size=F)
 
+wdp <- loadByProduct(dpID='DP1.00013.001', check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
 dst <- loadByProduct(dpID='DP1.00017.001', site=c('RMNP','CPER','ONAQ'),
                      startdate='2019-01', enddate='2019-10', check.size=F,
                      avg=60)
@@ -123,8 +125,8 @@ dst <- loadByProduct(dpID='DP1.00017.001', site='CPER',
 rh <- loadByProduct(dpID='DP1.00098.001', site='HARV', startdate='2019-06',
                     avg=30, check.size=F)
 
-alg <- loadByProduct(dpID='DP1.20166.001', startdate='2017-05', enddate='2018-08',
-                     check.size=F)
+alg <- loadByProduct(dpID='DP1.20166.001', check.size=F)
+alg.exp <- loadByProduct(dpID='DP1.20166.001', package='expanded', check.size=F)
 
 alg <- loadByProduct(dpID='DP1.20166.001', startdate='2017-05', enddate='2018-08',
                      site=c('MAYF','PRIN'), package='expanded',
