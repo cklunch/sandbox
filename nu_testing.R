@@ -54,7 +54,14 @@ byTileAOP(dpID = "DP3.30025.001", site = "ORNL", year = "2016",
 byTileAOP(dpID = "DP3.30015.001", site = "WREF", year = "2017", 
           easting = c(571000,743000,578000), 
           northing = c(5079000,3984000,5080000), 
-          savepath='/Users/clunch/Desktop', check.size = FALSE)
+          savepath='/Users/clunch/Desktop', 
+          check.size = FALSE, token=Sys.getenv('NEON_TOKEN'))
+
+byTileAOP(dpID = "DP3.30025.001", site = "WREF", year = "2017", 
+          easting = c(571000,578000), 
+          northing = c(5079000,5080000), 
+          savepath='/Users/clunch/Desktop', 
+          check.size = FALSE, token='garbage')
 
 byFileAOP(dpID='DP3.30015.001', site='SJER', year=2017, check.size=F, 
           savepath='/Users/clunch/Desktop')
@@ -98,7 +105,7 @@ pr <- loadByProduct(dpID='DP1.00024.001', site=c('WREF','ABBY'),
               startdate='2019-07', enddate='2019-08')
 
 cfc <- loadByProduct(dpID='DP1.10026.001', package='expanded', 
-                     check.size=F, nCores=1)
+                     check.size=F, nCores=1, token=Sys.getenv('NEON_TOKEN'))
 
 gwe <- loadByProduct(dpID='DP1.20100.001', site=c('MART','WLOU'),
                     startdate='2019-07', enddate='2019-09', check.size=F, nCores=5)
@@ -126,11 +133,14 @@ rh <- loadByProduct(dpID='DP1.00098.001', site='HARV', startdate='2019-06',
                     avg=30, check.size=F)
 
 alg <- loadByProduct(dpID='DP1.20166.001', check.size=F)
-alg.exp <- loadByProduct(dpID='DP1.20166.001', package='expanded', check.size=F)
+alg.exp <- loadByProduct(dpID='DP1.20166.001', package='expanded', token='garbage')
 
 alg <- loadByProduct(dpID='DP1.20166.001', startdate='2017-05', enddate='2018-08',
                      site=c('MAYF','PRIN'), package='expanded',
                      check.size=F)
+
+nitrate <- loadByProduct(dpID="DP1.20033.001", site="BLDE", startdate="2020-01", enddate="2020-04",
+                       package="expanded", check.size = F)
 
 sms <- loadByProduct(dpID='DP1.00094.001', startdate='2018-06', enddate='2018-07',
                      site='NIWO', check.size=F)
