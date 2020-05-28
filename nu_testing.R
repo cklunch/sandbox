@@ -4,6 +4,7 @@ setwd("/Users/clunch/GitHub/NEON-utilities/neonUtilities")
 #setwd("/Users/clunch/GitHub/NateFork/NEON-utilities/neonUtilities")
 install('.')
 library(neonUtilities)
+check()
 options(stringsAsFactors = F)
 
 setwd("~/GitHub/utilities-test-suite/testUtilities")
@@ -137,7 +138,7 @@ alg.exp <- loadByProduct(dpID='DP1.20166.001', package='expanded', token='garbag
 
 alg <- loadByProduct(dpID='DP1.20166.001', startdate='2017-05', enddate='2018-08',
                      site=c('MAYF','PRIN'), package='expanded',
-                     check.size=F)
+                     check.size=F, token='garbage')
 
 nitrate <- loadByProduct(dpID="DP1.20033.001", site="BLDE", startdate="2020-01", enddate="2020-04",
                        package="expanded", check.size = F)
@@ -150,6 +151,14 @@ buoyT <- loadByProduct(dpID='DP1.20046.001', site='BARC',
 
 bat <- loadByProduct(dpID='DP4.00132.001', startdate='2017-05',
                      enddate='2018-08', check.size=F)
+
+div <- loadByProduct(dpID='DP1.10058.001', startdate='2017-01', 
+                     enddate='2017-12', token=Sys.getenv('NEON_TOKEN'),
+                     check.size=F)
+length(which(div$div_10m2Data100m2Data$additionalSpecies=='N'))
+length(which(div$div_10m2Data100m2Data$additionalSpecies=='Y'))
+div$div_10m2Data100m2Data[which(div$div_10m2Data100m2Data$additionalSpecies=='N'),]
+
 
 # should display message about avg= and download all data
 waq <- loadByProduct(dpID='DP1.20288.001', site=c('ARIK','MCRA'),
@@ -216,4 +225,21 @@ pr30key <- paste0(pr30$siteID, pr30$verticalPosition, pr30$endDateTime, pr30$PAR
 pr131key <- paste0(pr30v131$siteID, pr30v131$verticalPosition, pr30v131$endDateTime, pr30v131$PARMean)
 all(pr30key %in% pr131key)
 all(pr131key %in% pr30key)
+
+
+# checking for special characters in table_types
+
+checkConv <- function(x) enc2utf8(x)!=x
+dum <- apply(table_types, c(1,2), checkConv)
+which(dum==TRUE, arr.ind=T)
+
+dum <- apply(table_types, c(1,2), Encoding)
+which(dum=='UTF-8', arr.ind=T)
+
+
+neonUtilities::zipsByProduct(dpID="DP4.00200.001", package="basic", site=c("SCBI"), 
+                             startdate="2018-12-01", enddate="2019-12-31",
+                             savepath='/Users/clunch/Downloads', 
+                             check.size=F)
+
 
