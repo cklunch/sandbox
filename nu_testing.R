@@ -22,6 +22,13 @@ byTileAOP(dpID = "DP3.30015.001", site = "WREF", year = "2017",
           savepath='/Users/clunch/Desktop', check.size = FALSE,
           token=Sys.getenv('NEON_TOKEN'))
 
+# fake dpID
+byTileAOP(dpID = "DP3.30467.001", site = "WREF", year = "2017", 
+          easting = c(571000,743000,578000), 
+          northing = c(5079000,3984000,5080000), 
+          savepath='/Users/clunch/Desktop', check.size = FALSE,
+          token=Sys.getenv('NEON_TOKEN'))
+
 byFileAOP(dpID='DP3.30015.001', site='SJER', year=2017, check.size=F, 
           savepath='/Users/clunch/Desktop', token=Sys.getenv('NEON_TOKEN'))
 
@@ -152,13 +159,18 @@ buoyT <- loadByProduct(dpID='DP1.20046.001', site='BARC',
 bat <- loadByProduct(dpID='DP4.00132.001', startdate='2017-05',
                      enddate='2018-08', check.size=F)
 
-div <- loadByProduct(dpID='DP1.10058.001', startdate='2017-01', 
-                     enddate='2017-12', token=Sys.getenv('NEON_TOKEN'),
+div <- loadByProduct(dpID='DP1.10058.001', startdate='2018-01', 
+                     enddate='2018-12', token=Sys.getenv('NEON_TOKEN'),
                      check.size=F)
 length(which(div$div_10m2Data100m2Data$additionalSpecies=='N'))
 length(which(div$div_10m2Data100m2Data$additionalSpecies=='Y'))
 div$div_10m2Data100m2Data[which(div$div_10m2Data100m2Data$additionalSpecies=='N'),]
 
+divsub <- div$div_1m2Data[which(div$div_1m2Data$plotID=='SERC_022'),]
+divbigsub <- div$div_10m2Data100m2Data[which(div$div_10m2Data100m2Data$plotID=='SERC_022'),]
+
+div <- stackByTable('/Users/clunch/Desktop/NEON_presence-cover-plant.zip', savepath='envt')
+setdiff(unique(div$div_1m2Data$plotID), unique(div$div_10m2Data100m2Data$plotID))
 
 # should display message about avg= and download all data
 waq <- loadByProduct(dpID='DP1.20288.001', site=c('ARIK','MCRA'),

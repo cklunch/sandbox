@@ -47,7 +47,12 @@ req <- httr::GET("http://data.neonscience.org/api/v0/locations/SCBI")
 
 # location on CERT
 req <- GET("https://cert-data.ci.neoninternal.org/api/v0/locations/HARV_052.basePlot.vst")
+req <- GET("https://cert-data.ci.neoninternal.org/api/v0/locations/HARV_047.basePlot.ltr")
 jsonlite::fromJSON(content(req, as="text"))
+
+req <- httr::GET("http://cert-data.neonscience.org/api/v0/locations/SCBI")
+
+req <- GET("https://cert-data.neonscience.org/api/v0/products/DP1.20288.001")
 
 
 # testing AOP problems
