@@ -3,7 +3,7 @@ library(jsonlite)
 library(dplyr, quietly=T)
 library(devtools)
 options(stringsAsFactors = F)
-req <- GET("https://data.neonscience.org/api/v0/products/DP1.20288.001")
+req <- GET("https://data.neonscience.org/api/v0/products/DP1.20206.001")
 avail <- fromJSON(content(req, as="text"), simplifyDataFrame=T, flatten=T)
 months <- unlist(avail$data$siteCodes$availableDataUrls)
 

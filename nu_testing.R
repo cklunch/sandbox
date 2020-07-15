@@ -2,6 +2,7 @@ library(devtools)
 setwd("/Users/clunch/GitHub/NEON-utilities/neonUtilities")
 #install_github('NateMietk/NEON-utilities/neonUtilities', ref='master')
 #setwd("/Users/clunch/GitHub/NateFork/NEON-utilities/neonUtilities")
+
 install('.')
 library(neonUtilities)
 check()
@@ -10,6 +11,9 @@ options(stringsAsFactors = F)
 setwd("~/GitHub/utilities-test-suite/testUtilities")
 test()
 
+stackByTable('/Users/clunch/Desktop/NEON_par-quantum-line.zip')
+stackByTable('/Users/clunch/Desktop/NEON_gp.zip')
+stackByTable('/Users/clunch/Downloads/NEON_pressure-air (1).zip')
 
 # token testing
 waq <- loadByProduct(dpID='DP1.20288.001', site=c('ARIK','HOPB'), 
@@ -32,7 +36,7 @@ byTileAOP(dpID = "DP3.30467.001", site = "WREF", year = "2017",
 byFileAOP(dpID='DP3.30015.001', site='SJER', year=2017, check.size=F, 
           savepath='/Users/clunch/Desktop', token=Sys.getenv('NEON_TOKEN'))
 
-zipsByProduct(dpID='DP1.10098.001', site=c('WREF','ABBY'),
+zipsByProduct(dpID='DP1.10098.001', site=c('WREF','ABBY'), startdate='2019-01',
               savepath='/Users/clunch/Desktop', token=Sys.getenv('NEON_TOKEN'))
 stackByTable('/Users/clunch/Desktop/filesToStack10098')
 
@@ -107,12 +111,24 @@ zipsByProduct(dpID='DP4.00200.001', site='all', check.size=F,
           savepath='/Users/clunch/Desktop')
 
 
+st <- loadByProduct(dpID='DP1.20206.001', token=Sys.getenv('NEON_TOKEN'))
+st <- loadByProduct(dpID='DP1.20206.001', startdate='2017-01', 
+                    enddate='2017-12', token=Sys.getenv('NEON_TOKEN'),
+                    check.size=F)
+
 fs <- loadByProduct(dpID='DP1.30012.001', check.size=F)
 
 pr <- loadByProduct(dpID='DP1.00024.001', site=c('WREF','ABBY'),
               startdate='2019-07', enddate='2019-08')
 
+tick <- loadByProduct(dpID='DP1.10093.001', site=c('WREF','ABBY'),
+                    startdate='2019-07', enddate='2019-08')
+
 cfc <- loadByProduct(dpID='DP1.10026.001', package='expanded', 
+                     check.size=F, nCores=1, token=Sys.getenv('NEON_TOKEN'))
+
+cfc <- loadByProduct(dpID='DP1.10026.001', package='expanded', 
+                     startdate='2019-01', enddate='2019-12',
                      check.size=F, nCores=1, token=Sys.getenv('NEON_TOKEN'))
 
 gwe <- loadByProduct(dpID='DP1.20100.001', site=c('MART','WLOU'),
@@ -182,8 +198,25 @@ sae <- loadByProduct(dpID='DP4.00200.001', site='WREF', check.size=F)
 
 zipsByProduct(dpID='DP1.00024.001', site=c('WREF','ABBY'),
               startdate='2019-07', enddate='2019-09',
-              savepath='/Users/clunch/Desktop')
-stackByTable('/Users/clunch/Desktop/filesToStack00024', folder=T, nCores=1)
+              savepath='/Users/clunch/Desktop',
+              check.size=F)
+pr <- stackByTable('/Users/clunch/Desktop/filesToStack00024', nCores=1,
+                   saveUnzippedFiles=T, savepath='envt')
+
+zipsByProduct(dpID='DP1.00002.001', site=c('ABBY','CPER'),
+              startdate='2019-07', enddate='2019-08',
+              savepath='/Users/clunch/Desktop',
+              avg=30, check.size=F)
+stackByTable('/Users/clunch/Desktop/filesToStack00002', nCores=1)
+
+# zipsByURI()
+zipsByProduct(dpID='DP1.10108.001', site='CPER',
+              startdate='2016-07', enddate='2016-07',
+              savepath='/Users/clunch/Desktop',
+              package='expanded', check.size=F)
+stackByTable('/Users/clunch/Desktop/filesToStack10108')
+zipsByURI('/Users/clunch/Desktop/filesToStack10108/stackedFiles')
+
 
 zipsByProduct(dpID='DP1.10098.001', site=c('WREF','ABBY'),
               savepath='/Users/clunch/Desktop')
@@ -245,13 +278,13 @@ checkConv <- function(x) enc2utf8(x)!=x
 dum <- apply(table_types, c(1,2), checkConv)
 which(dum==TRUE, arr.ind=T)
 
-dum <- apply(table_types, c(1,2), Encoding)
-which(dum=='UTF-8', arr.ind=T)
+d <- apply(table_types, c(1,2), Encoding)
+which(d=='UTF-8', arr.ind=T)
 
+tools::showNonASCII(table_types)
+dum <- apply(table_types, 1, tools::showNonASCII)
 
-neonUtilities::zipsByProduct(dpID="DP4.00200.001", package="basic", site=c("SCBI"), 
-                             startdate="2018-12-01", enddate="2019-12-31",
-                             savepath='/Users/clunch/Downloads', 
-                             check.size=F)
-
+checkAscii <- function(x) grepl("[^ -~]", x)
+dum <- apply(table_types, c(1,2), checkAscii)
+which(dum==TRUE, arr.ind=T)
 
