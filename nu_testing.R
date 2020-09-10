@@ -46,6 +46,9 @@ rea <- loadByProduct(dpID='DP1.20190.001', site='WALK', check.size=F)
 zipsByProduct(dpID='DP1.20190.001', savepath='/Users/clunch/Desktop')
 
 
+tpth <- loadByProduct(dpID='DP1.10092.001', site=c('KONZ','KONA'), startdate='2015-01',
+                      enddate='2019-12', check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
 waq <- loadByProduct(dpID='DP1.20288.001', site=c('ARIK','HOPB'), 
                      startdate='2017-03', enddate='2018-03', 
                      package='expanded', check.size=F)
@@ -140,6 +143,9 @@ swe <- loadByProduct(dpID='DP1.20016.001', site=c('MART','WLOU'),
 wch <- loadByProduct(dpID='DP1.20093.001', site=c('ARIK','POSE'),
                      package='expanded', check.size=F)
 
+nst <- loadByProduct(dpID='DP1.10045.001', package='expanded',
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
 wdp <- loadByProduct(dpID='DP1.00013.001', site=c('RMNP','NIWO'),
                      package='expanded', check.size=F)
 
@@ -151,10 +157,12 @@ dst <- loadByProduct(dpID='DP1.00017.001', site=c('RMNP','CPER','ONAQ'),
 
 dst <- loadByProduct(dpID='DP1.00017.001', site='CPER',
                      startdate='2016-05', enddate='2018-06', check.size=F,
-                     avg=60)
+                     timeIndex=60)
 
-rh <- loadByProduct(dpID='DP1.00098.001', site='HARV', startdate='2019-06',
-                    avg=30, check.size=F)
+rh <- loadByProduct(dpID='DP1.00098.001', site='SCBI', startdate='2016-01',
+                    enddate='2016-12', check.size=F, 
+                    package='expanded',
+                    token=Sys.getenv('NEON_TOKEN'))
 
 alg <- loadByProduct(dpID='DP1.20166.001', check.size=F)
 alg.exp <- loadByProduct(dpID='DP1.20166.001', package='expanded', token='garbage')
@@ -211,24 +219,39 @@ stackByTable('/Users/clunch/Desktop/filesToStack00002', nCores=1)
 
 # zipsByURI()
 zipsByProduct(dpID='DP1.10108.001', site='CPER',
-              startdate='2016-07', enddate='2016-07',
+              startdate='2018-07', enddate='2018-07',
               savepath='/Users/clunch/Desktop',
               package='expanded', check.size=F)
 stackByTable('/Users/clunch/Desktop/filesToStack10108')
 zipsByURI('/Users/clunch/Desktop/filesToStack10108/stackedFiles')
+
+zipsByProduct(dpID="DP4.00131.001", package="expanded", 
+              savepath="/Users/clunch/Desktop", check.size=F)
+stackByTable("/Users/clunch/Desktop/filesToStack00131")
+zipsByURI("/Users/clunch/Desktop/filesToStack00131/stackedFiles")
 
 
 zipsByProduct(dpID='DP1.10098.001', site=c('WREF','ABBY'),
               savepath='/Users/clunch/Desktop')
 stackByTable('/Users/clunch/Desktop/filesToStack10098')
 
-zipsByProduct(dpID='DP1.10026.001', site=c('SCBI','WOOD'),
-              savepath='/Users/clunch/Desktop', package='expanded')
-stackByTable('/Users/clunch/Desktop/filesToStack10026', nCores=1)
+zipsByProduct(dpID='DP1.10026.001', #site=c('SCBI','WOOD'),
+              savepath='/Users/clunch/Desktop', package='expanded',
+              check.size=F, token=Sys.getenv('NEON_TOKEN'))
+stackByTable('/Users/clunch/Desktop/filesToStack10026', saveUnzippedFiles = T)
+
+zipsByProduct(dpID='DP1.10053.001', site=c('SCBI','WOOD','ONAQ'),
+              savepath='/Users/clunch/Desktop', package='expanded',
+              check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
 zipsByProduct(dpID='DP1.20288.001',
               savepath='/Users/clunch/Desktop', package='expanded')
 stackByTable('/Users/clunch/Desktop/filesToStack20288', nCores=5)
+
+zipsByProduct(dpID='DP1.10092.001', site='KONZ',
+              savepath='/Users/clunch/Desktop',
+              check.size=F, token=Sys.getenv('NEON_TOKEN'))
+stackByTable('/Users/clunch/Desktop/filesToStack10092')
 
 zipsByProduct(dpID='DP1.00017.001', site=c('RMNP','CPER','ONAQ'),
               startdate='2019-01', enddate='2019-10', check.size=F,
@@ -287,4 +310,12 @@ dum <- apply(table_types, 1, tools::showNonASCII)
 checkAscii <- function(x) grepl("[^ -~]", x)
 dum <- apply(table_types, c(1,2), checkAscii)
 which(dum==TRUE, arr.ind=T)
+
+
+hobo <- read.delim('/Users/clunch/Downloads/Reaeration_field_and_lab_collection,_Level_0_rea_conductivityFieldData_in_MAYF.txt', sep='\t')
+unique(hobo$stationID)
+hobo.01 <- hobo[which(hobo$stationID=="MAYF.AOS.reaeration.station.01"),]
+unique(hobo.01$hoboSampleID)
+write.table(hobo.01$uid, '/Users/clunch/Desktop/hobo_MAYF_01_delete.txt', sep='\t', row.names = F)
+
 

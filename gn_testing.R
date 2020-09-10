@@ -17,6 +17,7 @@ countdata.loc <- getLocTOS(bird$brd_countdata, 'brd_countdata', token=Sys.getenv
 
 phe <- loadByProduct(dpID='DP1.10055.001', site='MOAB', check.size=F)
 phe.loc <- getLocTOS(phe$phe_perindividual, 'phe_perindividual')
+phe.name <- getLocByName(phe$phe_perindividual)
 
 sls <- loadByProduct(dpID='DP1.10086.001', site='UNDE', check.size=F)
 
