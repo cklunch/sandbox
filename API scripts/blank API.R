@@ -3,14 +3,16 @@ library(jsonlite)
 library(dplyr, quietly=T)
 library(devtools)
 options(stringsAsFactors = F)
-req <- GET("https://data.neonscience.org/api/v0/products/DP1.20206.001")
+req <- GET("https://data.neonscience.org/api/v0/products/DP4.00200.001")
 avail <- fromJSON(content(req, as="text"), simplifyDataFrame=T, flatten=T)
 months <- unlist(avail$data$siteCodes$availableDataUrls)
 
 urls <- unlist(avail$data$siteCodes$availableDataUrls)
 urls
-fls <- GET(urls[grep("WLOU/2019-07", urls)])
+fls <- GET(urls[grep("ONAQ/2019-02", urls)])
 list.files <- fromJSON(content(fls, as="text"))
+list.files$data$files$name[grep('.zip', list.files$data$files$name)]
+
 head(list.files$data$files)
 #brd.count <- read.delim(brd.files$data$files$url
 #                        [intersect(grep("countdata", brd.files$data$files$name),
@@ -48,6 +50,8 @@ req <- httr::GET("http://data.neonscience.org/api/v0/locations/SCBI")
 req <- httr::GET("http://data.neonscience.org/api/v0/locations/CFGLOC113784")
 jsonlite::fromJSON(httr::content(req, as="text"))
 
+"http://data.neonscience.org/api/v0/locations/TALL_001.basePlot.div.32.4.10"
+
 # location on CERT
 req <- GET("https://cert-data.ci.neoninternal.org/api/v0/locations/HARV_052.basePlot.vst")
 req <- GET("https://cert-data.ci.neoninternal.org/api/v0/locations/HARV_047.basePlot.ltr")
@@ -63,7 +67,7 @@ req <- GET("https://cert-data.neonscience.org/api/v0/products/DP1.20288.001")
 req.aop <- httr::GET("http://data.neonscience.org/api/v0/products/DP3.30006.001")
 avail.aop <- fromJSON(content(req.aop, as="text"), simplifyDataFrame=T, flatten=T)
 cam.urls <- unlist(avail.aop$data$siteCodes$availableDataUrls)
-cam <- httr::GET(cam.urls[grep("ORNL/2017", cam.urls)])
+cam <- httr::GET(cam.urls[grep("WOOD/2019", cam.urls)])
 cam.files <- fromJSON(content(cam, as="text"))
 head(cam.files$data$files$name)
 download(cam.files$data$files$url[grep("NEON_D17_SJER_DP1_256000_4113000_classified_point_cloud_colorized", cam.files$data$files$name)],
@@ -79,6 +83,9 @@ req.tax <- content(req, as="parsed")
 
 req <- GET("http://data.neonscience.org/api/v0/taxonomy?taxonTypeCode=BIRD&offset=0&limit=1000&verbose=T")
 req.tax <- jsonlite::fromJSON(content(req, as="text"))
+
+req <- GET("http://data.neonscience.org/api/v0/taxonomy?scientificname=Viburnum%20lantanoides%20Michx.")
+req.tax <- content(req, as="parsed")
 
 
 # testing
@@ -139,3 +146,10 @@ in_https_not_http <- setdiff(https_dataURLs, http_dataURLs)
 write.csv(in_https_not_http, "~/Downloads/in_https_not_http.csv", row.names = F)
 write.csv(in_http_not_https, "~/Downloads/in_http_not_https.csv", row.names = F)
 
+for(i in 1:nrow(fsp)) {
+  fsp.samp <- get.os.sample(tag=fsp$sampleID[i])
+  if(length(fsp.samp)>0) {
+    print(fsp$sampleID[i])
+  }
+}
+length(unique(fsp$sampleID))

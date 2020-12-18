@@ -5,19 +5,28 @@ setwd("/Users/clunch/GitHub/NEON-geolocation/geoNEON")
 options(stringsAsFactors = F)
 install('.')
 check()
+test()
 
 loc <- getLocBySite('ARIK', type='AQU')
 loc <- getLocBySite('SYCA', type='all', history=T, token=Sys.getenv('NEON_TOKEN'))
 loc.is <- getLocBySite('ARIK', type='site', token='garbage')
 loc.os <- getLocBySite('ARIK', type='OS')
 
+loc <- getLocBySite('GUIL', type = "all", history = T)
+
+# no lat-long calculation
 bird <- loadByProduct(dpID='DP1.10003.001', site='WREF', check.size=F)
 perpoint.loc <- getLocByName(bird$brd_perpoint)
 countdata.loc <- getLocTOS(bird$brd_countdata, 'brd_countdata', token=Sys.getenv('NEON_TOKEN'))
 
+# lat-long calculation using Sarah's function
 phe <- loadByProduct(dpID='DP1.10055.001', site='MOAB', check.size=F)
 phe.loc <- getLocTOS(phe$phe_perindividual, 'phe_perindividual')
 phe.name <- getLocByName(phe$phe_perindividual)
+
+# lat-long calculation using my function
+root <- loadByProduct(dpID='DP1.10067.001', site=c('TREE','TALL'), check.size=F)
+root.loc <- getLocTOS(root$bbc_percore, 'bbc_percore')
 
 sls <- loadByProduct(dpID='DP1.10086.001', site='UNDE', check.size=F)
 
@@ -27,8 +36,6 @@ mos <- loadByProduct(dpID='DP1.10043.001', site='NIWO', check.size=F)
 
 tick <- loadByProduct(dpID='DP1.10093.001', site=c('TALL','CLBJ'), check.size=F)
 
-root <- loadByProduct(dpID='DP1.10067.001', site=c('TREE','TALL'), check.size=F)
-root.loc <- getLocTOS(root$bbc_percore, 'bbc_percore')
 
 dhp <- loadByProduct(dpID='DP1.10017.001', site='SJER', check.size=F)
 
