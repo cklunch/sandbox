@@ -7,7 +7,7 @@ neon_dir()
 
 neon_download(product='DP1.10026.001', type='expanded', .token=Sys.getenv('NEON_TOKEN'), unzip=F)
 neon_download(product='DP4.00200.001', type='basic', start_date='2020-04-01', 
-              site='SERC', .token=Sys.getenv('NEON_TOKEN'))
+              site='TOOL', .token=Sys.getenv('NEON_TOKEN'))
 neon_download(product='DP1.00017.001', type='expanded', site=c('MOAB','NIWO','ONAQ'),
               .token=Sys.getenv('NEON_TOKEN'), unzip=T)
 

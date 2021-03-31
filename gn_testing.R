@@ -10,7 +10,7 @@ test()
 loc <- getLocBySite('ARIK', type='AQU')
 loc <- getLocBySite('SYCA', type='all', history=T, token=Sys.getenv('NEON_TOKEN'))
 loc.is <- getLocBySite('ARIK', type='site', token='garbage')
-loc.os <- getLocBySite('ARIK', type='OS')
+loc.os <- getLocBySite('HARV', type='all')
 
 loc <- getLocBySite('GUIL', type = "all", history = T)
 
@@ -37,12 +37,20 @@ mos <- loadByProduct(dpID='DP1.10043.001', site='NIWO', check.size=F)
 tick <- loadByProduct(dpID='DP1.10093.001', site=c('TALL','CLBJ'), check.size=F)
 
 
-dhp <- loadByProduct(dpID='DP1.10017.001', site='SJER', check.size=F)
+dhp <- loadByProduct(dpID='DP1.10017.001', check.size=F, token=Sys.getenv('NEON_TOKEN'))
+dhp.loc <- getLocTOS(dhp$dhp_perimagefile, 'dhp_perimagefile', token=Sys.getenv('NEON_TOKEN'))
+
+herb <- loadByProduct(dpID='DP1.10023.001', check.size=F, token=Sys.getenv('NEON_TOKEN'))
+herb.loc <- getLocTOS(herb$hbp_perbout, 'hbp_perbout', token=Sys.getenv('NEON_TOKEN'))
+
+herb.W <- loadByProduct(dpID='DP1.10023.001', site='WOOD', 
+                        check.size=F, token=Sys.getenv('NEON_TOKEN'))
+herb.W.loc <- getLocTOS(herb.W$hbp_perbout, 'hbp_perbout', token=Sys.getenv('NEON_TOKEN'))
 
 cdw.tally <- loadByProduct(dpID='DP1.10010.001', check.size=F)
 cdw.density <- loadByProduct(dpID='DP1.10014.001', check.size=F)
 
-vst <- loadByProduct(dpID='DP1.10098.001', site='STEI', check.size=F)
+vst <- loadByProduct(dpID='DP1.10098.001', site='JERC', check.size=F)
 vst.loc <- getLocTOS(vst$vst_mappingandtagging, 'vst_mappingandtagging')
 byTileAOP(dpID='DP3.30015.001', site='STEI', year=2017,
           easting=vst.loc$adjEasting, northing=vst.loc$adjNorthing,

@@ -11,11 +11,27 @@ options(stringsAsFactors = F)
 setwd("~/GitHub/utilities-test-suite/testUtilities")
 test()
 
-
 # files with release tags
-stackByTable('/Users/clunch/Desktop/NEON_temp-soil.zip')
+stackByTable('/Users/clunch/Desktop/NEON_temp-soil.zip') # working
+st <- stackByTable('/Users/clunch/Desktop/NEON_temp-soil.zip', savepath='envt') # working!
+csd <- stackByTable('/Users/clunch/Desktop/NEON_discharge-stream-l4.zip', savepath='envt') # working
+cfc <- stackByTable('/Users/clunch/Desktop/NEON_chem-phys-foliar.zip', savepath='envt') # working
+stackByTable('/Users/clunch/Desktop/NEON_chem-phys-foliar.zip') # working
+stackByTable('/Users/clunch/Desktop/NEON_discharge-stream-l4.zip') # working
+stackByTable('/Users/clunch/Desktop/filesToStack00002/')
+gch <- stackByTable('/Users/clunch/Desktop/NEON_chem-groundwater.zip', savepath='envt')
+stackByTable('/Users/clunch/Desktop/NEON_count-beetles.zip')
+bt <- stackByTable('/Users/clunch/Desktop/NEON_temp-bio.zip', savepath='envt')
+stackByTable('/Users/clunch/Desktop/NEON_traits-foliar.zip')
+stackByTable('/Users/clunch/Desktop/NEON_par.zip')
+p <- stackByTable('/Users/clunch/Desktop/NEON_par.zip', savepath='envt')
+stackByTable('/Users/clunch/Desktop/NEON_clip-plant-aqu.zip')
+aq <- stackByTable('/Users/clunch/Desktop/NEON_clip-plant-aqu.zip', savepath='envt')
 
-csd <- stackByTable('/Users/clunch/Desktop/NEON_discharge-stream-l4.zip', savepath='envt')
+
+
+# time test
+wind <- stackByTable('/Users/clunch/Desktop/NEON_wind-2d.zip', savepath='envt')
 
 # download single table
 zipsByProduct(dpID='DP1.10026.001', tabl='cfc_carbonNitrogen',
@@ -26,11 +42,52 @@ cfc.n <- stackByTable('/Users/clunch/Desktop/filesToStack10026', savepath='envt'
 cfcc <- loadByProduct(dpID='DP1.10026.001', tabl='cfc_chlorophyll',
                       check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
+ltr_CN <- loadByProduct(dpID = "DP1.10033.001", 
+                        tabl = 'ltr_litterCarbonNitrogen', 
+                        check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+sls_soilChem <- loadByProduct(dpID = "DP1.10086.001", tabl = 'sls_soilChemistry', 
+                              site=c('HARV','BLAN','MLBS','LAJA'),
+                              check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+veg <- loadByProduct(dpID='DP1.10098.001', tabl='vst_mappingandtagging',
+                     site=c('WREF','SJER'),
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+# lab table error
+brdp <- loadByProduct(dpID='DP1.10003.001', tabl='brd_personnel',
+                      package='expanded', site=c('HARV','BLAN','MLBS','LAJA'),
+                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+# table in wrong product error
+veg <- loadByProduct(dpID='DP1.10098.001', tabl='bgc_CNiso_externalSummary',
+                     site=c('WREF','SJER'),
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+# bad table name
+veg <- loadByProduct(dpID='DP1.10098.001', tabl='garbage', site=c('WREF','SJER'),
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+dpID <- 'DP1.20093.001'
+site <- c('ARIK','POSE','KING')
+package <- "expanded"
+startdate <- NA
+enddate <- NA
+tabl <- 'swc_domainLabData'
+token <- Sys.getenv('NEON_TOKEN')
+
+dpID <- 'DP1.10003.001'
+site <- c('HARV','BLAN','MLBS','LAJA')
+package <- "expanded"
+startdate <- NA
+enddate <- NA
+tabl <- 'brd_personnel'
+token <- Sys.getenv('NEON_TOKEN')
 
 # time test
 Sys.time()
-swc <- loadByProduct(dpID='DP1.00094.001', site='WREF', startdate='2020-05',
-                     enddate='2020-08', check.size=F, token=Sys.getenv('NEON_TOKEN'))
+swc <- loadByProduct(dpID='DP1.00094.001', site='RMNP', startdate='2017-05',
+                     enddate='2017-08', check.size=F, token=Sys.getenv('NEON_TOKEN'))
 Sys.time()
 # 1 minute table has 7,084,800 rows & 23 columns (basic package)
 # so 1771200 rows per site-month
@@ -45,7 +102,7 @@ zipsByProduct(dpID='DP1.00094.001', site='RMNP',
               savepath='/Users/clunch/Desktop',
               check.size=F, token=Sys.getenv('NEON_TOKEN'))
 stackByTable('/Users/clunch/Desktop/filesToStack00094/')
-stackByTable('/Users/clunch/Desktop/filesToStack00094/', nCores=4)
+stackByTable('/Users/clunch/Desktop/filesToStack00094/', nCores=4, saveUnzippedFiles = T)
 # with 2.0, crashes at 72% of 1 min table
 # 1.3.8 crashes at 79% of table. hahahaha
 # 2.0 with 4 cores: crashes at 79% - wasn't actually parallelizing
@@ -73,10 +130,10 @@ dum2 <- stackEddy(c('/Users/clunch/Desktop/filesToStack00200/NEON.D01.HARV.DP4.0
 cfc <- stackFromStore('/Users/clunch/Dropbox/data/neonstore', dpID='DP1.10026.001', 
                site=c('CLBJ','NOGP'), package='expanded', zipped=T, load=T)
 cfc <- stackFromStore('/Users/clunch/Dropbox/data/neonstore', dpID='DP1.10026.001', 
-                      site=c('KONZ','DELA','LENO','SOAP','BONA'), 
+                      site=c('KONZ','DELA','LENO','SOAP','BONA'), pubdate='2020-10-09',
                       package='expanded', zipped=F, load=T)
 cfc <- stackFromStore('/Users/clunch/Dropbox/data/neonstore', dpID='DP1.10026.001', 
-                      site=c('UNDE','KONA','JERC'), zipped=T, load=T)
+                      site=c('UNDE','KONA','JERC'), zipped=F, load=T, timeIndex=60)
 cfc <- stackByTable(c('/Users/clunch/Dropbox/data/neonstore/NEON.D02.SERC.DP1.10026.001.2016-07.expanded.20200323T154228Z.zip',
                       '/Users/clunch/Dropbox/data/neonstore/NEON.D05.STEI.DP1.10026.001.2017-08.expanded.20200504T151826Z.zip'),
                     saveUnzippedFiles = T)
@@ -84,9 +141,17 @@ dst <- stackFromStore('/Users/clunch/Dropbox/data/neonstore', dpID='DP1.00017.00
                       package='expanded', zipped=T, load=T) # not working
 dst <- stackFromStore('/Users/clunch/Dropbox/data/neonstore', dpID='DP1.00017.001',
                       package='expanded', zipped=F, load=T)
+dst <- stackFromStore('/Users/clunch/Dropbox/data/neonstore', dpID='DP1.00017.001',
+                      package='expanded', timeIndex=60, zipped=F, load=T)
 
-flux <- stackFromStore(neon_dir(), dpID='DP4.00200.001', package='basic', zipped=F, load=T)
+flux <- stackFromStore('/Users/clunch/GitHub/utilities-test-suite/testUtilities/inst/extdata/neonstore/', 
+                       dpID='DP4.00200.001', 
+                       site='TOOL',
+                       package='basic', zipped=F, load=T, level='dp04')
 
+iso <- stackFromStore('/Users/clunch/GitHub/utilities-test-suite/testUtilities/inst/extdata/neonstore/', dpID='DP4.00200.001', 
+                       package='basic', zipped=F, load=T, level='dp01', timeIndex=30,
+                       var='dlta13CCo2')
 
 
 filepaths <- '/Users/clunch/Dropbox/data/neonstore'
@@ -99,25 +164,81 @@ package <- "expanded"
 startdate <- NA
 enddate <- NA
 
+# new download structure for SAE
+flux <- stackEddy('/Users/clunch/Desktop/NEON_eddy-flux.zip', level='dp04')
+flux <- stackEddy('/Users/clunch/Desktop/PROD_eddy-flux.zip', level='dp04')
+
+flux <- stackEddy('/Users/clunch/Desktop/NEON.D18.TOOL.DP4.00200.001.nsae.2018-07-19.expanded.h5', 
+                  level='dp04')
+iso <- stackEddy('/Users/clunch/Desktop/NEON.D18.TOOL.DP4.00200.001.nsae.2018-07-19.expanded.h5',
+                 level="dp01", avg=30, var=c("dlta13CCo2","dlta18OH2o"))
+
+del <- stackEddy('/Users/clunch/Desktop/filesToStack00200PUUMAprMay/', 
+                 var = 'dlta18OH2oRefe', avg = 9, level = 'dp01')
+
+filepath <- '/Users/clunch/Desktop/NEON_eddy-flux.zip'
+level <- 'dp04'
+var <- NA
+avg <- NA
+
 # .gz files for SAE
-zipsByProduct("DP4.00200.001", site = "ONAQ",
-              startdate = "2019-01-01",
-              enddate = "2019-12-31",
+zipsByProduct("DP4.00200.001", site = "SOAP",
+              startdate = "2019-06",
+              enddate = "2019-08",
               savepath = "/Users/clunch/Desktop",
               check.size = FALSE, token=Sys.getenv('NEON_TOKEN'))
 
-zipsByProduct("DP4.00200.001", site = "JERC",
-              startdate = "2018-01",
-              enddate = "2018-12",
+zipsByProduct("DP4.00200.001", site = "PUUM",
+              #startdate = "2018-01",
+              #enddate = "2018-12",
               savepath = "/Users/clunch/Desktop",
               check.size = FALSE, token=Sys.getenv('NEON_TOKEN'))
 
-flux <- stackEddy('/Users/clunch/Desktop/filesToStack00200/')
+flux <- stackEddy('/Users/clunch/Desktop/filesToStack00200/', level='dp04')
 flux <- stackEddy(filepath = list.files('/Users/clunch/Desktop/filesToStack00200/', 
                                         pattern='[.]h5', full.names = T))
 
 lhflux <- stackEddy("/Users/clunch/Desktop/filesToStack00200", avg = 30)
 lhflux2 <- stackEddy("/Users/clunch/Desktop/filesToStack00200_half_unzipped/", avg = 30)
+
+alldp01 <- stackEddy("/Users/clunch/Desktop/filesToStack00200", level='dp01', avg = 9)
+
+
+zipsByProduct(site = "SJER", 
+              dpID = "DP4.00200.001", 
+              startdate = "2019-06", 
+              enddate = "2019-07", 
+              package = "basic", 
+              check.size = F, 
+              savepath = '/Users/clunch/Desktop')
+
+isoTest <- stackEddy(filepath = '/Users/clunch/Desktop/filesToStack00200/', 
+                     level = "dp01", 
+                     var = c("dlta13CCo2","dlta18OH2o"), 
+                     avg = "09")
+
+storTest <- stackEddy(filepath = '/Users/clunch/Desktop/filesToStack00200/', 
+                     level = "dp01", 
+                     var = c("rtioMoleDryCo2","rtioMoleDryH2o"), 
+                     avg = "02")
+
+zipsByProduct(site = "WREF", 
+              dpID = "DP4.00200.001", 
+              startdate = "2019-06", 
+              enddate = "2019-07", 
+              package = "basic", 
+              check.size = F, 
+              savepath = '/Users/clunch/Desktop')
+
+isoTestW <- stackEddy(filepath = '/Users/clunch/Desktop/filesToStack00200/', 
+                     level = "dp01", 
+                     var = c("dlta13CCo2","dlta18OH2o"), 
+                     avg = "09")
+
+
+# expanded
+flux <- stackEddy('/Users/clunch/Desktop/NEON.D03.OSBS.DP4.00200.001.2019-03.expanded.20210118T143742Z/', 
+                  level='dp04')
 
 
 stackByTable('/Users/clunch/Desktop/NEON_par-quantum-line.zip')
@@ -140,6 +261,11 @@ byTileAOP(dpID = "DP3.30015.001", site = "WREF", year = "2017",
           savepath='/Users/clunch/Desktop', check.size = FALSE,
           token=Sys.getenv('NEON_TOKEN'))
 
+byTileAOP(dpID = "DP3.30006.001", site = "WREF", year = "2017", 
+          easting = c(571000,578000), 
+          northing = c(5079000,5080000), 
+          savepath='/Users/clunch/Desktop', check.size = FALSE)
+
 # fake dpID
 byTileAOP(dpID = "DP3.30467.001", site = "WREF", year = "2017", 
           easting = c(571000,743000,578000), 
@@ -148,6 +274,9 @@ byTileAOP(dpID = "DP3.30467.001", site = "WREF", year = "2017",
           token=Sys.getenv('NEON_TOKEN'))
 
 byFileAOP(dpID='DP3.30015.001', site='SJER', year=2017, 
+          savepath='/Users/clunch/Desktop', token=Sys.getenv('NEON_TOKEN'))
+
+byFileAOP(dpID='DP3.30026.001', site='SCBI', year=2017, 
           savepath='/Users/clunch/Desktop', token=Sys.getenv('NEON_TOKEN'))
 
 zipsByProduct(dpID='DP1.10098.001', site=c('WREF','ABBY'), startdate='2019-01',
@@ -167,16 +296,29 @@ part <- loadByProduct(dpID='DP1.00024.001', site=c('KING','BLWA','ARIK','MCRA','
 root <- loadByProduct(dpID='DP1.10102.001') # should error
 ntrans <- loadByProduct(dpID='DP1.10078.001', check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
+# DATA_FRAME handling: broken in 2.0.1
+# basic package is fine for DP1.10081.001, broken for DP1.30012.001
+portaldata <- loadByProduct(dpID = 'DP1.10081.001',
+                            startdate = '2018-01',
+                            enddate = '2019-12',
+                            check.size = FALSE,
+                            token = Sys.getenv('NEON_TOKEN'),
+                            package = 'expanded')
+
+fsp <- loadByProduct(dpID='DP1.30012.001',
+                     check.size=F,
+                     package='expanded',
+                     token = Sys.getenv('NEON_TOKEN'))
+
 # LOV files
 rea <- loadByProduct(dpID='DP1.20190.001', site='WALK', check.size=F)
 zipsByProduct(dpID='DP1.20190.001', savepath='/Users/clunch/Desktop')
-
 
 tpth <- loadByProduct(dpID='DP1.10092.001', site=c('KONZ','KONA'), startdate='2015-01',
                       enddate='2019-12', check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
 waq <- loadByProduct(dpID='DP1.20288.001', site=c('ARIK','HOPB'), 
-                     startdate='2017-03', enddate='2018-03', 
+                     startdate='2020-09', enddate='2020-12', 
                      package='expanded', check.size=F)
 
 byTileAOP(dpID = "DP3.30006.001", site = "ORNL", year = "2016", 
@@ -233,12 +375,19 @@ byTileAOP(dpID='DP3.30015.001', site='BLAN', year=2017,
 Sys.time()
 byFileAOP(dpID='DP1.30006.001', site='HARV', year=2017, check.size=F, 
           savepath='/Users/clunch/Desktop')
+# with token
+byFileAOP(dpID='DP1.30006.001', site='HARV', year=2017, check.size=F, 
+          savepath='/Users/clunch/Desktop', token=Sys.getenv('NEON_TOKEN'))
 
 # test for data download that should take >1 hour
 Sys.time()
 zipsByProduct(dpID='DP4.00200.001', site='all', check.size=F, 
           savepath='/Users/clunch/Desktop')
 
+
+csd <- loadByProduct(dpID='DP4.00130.001', site=c('WLOU','BLUE'),
+                     startdate='2019-04', enddate='2020-03',
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
 st <- loadByProduct(dpID='DP1.20206.001', token=Sys.getenv('NEON_TOKEN'))
 st <- loadByProduct(dpID='DP1.20206.001', startdate='2017-01', 
@@ -248,10 +397,16 @@ st <- loadByProduct(dpID='DP1.20206.001', startdate='2017-01',
 fs <- loadByProduct(dpID='DP1.30012.001', check.size=F)
 
 pr <- loadByProduct(dpID='DP1.00024.001', site=c('WREF','ABBY'),
-              startdate='2019-07', enddate='2019-08')
+              startdate='2019-12', enddate='2020-08')
+
+saat <- loadByProduct(dpID='DP1.00002.001', site=c('CPER','NIWO'),
+                      startdate='2020-02', enddate='2020-12',
+                      check.size=F)
 
 tick <- loadByProduct(dpID='DP1.10093.001', site=c('WREF','ABBY'),
-                    startdate='2019-07', enddate='2019-08')
+                    startdate='2019-07', enddate='2020-08', check.size=F)
+
+brd <- loadByProduct(dpID='DP1.10003.001', check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
 cfc <- loadByProduct(dpID='DP1.10026.001', package='expanded', 
                      check.size=F, nCores=1, token=Sys.getenv('NEON_TOKEN'))
@@ -288,8 +443,8 @@ dst <- loadByProduct(dpID='DP1.00017.001', site='CPER',
                      startdate='2016-05', enddate='2018-06', check.size=F,
                      timeIndex=60)
 
-rh <- loadByProduct(dpID='DP1.00098.001', site='SCBI', startdate='2016-01',
-                    enddate='2016-12', check.size=F, 
+rh <- loadByProduct(dpID='DP1.00098.001', site='SCBI', startdate='2020-01',
+                    enddate='2020-12', check.size=F, 
                     package='expanded',
                     token=Sys.getenv('NEON_TOKEN'))
 
@@ -300,13 +455,26 @@ alg <- loadByProduct(dpID='DP1.20166.001', startdate='2017-05', enddate='2018-08
                      site=c('MAYF','PRIN'), package='expanded',
                      check.size=F, token='garbage')
 
-nitrate <- loadByProduct(dpID="DP1.20033.001", site="BLDE", startdate="2020-01", enddate="2020-04",
+veg <- loadByProduct(dpID='DP1.10098.001', site='ABBY', 
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+wqCheck <- neonUtilities::loadByProduct(dpID = "DP1.20288.001",
+                                        site = c("LEWI","MART"),
+                                        startdate = "2020-07",
+                                        check.size = FALSE,
+                                        token=Sys.getenv('NEON_TOKEN'))
+
+nitrate <- loadByProduct(dpID="DP1.20033.001", site="BLDE", startdate="2020-04", enddate="2020-08",
                        package="expanded", check.size = F)
 
 sms <- loadByProduct(dpID='DP1.00094.001', startdate='2018-06', enddate='2018-07',
                      site='NIWO', check.size=F)
 
 buoyT <- loadByProduct(dpID='DP1.20046.001', site='BARC',
+                     check.size=F)
+
+sls <- loadByProduct(dpID='DP1.10086.001', site='TALL',
+                     package='expanded', token=Sys.getenv('NEON_TOKEN'),
                      check.size=F)
 
 bat <- loadByProduct(dpID='DP4.00132.001', startdate='2017-05',
@@ -333,6 +501,15 @@ waq <- loadByProduct(dpID='DP1.20288.001', site=c('ARIK','MCRA'),
 sae <- loadByProduct(dpID='DP4.00200.001', site='WREF', check.size=F)
 
 
+zipsByProduct(dpID = "DP1.20288.001",
+              site = "LEWI",
+              startdate = "2020-07",
+              check.size = FALSE,
+              token=Sys.getenv('NEON_TOKEN'),
+              savepath='/Users/clunch/Desktop')
+stackByTable('/Users/clunch/Desktop/filesToStack20288')
+stackByTable('/Users/clunch/Desktop/NEON_water-quality.zip')
+
 zipsByProduct(dpID='DP1.00024.001', site=c('WREF','ABBY'),
               startdate='2019-07', enddate='2019-09',
               savepath='/Users/clunch/Desktop',
@@ -341,11 +518,17 @@ pr <- stackByTable('/Users/clunch/Desktop/filesToStack00024', nCores=1,
                    saveUnzippedFiles=T, savepath='envt')
 stackByTable('/Users/clunch/Desktop/filesToStack00024')
 
-zipsByProduct(dpID='DP1.00002.001', site=c('ABBY','CPER'),
-              startdate='2019-07', enddate='2019-08',
+zipsByProduct(dpID='DP1.00002.001', site=c('ARIK','CPER'),
+              #startdate='2019-07', enddate='2019-08',
               savepath='/Users/clunch/Desktop',
               avg=30, check.size=F)
 stackByTable('/Users/clunch/Desktop/filesToStack00002', nCores=1)
+
+saat <- loadByProduct(dpID='DP1.00002.001', site=c('ARIK','CPER'),
+                      check.size=F)
+zipsByProduct(dpID='DP1.00002.001', site=c('ARIK','CPER'),
+              startdate='2019-10', enddate='2020-03',
+              savepath='/Users/clunch/Desktop', check.size=F)
 
 # zipsByURI()
 zipsByProduct(dpID='DP1.10108.001', site='CPER',
@@ -365,7 +548,7 @@ zipsByProduct(dpID='DP1.10098.001', site=c('WREF','ABBY'),
               savepath='/Users/clunch/Desktop')
 stackByTable('/Users/clunch/Desktop/filesToStack10098')
 
-zipsByProduct(dpID='DP1.10026.001', #site=c('SCBI','WOOD'),
+zipsByProduct(dpID='DP1.10026.001', site=c('SCBI','WOOD'),
               savepath='/Users/clunch/Desktop', package='expanded',
               check.size=F, token=Sys.getenv('NEON_TOKEN'))
 stackByTable('/Users/clunch/Desktop/filesToStack10026', saveUnzippedFiles = T)
@@ -450,11 +633,17 @@ checkAscii <- function(x) grepl("[^ -~]", x)
 dum <- apply(table_types, c(1,2), checkAscii)
 which(dum==TRUE, arr.ind=T)
 
+testmessage <- function(x) {
+  if(curl::has_internet()==TRUE) {
+    message('yes')
+    return(invisible())
+  }
+  2+2
+}
 
-hobo <- read.delim('/Users/clunch/Downloads/Reaeration_field_and_lab_collection,_Level_0_rea_conductivityFieldData_in_MAYF.txt', sep='\t')
-unique(hobo$stationID)
-hobo.01 <- hobo[which(hobo$stationID=="MAYF.AOS.reaeration.station.01"),]
-unique(hobo.01$hoboSampleID)
-write.table(hobo.01$uid, '/Users/clunch/Desktop/hobo_MAYF_01_delete.txt', sep='\t', row.names = F)
 
+neonDomains <- readOGR("/Users/clunch/data/NEONDomains_0", layer="NEON_Domains")
+plot(neonDomains)
+neonSites <- read.csv("/Users/clunch/data/field-sites.csv")
+points(neonSites$Latitude~neonSites$Longitude, pch=20)
 

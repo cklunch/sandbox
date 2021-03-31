@@ -2,14 +2,15 @@ library(httr)
 library(jsonlite)
 library(dplyr, quietly=T)
 library(devtools)
+library(downloader)
 options(stringsAsFactors = F)
-req <- GET("https://data.neonscience.org/api/v0/products/DP4.00200.001")
+req <- GET("https://data.neonscience.org/api/v0/products/DP1.00094.001")
 avail <- fromJSON(content(req, as="text"), simplifyDataFrame=T, flatten=T)
 months <- unlist(avail$data$siteCodes$availableDataUrls)
 
 urls <- unlist(avail$data$siteCodes$availableDataUrls)
 urls
-fls <- GET(urls[grep("ONAQ/2019-02", urls)])
+fls <- GET(urls[grep("MOAB/2017-03", urls)])
 list.files <- fromJSON(content(fls, as="text"))
 list.files$data$files$name[grep('.zip', list.files$data$files$name)]
 
@@ -21,6 +22,47 @@ Sys.time()
 downloader::download(list.files$data$files$url[grep("468000_7220000_image", list.files$data$files$name)],
          paste(getwd(), list.files$data$files$name[grep("468000_7220000_image", list.files$data$files$name)], sep="/"))
 Sys.time()
+
+
+# new "package" section in response
+req <- GET("https://cert-data.neonscience.org/api/v0/products/DP1.10003.001")
+avail <- fromJSON(content(req, as="text"), simplifyDataFrame=T, flatten=T)
+months <- unlist(avail$data$siteCodes$availableDataUrls)
+
+urls <- unlist(avail$data$siteCodes$availableDataUrls)
+head(urls)
+fls <- GET(urls[grep("ABBY/2019-05", urls)])
+list.files <- fromJSON(content(fls, as="text"))
+head(list.files)
+list.files$data$packages
+list.files$data$packages$type
+
+# what does no files look like?
+fls <- GET("https://cert-data.neonscience.org/api/v0/data/DP1.10003.001/ABBY/2017-07")
+list.files <- fromJSON(content(fls, as="text"))
+list.files$data$packages
+length(list.files$data$packages)
+download(list.files$data$packages$url[which(list.files$data$packages$type=='basic')],
+         '/Users/clunch/Desktop')
+
+con <- curl::curl("https://cert-data.neonscience.org/api/v0/data/package/DP1.10022.001/ABBY/2019-05?package=basic")
+jsonlite::prettify(readLines(con)) #no
+
+req <- curl::curl_fetch_memory("https://cert-data.neonscience.org/api/v0/data/package/DP1.10022.001/ABBY/2019-05?package=basic")
+fromJSON(content(req, as="text")) #no
+
+curl::curl_download("https://cert-data.neonscience.org/api/v0/data/package/DP1.10022.001/ABBY/2019-05?package=basic",
+                    destfile='/Users/clunch/Desktop')
+
+h <- curl::new_handle()
+curl::handle_getheaders(h) # in help file, but not an exported function
+
+base::curlGetHeaders("https://cert-data.neonscience.org/api/v0/data/package/DP1.10022.001/ABBY/2019-05?package=basic")
+# yahtzee
+h <- base::curlGetHeaders("https://cert-data.neonscience.org/api/v0/data/package/DP1.10022.001/ABBY/2019-05?package=basic")
+
+reh <- httr::HEAD("https://int-data.neonscience.org/api/v0/data/package/DP1.00001.001/OAES/2017-02?package=basic")
+httr::headers(reh)
 
 library(downloader)
 download(list.files$data$files$url[grep("waq_instantaneous", list.files$data$files$name, fixed=T)[1]],
@@ -64,15 +106,32 @@ req <- GET("https://cert-data.neonscience.org/api/v0/products/DP1.20288.001")
 
 # testing AOP problems
 
-req.aop <- httr::GET("http://data.neonscience.org/api/v0/products/DP3.30006.001")
+req.aop <- httr::GET("http://data.neonscience.org/api/v0/products/DP3.30026.001")
 avail.aop <- fromJSON(content(req.aop, as="text"), simplifyDataFrame=T, flatten=T)
 cam.urls <- unlist(avail.aop$data$siteCodes$availableDataUrls)
-cam <- httr::GET(cam.urls[grep("WOOD/2019", cam.urls)])
+cam <- httr::GET(cam.urls[grep("SCBI/2017", cam.urls)])
 cam.files <- fromJSON(content(cam, as="text"))
 head(cam.files$data$files$name)
 download(cam.files$data$files$url[grep("NEON_D17_SJER_DP1_256000_4113000_classified_point_cloud_colorized", cam.files$data$files$name)],
          paste(getwd(), "/ptcloud.laz", sep=""))
 downloader::download(cam.files$data$files$url[1], "/Users/clunch/Desktop/ORNL_DP3_30006_test.h5")
+downloader::download(cam.files$data$files$url[10], "/Users/clunch/Desktop/test_file.zip")
+
+t <- tryCatch(
+  {
+    suppressWarnings(downloader::download(cam.files$data$files$url[11], 
+                                          destfile='/Users/clunch/Desktop/test_file.pdf',
+                                          mode="wb", quiet=T))
+  }, error = function(e) { e } )
+
+h <- httr::HEAD(cam.files$data$files$url[10])
+headers(h)
+
+h1 <- httr::HEAD(cam.files$data$files$url[11])
+headers(h1)
+
+hh <- httr::HEAD("https://neon-aop-products.s3.data.neonscience.org/2017/FullSite/D02/2017_SCBI_2/Metadata/Spectrometer/Reports/2017_SCBI_2_L3_spectrometer_processing.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20210212T145942Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=pub-internal-read%2F20210212%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=175216e88875c945c084b47ee3b080715c29a2643c9e89632613c22ef6361637")
+headers(hh)
 
 # taxon
 req <- GET("http://data.neonscience.org/api/v0/taxonomy?taxonTypeCode=BIRD&offset=0&limit=100")
