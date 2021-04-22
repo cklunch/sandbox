@@ -46,8 +46,7 @@ ltr_CN <- loadByProduct(dpID = "DP1.10033.001",
                         tabl = 'ltr_litterCarbonNitrogen', 
                         check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
-sls_soilChem <- loadByProduct(dpID = "DP1.10086.001", tabl = 'sls_soilChemistry', 
-                              site=c('HARV','BLAN','MLBS','LAJA'),
+sls_collect <- loadByProduct(dpID = "DP1.10086.001", tabl = 'sls_soilCoreCollection', 
                               check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
 veg <- loadByProduct(dpID='DP1.10098.001', tabl='vst_mappingandtagging',
@@ -144,6 +143,13 @@ dst <- stackFromStore('/Users/clunch/Dropbox/data/neonstore', dpID='DP1.00017.00
 dst <- stackFromStore('/Users/clunch/Dropbox/data/neonstore', dpID='DP1.00017.001',
                       package='expanded', timeIndex=60, zipped=F, load=T)
 
+mam <- stackFromStore(neon_dir(), dpID='DP1.10072.001', package='expanded')
+
+neon_download(product='DP1.10003.001', type='expanded', dir=neon_dir())
+brd <- stackFromStore(neon_dir(), dpID='DP1.10003.001', package='expanded')
+# confirm same
+bird <- loadByProduct(dpID='DP1.10003.001', package='expanded')
+
 flux <- stackFromStore('/Users/clunch/GitHub/utilities-test-suite/testUtilities/inst/extdata/neonstore/', 
                        dpID='DP4.00200.001', 
                        site='TOOL',
@@ -237,18 +243,43 @@ isoTestW <- stackEddy(filepath = '/Users/clunch/Desktop/filesToStack00200/',
 
 
 # expanded
+zipsByProduct(site = "BONA", 
+              dpID = "DP4.00200.001", 
+              startdate = "2020-06", 
+              enddate = "2020-06", 
+              package = "expanded", 
+              check.size = F, 
+              savepath = '/Users/clunch/Desktop')
+
 flux <- stackEddy('/Users/clunch/Desktop/NEON.D03.OSBS.DP4.00200.001.2019-03.expanded.20210118T143742Z/', 
                   level='dp04')
-
+foot <- footRaster('/Users/clunch/Desktop/filesToStack00200/NEON.D19.BONA.DP4.00200.001.2020-06.expanded.20210123T023002Z.RELEASE-2021/NEON.D19.BONA.DP4.00200.001.nsae.2020-06-06.expanded.20201105T040628Z.h5')
+raster::filledContour(foot$BONA.summary, col=topo.colors(24), 
+                      levels=0.001*0:24)
+raster::filledContour(foot$X.Users.clunch.Desktop.filesToStack00200.NEON.D19.BONA.DP4.00200.001.2020.06.expanded.20210123T023002Z.RELEASE.2021.NEON.D19.BONA.DP4.00200.001.nsae.2020.06.06.expanded.20201105T040628Z.BONA.dp04.data.foot.grid.turb.20200606T093000Z, 
+                      col=topo.colors(24), 
+                      levels=0.001*0:24,
+                      xlim=c(475000,478000),
+                      ylim=c(7224000,7227000))
 
 stackByTable('/Users/clunch/Desktop/NEON_par-quantum-line.zip')
 stackByTable('/Users/clunch/Desktop/NEON_gp.zip')
 stackByTable('/Users/clunch/Downloads/NEON_pressure-air (1).zip')
 
-# Natalie found error:
-tst <- loadByProduct(dpID = 'DP1.20288.001', 
+
+wq <- loadByProduct(dpID = 'DP1.20288.001', 
               site = c('SYCA'), startdate = '2019-01-01', 
-              enddate = '2020-01-01', check.size = F)
+              enddate = '2020-01-01', check.size = F,
+              token=Sys.getenv('NEON_TOKEN'))
+
+zipsByProduct(dpID = 'DP1.20288.001', 
+              site = c('SYCA'), startdate = '2020-02', 
+              enddate = '2020-09', check.size = F,
+              savepath='/Users/clunch/Desktop',
+              token=Sys.getenv('NEON_TOKEN'))
+# modified file to mimic changing a field name
+wq <- stackByTable('/Users/clunch/Desktop/filesToStack20288',
+             savepath='envt')
 
 # token testing
 waq <- loadByProduct(dpID='DP1.20288.001', site=c('ARIK','HOPB'), 
@@ -566,6 +597,11 @@ zipsByProduct(dpID='DP1.10092.001', site='KONZ',
               check.size=F, token=Sys.getenv('NEON_TOKEN'))
 stackByTable('/Users/clunch/Desktop/filesToStack10092')
 
+zipsByProduct(dpID='DP1.10081.001', site='KONZ',
+              savepath='/Users/clunch/Desktop',
+              package='expanded',
+              check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
 zipsByProduct(dpID='DP1.00017.001', site=c('RMNP','CPER','ONAQ'),
               startdate='2019-01', enddate='2019-10', check.size=F,
               avg=60, savepath='/Users/clunch/Desktop')
@@ -580,16 +616,61 @@ zipsByProduct(dpID='DP4.00200.001', site='TEAK', startdate='2018-06', enddate='2
               savepath='/Users/clunch/Desktop')
 flux <- stackEddy('/Users/clunch/Desktop/filesToStack00200TEAK/')
 
+flux <- stackEddy('/Users/clunch/Desktop/NEON_eddy-flux.zip')
+
+
 # test SAE expanded package and footprint
 zipsByProduct(dpID='DP4.00200.001', site='WREF', startdate='2019-07', enddate='2019-09',
               savepath='/Users/clunch/Desktop', package='expanded',
               token=Sys.getenv('NEON_TOKEN'))
 flux <- stackEddy('/Users/clunch/Desktop/filesToStack00200WREF_expanded')
-foot <- footRaster('/Users/clunch/Desktop/filesToStack00200WREF_expanded/NEON.D16.WREF.DP4.00200.001.nsae.2019-07-05.expanded.20201006T104053Z.h5')
+foot <- footRaster('/Users/clunch/Desktop/NEON.D18.TOOL.DP4.00200.001.nsae.2018-07-19.expanded.h5')
+raster::filledContour(foot$TOOL.summary, col=topo.colors(24), 
+                      levels=0.001*0:24)
+
+# footRaster() on zipped files (not actually designed for this, only works on first pass):
+foot <- footRaster('/Users/clunch/Desktop/NEON.D18.BARR.DP4.00200.001.2020-08.expanded.20201207T231300Z.PROVISIONAL')
+
+# footRaster() on portal files
+foot <- footRaster('/Users/clunch/Desktop/NEON_eddy-flux.zip')
+
+# footRaster() on zipsByProduct() files:
+zipsByProduct(dpID='DP4.00200.001', site='WREF', startdate='2019-09', enddate='2019-09',
+              savepath='/Users/clunch/Desktop', package='expanded',
+              token=Sys.getenv('NEON_TOKEN'))
+foot <- footRaster('/Users/clunch/Desktop/filesToStack00200/')
 raster::filledContour(foot$WREF.summary, col=topo.colors(24), 
-                      levels=0.001*0:24, 
-                      xlim=c(580000,582000), 
-                      ylim=c(5074000,5076000))
+                      levels=0.001*0:24)
+
+# transposed?
+win <- loadByProduct(dpID='DP1.00001.001', site='WREF', 
+                     startdate='2019-09', enddate='2019-09',
+                     check.size=F, timeIndex=30)
+names(win)[1] <- "wsd"
+plot(win$wsd$windDirMean[which(win$wsd$verticalPosition=='070')]~win$wsd$endDateTime[which(win$wsd$verticalPosition=='070')], 
+     pch=20, xlim=c(as.POSIXct('2019-09-07 00:00'), as.POSIXct('2019-09-07 23:59')))
+foot <- footRaster('/Users/clunch/Desktop/filesToStack00200WREF/NEON.D16.WREF.DP4.00200.001.nsae.2019-09-07.expanded.20201011T021357Z.h5')
+raster::filledContour(foot$WREF.summary, col=topo.colors(24), 
+                      levels=0.001*0:24,
+                      xlim=c(580000,583000),
+                      ylim=c(5073000,5076000))
+raster::filledContour(foot$X.Users.clunch.Desktop.filesToStack00200WREF.NEON.D16.WREF.DP4.00200.001.nsae.2019.09.07.expanded.20201011T021357Z.WREF.dp04.data.foot.grid.turb.20190907T123000Z, col=topo.colors(24), 
+                      levels=0.001*0:24,
+                      xlim=c(580000,583000),
+                      ylim=c(5073000,5076000))
+ft <- rhdf5::h5read('/Users/clunch/Desktop/filesToStack00200WREF/NEON.D16.WREF.DP4.00200.001.nsae.2019-09-07.expanded.20201011T021357Z.h5',
+              name='/WREF/dp04/data/foot/grid/turb/20190907T123000Z')
+filled.contour(ft)
+ft1230 <- raster(ft)
+raster::filledContour(ft1230)
+win$wsd$windDirMean[which(win$wsd$verticalPosition=='070' &
+                            win$wsd$endDateTime==as.POSIXct('2019-09-07 12:30'))]
+filled.contour(z=ft, xlim=c(0.4,0.6), ylim=c(0.4,0.6))
+raster::filledContour(ft1230, xlim=c(0.4,0.6), ylim=c(0.4,0.6))
+
+zvals <- which(ft!=0, arr.ind=T)
+summary(zvals)
+
 
 stackByTable('/Users/clunch/Desktop/filesToStack20099')
 
