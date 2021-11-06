@@ -18,9 +18,13 @@ raster::filledContour(foot$X.Users.clunch.Desktop.filesToStack00200WREF.NEON.D16
 ft <- rhdf5::h5read('/Users/clunch/Desktop/filesToStack00200WREF/NEON.D16.WREF.DP4.00200.001.nsae.2019-09-07.expanded.20201011T021357Z.h5',
                     name='/WREF/dp04/data/foot/grid/turb/20190907T123000Z')
 filled.contour(z=ft, xlim=c(0.4,0.6), ylim=c(0.4,0.6))
-ft1230 <- raster(ft)
+ft1230 <- raster::raster(ft)
 raster::filledContour(ft1230, xlim=c(0.4,0.6), ylim=c(0.4,0.6))
 
+ftt <- t(ft)
+filled.contour(z=ftt, xlim=c(0.4,0.6), ylim=c(0.4,0.6))
+fttr <- raster::raster(ftt)
+raster::filledContour(fttr, xlim=c(0.4,0.6), ylim=c(0.4,0.6))
 
 # where are the data in the original array?
 zvals <- which(ft!=0, arr.ind=T)
@@ -45,4 +49,28 @@ dr <- raster(d)
 filledContour(dr)
 
 
+# flux data
+flux <- stackEddy('/Users/clunch/Desktop/filesToStack00200WREF/NEON.D16.WREF.DP4.00200.001.nsae.2019-09-07.expanded.20201011T021357Z.h5', 
+                  level='dp04')
+plot(win$wsd$windDirMean[which(win$wsd$verticalPosition=='070' & 
+                                 win$wsd$endDateTime > as.POSIXct('2019-09-07 00:00') & 
+                                 win$wsd$endDateTime <= as.POSIXct('2019-09-08 00:00'))]~
+       flux$WREF$data.foot.stat.angZaxsErth, pch=20)
+integWind <- aggregate(cbind(win$wsd$windDirMean, win$wsd$windSpeedMean), by=list(win$wsd$endDateTime), FUN=mean, na.rm=T)
+windDay <- integWind[which(integWind$Group.1 > as.POSIXct('2019-09-07 00:00') & integWind$Group.1 <= as.POSIXct('2019-09-08 00:00')),]
+
+plot(flux$WREF$data.foot.stat.angZaxsErth[which(windDay$V2>0.5)]~windDay$V1[which(windDay$V2>0.5)], pch=20)
+
+
+windTop <- cbind(win$wsd$windDirMean[which(win$wsd$verticalPosition=='070' & 
+                                             win$wsd$endDateTime > as.POSIXct('2019-09-07 00:00') & 
+                                             win$wsd$endDateTime <= as.POSIXct('2019-09-08 00:00'))], 
+                 win$wsd$windSpeedMean[which(win$wsd$verticalPosition=='070' & 
+                                               win$wsd$endDateTime > as.POSIXct('2019-09-07 00:00') & 
+                                               win$wsd$endDateTime <= as.POSIXct('2019-09-08 00:00'))])
+windTop <- data.frame(windTop)
+names(windTop) <- c('dirc','speed')
+
+plot(flux$WREF$data.foot.stat.angZaxsErth[which(windTop$speed > 1.5)]~
+       windTop$dirc[which(windTop$speed > 1.5)], pch=20)
 

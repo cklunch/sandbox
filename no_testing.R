@@ -5,6 +5,8 @@ install('.')
 library(neonOS)
 check()
 
+
+# removeDups() testing
 cfc <- loadByProduct(dpID='DP1.10026.001', check.size=F, 
                      startdate='2017-05', enddate='2019-08',
                      package='expanded', token=Sys.getenv('NEON_TOKEN'))
@@ -37,10 +39,15 @@ fish.p <- removeDups(fish$fsh_perPass, variables=fish$variables_20107, table='fs
 dust <- loadByProduct(dpID='DP1.00101.001', check.size=F, startdate='2017-05', enddate='2019-06')
 dpm.d <- removeDups(dust$dpm_lab, variables=dust$variables_00101, table='dpm_lab')
 
-# mismatches
-# brd.countdata
-# cfc.chlorophyll and elements
 
-# dups
-# fsh.fieldData and perPass
-# vst.perplotperyear
+
+# joinTableNEON() testing
+cfc <- loadByProduct(dpID='DP1.10026.001', check.size=F, 
+                     startdate='2019-05', enddate='2021-08',
+                     package='expanded', token=Sys.getenv('NEON_TOKEN'))
+list2env(cfc, .GlobalEnv)
+tst <- joinTableNEON(cfc_fieldData, cfc_elements)
+
+# test joining tables not directly mapped together
+tst <- joinTableNEON(cfc_carbonNitrogen, cfc_elements)
+
