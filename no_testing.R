@@ -51,3 +51,9 @@ tst <- joinTableNEON(cfc_fieldData, cfc_elements)
 # test joining tables not directly mapped together
 tst <- joinTableNEON(cfc_carbonNitrogen, cfc_elements)
 
+
+
+# getSampleTree() testing
+sampleNode <- "BLDE.SS.20181002"
+idType <- "tag"
+sampleClass <- "swc.asi.sdg.amc"
