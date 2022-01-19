@@ -5,9 +5,9 @@ library(neonOS)
 wd <- '/Users/clunch/GitHub/definitional-data/pubWBs'
 deflist <- list.files(wd)
 
-joinResult <- matrix(data=NA, ncol=5, nrow=1)
+joinResult <- matrix(data=NA, ncol=6, nrow=1)
 joinResult <- data.frame(joinResult)
-names(joinResult) <- c('table1', 'table2', 'records1', 'records2', 'joinRecords')
+names(joinResult) <- c('dpID', 'table1', 'table2', 'records1', 'records2', 'joinRecords')
 
 for(i in c(1:length(deflist))) {
   
@@ -35,7 +35,7 @@ for(i in c(1:length(deflist))) {
   tabs <- tabs[grep('issueLog', tabs, invert=T)]
   
   if(length(tabs)==1) {
-    joinResult <- rbind(joinResult, c(tabs,'','','','only table in DP'))
+    joinResult <- rbind(joinResult, c(dpID, tabs,'','','','only table in DP'))
   } else {
     
     for(j in 1:I(length(tabs)-1)) {
@@ -45,14 +45,14 @@ for(i in c(1:length(deflist))) {
                              datList[[grep(paste(tabs[k], '$', sep=''), names(datList))]], 
                              tabs[j], tabs[k]))
         if(class(tst)=='try-error') {
-          joinResult <- rbind(joinResult, c(tabs[j],tabs[k],
+          joinResult <- rbind(joinResult, c(dpID, tabs[j],tabs[k],
                                             nrow(datList[[grep(paste(tabs[j], '$', sep=''), 
                                                                names(datList))]]),
                                             nrow(datList[[grep(paste(tabs[k], '$', sep=''), 
                                                                names(datList))]]),
                                             tst[1]))
         } else {
-          joinResult <- rbind(joinResult, c(tabs[j],tabs[k],
+          joinResult <- rbind(joinResult, c(dpID, tabs[j],tabs[k],
                                             nrow(datList[[grep(paste(tabs[j], '$', sep=''), 
                                                                names(datList))]]),
                                             nrow(datList[[grep(paste(tabs[k], '$', sep=''), 
@@ -67,17 +67,20 @@ for(i in c(1:length(deflist))) {
   
 }
 
+joinResult <- unique(joinResult)
+
 length(grep('only table in DP', joinResult$joinRecords))
 length(grep('not identified in any quick start guide[.]', joinResult$joinRecords))
 length(grep('could not be inferred', joinResult$joinRecords))
 length(grep('not found in data tables', joinResult$joinRecords))
 length(grep('not found in quick start guides', joinResult$joinRecords))
 length(grep('linking variables do not match', joinResult$joinRecords))
-length(grep('automatically', joinResult$joinRecords))
+length(grep('automatable', joinResult$joinRecords))
 length(which(!is.na(as.numeric(joinResult$joinRecords))))
 
 joinS <- joinResult[which(!is.na(as.numeric(joinResult$joinRecords))),]
 
-joinResult <- unique(joinResult)
+joinNI <- joinResult[grep('not found in quick start guides', joinResult$joinRecords),]
+
 write.csv(joinResult, '/Users/clunch/GitHub/sandbox/neonOS_testing/joinResults.csv', row.names=F)
 joinResult <- read.csv('/Users/clunch/GitHub/sandbox/neonOS_testing/joinResults.csv')

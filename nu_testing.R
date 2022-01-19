@@ -10,6 +10,55 @@ options(stringsAsFactors = F)
 setwd("~/GitHub/utilities-test-suite/testUtilities")
 test()
 
+
+# LATEST accessible?
+fsp <- loadByProduct(dpID='DP1.30012.001', package='basic', release='LATEST', 
+                     token=Sys.getenv('LATEST_TOKEN'), check.size=F)
+
+brd <- loadByProduct(dpID='DP1.10003.001', release='LATEST',
+                     startdate='2019-01', enddate='2020-12',
+                     site=c('HARV','LAJA','RMNP','TEAK','SJER','WREF'),
+                     token=Sys.getenv('LATEST_TOKEN'), check.size=F)
+
+pr <- loadByProduct(dpID='DP1.00024.001', release='LATEST',
+                     startdate='2020-01', enddate='2020-02',
+                     site=c('TEAK','SJER'),
+                     token=Sys.getenv('LATEST_TOKEN'), check.size=F)
+
+mos <- loadByProduct(dpID='DP1.10043.001', release='LATEST',
+                    startdate='2019-01', enddate='2021-12',
+                    token=Sys.getenv('LATEST_TOKEN'), check.size=F)
+
+asc_LATEST <- neonUtilities::loadByProduct(
+  dpID='DP1.20194.001',
+  check.size=F,
+  startdate = "2018-01",
+  enddate = "2020-12",
+  site = "all",
+  package='expanded',
+  release = "LATEST",
+  token = token)
+
+downloader::download("https://data.neonscience.org/api/v0/data/package/DP1.30012.001/GRSM/2015-08?package=basic&release=LATEST", 
+                     destfile='/Users/clunch/Desktop/test.zip',
+                     mode="wb", quiet=T, 
+                     headers = c('X-API-Token'= Sys.getenv('LATEST_TOKEN')))
+
+dpID <- 'DP1.30012.001'
+package <- 'basic'
+release <- 'LATEST'
+token <- Sys.getenv('LATEST_TOKEN')
+site <- 'all'
+startdate <- NA
+enddate <- NA
+timeIndex <- 'all'
+tabl <- 'all'
+
+
+
+
+deflag <- stackEddy('/Users/clunch/Desktop/deflagging/', level='dp01', var='isoCo2', avg=30)
+
 df <- loadByProduct(dpID = 'DP1.20206.001', site = 'ARIK', 
                     startdate = '2021-05', enddate = '2021-05', 
                     check.size = FALSE, package='expanded', 
@@ -76,6 +125,11 @@ sls_collect <- loadByProduct(dpID = "DP1.10086.001", tabl = 'sls_soilCoreCollect
 veg <- loadByProduct(dpID='DP1.10098.001', tabl='vst_mappingandtagging',
                      site=c('WREF','SJER'),
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+vn <- loadByProduct(dpID='DP1.10098.001', tabl='vst_non-woody',
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+vnl <- loadByProduct(dpID='DP1.10098.001', tabl='vst_non-woody',
+                     release='LATEST', check.size=F, token=Sys.getenv('LATEST_TOKEN'))
 
 # lab table error
 brdp <- loadByProduct(dpID='DP1.10003.001', tabl='brd_personnel',

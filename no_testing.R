@@ -57,3 +57,12 @@ tst <- joinTableNEON(cfc_carbonNitrogen, cfc_elements)
 sampleNode <- "BLDE.SS.20181002"
 idType <- "tag"
 sampleClass <- "swc.asi.sdg.amc"
+token <- Sys.getenv('NEON_TOKEN')
+
+algs <- getSampleTree(sampleNode='BLDE.SS.20181002', idType='tag', 
+                     sampleClass='swc.asi.sdg.amc', token=Sys.getenv('NEON_TOKEN'))
+
+# should exit with sampleClass info:
+algs <- getSampleTree('BLDE.SS.20181002', idType='tag', 
+                      token=Sys.getenv('NEON_TOKEN'))
+
