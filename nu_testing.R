@@ -11,6 +11,12 @@ setwd("~/GitHub/utilities-test-suite/testUtilities")
 test()
 
 
+# DOIs
+dois <- getNeonDOI()
+dois <- getNeonDOI(dpID='DP1.10003.001')
+dois <- getNeonDOI(dpID='DP1.10098.001', release='RELEASE-2022')
+
+
 # LATEST accessible?
 fsp <- loadByProduct(dpID='DP1.30012.001', package='basic', release='LATEST', 
                      token=Sys.getenv('LATEST_TOKEN'), check.size=F)
@@ -117,6 +123,7 @@ cfcc <- loadByProduct(dpID='DP1.10026.001', tabl='cfc_chlorophyll',
 
 ltr_CN <- loadByProduct(dpID = "DP1.10033.001", 
                         tabl = 'ltr_litterCarbonNitrogen', 
+                        release='RELEASE-2021',
                         check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
 sls_collect <- loadByProduct(dpID = "DP1.10086.001", tabl = 'sls_soilCoreCollection', 
@@ -130,6 +137,10 @@ vn <- loadByProduct(dpID='DP1.10098.001', tabl='vst_non-woody',
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
 vnl <- loadByProduct(dpID='DP1.10098.001', tabl='vst_non-woody',
                      release='LATEST', check.size=F, token=Sys.getenv('LATEST_TOKEN'))
+nst <- loadByProduct(dpID='DP1.10045.001', tabl='vst_perplotperyear',
+                     release='RELEASE-2021', check.size=F, token=Sys.getenv('LATEST_TOKEN'))
+nst <- loadByProduct(dpID='DP1.10045.001', tabl='nst_perindividual',
+                     release='current', check.size=F, token=Sys.getenv('LATEST_TOKEN'))
 
 # lab table error
 brdp <- loadByProduct(dpID='DP1.10003.001', tabl='brd_personnel',
@@ -740,6 +751,11 @@ zipsByProduct(dpID="DP4.00131.001", package="expanded",
 stackByTable("/Users/clunch/Desktop/filesToStack00131")
 zipsByURI("/Users/clunch/Desktop/filesToStack00131/stackedFiles")
 
+# new loadByProduct() -> zipsByURI workflow
+bath <- loadByProduct('DP4.00132.001', site=c('TOOK','PRLA'),
+                      package='expanded', check.size=F, token=Sys.getenv('NEON_TOKEN'))
+zipsByURI(bath, savepath='/Users/clunch/Desktop/bath_zips/')
+zipsByURI(bath)
 
 zipsByProduct(dpID='DP1.10098.001', site=c('WREF','ABBY'),
               savepath='/Users/clunch/Desktop')
@@ -876,6 +892,10 @@ all(pr30key %in% pr131key)
 all(pr131key %in% pr30key)
 
 
+getPackage(dpID='DP1.10003.001', site_code='WREF', year_month = '2019-06', savepath='/Users/clunch/Desktop')
+
+
+
 # checking for special characters in table_types
 
 checkConv <- function(x) enc2utf8(x)!=x
@@ -906,3 +926,32 @@ plot(neonDomains)
 neonSites <- read.csv("/Users/clunch/data/field-sites.csv")
 points(neonSites$Latitude~neonSites$Longitude, pch=20)
 
+
+waterChemList <-
+  neonUtilities::loadByProduct(
+    dpID = "DP1.20093.001",
+    site = "GUIL",
+    package = 'expanded',
+    check.size = FALSE
+  )
+
+zipsByProduct(dpID = "DP1.20093.001",
+              site = "GUIL",
+              package = 'expanded',
+              check.size = FALSE,
+              savepath='/Users/clunch/Desktop')
+stackByTable('/Users/clunch/Desktop/filesToStack20093', saveUnzippedFiles = T)
+
+ECoreFile <- data.table::fread('/Users/clunch/Desktop/filesToStack20093/NEON.D04.GUIL.DP1.20093.001.2015-01.expanded.20220120T173946Z.RELEASE-2022/NEON.EcoCore_CSU.swc_externalLabSummaryData.20211221T195713Z.csv')
+FIUFile <- data.table::fread('/Users/clunch/Desktop/filesToStack20093/NEON.D04.GUIL.DP1.20093.001.2020-08.expanded.20220131T153018Z.PROVISIONAL/NEON.Florida_International_University.swc_externalLabSummaryData.20220131T153014Z.csv')
+allFile <- data.table::rbindlist(list(ECoreFile, FIUFile), fill=T)
+allFile <- data.table::rbindlist(list(FIUFile, ECoreFile), fill=T)
+
+ECoreFile$labSpecificEndDate <- as.POSIXct(ECoreFile$labSpecificEndDate, tz="UTC") # does not enable rbind
+
+# Huggins footRaster -> byTileAOP problem
+zipsByProduct(dpID='DP4.00200.001', site='TEAK', startdate='2020-06', enddate='2020-07',
+              package='expanded', check.size=F, savepath='/Users/clunch/Desktop', 
+              token=Sys.getenv('NEON_TOKEN'))
+ft <- footRaster('/Users/clunch/Desktop/filesToStack00200/NEON.D17.TEAK.DP4.00200.001.2020-07.expanded.20220120T173946Z.RELEASE-2022/NEON.D17.TEAK.DP4.00200.001.nsae.2020-07-19.expanded.20211214T215846Z.h5')
+raster::extent(ft)
