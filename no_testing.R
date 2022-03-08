@@ -54,9 +54,6 @@ cfc <- loadByProduct(dpID='DP1.10026.001', check.size=F,
 list2env(cfc, .GlobalEnv)
 tst <- joinTableNEON(cfc_fieldData, cfc_elements)
 
-# test joining tables not directly mapped together
-tst <- joinTableNEON(cfc_carbonNitrogen, cfc_elements)
-
 
 
 # getSampleTree() testing

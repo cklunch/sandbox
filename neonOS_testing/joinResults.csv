@@ -1,6 +1,6 @@
 "dpID","table1","table2","records1","records2","joinRecords"
 NA,NA,NA,NA,NA,NA
-"DP1.20099.001","agw_groundwaterFieldData","","","","only table in DP"
+"DP1.20099.001","agw_groundwaterFieldData","",NA,NA,"only table in DP"
 "DP1.20163.001","alg_algaeExternalLabDataPerSample","alg_algaeExternalLabQA","9095","29683","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Linking variables batchID not found in data tables. Check quick start guides and check data table inputs.
 "
@@ -20,9 +20,7 @@ NA,NA,NA,NA,NA,NA
 "DP1.20163.001","alg_algaeExternalLabQA","asi_externalLabPOMSummaryData","29683","2001","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Direct join of table alg_algaeExternalLabQA to table asi_externalLabPOMSummaryData is not recommended. Consult quick start guide for more information.
 "
-"DP1.20163.001","alg_domainLabChemistry","alg_fieldData","4199","1011","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
+"DP1.20163.001","alg_domainLabChemistry","alg_fieldData","4199","1011","4211"
 "DP1.20163.001","alg_domainLabChemistry","asi_externalLabPOMSummaryData","4199","2001","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Variable(s) to join tables alg_domainLabChemistry and asi_externalLabPOMSummaryData are not identified in any quick start guide.
 "
@@ -44,9 +42,7 @@ NA,NA,NA,NA,NA,NA
 "DP1.20166.001","alg_archive","alg_taxonomyRaw","202","31468","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
   'by.x' and 'by.y' specify different numbers of columns
 "
-"DP1.20166.001","alg_biomass","alg_fieldData","1859","1309","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
+"DP1.20166.001","alg_biomass","alg_fieldData","1859","1309","2167"
 "DP1.20166.001","alg_biomass","alg_qualityCheck","1859","107","1886"
 "DP1.20166.001","alg_biomass","alg_taxonomyProcessed","1859","31468","32650"
 "DP1.20166.001","alg_biomass","alg_taxonomyRaw","1859","31468","32650"
@@ -75,9 +71,7 @@ NA,NA,NA,NA,NA,NA
 "DP1.20138.001","amc_cellCounts","amc_fieldSuperParent","391","656","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Tables amc_cellCounts and amc_fieldSuperParent can't be joined directly, but can each be joined to a common table(s). Consult quick start guide for details.
 "
-"DP1.20138.001","amc_fieldCellCounts","amc_fieldSuperParent","396","656","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
+"DP1.20138.001","amc_fieldCellCounts","amc_fieldSuperParent","396","656","656"
 "DP1.20072.001","apc_morphospecies","apc_perTaxon","44","1996","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Direct join of table apc_morphospecies to table apc_perTaxon is not recommended. Consult quick start guide for more information.
 "
@@ -94,12 +88,8 @@ NA,NA,NA,NA,NA,NA
   Direct join of table apc_morphospecies to table apc_voucher is not recommended. Consult quick start guide for more information.
 "
 "DP1.20072.001","apc_perTaxon","apc_pointTransect","1996","15351","17101"
-"DP1.20072.001","apc_perTaxon","apc_taxonomyProcessed","1996","226","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
-"DP1.20072.001","apc_perTaxon","apc_taxonomyRaw","1996","226","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
+"DP1.20072.001","apc_perTaxon","apc_taxonomyProcessed","1996","226","2091"
+"DP1.20072.001","apc_perTaxon","apc_taxonomyRaw","1996","226","2091"
 "DP1.20072.001","apc_perTaxon","apc_voucher","1996","114","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Variable(s) to join tables apc_perTaxon and apc_voucher are not identified in any quick start guide.
 "
@@ -112,7 +102,9 @@ NA,NA,NA,NA,NA,NA
 "DP1.20072.001","apc_pointTransect","apc_voucher","15351","114","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Variable(s) to join tables apc_pointTransect and apc_voucher are not identified in any quick start guide.
 "
-"DP1.20072.001","apc_taxonomyProcessed","apc_taxonomyRaw","226","226","608"
+"DP1.20072.001","apc_taxonomyProcessed","apc_taxonomyRaw","226","226","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Variable(s) to join tables apc_taxonomyProcessed and apc_taxonomyRaw are not identified in any quick start guide.
+"
 "DP1.20072.001","apc_taxonomyProcessed","apc_voucher","226","114","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Variable(s) to join tables apc_taxonomyProcessed and apc_voucher are not identified in any quick start guide.
 "
@@ -122,7 +114,9 @@ NA,NA,NA,NA,NA,NA
 "DP1.20063.001","apl_biomass","apl_clipHarvest","366","271","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
   'by.x' and 'by.y' specify different numbers of columns
 "
-"DP1.20063.001","apl_biomass","apl_plantExternalLabDataPerSample","366","940","1071"
+"DP1.20063.001","apl_biomass","apl_plantExternalLabDataPerSample","366","940","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
+  'by.x' and 'by.y' specify different numbers of columns
+"
 "DP1.20063.001","apl_biomass","apl_plantExternalLabQA","366","26108","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Variable(s) to join tables apl_biomass and apl_plantExternalLabQA are not identified in any quick start guide.
 "
@@ -170,7 +164,9 @@ NA,NA,NA,NA,NA,NA
 "DP1.20066.001","apl_clipHarvest","apl_taxonomyRaw","948","153","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Variable(s) to join tables apl_clipHarvest and apl_taxonomyRaw are not identified in any quick start guide.
 "
-"DP1.20066.001","apl_taxonomyProcessed","apl_taxonomyRaw","153","153","333"
+"DP1.20066.001","apl_taxonomyProcessed","apl_taxonomyRaw","153","153","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Variable(s) to join tables apl_taxonomyProcessed and apl_taxonomyRaw are not identified in any quick start guide.
+"
 "DP1.20194.001","asc_externalLabData","asc_externalLabSummary","6603","92","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Variable(s) to join tables asc_externalLabData and asc_externalLabSummary are not identified in any quick start guide.
 "
@@ -219,12 +215,8 @@ NA,NA,NA,NA,NA,NA
   Tables gsi_externalLabH2OIsotopes and gsi_wellStabilization can't be joined directly, but can each be joined to a common table(s). Consult quick start guide for details.
 "
 "DP1.20276.001","gsi_fieldData","gsi_fieldSuperParent","271","353","353"
-"DP1.20276.001","gsi_fieldData","gsi_wellStabilization","271","846","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
-"DP1.20276.001","gsi_fieldSuperParent","gsi_wellStabilization","353","846","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
+"DP1.20276.001","gsi_fieldData","gsi_wellStabilization","271","846","924"
+"DP1.20276.001","gsi_fieldSuperParent","gsi_wellStabilization","353","846","1006"
 "DP1.20206.001","asi_externalLabH2OIsotopes","asi_externalLabPOMSummaryData","1008","906","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Variable(s) to join tables asi_externalLabH2OIsotopes and asi_externalLabPOMSummaryData are not identified in any quick start guide.
 "
@@ -260,9 +252,7 @@ NA,NA,NA,NA,NA,NA
   Direct join of table asi_externalLabSummaryData to table asi_POMExternalLabDataPerSample is not recommended. Consult quick start guide for more information.
 "
 "DP1.20206.001","asi_fieldData","asi_fieldSuperParent","1015","1135","1251"
-"DP1.20206.001","asi_fieldData","asi_POMExternalLabDataPerSample","1015","3692","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
+"DP1.20206.001","asi_fieldData","asi_POMExternalLabDataPerSample","1015","3692","107481"
 "DP1.20206.001","asi_fieldSuperParent","asi_POMExternalLabDataPerSample","1135","3692","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Tables asi_fieldSuperParent and asi_POMExternalLabDataPerSample can't be joined directly, but can each be joined to a common table(s). Consult quick start guide for details.
 "
@@ -277,7 +267,9 @@ NA,NA,NA,NA,NA,NA
 "DP4.00132.001","bat_pointcollection","bat_sonarRecord","168","2","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Table names bat_pointcollection not found in quick start guides.
 "
-"DP4.00132.001","bat_resultsFile","bat_sonarRecord","6","2","8"
+"DP4.00132.001","bat_resultsFile","bat_sonarRecord","6","2","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Variable(s) to join tables bat_resultsFile and bat_sonarRecord are not identified in any quick start guide.
+"
 "DP1.10067.001","bbc_chemistryPooling","bbc_dilution","1393","2900","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Tables bbc_chemistryPooling and bbc_dilution can't be joined directly, but can each be joined to a common table(s). Consult quick start guide for details.
 "
@@ -387,7 +379,7 @@ NA,NA,NA,NA,NA,NA
 "DP1.10014.001","cdw_densitydisk","cdw_densitylog","1498","890","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
   'by.x' and 'by.y' specify different numbers of columns
 "
-"DP1.10010.001","cdw_fieldtally","","","","only table in DP"
+"DP1.10010.001","cdw_fieldtally","",NA,NA,"only table in DP"
 "DP1.10026.001","bgc_CNiso_externalSummary","cfc_carbonNitrogen","44","418","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Direct join of table bgc_CNiso_externalSummary to table cfc_carbonNitrogen is not recommended. Consult quick start guide for more information.
 "
@@ -503,13 +495,13 @@ NA,NA,NA,NA,NA,NA
   Variable(s) to join tables cfc_chlorophyll and vst_mappingandtagging are not identified in any quick start guide.
 "
 "DP1.10026.001","cfc_chlorophyllParameters","cfc_chlorophyllSummary","8","24","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
-  Joining tables cfc_chlorophyllParameters and cfc_chlorophyllSummary is not recommended. Consult quick start guide for details.
+  Direct join of table cfc_chlorophyllParameters to table cfc_chlorophyllSummary is not recommended. Consult quick start guide for more information.
 "
 "DP1.10026.001","cfc_chlorophyllParameters","cfc_elements","8","393","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Direct join of table cfc_chlorophyllParameters to table cfc_elements is not recommended. Consult quick start guide for more information.
 "
 "DP1.10026.001","cfc_chlorophyllParameters","cfc_elementsSummary","8","20","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
-  Joining tables cfc_chlorophyllParameters and cfc_elementsSummary is not recommended. Consult quick start guide for details.
+  Direct join of table cfc_chlorophyllParameters to table cfc_elementsSummary is not recommended. Consult quick start guide for more information.
 "
 "DP1.10026.001","cfc_chlorophyllParameters","cfc_fieldData","8","394","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Direct join of table cfc_chlorophyllParameters to table cfc_fieldData is not recommended. Consult quick start guide for more information.
@@ -521,7 +513,7 @@ NA,NA,NA,NA,NA,NA
   Direct join of table cfc_chlorophyllParameters to table cfc_LMA is not recommended. Consult quick start guide for more information.
 "
 "DP1.10026.001","cfc_chlorophyllParameters","cfc_shapefile","8","3","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
-  Variable(s) to join tables cfc_chlorophyllParameters and cfc_shapefile are not identified in any quick start guide.
+  Direct join of table cfc_chlorophyllParameters to table cfc_shapefile is not recommended. Consult quick start guide for more information.
 "
 "DP1.10026.001","cfc_chlorophyllParameters","lig_externalSummary","8","4","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Direct join of table cfc_chlorophyllParameters to table lig_externalSummary is not recommended. Consult quick start guide for more information.
@@ -533,7 +525,7 @@ NA,NA,NA,NA,NA,NA
   Direct join of table cfc_chlorophyllSummary to table cfc_elements is not recommended. Consult quick start guide for more information.
 "
 "DP1.10026.001","cfc_chlorophyllSummary","cfc_elementsSummary","24","20","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
-  Joining tables cfc_chlorophyllSummary and cfc_elementsSummary is not recommended. Consult quick start guide for details.
+  Direct join of table cfc_chlorophyllSummary to table cfc_elementsSummary is not recommended. Consult quick start guide for more information.
 "
 "DP1.10026.001","cfc_chlorophyllSummary","cfc_fieldData","24","394","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Direct join of table cfc_chlorophyllSummary to table cfc_fieldData is not recommended. Consult quick start guide for more information.
@@ -545,7 +537,7 @@ NA,NA,NA,NA,NA,NA
   Direct join of table cfc_chlorophyllSummary to table cfc_LMA is not recommended. Consult quick start guide for more information.
 "
 "DP1.10026.001","cfc_chlorophyllSummary","cfc_shapefile","24","3","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
-  Variable(s) to join tables cfc_chlorophyllSummary and cfc_shapefile are not identified in any quick start guide.
+  Direct join of table cfc_chlorophyllSummary to table cfc_shapefile is not recommended. Consult quick start guide for more information.
 "
 "DP1.10026.001","cfc_chlorophyllSummary","lig_externalSummary","24","4","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Direct join of table cfc_chlorophyllSummary to table lig_externalSummary is not recommended. Consult quick start guide for more information.
@@ -580,7 +572,7 @@ NA,NA,NA,NA,NA,NA
   Direct join of table cfc_elementsSummary to table cfc_LMA is not recommended. Consult quick start guide for more information.
 "
 "DP1.10026.001","cfc_elementsSummary","cfc_shapefile","20","3","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
-  Variable(s) to join tables cfc_elementsSummary and cfc_shapefile are not identified in any quick start guide.
+  Direct join of table cfc_elementsSummary to table cfc_shapefile is not recommended. Consult quick start guide for more information.
 "
 "DP1.10026.001","cfc_elementsSummary","lig_externalSummary","20","4","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Direct join of table cfc_elementsSummary to table lig_externalSummary is not recommended. Consult quick start guide for more information.
@@ -632,7 +624,7 @@ NA,NA,NA,NA,NA,NA
 "DP1.20254.001","dep_profileData","dep_profileHeader","2468","221","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Table names dep_profileData and dep_profileHeader not found in quick start guides.
 "
-"DP1.20252.001","dep_secchi","","","","only table in DP"
+"DP1.20252.001","dep_secchi","",NA,NA,"only table in DP"
 "DP1.10058.001","div_10m2Data100m2Data","div_1m2Data","100091","183636","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Joining tables div_10m2Data100m2Data and div_1m2Data is not recommended. Consult quick start guide for details.
 "
@@ -655,13 +647,13 @@ NA,NA,NA,NA,NA,NA
   Variable(s) to join tables div_1m2Data and div_voucher are not identified in any quick start guide.
 "
 "DP1.10058.001","div_geneticarchive","div_morphospecies","1382","16964","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
-  Joining tables div_geneticarchive and div_morphospecies is not recommended. Consult quick start guide for details.
+  Direct join of table div_geneticarchive to table div_morphospecies is not recommended. Consult quick start guide for more information.
 "
 "DP1.10058.001","div_geneticarchive","div_voucher","1382","3828","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
-  Joining tables div_geneticarchive and div_voucher is not recommended. Consult quick start guide for details.
+  Direct join of table div_geneticarchive to table div_voucher is not recommended. Consult quick start guide for more information.
 "
 "DP1.10058.001","div_morphospecies","div_voucher","16964","3828","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
-  Joining tables div_morphospecies and div_voucher is not recommended. Consult quick start guide for details.
+  Direct join of table div_morphospecies to table div_voucher is not recommended. Consult quick start guide for more information.
 "
 "DP1.00101.001","dpm_field","dpm_filterBlank","129","50","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
   'by.x' and 'by.y' specify different numbers of columns
@@ -740,7 +732,7 @@ NA,NA,NA,NA,NA,NA
 "DP1.30012.001","fsp_spectralData","per_sample","47","505485","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Table names per_sample not found in quick start guides.
 "
-"DP1.20267.001","gag_fieldData","","","","only table in DP"
+"DP1.20267.001","gag_fieldData","",NA,NA,"only table in DP"
 "DP4.00131.001","geo_featureInfo","geo_mappedPointErrors","40","197","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Table names geo_featureInfo and geo_mappedPointErrors not found in quick start guides.
 "
@@ -882,9 +874,7 @@ NA,NA,NA,NA,NA,NA
 "DP1.20092.001","gwc_wellStabilization","swc_externalLabSummaryData","846","64","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Variable(s) to join tables gwc_wellStabilization and swc_externalLabSummaryData are not identified in any quick start guide.
 "
-"DP1.10023.001","hbp_massdata","hbp_perbout","13598","3561","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
+"DP1.10023.001","hbp_massdata","hbp_perbout","13598","3561","14531"
 "DP1.20126.001","inv_dnaExtraction","inv_dnaExtractionStandard","177","15","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Variable(s) to join tables inv_dnaExtraction and inv_dnaExtractionStandard are not identified in any quick start guide.
 "
@@ -1219,7 +1209,9 @@ NA,NA,NA,NA,NA,NA
 "DP1.10072.001","mam_perplotnight","mam_voucher","3956","79","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Tables mam_perplotnight and mam_voucher can't be joined directly, but can each be joined to a common table(s). Consult quick start guide for details.
 "
-"DP1.10072.001","mam_pertrapnight","mam_voucher","395684","79","395763"
+"DP1.10072.001","mam_pertrapnight","mam_voucher","395684","79","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
+  'by.x' and 'by.y' specify different numbers of columns
+"
 "DP1.20277.001","mga_batchResults","mga_benthicGroupAbundances","950","697","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
   'by.x' and 'by.y' specify different numbers of columns
 "
@@ -1248,16 +1240,10 @@ NA,NA,NA,NA,NA,NA
 "DP1.20280.001","amb_fieldParent","mmg_benthicRawDataFiles","384","700","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Tables amb_fieldParent and mmg_benthicRawDataFiles can't be joined directly, but can each be joined to a common table(s). Consult quick start guide for details.
 "
-"DP1.20280.001","mmg_benthicDnaExtraction","mmg_benthicMarkerGeneSequencing_16S","384","190","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
+"DP1.20280.001","mmg_benthicDnaExtraction","mmg_benthicMarkerGeneSequencing_16S","384","190","384"
 "DP1.20280.001","mmg_benthicDnaExtraction","mmg_benthicPcrAmplification_16S","384","190","384"
-"DP1.20280.001","mmg_benthicDnaExtraction","mmg_benthicRawDataFiles","384","700","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
-"DP1.20280.001","mmg_benthicMarkerGeneSequencing_16S","mmg_benthicPcrAmplification_16S","190","190","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
+"DP1.20280.001","mmg_benthicDnaExtraction","mmg_benthicRawDataFiles","384","700","734"
+"DP1.20280.001","mmg_benthicMarkerGeneSequencing_16S","mmg_benthicPcrAmplification_16S","190","190","190"
 "DP1.20280.001","mmg_benthicMarkerGeneSequencing_16S","mmg_benthicRawDataFiles","190","700","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Tables mmg_benthicMarkerGeneSequencing_16S and mmg_benthicRawDataFiles can't be joined automatically. Consult quick start guide for details about data relationships.
 "
@@ -1268,15 +1254,9 @@ NA,NA,NA,NA,NA,NA
   Tables mmg_soilDnaExtraction and mmg_soilMarkerGeneSequencing_16S can't be joined directly, but can each be joined to a common table(s). Consult quick start guide for details.
 "
 "DP1.10108.001","mmg_soilDnaExtraction","mmg_soilPcrAmplification_16S","595","456","595"
-"DP1.10108.001","mmg_soilMarkerGeneSequencing_16S","mmg_soilPcrAmplification_16S","456","456","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
-"DP1.20282.001","amc_fieldGenetic","amc_fieldSuperParent","158","160","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
-"DP1.20282.001","amc_fieldGenetic","mmg_swDnaExtraction","158","158","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
+"DP1.10108.001","mmg_soilMarkerGeneSequencing_16S","mmg_soilPcrAmplification_16S","456","456","456"
+"DP1.20282.001","amc_fieldGenetic","amc_fieldSuperParent","158","160","160"
+"DP1.20282.001","amc_fieldGenetic","mmg_swDnaExtraction","158","158","158"
 "DP1.20282.001","amc_fieldGenetic","mmg_swMarkerGeneSequencing_16S","158","77","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Tables amc_fieldGenetic and mmg_swMarkerGeneSequencing_16S can't be joined directly, but can each be joined to a common table(s). Consult quick start guide for details.
 "
@@ -1298,20 +1278,12 @@ NA,NA,NA,NA,NA,NA
 "DP1.20282.001","amc_fieldSuperParent","mmg_swRawDataFiles","160","308","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Tables amc_fieldSuperParent and mmg_swRawDataFiles can't be joined directly, but can each be joined to a common table(s). Consult quick start guide for details.
 "
-"DP1.20282.001","mmg_swDnaExtraction","mmg_swMarkerGeneSequencing_16S","158","77","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
+"DP1.20282.001","mmg_swDnaExtraction","mmg_swMarkerGeneSequencing_16S","158","77","158"
 "DP1.20282.001","mmg_swDnaExtraction","mmg_swPcrAmplification_16S","158","77","158"
-"DP1.20282.001","mmg_swDnaExtraction","mmg_swRawDataFiles","158","308","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
-"DP1.20282.001","mmg_swMarkerGeneSequencing_16S","mmg_swPcrAmplification_16S","77","77","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
+"DP1.20282.001","mmg_swDnaExtraction","mmg_swRawDataFiles","158","308","312"
+"DP1.20282.001","mmg_swMarkerGeneSequencing_16S","mmg_swPcrAmplification_16S","77","77","77"
 "DP1.20282.001","mmg_swMarkerGeneSequencing_16S","mmg_swRawDataFiles","77","308","308"
-"DP1.20282.001","mmg_swPcrAmplification_16S","mmg_swRawDataFiles","77","308","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
+"DP1.20282.001","mmg_swPcrAmplification_16S","mmg_swRawDataFiles","77","308","308"
 "DP1.20279.001","amb_fieldParent","mms_benthicMetagenomeDnaExtraction","134","134","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Linking variables metagenomicsSampleID not found in data tables. Check quick start guides and check data table inputs.
 "
@@ -1322,19 +1294,11 @@ NA,NA,NA,NA,NA,NA
   Tables amb_fieldParent and mms_benthicRawDataFiles can't be joined directly, but can each be joined to a common table(s). Consult quick start guide for details.
 "
 "DP1.20279.001","mms_benthicMetagenomeDnaExtraction","mms_benthicMetagenomeSequencing","134","99","134"
-"DP1.20279.001","mms_benthicMetagenomeDnaExtraction","mms_benthicRawDataFiles","134","198","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
-"DP1.20279.001","mms_benthicMetagenomeSequencing","mms_benthicRawDataFiles","99","198","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
+"DP1.20279.001","mms_benthicMetagenomeDnaExtraction","mms_benthicRawDataFiles","134","198","233"
+"DP1.20279.001","mms_benthicMetagenomeSequencing","mms_benthicRawDataFiles","99","198","198"
 "DP1.10107.001","mms_metagenomeDnaExtraction","mms_metagenomeSequencing","1398","347","1398"
-"DP1.10107.001","mms_metagenomeDnaExtraction","mms_rawDataFiles","1398","694","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
-"DP1.10107.001","mms_metagenomeSequencing","mms_rawDataFiles","347","694","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
+"DP1.10107.001","mms_metagenomeDnaExtraction","mms_rawDataFiles","1398","694","1745"
+"DP1.10107.001","mms_metagenomeSequencing","mms_rawDataFiles","347","694","694"
 "DP1.20281.001","amc_fieldGenetic","amc_fieldSuperParent","30","30","30"
 "DP1.20281.001","amc_fieldGenetic","mms_swMetagenomeDnaExtraction","30","30","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Linking variables metagenomicsSampleID not found in data tables. Check quick start guides and check data table inputs.
@@ -1355,12 +1319,8 @@ NA,NA,NA,NA,NA,NA
   Tables amc_fieldSuperParent and mms_swRawDataFiles can't be joined directly, but can each be joined to a common table(s). Consult quick start guide for details.
 "
 "DP1.20281.001","mms_swMetagenomeDnaExtraction","mms_swMetagenomeSequencing","30","25","30"
-"DP1.20281.001","mms_swMetagenomeDnaExtraction","mms_swRawDataFiles","30","50","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
-"DP1.20281.001","mms_swMetagenomeSequencing","mms_swRawDataFiles","25","50","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
+"DP1.20281.001","mms_swMetagenomeDnaExtraction","mms_swRawDataFiles","30","50","55"
+"DP1.20281.001","mms_swMetagenomeSequencing","mms_swRawDataFiles","25","50","50"
 "DP1.10038.001","mos_BOLDcollectionData","mos_BOLDspecimenDetails","3228","3228","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Table names mos_BOLDcollectionData and mos_BOLDspecimenDetails not found in quick start guides.
 "
@@ -1674,9 +1634,9 @@ NA,NA,NA,NA,NA,NA
 "DP1.20193.001","sbd_plateauSampleFieldData","sdg_externalLabSummaryData","2825","46","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Variable(s) to join tables sbd_plateauSampleFieldData and sdg_externalLabSummaryData are not identified in any quick start guide.
 "
-"DP1.20275.001","rip_assessment","","","","only table in DP"
-"DP1.20191.001","rip_percentComposition","","","","only table in DP"
-"DP1.10064.001","rpt_bloodtesting","","","","only table in DP"
+"DP1.20275.001","rip_assessment","",NA,NA,"only table in DP"
+"DP1.20191.001","rip_percentComposition","",NA,NA,"only table in DP"
+"DP1.10064.001","rpt_bloodtesting","",NA,NA,"only table in DP"
 "DP1.10064.002","rpt2_pathogenqa","rpt2_pathogentesting","105","8190","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
   'by.x' and 'by.y' specify different numbers of columns
 "
@@ -1762,11 +1722,11 @@ NA,NA,NA,NA,NA,NA
   Table names bat_AISsiteSurveyResultsFile not found in quick start guides.
 "
 "DP4.00133.001","bat_controlInfo","bat_controlType","36","9","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
-  Linking variables controlSurveyEndDateTime not found in data tables. Check quick start guides and check data table inputs.
+  Variable(s) to join tables bat_controlInfo and bat_controlType are not identified in any quick start guide.
 "
 "DP4.00133.001","bat_controlInfo","bat_curveIdentification","36","4","37"
 "DP4.00133.001","bat_controlInfo","bat_priorParameters","36","9","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
-  Linking variables controlSurveyEndDateTime not found in data tables. Check quick start guides and check data table inputs.
+  Variable(s) to join tables bat_controlInfo and bat_priorParameters are not identified in any quick start guide.
 "
 "DP4.00133.001","bat_controlInfo","geo_AISsiteSurveyResultsFile","36","7","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Table names geo_AISsiteSurveyResultsFile not found in quick start guides.
@@ -1775,13 +1735,13 @@ NA,NA,NA,NA,NA,NA
   Variable(s) to join tables bat_controlInfo and geo_controlInfo are not identified in any quick start guide.
 "
 "DP4.00133.001","bat_controlInfo","geo_controlType","36","41","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
-  Linking variables controlSurveyEndDateTime not found in data tables. Check quick start guides and check data table inputs.
+  Variable(s) to join tables bat_controlInfo and geo_controlType are not identified in any quick start guide.
 "
 "DP4.00133.001","bat_controlInfo","geo_curveIdentification","36","32","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Variable(s) to join tables bat_controlInfo and geo_curveIdentification are not identified in any quick start guide.
 "
 "DP4.00133.001","bat_controlInfo","geo_priorParameters","36","41","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
-  Linking variables controlSurveyEndDateTime not found in data tables. Check quick start guides and check data table inputs.
+  Variable(s) to join tables bat_controlInfo and geo_priorParameters are not identified in any quick start guide.
 "
 "DP4.00133.001","bat_controlInfo","sdrc_gaugeDischargeMeas","36","838","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Variable(s) to join tables bat_controlInfo and sdrc_gaugeDischargeMeas are not identified in any quick start guide.
@@ -1800,7 +1760,7 @@ NA,NA,NA,NA,NA,NA
 "
 "DP4.00133.001","bat_controlType","bat_curveIdentification","9","4","10"
 "DP4.00133.001","bat_controlType","bat_priorParameters","9","9","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
-  Linking variables controlSurveyEndDateTime not found in data tables. Check quick start guides and check data table inputs.
+  Variable(s) to join tables bat_controlType and bat_priorParameters are not identified in any quick start guide.
 "
 "DP4.00133.001","bat_controlType","geo_AISsiteSurveyResultsFile","9","7","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Table names geo_AISsiteSurveyResultsFile not found in quick start guides.
@@ -1809,13 +1769,13 @@ NA,NA,NA,NA,NA,NA
   Variable(s) to join tables bat_controlType and geo_controlInfo are not identified in any quick start guide.
 "
 "DP4.00133.001","bat_controlType","geo_controlType","9","41","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
-  Linking variables controlSurveyEndDateTime not found in data tables. Check quick start guides and check data table inputs.
+  Variable(s) to join tables bat_controlType and geo_controlType are not identified in any quick start guide.
 "
 "DP4.00133.001","bat_controlType","geo_curveIdentification","9","32","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Variable(s) to join tables bat_controlType and geo_curveIdentification are not identified in any quick start guide.
 "
 "DP4.00133.001","bat_controlType","geo_priorParameters","9","41","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
-  Linking variables controlSurveyEndDateTime not found in data tables. Check quick start guides and check data table inputs.
+  Variable(s) to join tables bat_controlType and geo_priorParameters are not identified in any quick start guide.
 "
 "DP4.00133.001","bat_controlType","sdrc_gaugeDischargeMeas","9","838","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Variable(s) to join tables bat_controlType and sdrc_gaugeDischargeMeas are not identified in any quick start guide.
@@ -1868,13 +1828,13 @@ NA,NA,NA,NA,NA,NA
   Variable(s) to join tables bat_priorParameters and geo_controlInfo are not identified in any quick start guide.
 "
 "DP4.00133.001","bat_priorParameters","geo_controlType","9","41","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
-  Linking variables controlSurveyEndDateTime not found in data tables. Check quick start guides and check data table inputs.
+  Variable(s) to join tables bat_priorParameters and geo_controlType are not identified in any quick start guide.
 "
 "DP4.00133.001","bat_priorParameters","geo_curveIdentification","9","32","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Variable(s) to join tables bat_priorParameters and geo_curveIdentification are not identified in any quick start guide.
 "
 "DP4.00133.001","bat_priorParameters","geo_priorParameters","9","41","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
-  Linking variables controlSurveyEndDateTime not found in data tables. Check quick start guides and check data table inputs.
+  Variable(s) to join tables bat_priorParameters and geo_priorParameters are not identified in any quick start guide.
 "
 "DP4.00133.001","bat_priorParameters","sdrc_gaugeDischargeMeas","9","838","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Variable(s) to join tables bat_priorParameters and sdrc_gaugeDischargeMeas are not identified in any quick start guide.
@@ -1942,7 +1902,7 @@ NA,NA,NA,NA,NA,NA
 "
 "DP4.00133.001","geo_controlType","geo_curveIdentification","41","32","72"
 "DP4.00133.001","geo_controlType","geo_priorParameters","41","41","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
-  Linking variables controlSurveyEndDateTime not found in data tables. Check quick start guides and check data table inputs.
+  Variable(s) to join tables geo_controlType and geo_priorParameters are not identified in any quick start guide.
 "
 "DP4.00133.001","geo_controlType","sdrc_gaugeDischargeMeas","41","838","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Variable(s) to join tables geo_controlType and sdrc_gaugeDischargeMeas are not identified in any quick start guide.
@@ -1983,14 +1943,14 @@ NA,NA,NA,NA,NA,NA
 "DP4.00133.001","sdrc_gaugeDischargeMeas","sdrc_posteriorParameters","838","106","2523"
 "DP4.00133.001","sdrc_gaugeDischargeMeas","sdrc_resultsResiduals","838","838","882"
 "DP4.00133.001","sdrc_gaugeDischargeMeas","sdrc_sampledParameters","838","53000","1261500"
-"DP4.00133.001","sdrc_gaugeDischargeMeas","sdrc_stageDischargeCurveInfo","838","35","873"
+"DP4.00133.001","sdrc_gaugeDischargeMeas","sdrc_stageDischargeCurveInfo","838","35","1148"
 "DP4.00133.001","sdrc_posteriorParameters","sdrc_resultsResiduals","106","838","2523"
 "DP4.00133.001","sdrc_posteriorParameters","sdrc_sampledParameters","106","53000","163000"
 "DP4.00133.001","sdrc_posteriorParameters","sdrc_stageDischargeCurveInfo","106","35","106"
 "DP4.00133.001","sdrc_resultsResiduals","sdrc_sampledParameters","838","53000","1261500"
-"DP4.00133.001","sdrc_resultsResiduals","sdrc_stageDischargeCurveInfo","838","35","873"
+"DP4.00133.001","sdrc_resultsResiduals","sdrc_stageDischargeCurveInfo","838","35","1148"
 "DP4.00133.001","sdrc_sampledParameters","sdrc_stageDischargeCurveInfo","53000","35","53000"
-"DP1.10111.001","sim_eventData","","","","only table in DP"
+"DP1.10111.001","sim_eventData","",NA,NA,"only table in DP"
 "DP1.10086.001","bgc_CNiso_externalSummary","ntr_externalLab","44","2516","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Direct join of table bgc_CNiso_externalSummary to table ntr_externalLab is not recommended. Consult quick start guide for more information.
 "
@@ -2131,21 +2091,15 @@ NA,NA,NA,NA,NA,NA
 "DP1.10104.001","sme_labSummary","sme_microbialBiomass","2","1453","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Direct join of table sme_labSummary to table sme_microbialBiomass is not recommended. Consult quick start guide for more information.
 "
-"DP1.20093.001","swc_asiPOMFieldData","swc_domainLabData","1015","1424","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
+"DP1.20093.001","swc_asiPOMFieldData","swc_domainLabData","1015","1424","1734"
 "DP1.20093.001","swc_asiPOMFieldData","swc_externalLabDataByAnalyte","1015","36604","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Tables swc_asiPOMFieldData and swc_externalLabDataByAnalyte can't be joined automatically. Consult quick start guide for details about data relationships.
 "
 "DP1.20093.001","swc_asiPOMFieldData","swc_externalLabSummaryData","1015","64","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Variable(s) to join tables swc_asiPOMFieldData and swc_externalLabSummaryData are not identified in any quick start guide.
 "
-"DP1.20093.001","swc_asiPOMFieldData","swc_fieldData","1015","1151","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
-"DP1.20093.001","swc_asiPOMFieldData","swc_fieldSuperParent","1015","1135","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
+"DP1.20093.001","swc_asiPOMFieldData","swc_fieldData","1015","1151","1449"
+"DP1.20093.001","swc_asiPOMFieldData","swc_fieldSuperParent","1015","1135","1251"
 "DP1.20093.001","swc_domainLabData","swc_externalLabDataByAnalyte","1424","36604","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Tables swc_domainLabData and swc_externalLabDataByAnalyte can't be joined directly, but can each be joined to a common table(s). Consult quick start guide for details.
 "
@@ -2176,9 +2130,7 @@ NA,NA,NA,NA,NA,NA
 "DP1.10093.001","tck_fielddata","tck_taxonomyRaw","2766","1157","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
   'by.x' and 'by.y' specify different numbers of columns
 "
-"DP1.10093.001","tck_taxonomyProcessed","tck_taxonomyRaw","1157","1157","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
-  'by.x' and 'by.y' specify different numbers of columns
-"
+"DP1.10093.001","tck_taxonomyProcessed","tck_taxonomyRaw","1157","1157","2827"
 "DP1.10092.001","tck_pathogen","tck_pathogenqa","37884","398","Error in merge.data.frame(table1, table2, by.x = lnk1, by.y = lnk2, all = TRUE) : 
   'by.x' and 'by.y' specify different numbers of columns
 "
@@ -2206,3 +2158,217 @@ NA,NA,NA,NA,NA,NA
 "DP1.10098.001","vst_perplotperyear","vst_shrubgroup","695","83","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
   Joining tables vst_perplotperyear and vst_shrubgroup is not recommended. Consult quick start guide for details.
 "
+"DP1.00013.001","wdp_chemLab","wdp_collection","87","107","108"
+"DP1.00013.001","wdp_chemLab","wdp_collectionChem","87","107","194"
+"DP1.00013.001","wdp_chemLab","wdp_sensor","87","16098648","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Variable(s) to join tables wdp_chemLab and wdp_sensor are not identified in any quick start guide.
+"
+"DP1.00013.001","wdp_collection","wdp_collectionChem","107","107","214"
+"DP1.00013.001","wdp_collection","wdp_sensor","107","16098648","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Variable(s) to join tables wdp_collection and wdp_sensor are not identified in any quick start guide.
+"
+"DP1.00013.001","wdp_collectionChem","wdp_sensor","107","16098648","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Variable(s) to join tables wdp_collectionChem and wdp_sensor are not identified in any quick start guide.
+"
+"DP1.00038.001","wdi_collection","wdi_collectionIso","107","107","107"
+"DP1.00038.001","wdi_collection","wdi_collectionIsoTest","107","107","107"
+"DP1.00038.001","wdi_collection","wdi_isoPerSample","107","83","107"
+"DP1.00038.001","wdi_collection","wdp_sensor","107","16098648","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Variable(s) to join tables wdi_collection and wdp_sensor are not identified in any quick start guide.
+"
+"DP1.00038.001","wdi_collectionIso","wdi_collectionIsoTest","107","107","107"
+"DP1.00038.001","wdi_collectionIso","wdi_isoPerSample","107","83","107"
+"DP1.00038.001","wdi_collectionIso","wdp_sensor","107","16098648","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Variable(s) to join tables wdi_collectionIso and wdp_sensor are not identified in any quick start guide.
+"
+"DP1.00038.001","wdi_collectionIsoTest","wdi_isoPerSample","107","83","107"
+"DP1.00038.001","wdi_collectionIsoTest","wdp_sensor","107","16098648","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Variable(s) to join tables wdi_collectionIsoTest and wdp_sensor are not identified in any quick start guide.
+"
+"DP1.00038.001","wdi_isoPerSample","wdp_sensor","83","16098648","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Variable(s) to join tables wdi_isoPerSample and wdp_sensor are not identified in any quick start guide.
+"
+"DP1.20221.001","inv_dnaExtractionStandard","inv_dnaRawDataFilesStandard","15","14","28"
+"DP1.20221.001","inv_dnaExtractionStandard","inv_markerGeneSequencingStandard","15","10","24"
+"DP1.20221.001","inv_dnaExtractionStandard","inv_metabarcodeSummary","15","4","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_dnaExtractionStandard to table inv_metabarcodeSummary is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_dnaExtractionStandard","inv_metabarcodeTaxonList","15","3","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_dnaExtractionStandard to table inv_metabarcodeTaxonList is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_dnaExtractionStandard","inv_pcrAmplificationStandard","15","8","22"
+"DP1.20221.001","inv_dnaExtractionStandard","zoo_dnaExtraction","15","42","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_dnaExtractionStandard to table zoo_dnaExtraction is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_dnaExtractionStandard","zoo_dnaRawDataFiles","15","210","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_dnaExtractionStandard to table zoo_dnaRawDataFiles is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_dnaExtractionStandard","zoo_fieldData","15","105","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_dnaExtractionStandard to table zoo_fieldData is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_dnaExtractionStandard","zoo_markerGeneSequencing","15","84","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_dnaExtractionStandard to table zoo_markerGeneSequencing is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_dnaExtractionStandard","zoo_metabarcodeTaxonomy","15","9111","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_dnaExtractionStandard to table zoo_metabarcodeTaxonomy is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_dnaExtractionStandard","zoo_pcrAmplification","15","84","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_dnaExtractionStandard to table zoo_pcrAmplification is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_dnaRawDataFilesStandard","inv_markerGeneSequencingStandard","14","10","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_dnaRawDataFilesStandard to table inv_markerGeneSequencingStandard is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_dnaRawDataFilesStandard","inv_metabarcodeSummary","14","4","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_dnaRawDataFilesStandard to table inv_metabarcodeSummary is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_dnaRawDataFilesStandard","inv_metabarcodeTaxonList","14","3","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_dnaRawDataFilesStandard to table inv_metabarcodeTaxonList is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_dnaRawDataFilesStandard","inv_pcrAmplificationStandard","14","8","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_dnaRawDataFilesStandard to table inv_pcrAmplificationStandard is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_dnaRawDataFilesStandard","zoo_dnaExtraction","14","42","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_dnaRawDataFilesStandard to table zoo_dnaExtraction is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_dnaRawDataFilesStandard","zoo_dnaRawDataFiles","14","210","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_dnaRawDataFilesStandard to table zoo_dnaRawDataFiles is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_dnaRawDataFilesStandard","zoo_fieldData","14","105","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_dnaRawDataFilesStandard to table zoo_fieldData is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_dnaRawDataFilesStandard","zoo_markerGeneSequencing","14","84","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_dnaRawDataFilesStandard to table zoo_markerGeneSequencing is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_dnaRawDataFilesStandard","zoo_metabarcodeTaxonomy","14","9111","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_dnaRawDataFilesStandard to table zoo_metabarcodeTaxonomy is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_dnaRawDataFilesStandard","zoo_pcrAmplification","14","84","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_dnaRawDataFilesStandard to table zoo_pcrAmplification is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_markerGeneSequencingStandard","inv_metabarcodeSummary","10","4","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_markerGeneSequencingStandard to table inv_metabarcodeSummary is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_markerGeneSequencingStandard","inv_metabarcodeTaxonList","10","3","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_markerGeneSequencingStandard to table inv_metabarcodeTaxonList is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_markerGeneSequencingStandard","inv_pcrAmplificationStandard","10","8","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_markerGeneSequencingStandard to table inv_pcrAmplificationStandard is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_markerGeneSequencingStandard","zoo_dnaExtraction","10","42","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_markerGeneSequencingStandard to table zoo_dnaExtraction is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_markerGeneSequencingStandard","zoo_dnaRawDataFiles","10","210","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_markerGeneSequencingStandard to table zoo_dnaRawDataFiles is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_markerGeneSequencingStandard","zoo_fieldData","10","105","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_markerGeneSequencingStandard to table zoo_fieldData is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_markerGeneSequencingStandard","zoo_markerGeneSequencing","10","84","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_markerGeneSequencingStandard to table zoo_markerGeneSequencing is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_markerGeneSequencingStandard","zoo_metabarcodeTaxonomy","10","9111","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_markerGeneSequencingStandard to table zoo_metabarcodeTaxonomy is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_markerGeneSequencingStandard","zoo_pcrAmplification","10","84","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_markerGeneSequencingStandard to table zoo_pcrAmplification is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_metabarcodeSummary","inv_metabarcodeTaxonList","4","3","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_metabarcodeSummary to table inv_metabarcodeTaxonList is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_metabarcodeSummary","inv_pcrAmplificationStandard","4","8","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_metabarcodeSummary to table inv_pcrAmplificationStandard is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_metabarcodeSummary","zoo_dnaExtraction","4","42","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_metabarcodeSummary to table zoo_dnaExtraction is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_metabarcodeSummary","zoo_dnaRawDataFiles","4","210","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_metabarcodeSummary to table zoo_dnaRawDataFiles is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_metabarcodeSummary","zoo_fieldData","4","105","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_metabarcodeSummary to table zoo_fieldData is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_metabarcodeSummary","zoo_markerGeneSequencing","4","84","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_metabarcodeSummary to table zoo_markerGeneSequencing is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_metabarcodeSummary","zoo_metabarcodeTaxonomy","4","9111","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_metabarcodeSummary to table zoo_metabarcodeTaxonomy is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_metabarcodeSummary","zoo_pcrAmplification","4","84","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_metabarcodeSummary to table zoo_pcrAmplification is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_metabarcodeTaxonList","inv_pcrAmplificationStandard","3","8","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_metabarcodeTaxonList to table inv_pcrAmplificationStandard is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_metabarcodeTaxonList","zoo_dnaExtraction","3","42","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_metabarcodeTaxonList to table zoo_dnaExtraction is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_metabarcodeTaxonList","zoo_dnaRawDataFiles","3","210","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_metabarcodeTaxonList to table zoo_dnaRawDataFiles is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_metabarcodeTaxonList","zoo_fieldData","3","105","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_metabarcodeTaxonList to table zoo_fieldData is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_metabarcodeTaxonList","zoo_markerGeneSequencing","3","84","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_metabarcodeTaxonList to table zoo_markerGeneSequencing is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_metabarcodeTaxonList","zoo_metabarcodeTaxonomy","3","9111","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_metabarcodeTaxonList to table zoo_metabarcodeTaxonomy is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_metabarcodeTaxonList","zoo_pcrAmplification","3","84","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_metabarcodeTaxonList to table zoo_pcrAmplification is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_pcrAmplificationStandard","zoo_dnaExtraction","8","42","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_pcrAmplificationStandard to table zoo_dnaExtraction is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_pcrAmplificationStandard","zoo_dnaRawDataFiles","8","210","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_pcrAmplificationStandard to table zoo_dnaRawDataFiles is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_pcrAmplificationStandard","zoo_fieldData","8","105","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_pcrAmplificationStandard to table zoo_fieldData is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_pcrAmplificationStandard","zoo_markerGeneSequencing","8","84","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_pcrAmplificationStandard to table zoo_markerGeneSequencing is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_pcrAmplificationStandard","zoo_metabarcodeTaxonomy","8","9111","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_pcrAmplificationStandard to table zoo_metabarcodeTaxonomy is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","inv_pcrAmplificationStandard","zoo_pcrAmplification","8","84","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Direct join of table inv_pcrAmplificationStandard to table zoo_pcrAmplification is not recommended. Consult quick start guide for more information.
+"
+"DP1.20221.001","zoo_dnaExtraction","zoo_dnaRawDataFiles","42","210","210"
+"DP1.20221.001","zoo_dnaExtraction","zoo_fieldData","42","105","105"
+"DP1.20221.001","zoo_dnaExtraction","zoo_markerGeneSequencing","42","84","84"
+"DP1.20221.001","zoo_dnaExtraction","zoo_metabarcodeTaxonomy","42","9111","9111"
+"DP1.20221.001","zoo_dnaExtraction","zoo_pcrAmplification","42","84","84"
+"DP1.20221.001","zoo_dnaRawDataFiles","zoo_fieldData","210","105","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Tables zoo_dnaRawDataFiles and zoo_fieldData can't be joined directly, but can each be joined to a common table(s). Consult quick start guide for details.
+"
+"DP1.20221.001","zoo_dnaRawDataFiles","zoo_markerGeneSequencing","210","84","420"
+"DP1.20221.001","zoo_dnaRawDataFiles","zoo_metabarcodeTaxonomy","210","9111","45380"
+"DP1.20221.001","zoo_dnaRawDataFiles","zoo_pcrAmplification","210","84","420"
+"DP1.20221.001","zoo_fieldData","zoo_markerGeneSequencing","105","84","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Tables zoo_fieldData and zoo_markerGeneSequencing can't be joined directly, but can each be joined to a common table(s). Consult quick start guide for details.
+"
+"DP1.20221.001","zoo_fieldData","zoo_metabarcodeTaxonomy","105","9111","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Tables zoo_fieldData and zoo_metabarcodeTaxonomy can't be joined directly, but can each be joined to a common table(s). Consult quick start guide for details.
+"
+"DP1.20221.001","zoo_fieldData","zoo_pcrAmplification","105","84","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Tables zoo_fieldData and zoo_pcrAmplification can't be joined directly, but can each be joined to a common table(s). Consult quick start guide for details.
+"
+"DP1.20221.001","zoo_markerGeneSequencing","zoo_metabarcodeTaxonomy","84","9111","18222"
+"DP1.20221.001","zoo_markerGeneSequencing","zoo_pcrAmplification","84","84","168"
+"DP1.20221.001","zoo_metabarcodeTaxonomy","zoo_pcrAmplification","9111","84","18222"
+"DP1.20219.001","zoo_fieldData","zoo_perSample","105","93","105"
+"DP1.20219.001","zoo_fieldData","zoo_perVial","105","37","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Variable(s) to join tables zoo_fieldData and zoo_perVial are not identified in any quick start guide.
+"
+"DP1.20219.001","zoo_fieldData","zoo_taxonomyProcessed","105","1213","1225"
+"DP1.20219.001","zoo_fieldData","zoo_taxonomyRaw","105","1213","1225"
+"DP1.20219.001","zoo_perSample","zoo_perVial","93","37","Error in joinTableNEON(datList[[grep(paste(tabs[j], ""$"", sep = """"), names(datList))]],  : 
+  Variable(s) to join tables zoo_perSample and zoo_perVial are not identified in any quick start guide.
+"
+"DP1.20219.001","zoo_perSample","zoo_taxonomyProcessed","93","1213","1213"
+"DP1.20219.001","zoo_perSample","zoo_taxonomyRaw","93","1213","1213"
+"DP1.20219.001","zoo_perVial","zoo_taxonomyProcessed","37","1213","1524"
+"DP1.20219.001","zoo_perVial","zoo_taxonomyRaw","37","1213","1524"
+"DP1.20219.001","zoo_taxonomyProcessed","zoo_taxonomyRaw","1213","1213","17635"
