@@ -9,7 +9,7 @@ joinResult <- matrix(data=NA, ncol=6, nrow=1)
 joinResult <- data.frame(joinResult)
 names(joinResult) <- c('dpID', 'table1', 'table2', 'records1', 'records2', 'joinRecords')
 
-for(i in c(1:length(deflist))) {
+for(i in 1:length(deflist)) {
   
   vars <- read.delim(paste(wd, deflist[i], sep='/'), sep='\t')
   dpID <- substring(unique(vars$dpID), 15, 28)
@@ -74,13 +74,18 @@ length(grep('not identified in any quick start guide[.]', joinResult$joinRecords
 length(grep('could not be inferred', joinResult$joinRecords))
 length(grep('not found in data tables', joinResult$joinRecords))
 length(grep('not found in quick start guides', joinResult$joinRecords))
+length(grep('is not recommended', joinResult$joinRecords))
 length(grep('linking variables do not match', joinResult$joinRecords))
 length(grep('automatable', joinResult$joinRecords))
+length(grep('Direct join', joinResult$joinRecords))
 length(which(!is.na(as.numeric(joinResult$joinRecords))))
 
 joinS <- joinResult[which(!is.na(as.numeric(joinResult$joinRecords))),]
 
-joinNI <- joinResult[grep('not found in quick start guides', joinResult$joinRecords),]
+joinDJ <- joinResult[grep('Direct join', joinResult$joinRecords),]
+joinNI <- joinResult[grep('not identified', joinResult$joinRecords),]
+joinNT <- joinResult[grep('not found in quick start guides', joinResult$joinRecords),]
+joinNV <- joinResult[grep('not found in data tables', joinResult$joinRecords),]
 
 write.csv(joinResult, '/Users/clunch/GitHub/sandbox/neonOS_testing/joinResults.csv', row.names=F)
 joinResult <- read.csv('/Users/clunch/GitHub/sandbox/neonOS_testing/joinResults.csv')

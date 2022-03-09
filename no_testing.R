@@ -54,6 +54,14 @@ cfc <- loadByProduct(dpID='DP1.10026.001', check.size=F,
 list2env(cfc, .GlobalEnv)
 tst <- joinTableNEON(cfc_fieldData, cfc_elements)
 
+bird <- loadByProduct(dpID='DP1.10003.001', check.size=F, 
+                      startdate='2017-05', enddate='2019-08',
+                      package='expanded', token=Sys.getenv('NEON_TOKEN'))
+list2env(bird, .GlobalEnv)
+tst <- joinTableNEON(brd_countdata, brd_personnel)
+tst <- joinTableNEON(brd_perpoint, brd_personnel)
+tst <- joinTableNEON(brd_references, brd_personnel)
+tst <- joinTableNEON(brd_countdata, brd_perpoint)
 
 
 # getSampleTree() testing
