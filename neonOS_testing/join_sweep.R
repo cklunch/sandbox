@@ -9,7 +9,7 @@ joinResult <- matrix(data=NA, ncol=6, nrow=1)
 joinResult <- data.frame(joinResult)
 names(joinResult) <- c('dpID', 'table1', 'table2', 'records1', 'records2', 'joinRecords')
 
-for(i in 77:78) {
+for(i in 1:73) {
   
   vars <- read.delim(paste(wd, deflist[i], sep='/'), sep='\t')
   dpID <- substring(unique(vars$dpID), 15, 28)
@@ -19,7 +19,7 @@ for(i in 77:78) {
   }
   
   datList <- try(loadByProduct(dpID, check.size=F, package='expanded',
-                               startdate='2020-05', enddate='2020-08',
+                               startdate='2019-05', enddate='2020-08',
                                token=Sys.getenv('NEON_TOKEN')))
   
   if(class(datList)=='try-error') {
@@ -81,10 +81,13 @@ length(grep('Direct join', joinResult$joinRecords))
 length(which(!is.na(as.numeric(joinResult$joinRecords))))
 
 joinS <- joinResult[which(!is.na(as.numeric(joinResult$joinRecords))),]
+joinS$sumRecords <- joinS$records1+joinS$records2
+joinQ <- joinS[which(joinS$sumRecords<as.numeric(joinS$joinRecords)),]
+joinE <- joinS[which(joinS$sumRecords==as.numeric(joinS$joinRecords)),]
 
-joinNI <- joinResult[grep('not identified', joinResult$joinRecords),] #
-joinNT <- joinResult[grep('not found in quick start guides', joinResult$joinRecords),] #
-joinNV <- joinResult[grep('Linking variables', joinResult$joinRecords),] #done
+joinNI <- joinResult[grep('not identified', joinResult$joinRecords),]
+joinNT <- joinResult[grep('not found in quick start guides', joinResult$joinRecords),]
+joinNV <- joinResult[grep('Linking variables', joinResult$joinRecords),]
 
 write.csv(joinResult, '/Users/clunch/GitHub/sandbox/neonOS_testing/joinResults.csv', row.names=F)
 joinResult <- read.csv('/Users/clunch/GitHub/sandbox/neonOS_testing/joinResults.csv')
