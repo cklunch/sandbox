@@ -26,7 +26,8 @@ cfc.dum <- removeDups(cfc$cfc_chlorophyll, variables=cfc$variables_10026, table=
 bird <- loadByProduct(dpID='DP1.10003.001', check.size=F, 
                       startdate='2017-05', enddate='2019-08',
                       package='expanded', token=Sys.getenv('NEON_TOKEN'))
-brd.d <- removeDups(bird$brd_countdata, variables=bird$variables_10003, table='brd_countdata')
+list2env(bird, .GlobalEnv)
+brd.d <- removeDups(brd_countdata, variables=variables_10003)
 
 fish <- loadByProduct(dpID='DP1.20107.001', check.size=F, 
                       startdate='2017-05', enddate='2019-08',
@@ -53,6 +54,7 @@ cfc <- loadByProduct(dpID='DP1.10026.001', check.size=F,
                      package='expanded', token=Sys.getenv('NEON_TOKEN'))
 list2env(cfc, .GlobalEnv)
 tst <- joinTableNEON(cfc_fieldData, cfc_elements)
+tst <- joinTableNEON(cfc_fieldData, cfc_carbonNitrogen)
 
 bird <- loadByProduct(dpID='DP1.10003.001', check.size=F, 
                       startdate='2017-05', enddate='2019-08',
