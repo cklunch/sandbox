@@ -812,6 +812,13 @@ flux <- stackEddy('/Users/clunch/Desktop/filesToStack00200TEAK/')
 
 flux <- stackEddy('/Users/clunch/Desktop/NEON_eddy-flux.zip')
 
+pres <- stackEddy(filepath='/Users/clunch/Desktop/filesToStack00200/', 
+                  level = "dp01", var = "presAtm", avg = 30)
+
+
+pres <- loadByProduct(dpID = "DP1.00004.001", site = "PUUM", 
+                      startdate = '2021-01', enddate = '2021-12', 
+                      timeIndex = 30, package = "basic", check.size = F)
 
 # test SAE expanded package and footprint
 zipsByProduct(dpID='DP4.00200.001', site='WREF', startdate='2019-07', enddate='2019-09',

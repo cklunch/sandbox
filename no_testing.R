@@ -55,6 +55,8 @@ cfc <- loadByProduct(dpID='DP1.10026.001', check.size=F,
 list2env(cfc, .GlobalEnv)
 tst <- joinTableNEON(cfc_fieldData, cfc_elements)
 tst <- joinTableNEON(cfc_fieldData, cfc_carbonNitrogen)
+# left join special case
+tst <- joinTableNEON(cfc_fieldData, vst_mappingandtagging)
 
 bird <- loadByProduct(dpID='DP1.10003.001', check.size=F, 
                       startdate='2017-05', enddate='2019-08',
@@ -64,6 +66,36 @@ tst <- joinTableNEON(brd_countdata, brd_personnel)
 tst <- joinTableNEON(brd_perpoint, brd_personnel)
 tst <- joinTableNEON(brd_references, brd_personnel)
 tst <- joinTableNEON(brd_countdata, brd_perpoint)
+
+
+# location fields = F special case
+sdg <- loadByProduct(dpID='DP1.20097.001', check.size=F,
+                     startdate='2019-05', enddate='2019-10',
+                     package='expanded', token=Sys.getenv('NEON_TOKEN'))
+list2env(sdg, .GlobalEnv)
+tst <- joinTableNEON(sdg_fieldDataProc, sdg_fieldDataAir)
+
+
+# recent data only special case
+tck <- loadByProduct(dpID='DP1.10092.001', check.size=F,
+                     startdate='2020-01',
+                     package='expanded', token=Sys.getenv('NEON_TOKEN'))
+list2env(tck, .GlobalEnv)
+tst <- joinTableNEON(tck_pathogen, tck_pathogenqa)
+tck_pathogen <- tck_pathogen[tck_pathogen$collectDate>as.POSIXct("2021-01-01"),] # no 2021 data yet
+
+
+mos <- loadByProduct(dpID="DP1.10043.001",
+                     site="TOOL",
+                     release="RELEASE-2022",
+                     token=Sys.getenv('NEON_TOKEN'),
+                     check.size=F)
+
+inv <- loadByProduct(dpID="DP1.20120.001",
+                     site="TOOK",
+                     release="RELEASE-2022",
+                     token=Sys.getenv('NEON_TOKEN'),
+                     check.size=F)
 
 
 # getSampleTree() testing
