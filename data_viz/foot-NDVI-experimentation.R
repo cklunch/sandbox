@@ -52,3 +52,23 @@ flux <- stackEddy(c('/Users/clunch/Desktop/filesToStack00200/NEON.D11.CLBJ.DP4.0
                   level='dp04')
 plot(flux$CLBJ$data.fluxCo2.nsae.flux~flux$CLBJ$timeEnd, pch=20)
 plot(flux$CLBJ$data.fluxCo2.turb.flux~flux$CLBJ$timeEnd, pch=20)
+
+
+### slight automation
+
+months <- c('2019-07','2020-06','2021-06')
+fluxpath <- '/Users/clunch/Desktop/filesToStack00200/'
+for(i in months) {
+
+  zipsByProduct(dpID='DP4.00200.001', site='DCFS', startdate=i, enddate=i,
+                package='expanded', check.size=F, release='RELEASE-2022', 
+                savepath='/Users/clunch/Desktop', token=Sys.getenv('NEON_TOKEN'))
+  
+  ft <- footRaster('/Users/clunch/Desktop/filesToStack00200/')
+  R.utils::gunzip(ft)
+  
+  byTileAOP(dpID='DP3.30026.001', site='DCFS', year=i,
+            easting=c(extent(foot)[1], extent(foot)[2], extent(foot)[2], extent(foot)[1]),
+            northing=c(extent(foot)[3], extent(foot)[4], extent(foot)[3], extent(foot)[4]), 
+            check.size=F, savepath='/Users/clunch/Desktop', token=Sys.getenv('NEON_TOKEN'))
+}
