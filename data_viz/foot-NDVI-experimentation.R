@@ -56,19 +56,41 @@ plot(flux$CLBJ$data.fluxCo2.turb.flux~flux$CLBJ$timeEnd, pch=20)
 
 ### slight automation
 
-months <- c('2019-07','2020-06','2021-06')
 fluxpath <- '/Users/clunch/Desktop/filesToStack00200/'
-for(i in months) {
+aoppath <- '/Users/clunch/Desktop/DP3.30026.001/'
+flight.dates <- read.csv('/Users/clunch/Downloads/FlightDates.csv')
+site.dates <- flight.dates[grep('NOGP', flight.dates$YearSiteVisit),]
+ex.dates <- substring(site.dates$FlightDate, 1, 8)
+hy.dates <- paste(substring(ex.dates, 1, 4), substring(ex.dates, 5, 6),
+                  substring(ex.dates, 5, 6), sep='-')
+months <- substring(hy.dates, 1, 7)
+months <- unique(months)
 
-  zipsByProduct(dpID='DP4.00200.001', site='DCFS', startdate=i, enddate=i,
+for(i in 4:length(months)) {
+
+  zipsByProduct(dpID='DP4.00200.001', site='NOGP', startdate=months[i], enddate=months[i],
                 package='expanded', check.size=F, release='RELEASE-2022', 
                 savepath='/Users/clunch/Desktop', token=Sys.getenv('NEON_TOKEN'))
   
-  ft <- footRaster('/Users/clunch/Desktop/filesToStack00200/')
-  R.utils::gunzip(ft)
+  fl <- list.files(fluxpath, full.names=T, recursive=T)
+  utils::unzip(fl, exdir=fluxpath)
+  fls <- list.files(fluxpath, pattern=paste(hy.dates[grep(months[i], hy.dates)], collapse="|"), 
+                    full.names=T, recursive=T)
+  lapply(fls, R.utils::gunzip)
+  fls <- list.files(fluxpath, pattern='[.]h5$', full.names=T, recursive=T)
   
-  byTileAOP(dpID='DP3.30026.001', site='DCFS', year=i,
+  ftStack <- footRaster(fls)
+  foot <- ftStack$NOGP.summary
+  
+  flux <- stackEddy(fls, level='dp04')
+  plot(flux$NOGP$data.fluxCo2.nsae.flux~flux$NOGP$timeEnd, pch=20)
+
+  byTileAOP(dpID='DP3.30026.001', site='NOGP', year=substring(months[i], 1, 4),
             easting=c(extent(foot)[1], extent(foot)[2], extent(foot)[2], extent(foot)[1]),
             northing=c(extent(foot)[3], extent(foot)[4], extent(foot)[3], extent(foot)[4]), 
             check.size=F, savepath='/Users/clunch/Desktop', token=Sys.getenv('NEON_TOKEN'))
+  afls <- list.files(aoppath, pattern='NOGP(.*)zip$', full.names=T, recursive=T)
+  lapply(afls, utils::unzip, exdir=dirname(afls[1]))
+  afls <- list.files(aoppath, pattern='NOGP(.*)_NDVI.tif$', full.names=T, recursive=T)
+  
 }
