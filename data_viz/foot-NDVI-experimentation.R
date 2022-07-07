@@ -70,39 +70,41 @@ comp <- matrix(data=NA, nrow=0, ncol=4)
 comp <- data.frame(comp)
 names(comp) <- c('sm','nee','num.mis.nee','ndvi')
 
-for(i in 3:length(months)) {
+for(i in 4:length(months)) {
 
-  zipsByProduct(dpID='DP4.00200.001', site='WOOD', startdate=months[i], enddate=months[i],
-                package='expanded', check.size=F, release='RELEASE-2022', 
+  zipsByProduct(dpID='DP4.00200.001', site='NOGP', startdate=months[i], enddate=months[i],
+                package='expanded', check.size=F, #release='RELEASE-2022', 
                 savepath='/Users/clunch/Desktop', token=Sys.getenv('NEON_TOKEN'))
   
   fl <- list.files(fluxpath, pattern='[.]zip$', full.names=T, recursive=T)
   lapply(fl, utils::unzip, exdir=fluxpath)
   fls <- list.files(fluxpath, pattern=paste(hy.dates[grep(months[i], hy.dates)], collapse="|"), 
                     full.names=T, recursive=T)
+  fls <- grep('NOGP', fls, value=T)
   lapply(fls, R.utils::gunzip, overwrite=T, remove=T)
   fls <- list.files(fluxpath, pattern='[.]h5$', full.names=T, recursive=T)
-  fls <- grep('WOOD', fls, value=T)
+  fls <- grep('NOGP', fls, value=T)
   fls <- grep(months[i], fls, value=T)
   
   ftStack <- footRaster(fls)
-  foot <- ftStack$WOOD.summary
+  foot <- ftStack$NOGP.summary
   
   flux <- stackEddy(fls, level='dp04')
-  plot(flux$WOOD$data.fluxCo2.nsae.flux~flux$WOOD$timeEnd, pch=20)
+  try(plot(flux$NOGP$data.fluxCo2.nsae.flux~flux$NOGP$timeEnd, pch=20))
 
   wid <- extent(foot)[2] - extent(foot)[1]
   num <- floor(wid/1000)
   xcoord <- c(extent(foot)[1], extent(foot)[1]+I(1000*1:num), extent(foot)[2])
   ycoord <- c(extent(foot)[3], extent(foot)[3]+I(1000*1:num), extent(foot)[4])
   
-  byTileAOP(dpID='DP3.30026.001', site='WOOD', year=substring(months[i], 1, 4),
+  byTileAOP(dpID='DP3.30026.001', site='NOGP', year=substring(months[i], 1, 4),
             easting=expand.grid(xcoord, ycoord)$Var1,
             northing=expand.grid(xcoord, ycoord)$Var2, 
             check.size=F, savepath='/Users/clunch/Desktop', token=Sys.getenv('NEON_TOKEN'))
-  afls <- list.files(aoppath, pattern='WOOD(.*)zip$', full.names=T, recursive=T)
+  afls <- list.files(aoppath, pattern='NOGP(.*)zip$', full.names=T, recursive=T)
+  afls <- grep(substring(months[i], 1, 4), afls, value=T)
   lapply(afls, utils::unzip, exdir=dirname(afls[1]))
-  afls <- list.files(aoppath, pattern='WOOD(.*)_NDVI.tif$', full.names=T, recursive=T)
+  afls <- list.files(aoppath, pattern='NOGP(.*)_NDVI.tif$', full.names=T, recursive=T)
   
   ndvilist <- list()
   for(j in 1:length(afls)) {
@@ -121,9 +123,56 @@ for(i in 3:length(months)) {
   comb <- foot.ndvi*ndvi.foot
   w.ndvi <- cellStats(comb, stat='sum', na.rm=T)
   
-  comb <- rbind(comb, c(months[i], sum(flux$WOOD$data.fluxCo2.nsae.flux, na.rm=T),
-                        length(which(is.na(flux$WOOD$data.fluxCo2.nsae.flux) | 
-                                       flux$WOOD$data.fluxCo2.nsae.flux=='NaN')),
+  comp <- rbind(comp, c(months[i], sum(flux$NOGP$data.fluxCo2.nsae.flux, na.rm=T),
+                        length(which(is.na(flux$NOGP$data.fluxCo2.nsae.flux) | 
+                                       flux$NOGP$data.fluxCo2.nsae.flux=='NaN')),
                         w.ndvi))
 
 }
+
+# already downloaded
+fluxlist <- list(length(months))
+ndvilist <- list(length(months))
+for(i in 1:length(months)) {
+  
+  fls <- list.files(fluxpath, pattern=paste(hy.dates[grep(months[i], hy.dates)], collapse="|"), 
+                    full.names=T, recursive=T)
+  fls <- grep('[.]h5$', fls, value=T)
+
+  ftStack <- footRaster(fls)
+  foot <- ftStack$JORN.summary
+  
+  flux <- stackEddy(fls, level='dp04')
+  try(plot(flux$JORN$data.fluxCo2.nsae.flux~flux$JORN$timeEnd, pch=20))
+  fluxlist[[i]] <- flux$JORN
+
+  afls <- list.files(aoppath, pattern='JORN(.*)_NDVI.tif$', full.names=T, recursive=T)
+  afls <- grep(substring(months[i], 1, 4), afls, value=T)
+  
+  ndvilist <- list()
+  for(j in 1:length(afls)) {
+    ndvilist[[j]] <- raster(afls[j])
+    if(j==1) {
+      ndvi <- ndvilist[[1]]
+    } else {
+      ndvi <- raster::merge(ndvi, ndvilist[[j]])
+    }
+  }
+  
+  ndvi.foot <- crop(ndvi, extent(foot))
+  foot.ndvi <- raster::resample(foot, ndvi.foot)
+  foot.ndvi <- foot.ndvi/cellStats(foot.ndvi, stat='sum', na.rm=T)
+  
+  ndvilist[[i]] <- ndvi.foot
+
+  comb <- foot.ndvi*ndvi.foot
+  w.ndvi <- cellStats(comb, stat='sum', na.rm=T)
+  
+  comp <- rbind(comp, c(months[i], 
+                        sum(flux$JORN$data.fluxCo2.nsae.flux, na.rm=T)/length(hy.dates[grep(months[i], hy.dates)]),
+                        length(which(is.na(flux$JORN$data.fluxCo2.nsae.flux) | 
+                                       flux$JORN$data.fluxCo2.nsae.flux=='NaN')),
+                        w.ndvi))
+
+}
+
