@@ -130,49 +130,82 @@ for(i in 4:length(months)) {
 
 }
 
-# already downloaded
-fluxlist <- list(length(months))
-ndvilist <- list(length(months))
-for(i in 1:length(months)) {
-  
-  fls <- list.files(fluxpath, pattern=paste(hy.dates[grep(months[i], hy.dates)], collapse="|"), 
-                    full.names=T, recursive=T)
-  fls <- grep('[.]h5$', fls, value=T)
 
-  ftStack <- footRaster(fls)
-  foot <- ftStack$JORN.summary
-  
-  flux <- stackEddy(fls, level='dp04')
-  try(plot(flux$JORN$data.fluxCo2.nsae.flux~flux$JORN$timeEnd, pch=20))
-  fluxlist[[i]] <- flux$JORN
+# multi-site, already downloaded
+# write out data in more usable form
+fluxpath <- '/Users/clunch/Desktop/filesToStack00200/'
+aoppath <- '/Users/clunch/Desktop/DP3.30026.001/'
+flight.dates <- read.csv('/Users/clunch/Downloads/FlightDatesThrough2021.csv')
+site.dates <- flight.dates[grep('CPER|OAES|NOGP|WOOD', flight.dates$YearSiteVisit),]
+ex.dates <- substring(site.dates$FlightDate, 1, 8)
+hy.dates <- paste(substring(ex.dates, 1, 4), substring(ex.dates, 5, 6),
+                  substring(ex.dates, 7, 8), sep='-')
+sites <- substring(site.dates$YearSiteVisit, 6, 9)
+months <- substring(hy.dates, 1, 7)
+sfd <- cbind(sites, hy.dates, months)
+sfd <- data.frame(sfd)
 
-  afls <- list.files(aoppath, pattern='JORN(.*)_NDVI.tif$', full.names=T, recursive=T)
-  afls <- grep(substring(months[i], 1, 4), afls, value=T)
+for(i in unique(sfd$sites)) {
   
-  ndvilist <- list()
-  for(j in 1:length(afls)) {
-    ndvilist[[j]] <- raster(afls[j])
-    if(j==1) {
-      ndvi <- ndvilist[[1]]
-    } else {
-      ndvi <- raster::merge(ndvi, ndvilist[[j]])
+  sfd.i <- sfd[which(sfd$sites==i),]
+  months <- unique(sfd.i$months)
+  
+  for(j in 1:length(months)) {
+
+    if(i=='WOOD'){i <- 'DCFS'}
+    fls <- list.files(fluxpath, pattern=paste(sfd.i$hy.dates[grep(months[j], 
+                                                                sfd.i$hy.dates)], 
+                                              collapse="|"), full.names=T, recursive=T)
+    if(length(fls)==0) {
+      next
     }
+    fls <- grep(i, fls, value=T)
+    if(length(fls)==0) {
+      next
+    }
+    fls <- grep('[.]h5$', fls, value=T)
+    
+    ftStack <- footRaster(fls)
+    foot <- ftStack[[1]]
+    
+    flux <- stackEddy(fls, level='dp04')
+    flux.dat <- flux[[i]]
+    
+    if(i=='DCFS'){i <- 'WOOD'}
+    afls <- list.files(aoppath, pattern=paste(i, '(.*)_NDVI.tif$', sep=''), 
+                       full.names=T, recursive=T)
+    afls <- grep(substring(months[j], 1, 4), afls, value=T)
+    
+    ndvilist <- list()
+    for(k in 1:length(afls)) {
+      ndvilist[[k]] <- raster(afls[k])
+      if(k==1) {
+        ndvi <- ndvilist[[1]]
+      } else {
+        ndvi <- raster::merge(ndvi, ndvilist[[k]])
+      }
+    }
+    
+    print(paste(i, months[j], sum(flux.dat$data.fluxCo2.nsae.flux, na.rm=T)))
+    write.table(flux.dat, 
+                paste('/Users/clunch/Library/CloudStorage/Box-Box/NEON_Lunch/data/fluxcourse_data/flux',
+                      i, months[j], '.csv', sep=''), sep=',', row.names=F)
+    writeRaster(foot, 
+                paste('/Users/clunch/Library/CloudStorage/Box-Box/NEON_Lunch/data/fluxcourse_data/foot',
+                      i, months[j], '.grd', sep=''), overwrite=T)
+    writeRaster(ndvi, 
+                paste('/Users/clunch/Library/CloudStorage/Box-Box/NEON_Lunch/data/fluxcourse_data/ndvi',
+                      i, months[j], '.grd', sep=''), overwrite=T)
+    
+    
   }
-  
-  ndvi.foot <- crop(ndvi, extent(foot))
-  foot.ndvi <- raster::resample(foot, ndvi.foot)
-  foot.ndvi <- foot.ndvi/cellStats(foot.ndvi, stat='sum', na.rm=T)
-  
-  ndvilist[[i]] <- ndvi.foot
-
-  comb <- foot.ndvi*ndvi.foot
-  w.ndvi <- cellStats(comb, stat='sum', na.rm=T)
-  
-  comp <- rbind(comp, c(months[i], 
-                        sum(flux$JORN$data.fluxCo2.nsae.flux, na.rm=T)/length(hy.dates[grep(months[i], hy.dates)]),
-                        length(which(is.na(flux$JORN$data.fluxCo2.nsae.flux) | 
-                                       flux$JORN$data.fluxCo2.nsae.flux=='NaN')),
-                        w.ndvi))
 
 }
 
+
+# students should do this
+ndvi.foot <- crop(ndvi, extent(foot))
+foot.ndvi <- raster::resample(foot, ndvi.foot)
+foot.ndvi <- foot.ndvi/cellStats(foot.ndvi, stat='sum', na.rm=T)
+comb <- foot.ndvi*ndvi.foot
+w.ndvi <- cellStats(comb, stat='sum', na.rm=T)
