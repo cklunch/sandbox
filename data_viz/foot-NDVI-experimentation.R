@@ -203,9 +203,63 @@ for(i in unique(sfd$sites)) {
 }
 
 
-# students should do this
-ndvi.foot <- crop(ndvi, extent(foot))
-foot.ndvi <- raster::resample(foot, ndvi.foot)
-foot.ndvi <- foot.ndvi/cellStats(foot.ndvi, stat='sum', na.rm=T)
-comb <- foot.ndvi*ndvi.foot
-w.ndvi <- cellStats(comb, stat='sum', na.rm=T)
+# next steps
+# 1. get entire month (and adjacent month?) for flux data
+# 2. merge to single flux data file
+# 3. create function to calculate weighted NDVI
+# 4. get Bridget to test if rasterio can read .grd files
+# 5. find flux-NDVI relationship, pick datasets
+
+for(i in unique(sfd$sites)) {
+  
+  sfd.i <- sfd[which(sfd$sites==i),]
+  
+  for(j in unique(sfd.i$months)) {
+    
+    f <- try(zipsByProduct(dpID='DP4.00200.001', site=i, startdate=j, enddate=j,
+                  package='basic', check.size=F, 
+                  savepath='/Users/clunch/Desktop', token=Sys.getenv('NEON_TOKEN')))
+
+  }
+  
+}
+
+flux <- stackEddy('/Users/clunch/Desktop/filesToStack00200/', level='dp04')
+flux$DCFS <- cbind(siteID=rep('DCFS', nrow(flux$DCFS)), flux$DCFS)
+flux$NOGP <- cbind(siteID=rep('NOGP', nrow(flux$NOGP)), flux$NOGP)
+flux$CPER <- cbind(siteID=rep('CPER', nrow(flux$CPER)), flux$CPER)
+flux$WOOD <- cbind(siteID=rep('WOOD', nrow(flux$WOOD)), flux$WOOD)
+flux$OAES <- cbind(siteID=rep('OAES', nrow(flux$OAES)), flux$OAES)
+f.all <- data.table::rbindlist(flux[1:5], fill=T)
+
+write.table(f.all, 
+            '/Users/clunch/Library/CloudStorage/Box-Box/NEON_Lunch/data/fluxcourse_data/flux_allSites.csv', 
+            sep=',', row.names=F)
+
+f.all <- read.csv('/Users/clunch/Library/CloudStorage/Box-Box/NEON_Lunch/data/fluxcourse_data/flux_allSites.csv')
+
+# get weighted NDVI calculation
+foot.weighted <- function(ndvi.raster, foot.raster) {
+
+  ndvi.foot <- crop(ndvi.raster, extent(foot.raster))
+  foot.ndvi <- raster::resample(foot.raster, ndvi.foot)
+  foot.ndvi <- foot.ndvi/cellStats(foot.ndvi, stat='sum', na.rm=T)
+  comb <- foot.ndvi*ndvi.foot
+  w.ndvi <- cellStats(comb, stat='sum', na.rm=T)
+  return(w.ndvi)
+  
+}
+
+# loop over sites and years to get footprint-weighted NDVI
+for(i in unique(sfd$sites)) {
+  
+  sfd.i <- sfd[which(sfd$sites==i),]
+  
+  for(j in unique(sfd.i$months)) {
+    
+    
+    
+  }
+  
+}
+
