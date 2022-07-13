@@ -250,16 +250,48 @@ foot.weighted <- function(ndvi.raster, foot.raster) {
   
 }
 
+fpath <- '/Users/clunch/Library/CloudStorage/Box-Box/NEON_Lunch/data/fluxcourse_data'
 # loop over sites and years to get footprint-weighted NDVI
+ndvi.w <- character()
 for(i in unique(sfd$sites)) {
   
+  ffls <- list.files(fpath, 'foot', full.names=T)
+  afls <- list.files(fpath, 'ndvi', full.names=T)
+  ffls <- grep('.grd$', ffls, value=T)
+  afls <- grep('.grd$', afls, value=T)
+
   sfd.i <- sfd[which(sfd$sites==i),]
   
   for(j in unique(sfd.i$months)) {
     
+    footfl <- grep(i, ffls, value=T)
+    footfl <- grep(j, footfl, value=T)
+    if(length(footfl)==0) {next}
+    nfl <- grep(i, afls, value=T)
+    nfl <- grep(j, nfl, value=T)
     
+    foot <- raster(footfl)
+    ndvi <- raster(nfl)
+    
+    nw <- foot.weighted(ndvi, foot)
+    ndvi.w <- rbind(ndvi.w, c(i, j, nw))
     
   }
   
 }
 
+ndvi.w <- data.frame(ndvi.w)
+names(ndvi.w) <- c('site','month','ndvi')
+ndvi.w$ndvi <- as.numeric(ndvi.w$ndvi)
+
+f.all$timeBgn <- as.POSIXct(f.all$timeBgn, tz='GMT', format='%Y-%m-%d %H:%M:%S')
+
+site <- 'NOGP'
+startd <- as.POSIXct('2021-06-14', tz='GMT')
+endd <- as.POSIXct('2021-06-16', tz='GMT')
+
+f.sub <- f.all[which(f.all$siteID==site & 
+                       f.all$timeBgn>=startd &
+                       f.all$timeBgn<endd),]
+
+plot(f.sub$data.fluxCo2.nsae.flux~f.sub$timeBgn, pch=20)
