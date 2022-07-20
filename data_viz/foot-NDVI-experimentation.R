@@ -233,7 +233,7 @@ flux$OAES <- cbind(siteID=rep('OAES', nrow(flux$OAES)), flux$OAES)
 f.all <- data.table::rbindlist(flux[1:5], fill=T)
 
 write.table(f.all, 
-            '/Users/clunch/Library/CloudStorage/Box-Box/NEON_Lunch/data/fluxcourse_data/flux_allSites.csv', 
+            '/Users/clunch/Library/CloudStorage/Box-Box/NEON_Lunch/data/fluxcourse_neon_data/flux_allSites.csv', 
             sep=',', row.names=F)
 
 f.all <- read.csv('/Users/clunch/Library/CloudStorage/Box-Box/NEON_Lunch/data/fluxcourse_data/flux_allSites.csv')
