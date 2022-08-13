@@ -446,6 +446,16 @@ byTileAOP(dpID = "DP3.30467.001", site = "WREF", year = "2017",
           savepath='/Users/clunch/Desktop', check.size = FALSE,
           token=Sys.getenv('NEON_TOKEN'))
 
+# multiple months per year
+byFileAOP(dpID='DP3.30015.001', site='KONZ', year=2019, 
+          savepath='/Users/clunch/Desktop', token=Sys.getenv('NEON_TOKEN'))
+
+# multiple months per year
+byTileAOP(dpID='DP3.30015.001', site='CPER', year=2020, 
+          easting = c(523300,519700), 
+          northing = c(4513400,4518400), 
+          savepath='/Users/clunch/Desktop', token=Sys.getenv('NEON_TOKEN'))
+
 byFileAOP(dpID='DP3.30015.001', site='SJER', year=2017, 
           savepath='/Users/clunch/Desktop', token=Sys.getenv('NEON_TOKEN'))
 
@@ -656,6 +666,11 @@ alg <- loadByProduct(dpID='DP1.20166.001', startdate='2017-05', enddate='2018-08
                      check.size=F, token='garbage')
 
 veg <- loadByProduct(dpID='DP1.10098.001', site='ABBY', 
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+# no data
+veg <- loadByProduct(dpID='DP1.10098.001', site='LAJA', package='expanded',
+                     startdate='2018-01', enddate='2018-12',
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
 wqCheck <- neonUtilities::loadByProduct(dpID = "DP1.20288.001",
