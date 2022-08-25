@@ -1,0 +1,96 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2580
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww17280\viewh13200\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs40 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Outline
+\fs24 \
+
+\fs40 Now I'm going to talk about some of the barriers to data use, and how we've been working on addressing them. I'll start with the big picture, the overall user feedback we get, then I'll talk about some barriers to use that are specific to the types of data that are less frequently used, and then I'll describe some of the improvements we've been making and plans for further improvements.
+\fs24 \
+\
+
+\fs40 General barriers
+\fs24 \
+
+\fs40 Starting with general feedback we get from NEON data users. We hear from a lot of people about general technical skills - they see that to work with NEON data successfully, it really helps to have a lot of familiarity with coding and other quantitative skills, and they feel like they're lacking in those areas.
+\fs24 \
+
+\fs40 In terms of reactions to the data, I've grouped a number of things under a general heading of usability. First up, people often tell us they want to see what we would call derived data products, which are calculated from the raw data. We do publish some of these - the reflectance indices from the AOP data, the eddy covariance fluxes - but there are a lot of others, particularly from the observational data, that aren't included in NEON's scope but that people are expressing interest in. Ground-based biomass estimates, diversity indices
+\fs24 \
+\
+
+\fs40 When it comes to data exploration or data navigation, people can be a bit overwhelmed by the large data catalog, it takes people some time just to understand what's available, and then to get familiar with the data organization and formatting. As I'm sure some of you are familiar with, NEON data are packaged in sets by data product, site, and month, and people would like to see more flexibility in data access than that.
+\fs24 \
+
+\fs40 Finally, we hear concerns about gaps in the data, periods of time when data weren't collected or were of lower quality. And I really want to emphasize that all of these things can be inter-related. If you're working with a derived data product, something that's been gap-filled, summarized, or a calculation has been made for you, it's going to be easier and quicker to understand, and it's not going to require as much technical skill to work with. There are aspects of these challenges that are independent, but there are a lot of pieces that are connected.
+\fs24 \
+\
+
+\fs40 Barriers to Aqu data
+\fs24 \
+
+\fs40 Moving on to talk specifically about less-used data. You saw in the earlier presentation that the aquatic data products tend to be less frequently accessed and cited than the terrestrial data products, so we wanted to talk about those data specifically. The initial sensor design for the aquatic sites was the same design across the observatory, but the streams NEON works in cover a wide variety of conditions, and we saw that in some places, the sensors really weren't doing well in high flow events. You've already seen a presentation about the re-design of several sites, so here I'll just talk about the consequences this had for users, in that it resulted in a lot of data gaps. They were seeing missing or poor quality data, and that discouraged data use.
+\fs24 \
+
+\fs40 In addition, partially as a result of those data gaps, and also because of some issues in the cyberinfrastructure system, there was a period of time with very limited data available from the continuous discharge data product. This is one of those derived data products I was talking about, and it's a foundational data product for aquatic systems, that a lot of other analyses rely on. Rolling out the continuous discharge product in 2021 was a really important development to help remove one of those barriers to aquatic data use.
+\fs24 \
+\
+
+\fs40 Aqu data improvements
+\fs24 \
+
+\fs40 Now let's take a look at the aquatic instrument data as a whole, here we're looking at the quality of data across the aquatic sensor system, across the entire observatory. You've heard already about the sensor redesigns, here I'm emphasizing the impact of those redesigns on aquatic data quality. We've seen a large increase in data quality over the last three years, with a dip during the beginning of the pandemic, when sensor maintenance wasn't possible. By now we're reaching our targets for completeness and validity of data, thanks to those redesigns and infrastructure improvements.
+\fs24 \
+\
+
+\fs40 Data releases
+\fs24 \
+
+\fs40 Moving back to a higher level now, and talking about about improvements we've made that affect all the data products, not just aquatic. In 2021 we put out the first NEON data release. What we mean by a data release is a static dataset, that will never change, and is tagged with a DOI. This is incredibly valuable for reproducibility, because it means people can publish on NEON data with a guarantee that the analyses can be repeated on the same data. The current plan is to do this annually, and the second release was published in January this year. This is still a fairly new process for us, so we're actively working on it, with the cyberinfrastructure team working on streamlining release creation, and the science team is working on a more leisurely data review process before the release this coming January.
+\fs24 \
+\
+
+\fs40 neonUtilities
+\fs24 \
+
+\fs40 Important for usability, some of you may be familiar with the neonUtilities package, this is the R package that handles stacking and merging of data across the published data packages for each site and month. We published a version 2.0 of this package in tandem with the publication of the first data release, keeping the data handling systems aligned. This figure shows the number of times the package has been installed each month, for every month since the package was first published. You can see we got a surge at the beginning of the pandemic, which I think you can also see in other data use statistics, people suddenly got interested in public open data when they couldn't travel and couldn't access their field sites. And you can also see the numbers have leveled off since the data release, I think that is primarily because we haven't had to update the package as frequently anymore - the install numbers capture new users, but also existing users who update the package, and it hasn't been necessary to update as frequently in the last year or so.
+\fs24 \
+\
+
+\fs40 AOP viewer
+\fs24 \
+
+\fs40 Another usability improvement you'll see on the data portal, the AOP viewer has some great new added features. You can now see flight lines and NEON sampling locations overlaid on the reflectance images, which is really helpful for orienting NEON data in the landscape. And we're working toward the ability to download AOP data based on selecting a box in the viewer, which is something a lot of our users are very excited to have.
+\fs24 \
+\
+
+\fs40 SAE data
+\fs24 \
+
+\fs40 Going back to what I was saying earlier about data gaps and data quality, this is a look at the impact of improvements in data processing systems and algorithms in the surface-atmosphere exchange data products. The dotted line shows data quality as it was at the last operations review in 2020, and the dashed and solid lines are from release-2021 and release-2022. So you can see there was a big jump up in quality between 2020 and 2021, and we're still improving on that further.
+\fs24 \
+\
+
+\fs40 QSGs
+\fs24 \
+
+\fs40 Helping users to understand and navigate the data. We're publishing a quick start guide for each data product, to make sure people can easily find the most essential information about each data product. These documents won't be comprehensive, they can't be, instead they try to capture the information a user needs to get familiar with the data product and get started with using it. And publishing these is accompanied by a new document viewer on the web page for each data product, where the documents are embedded in the page, so people don't even have to download them to read them and get started.
+\fs24 \
+\
+
+\fs40 ESIIL
+\fs24 \
+
+\fs40 And finally, I wanted to come back to users' concerns about their own technical skills. We're all obviously very excited about the new synthesis center, ESIIL, and we'll be talking about that more in the presentation on community engagement, but here I wanted to emphasize that community skill development and data science training are a huge part of ESIIL's mission, and we're very excited about the ways this center will help to build capacity in the user community.
+\fs24 \
+\
+
+\fs40 And at this point I'll hand it off to Cove to talk more about future plans.
+\fs24 \
+\
+}
