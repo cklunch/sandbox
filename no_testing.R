@@ -1,9 +1,11 @@
 library(devtools)
+library(urlchecker)
 library(neonUtilities)
 setwd("~/GitHub/NEON-OS-data-processing/neonOS")
 install('.')
 library(neonOS)
 check()
+url_check()
 
 
 # removeDups() testing
@@ -118,3 +120,13 @@ div <- loadByProduct(dpID='DP1.10058.001', site='ABBY',
                      package='expanded', check.size=F,
                      token=Sys.getenv('NEON_TOKEN'))
 div.all <- merge(div$div_1m2Data, div$div_10m2Data100m2Data, by='eventID') # NOPE
+
+
+
+
+## taxa
+t <- getTaxonList('FISH')
+t <- getTaxonList('FISH', verbose='true')
+p <- getTaxonList('PLANT', verbose='true', recordReturnLimit=15)
+m <- getTaxonList('SMALL_MAMMAL', stream='false')
+m <- getTaxonList('SMALL_MAMMAL', stream='true')

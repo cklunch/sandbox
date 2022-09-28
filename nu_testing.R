@@ -208,6 +208,17 @@ dum <- stackEddy(c('/Users/clunch/Desktop/filesToStack00200/NEON.D01.HARV.DP4.00
 dum2 <- stackEddy(c('/Users/clunch/Desktop/filesToStack00200/NEON.D01.HARV.DP4.00200.001.2018-06.basic.20190521T201956Z.zip',
                     '/Users/clunch/Desktop/filesToStack00200/NEON.D01.HARV.DP4.00200.001.2018-07.basic.20190521T201600Z.zip'))
 
+clbj <- stackEddy(c('/Users/clunch/Desktop/NEON.D11.CLBJ.DP4.00200.001.nsae.2021-08-18.expanded.20220511T190125Z.h5.gz',
+                    '/Users/clunch/Desktop/NEON.D11.CLBJ.DP4.00200.001.nsae.2021-08-19.expanded.20220511T190309Z.h5.gz'))
+
+clbj <- stackEddy(c('/Users/clunch/Desktop/NEON.D11.CLBJ.DP4.00200.001.nsae.2021-08-18.expanded.20220511T190125Z.h5',
+                    '/Users/clunch/Desktop/NEON.D11.CLBJ.DP4.00200.001.nsae.2021-08-19.expanded.20220511T190309Z.h5'))
+
+foot <- footRaster(c('/Users/clunch/Desktop/NEON.D11.CLBJ.DP4.00200.001.nsae.2021-08-18.expanded.20220511T190125Z.h5',
+                     '/Users/clunch/Desktop/NEON.D11.CLBJ.DP4.00200.001.nsae.2021-08-19.expanded.20220511T190309Z.h5'))
+
+
+
 # Steph incomplete data problem
 apl_allTabs <- loadByProduct(dpID = "DP1.20066.001",
                              site = "TOOK",
