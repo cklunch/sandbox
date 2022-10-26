@@ -69,6 +69,10 @@ loc <- jsonlite::fromJSON(httr::content(req, as='text', encoding='UTF-8'))
 
 req <- httr::GET("http://data.neonscience.org/api/v0/locations/S2LOC100103")
 
+# megapit locations
+mp <- loadByProduct(dpID='DP1.00096.001')
+mpl <- getLocByName(mp$mgp_permegapit, locCol='pitNamedLocation', locOnly=T)
+
 
 # #SOILAR100590 TOWER100594
 # req <- httr::GET("http://data.neonscience.org/api/v0/locations/CFGLOC103160")
