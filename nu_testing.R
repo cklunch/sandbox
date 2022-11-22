@@ -27,10 +27,44 @@ brd <- loadByProduct(dpID='DP1.10003.001', release='LATEST',
                      token=Sys.getenv('LATEST_TOKEN'), check.size=F)
 
 pr <- loadByProduct(dpID='DP1.00024.001', release='LATEST',
-                     startdate='2020-01', enddate='2020-02',
-                     site=c('TEAK','SJER'),
+                     startdate='2022-09', enddate='2022-10',
+                     site=c('ABBY','BIGC'),
                      token=Sys.getenv('LATEST_TOKEN'), check.size=F)
 
+swss <- loadByProduct(dpID='DP1.00094.001', release='LATEST',
+                    startdate='2022-07', enddate='2022-08',
+                    site=c('DSNY','CPER'),
+                    token=Sys.getenv('LATEST_TOKEN'), check.size=F)
+
+
+# science review flags
+ql <- loadByProduct(dpID='DP1.00066.001', release='LATEST',
+                    startdate='2022-09', enddate='2022-10',
+                    site=c('SERC','WREF'),
+                    token=Sys.getenv('LATEST_TOKEN'), check.size=F)
+
+pcp <- loadByProduct(dpID='DP1.00006.001', release='LATEST',
+                    startdate='2022-07', enddate='2022-10',
+                    site=c('DSNY','HARV'),
+                    token=Sys.getenv('LATEST_TOKEN'), check.size=F)
+
+rad <- loadByProduct(dpID='DP1.00023.001', release='LATEST',
+                    startdate='2022-05', enddate='2022-10',
+                    site=c('BLDE','WREF'),
+                    token=Sys.getenv('LATEST_TOKEN'), check.size=F)
+
+st <- loadByProduct(dpID='DP1.20053.001', release='LATEST',
+                     startdate='2022-01', enddate='2022-02',
+                     site=c('BLDE','ARIK'),
+                     token=Sys.getenv('LATEST_TOKEN'), check.size=F)
+
+eos <- loadByProduct(dpID='DP1.20016.001', release='LATEST',
+                    startdate='2022-01', enddate='2022-01',
+                    site=c('BIGC','WLOU'),
+                    token=Sys.getenv('LATEST_TOKEN'), check.size=F)
+
+
+# other LATEST
 mos <- loadByProduct(dpID='DP1.10043.001', release='LATEST',
                     startdate='2019-01', enddate='2021-12',
                     token=Sys.getenv('LATEST_TOKEN'), check.size=F)
@@ -478,13 +512,17 @@ zipsByProduct(dpID='DP1.10098.001', site=c('WREF','ABBY'), startdate='2019-01',
 stackByTable('/Users/clunch/Desktop/filesToStack10098')
 
 # test Aqu shared site code
-pcp <- loadByProduct(dpID='DP1.00006.001', site=c('KING','BLWA','ARIK','MCRA','PRPO'),
+pcp <- loadByProduct(dpID='DP1.00006.001', site=c('KING','BLDE','ARIK','MCRA','PRPO'),
                      startdate='2019-07', enddate='2019-08', timeIndex=30,
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
-part <- loadByProduct(dpID='DP1.00024.001', site=c('KING','BLWA','ARIK','MCRA','PRPO'),
+part <- loadByProduct(dpID='DP1.00024.001', site=c('KING','BLWA','ARIK','MCRA','TOMB'),
                      startdate='2019-07', enddate='2019-08', timeIndex=30,
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
+# should not alert anything:
+part <- loadByProduct(dpID='DP1.00024.001', site=c('KING','ARIK','MCRA'),
+                      startdate='2019-07', enddate='2019-08', timeIndex=30,
+                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
 # test chem bundle handling
 root <- loadByProduct(dpID='DP1.10102.001') # should error
