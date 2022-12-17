@@ -51,6 +51,16 @@ mam.dup.trap <- removeDups(mam$mam_pertrapnight, variables=mam$variables_10072, 
 
 
 # joinTableNEON() testing
+mam.all <- joinTableNEON(mam.dup.plot, mam.dup.trap, 
+                         name1="mam_perplotnight",
+                         name2="mam_pertrapnight")
+# error for incorrect name inputs
+mam.all <- joinTableNEON(mam.dup.plot, mam.dup.trap, 
+                         name1=mam_perplotnight,
+                         name2=mam_pertrapnight)
+# no names when they're needed
+mam.all <- joinTableNEON(mam.dup.plot, mam.dup.trap)
+
 cfc <- loadByProduct(dpID='DP1.10026.001', check.size=F, 
                      startdate='2019-05', enddate='2021-08',
                      package='expanded', token=Sys.getenv('NEON_TOKEN'))
@@ -130,3 +140,18 @@ t <- getTaxonList('FISH', verbose='true')
 p <- getTaxonList('PLANT', verbose='true', recordReturnLimit=15)
 m <- getTaxonList('SMALL_MAMMAL', stream='false')
 m <- getTaxonList('SMALL_MAMMAL', stream='true')
+
+
+# join recursion
+
+mamdat <- loadByProduct(dpID="DP1.10072.001",
+                        site=c("SCBI", "SRER", "UNDE"),
+                        package="basic",
+                        check.size = FALSE,
+                        startdate = "2021-01",
+                        enddate = "2022-12")
+list2env(mamdat, .GlobalEnv)
+mam_perplotnight <- removeDups(mam_perplotnight, variables=variables_10072)
+mam_pertrapnight <- removeDups(mam_pertrapnight, variables=variables_10072)
+mam.f <- joinTableNEON(mam_perplotnight, mam_pertrapnight)
+
