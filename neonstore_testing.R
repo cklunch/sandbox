@@ -30,6 +30,13 @@ brd <- loadByProduct(dpID='DP1.10003.001', package='expanded',
                      check.size = F, token=Sys.getenv('NEON_TOKEN'))
 setdiff(brdrefs$uid, brd$brd_references$uid)
 
+# AOP download
+neon_download(product="DP1.30006.001",
+              site='SJER',
+              type="expanded",
+              start_date='2021-01-01',
+              end_date='2021-12-31',
+              .token=Sys.getenv('NEON_TOKEN'))
 
 # need to find product with several pub dates and table types
 veg <- loadByProduct(dpID='DP1.10098.001', check.size=F, token=Sys.getenv('NEON_TOKEN'))

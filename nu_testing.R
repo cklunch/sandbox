@@ -351,25 +351,34 @@ iso <- stackEddy('/Users/clunch/Desktop/NEON.D18.TOOL.DP4.00200.001.nsae.2018-07
 del <- stackEddy('/Users/clunch/Desktop/filesToStack00200PUUMAprMay/', 
                  var = 'dlta18OH2oRefe', avg = 9, level = 'dp01')
 
+wnd <- stackEddy(list.files('/Users/clunch/Desktop/filesToStack00200/', pattern='.h5$',
+                            full.names=T), 
+                 var = 'soni', avg = 30, level = 'dp01')
+
 filepath <- '/Users/clunch/Desktop/NEON_eddy-flux.zip'
 level <- 'dp04'
 var <- NA
 avg <- NA
 
 # .gz files for SAE
-zipsByProduct("DP4.00200.001", site = "HARV",
+zipsByProduct("DP4.00200.001", site = "PUUM",
               startdate = "2021-06",
               enddate = "2021-08",
+              release='LATEST',
               savepath = "/Users/clunch/Desktop",
-              check.size = FALSE, token=Sys.getenv('NEON_TOKEN'))
+              check.size = FALSE, 
+              token=Sys.getenv('LATEST_TOKEN'))
 
-zipsByProduct("DP4.00200.001", site = "PUUM",
-              #startdate = "2018-01",
-              #enddate = "2018-12",
+zipsByProduct("DP4.00200.001", site = c("MOAB","PUUM"),
+              startdate = "2021-05",
+              enddate = "2021-07",
+              release = "LATEST",
               savepath = "/Users/clunch/Desktop",
-              check.size = FALSE, token=Sys.getenv('NEON_TOKEN'))
+              check.size = FALSE, 
+              token=Sys.getenv('LATEST_TOKEN'))
 
 flux <- stackEddy('/Users/clunch/Desktop/filesToStack00200/', level='dp04')
+flux <- stackEddy('/Users/clunch/Desktop/PUUM_flux_files/', level='dp04')
 flux <- stackEddy(filepath = list.files('/Users/clunch/Desktop/filesToStack00200/', 
                                         pattern='[.]h5', full.names = T))
 dp1 <- stackEddy('/Users/clunch/Desktop/filesToStack00200/', level='dp01', avg=2, var='co2Stor')
@@ -506,6 +515,9 @@ byFileAOP(dpID='DP3.30015.001', site='SJER', year=2017,
 
 byFileAOP(dpID='DP3.30025.001', site='SCBI', year=2017, 
           savepath='/Users/clunch/Desktop', token=Sys.getenv('NEON_TOKEN'))
+
+byFileAOP(dpID='DP1.30006.001', site='SJER', year=2021, 
+          savepath='/Users/clunch/Dropbox/data/NEON data/AOP/', token=Sys.getenv('NEON_TOKEN'))
 
 zipsByProduct(dpID='DP1.10098.001', site=c('WREF','ABBY'), startdate='2019-01',
               savepath='/Users/clunch/Desktop', token=Sys.getenv('NEON_TOKEN'))
@@ -659,7 +671,7 @@ pr <- loadByProduct(dpID='DP1.00024.001', site=c('WREF','ABBY'),
               startdate='2019-12', enddate='2020-08')
 
 saat <- loadByProduct(dpID='DP1.00002.001', site=c('CPER','NIWO'),
-                      startdate='2020-02', enddate='2020-12',
+                      startdate='2020-10', enddate='2020-12',
                       check.size=F)
 
 tick <- loadByProduct(dpID='DP1.10093.001', site=c('WREF','ABBY'),
@@ -667,11 +679,23 @@ tick <- loadByProduct(dpID='DP1.10093.001', site=c('WREF','ABBY'),
 
 brd <- loadByProduct(dpID='DP1.10003.001', check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
+ltr <- loadByProduct(dpID='DP1.10033.001', 
+                     startdate='2020-02', enddate='2022-12',
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+div <- loadByProduct(dpID='DP1.10058.001', 
+                     startdate='2020-02', enddate='2022-12',
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+veg <- loadByProduct(dpID='DP1.10098.001', 
+                     startdate='2020-02', enddate='2022-12',
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
 cfc <- loadByProduct(dpID='DP1.10026.001', package='expanded', 
                      check.size=F, nCores=1, token=Sys.getenv('NEON_TOKEN'))
 
 cfc <- loadByProduct(dpID='DP1.10026.001', package='expanded', 
-                     startdate='2018-01', enddate='2018-12',
+                     startdate='2020-01', enddate='2022-12',
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
 gwe <- loadByProduct(dpID='DP1.20100.001', site=c('MART','WLOU'),
@@ -775,13 +799,13 @@ zipsByProduct(dpID = "DP1.20288.001",
 stackByTable('/Users/clunch/Desktop/filesToStack20288')
 stackByTable('/Users/clunch/Desktop/NEON_water-quality.zip')
 
-zipsByProduct(dpID='DP1.00024.001', site=c('WREF','ABBY'),
+zipsByProduct(dpID='DP1.00041.001', site=c('WREF','ABBY'),
               startdate='2019-07', enddate='2019-09',
               savepath='/Users/clunch/Desktop',
               check.size=F)
-pr <- stackByTable('/Users/clunch/Desktop/filesToStack00024', nCores=1,
+pr <- stackByTable('/Users/clunch/Desktop/filesToStack00041', nCores=1,
                    saveUnzippedFiles=T, savepath='envt')
-stackByTable('/Users/clunch/Desktop/filesToStack00024')
+stackByTable('/Users/clunch/Desktop/filesToStack00041')
 
 zipsByProduct(dpID='DP1.00002.001', site=c('ARIK','CPER'),
               #startdate='2019-07', enddate='2019-08',
@@ -842,16 +866,28 @@ zipsByProduct(dpID='DP1.10092.001', site='KONZ',
               savepath='/Users/clunch/Desktop',
               check.size=F, token=Sys.getenv('NEON_TOKEN'))
 stackByTable('/Users/clunch/Desktop/filesToStack10092')
+# check release tag usage
+zipsByProduct(dpID='DP1.10092.001', site='KONZ',
+              savepath='/Users/clunch/Desktop',
+              release='RELEASE-2022',
+              check.size=F, token=Sys.getenv('NEON_TOKEN'))
+zipsByProduct(dpID='DP1.10092.001', site='KONZ',
+              savepath='/Users/clunch/Desktop',
+              release='garbage',
+              check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
 
 zipsByProduct(dpID='DP1.10081.001', site='KONZ',
               savepath='/Users/clunch/Desktop',
+              startdate='2018-01', enddate='2018-12',
               package='expanded',
               check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
-zipsByProduct(dpID='DP1.20066.001', site='TOOK',
+zipsByProduct(dpID='DP1.20126.001', site='TOOK',
               savepath='/Users/clunch/Desktop',
               package='expanded',
-              check.size=F, token=Sys.getenv('NEON_TOKEN'))
+              release='LATEST',
+              check.size=F, token=Sys.getenv('LATEST_TOKEN'))
 stackByTable('/Users/clunch/Desktop/filesToStack20066')
 
 zipsByProduct(dpID='DP1.00017.001', site=c('RMNP','CPER','ONAQ'),
@@ -877,7 +913,10 @@ flux <- stackEddy('/Users/clunch/Desktop/filesToStack00200TEAK/')
 flux <- stackEddy('/Users/clunch/Desktop/NEON_eddy-flux.zip')
 
 pres <- stackEddy(filepath='/Users/clunch/Desktop/filesToStack00200/', 
-                  level = "dp01", var = "presAtm", avg = 30)
+                  level = "dp01", var = "presAtm", avg = 30, metadata=T)
+
+carb <- stackEddy(filepath='/Users/clunch/Desktop/filesToStack00200/', 
+                  level = "dp01", var = "co2Turb", avg = 1, metadata=T)
 
 
 pres <- loadByProduct(dpID = "DP1.00004.001", site = "PUUM", 
@@ -888,7 +927,11 @@ pres <- loadByProduct(dpID = "DP1.00004.001", site = "PUUM",
 zipsByProduct(dpID='DP4.00200.001', site='WREF', startdate='2019-07', enddate='2019-09',
               savepath='/Users/clunch/Desktop', package='expanded',
               token=Sys.getenv('NEON_TOKEN'))
-flux <- stackEddy('/Users/clunch/Desktop/filesToStack00200WREF_expanded')
+flux <- stackEddy('/Users/clunch/Desktop/expanded00200')
+flux <- stackEddy('/Users/clunch/Desktop/expanded00200', metadata=T)
+carb <- stackEddy(filepath='/Users/clunch/Desktop/expanded00200/', 
+                  level = "dp01", var = "co2Turb", avg = 1, metadata=T)
+
 foot <- footRaster('/Users/clunch/Desktop/NEON.D18.TOOL.DP4.00200.001.nsae.2018-07-19.expanded.h5')
 raster::filledContour(foot$TOOL.summary, col=topo.colors(24), 
                       levels=0.001*0:24)
@@ -1026,3 +1069,18 @@ zipsByProduct(dpID='DP4.00200.001', site='TEAK', startdate='2020-06', enddate='2
               token=Sys.getenv('NEON_TOKEN'))
 ft <- footRaster('/Users/clunch/Desktop/filesToStack00200/NEON.D17.TEAK.DP4.00200.001.2020-07.expanded.20220120T173946Z.RELEASE-2022/NEON.D17.TEAK.DP4.00200.001.nsae.2020-07-19.expanded.20211214T215846Z.h5')
 raster::extent(ft)
+
+
+# API errors
+req <- httr::GET('https://data.neonscience.org/api/v0/data/DP1.30003.001/TREE/2022-06')
+av <- jsonlite::fromJSON(httr::content(req, as='text'))
+length(grep('\\s', av$data$files$name))
+length(av$data$files$name)
+for(i in 1:nrow(av$data$files)) {
+  res <- try(httr::HEAD(av$data$files$url[i]), silent=T)
+  if(inherits(res, 'try-error')) {
+    print(av$data$files$name[i])
+  }
+}
+
+
