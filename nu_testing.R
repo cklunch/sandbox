@@ -1,6 +1,6 @@
 library(devtools)
 setwd("/Users/clunch/GitHub/NEON-utilities/neonUtilities")
-#install_github('NEONScience/NEON-utilities/neonUtilities', ref='master')
+#install_github('NEONScience/NEON-utilities/neonUtilities', ref='main')
 
 install('.')
 library(neonUtilities)
@@ -370,9 +370,9 @@ zipsByProduct("DP4.00200.001", site = "PUUM",
               token=Sys.getenv('LATEST_TOKEN'))
 
 zipsByProduct("DP4.00200.001", site = c("MOAB","PUUM"),
-              startdate = "2021-05",
-              enddate = "2021-07",
-              release = "LATEST",
+              startdate = "2022-05",
+              enddate = "2022-07",
+              release = "current",
               savepath = "/Users/clunch/Desktop",
               check.size = FALSE, 
               token=Sys.getenv('LATEST_TOKEN'))
@@ -383,6 +383,45 @@ flux <- stackEddy(filepath = list.files('/Users/clunch/Desktop/filesToStack00200
                                         pattern='[.]h5', full.names = T))
 dp1 <- stackEddy('/Users/clunch/Desktop/filesToStack00200/', level='dp01', avg=2, var='co2Stor')
 dp1$HARV$hour <- paste(lubridate::date(dp1$HARV$timeBgn), lubridate::hour(dp1$HARV$timeBgn), sep=".")
+
+Sys.time()
+dp1 <- stackEddy('/Users/clunch/Desktop/filesToStack00200/', level='dp01', avg=30)
+Sys.time()
+# v2.2.3.9000: 11.5 minutes
+# with pre-ordering tables: 11 minutes
+# using merge.data.table: 5.4 minutes
+# moving eddyStampCheck() before stacking: still 5.4 minutes
+# join first, then stack: 4.1 minutes
+
+Sys.time()
+dp1 <- stackEddy('/Users/clunch/Desktop/filesToStack00200/', level='dp01', avg=30, useFasttime=T)
+Sys.time()
+
+# with fasttime: 1.9 minutes
+
+chg <- stackEddy('/Users/clunch/Desktop/filesToStack00200/', level='dp03', avg=30, useFasttime=T)
+dp2 <- stackEddy('/Users/clunch/Desktop/filesToStack00200/', level='dp02', avg=30, useFasttime=T)
+
+Sys.time()
+isoTest <- stackEddy(filepath = '/Users/clunch/Desktop/filesToStack00200/', 
+                     level = "dp01", 
+                     var = c("dlta13CCo2","dlta18OH2o"), 
+                     avg = "09", metadata=T)
+Sys.time()
+# 2.3.0.9200: 14 seconds
+# v2.2.1: 14 seconds
+
+Sys.time()
+flux <- stackEddy('/Users/clunch/Desktop/expanded00200/', 
+                  level='dp04', metadata=T, useFasttime=T)
+Sys.time()
+iso <- stackEddy('/Users/clunch/Desktop/expanded00200/',
+                 level="dp01", avg=30, var=c("dlta13CCo2","dlta18OH2o"), 
+                 metadata=T, useFasttime=T)
+Sys.time()
+
+fx <- stackEddy('/Users/clunch/Desktop/NEON_eddy-flux.zip', level='dp04')
+fx <- stackEddy('/Users/clunch/Desktop/NEON_eddy-flux/', level='dp04')
 
 # fancy figures for ambassadors
 g <- ggplot(subset(dp1$HARV, !verticalPosition %in% c("co2Zero","co2Med","co2Low","co2High") & 
@@ -458,6 +497,38 @@ raster::filledContour(foot$X.Users.clunch.Desktop.filesToStack00200.NEON.D19.BON
                       xlim=c(475000,478000),
                       ylim=c(7224000,7227000))
 
+
+# testing for stackEddy() duplication
+dp1 <- stackEddy('/Users/clunch/Desktop/filesToStack00200/', level='dp01', avg=30)
+which(duplicated(dp1$MOAB[,c('horizontalPosition','verticalPosition','timeBgn')]))
+
+dp1.1 <- stackEddy(c('/Users/clunch/Desktop/filesToStack00200/NEON.D20.PUUM.DP4.00200.001.nsae.2022-06.basic.20221215T172444Z.h5',
+                     '/Users/clunch/Desktop/filesToStack00200/NEON.D20.PUUM.DP4.00200.001.nsae.2022-07.basic.20220808T195138Z.h5'), 
+                   level='dp01', avg=1, useFasttime=T)
+which(duplicated(dp1.1$PUUM[,c('horizontalPosition','verticalPosition','timeBgn')]))
+dp.dup <- dp1.1$PUUM[which(duplicated(dp1.1$PUUM[,c('horizontalPosition','verticalPosition','timeBgn')])),]
+
+isoTest <- stackEddy(filepath = '/Users/clunch/Desktop/filesToStack00200/', 
+                     level = "dp01", 
+                     var = c("dlta13CCo2","dlta18OH2o"), 
+                     avg = "09", useFasttime=T)
+isoTest <- stackEddy(filepath = '/Users/clunch/Desktop/NEON_eddy-flux/', 
+                     level = "dp01", 
+                     var = c("dlta13CCo2","dlta18OH2o"), 
+                     avg = 9, useFasttime=T)
+which(duplicated(isoTest$SJER[,c('horizontalPosition','verticalPosition','timeBgn')]))
+# BAD!
+# same in v2.2.1
+# this is happening because 13C data have been moved to a 6-min sampling interval, but 
+# tables are still named 9min. Tables will be renamed in RELEASE-2024
+# for 2022-05 to -07 PUUM, the timeBgn stamps also don't match, so it's fine
+
+
+# citation
+stackByTable('/Users/clunch/Desktop/NEON_count-plant-aqu.zip')
+stackByTable('/Users/clunch/Desktop/NEON_pressure-air.zip')
+
+
 stackByTable('/Users/clunch/Desktop/NEON_par-quantum-line.zip')
 stackByTable('/Users/clunch/Desktop/NEON_gp.zip')
 stackByTable('/Users/clunch/Downloads/NEON_pressure-air (1).zip')
@@ -510,7 +581,7 @@ byTileAOP(dpID='DP3.30015.001', site='CPER', year=2020,
           northing = c(4513400,4518400), 
           savepath='/Users/clunch/Desktop', token=Sys.getenv('NEON_TOKEN'))
 
-byFileAOP(dpID='DP3.30015.001', site='SJER', year=2017, 
+byFileAOP(dpID='DP3.30015.001', site='STEI', year=2022, 
           savepath='/Users/clunch/Desktop', token=Sys.getenv('NEON_TOKEN'))
 
 byFileAOP(dpID='DP3.30025.001', site='SCBI', year=2017, 
@@ -519,7 +590,13 @@ byFileAOP(dpID='DP3.30025.001', site='SCBI', year=2017,
 byFileAOP(dpID='DP1.30006.001', site='SJER', year=2021, 
           savepath='/Users/clunch/Dropbox/data/NEON data/AOP/', token=Sys.getenv('NEON_TOKEN'))
 
-zipsByProduct(dpID='DP1.10098.001', site=c('WREF','ABBY'), startdate='2019-01',
+zipsByProduct(dpID='DP1.10098.001', site=c('WREF','ABBY'), 
+              startdate='2019-01', enddate='2019-12',
+              savepath='/Users/clunch/Desktop', token=Sys.getenv('NEON_TOKEN'))
+stackByTable('/Users/clunch/Desktop/filesToStack10098')
+
+zipsByProduct(dpID='DP1.10098.001', site=c('WREF','ABBY'), 
+              startdate='2019-01', enddate='2019-12', release='RELEASE-2022',
               savepath='/Users/clunch/Desktop', token=Sys.getenv('NEON_TOKEN'))
 stackByTable('/Users/clunch/Desktop/filesToStack10098')
 
@@ -586,11 +663,12 @@ rea <- loadByProduct(dpID='DP1.20190.001', site='WALK', check.size=F)
 zipsByProduct(dpID='DP1.20190.001', savepath='/Users/clunch/Desktop')
 
 tpth <- loadByProduct(dpID='DP1.10092.001', site=c('KONZ','KONA'), startdate='2015-01',
-                      enddate='2019-12', check.size=F, token=Sys.getenv('NEON_TOKEN'))
+                      enddate='2019-12', check.size=F, token=Sys.getenv('NEON_TOKEN'),
+                      useFasttime=T)
 
 waq <- loadByProduct(dpID='DP1.20288.001', site=c('ARIK','HOPB'), 
-                     startdate='2020-09', enddate='2020-12', 
-                     package='expanded', check.size=F)
+                     startdate='2022-09', enddate='2022-11', 
+                     package='expanded', check.size=F, useFasttime=T)
 
 byTileAOP(dpID = "DP3.30006.001", site = "ORNL", year = "2016", 
           easting = 744000, northing = 983000, check.size = FALSE)
@@ -637,10 +715,23 @@ byTileAOP(dpID='DP3.30025.001', site='SUGG', year=2018,
 # test for Blandy UTM zones
 veg <- loadByProduct(dpID='DP1.10098.001', site='BLAN', check.size=F)
 veg.loc <- geoNEON::getLocTOS(veg$vst_mappingandtagging, 'vst_mappingandtagging')
+veg.temp <- geoNEON::getLocByName(veg$vst_mappingandtagging, locCol='namedLocation', locOnly=T)
 ea <- veg.loc$adjEasting[which(!is.na(veg.loc$adjEasting))]
 no <- veg.loc$adjNorthing[which(!is.na(veg.loc$adjNorthing))]
+ea <- veg.temp$easting
+no <- veg.temp$northing
 byTileAOP(dpID='DP3.30015.001', site='BLAN', year=2017, 
           easting=ea, northing=no, buffer=10, savepath='/Users/clunch/Desktop')
+# I got 5 tiles. Is that right??
+blan1 <- terra::rast('/Users/clunch/Desktop/DP3.30015.001/neon-aop-products/2017/FullSite/D02/2017_BLAN_2/L3/DiscreteLidar/CanopyHeightModelGtif/NEON_D02_BLAN_DP3_752000_4327000_CHM.tif')
+blan2 <- terra::rast('/Users/clunch/Desktop/DP3.30015.001/neon-aop-products/2017/FullSite/D02/2017_BLAN_2/L3/DiscreteLidar/CanopyHeightModelGtif/NEON_D02_BLAN_DP3_753000_4327000_CHM.tif')
+blan3 <- terra::rast('/Users/clunch/Desktop/DP3.30015.001/neon-aop-products/2017/FullSite/D02/2017_BLAN_2/L3/DiscreteLidar/CanopyHeightModelGtif/NEON_D02_BLAN_DP3_761000_4330000_CHM.tif')
+blan4 <- terra::rast('/Users/clunch/Desktop/DP3.30015.001/neon-aop-products/2017/FullSite/D02/2017_BLAN_2/L3/DiscreteLidar/CanopyHeightModelGtif/NEON_D02_BLAN_DP3_762000_4330000_CHM.tif')
+blan5 <- terra::rast('/Users/clunch/Desktop/DP3.30015.001/neon-aop-products/2017/FullSite/D02/2017_BLAN_2/L3/DiscreteLidar/CanopyHeightModelGtif/NEON_D02_BLAN_DP3_763000_4330000_CHM.tif')
+blan <- terra::merge(blan1, blan2, blan3, blan4, blan5)
+terra::plot(blan)
+# yes, this is right
+
 
 # test for data download that should take >1 hour
 Sys.time()
@@ -671,13 +762,19 @@ pr <- loadByProduct(dpID='DP1.00024.001', site=c('WREF','ABBY'),
               startdate='2019-12', enddate='2020-08')
 
 saat <- loadByProduct(dpID='DP1.00002.001', site=c('CPER','NIWO'),
-                      startdate='2020-10', enddate='2020-12',
+                      startdate='2022-05', enddate='2022-08',
                       check.size=F)
 
 tick <- loadByProduct(dpID='DP1.10093.001', site=c('WREF','ABBY'),
-                    startdate='2019-07', enddate='2020-08', check.size=F)
+                    startdate='2021-07', enddate='2022-06', check.size=F)
+tick <- loadByProduct(dpID='DP1.10093.001', site=c('WREF','ABBY'),
+                      startdate='2021-07', enddate='2022-06', 
+                      include.provisional=T, check.size=F)
 
 brd <- loadByProduct(dpID='DP1.10003.001', check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+brd <- loadByProduct(dpID='DP1.10003.001', site=c('WREF','ABBY'), package='expanded',
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
 ltr <- loadByProduct(dpID='DP1.10033.001', 
                      startdate='2020-02', enddate='2022-12',
@@ -808,7 +905,7 @@ pr <- stackByTable('/Users/clunch/Desktop/filesToStack00041', nCores=1,
 stackByTable('/Users/clunch/Desktop/filesToStack00041')
 
 zipsByProduct(dpID='DP1.00002.001', site=c('ARIK','CPER'),
-              #startdate='2019-07', enddate='2019-08',
+              startdate='2019-07', enddate='2019-08',
               savepath='/Users/clunch/Desktop',
               avg=30, check.size=F)
 stackByTable('/Users/clunch/Desktop/filesToStack00002', nCores=1)
@@ -866,6 +963,14 @@ zipsByProduct(dpID='DP1.10092.001', site='KONZ',
               savepath='/Users/clunch/Desktop',
               check.size=F, token=Sys.getenv('NEON_TOKEN'))
 stackByTable('/Users/clunch/Desktop/filesToStack10092')
+filepath <- '/Users/clunch/Desktop/filesToStack10092'
+savepath <- NA
+folder <- F
+saveUnzippedFiles <- T
+dpID <- NA
+package <- NA
+nCores <- 1
+
 # check release tag usage
 zipsByProduct(dpID='DP1.10092.001', site='KONZ',
               savepath='/Users/clunch/Desktop',
@@ -918,6 +1023,17 @@ pres <- stackEddy(filepath='/Users/clunch/Desktop/filesToStack00200/',
 carb <- stackEddy(filepath='/Users/clunch/Desktop/filesToStack00200/', 
                   level = "dp01", var = "co2Turb", avg = 1, metadata=T)
 
+carb <- stackEddy(filepath='/Users/clunch/Desktop/filesToStack00200/', 
+                  level = "dp01", var = "co2Turb", avg = 1, metadata=F)
+
+presExp <- stackEddy(filepath='/Users/clunch/Desktop/expanded00200/', 
+                  level = "dp01", var = "presAtm", avg = 30, metadata=T)
+
+# can't mix basic and expanded files
+dum <- stackEddy(filepath='/Users/clunch/Desktop/mixed_files/',
+                 level='dp04', metadata=T)
+
+
 
 pres <- loadByProduct(dpID = "DP1.00004.001", site = "PUUM", 
                       startdate = '2021-01', enddate = '2021-12', 
@@ -932,8 +1048,8 @@ flux <- stackEddy('/Users/clunch/Desktop/expanded00200', metadata=T)
 carb <- stackEddy(filepath='/Users/clunch/Desktop/expanded00200/', 
                   level = "dp01", var = "co2Turb", avg = 1, metadata=T)
 
-foot <- footRaster('/Users/clunch/Desktop/NEON.D18.TOOL.DP4.00200.001.nsae.2018-07-19.expanded.h5')
-raster::filledContour(foot$TOOL.summary, col=topo.colors(24), 
+foot <- footRaster('/Users/clunch/Desktop/expanded00200/NEON.D16.WREF.DP4.00200.001.nsae.2019-07-17.expanded.20221209T034753Z.h5')
+terra::plot(foot$WREF.summary, col=topo.colors(24), 
                       levels=0.001*0:24)
 
 # footRaster() on zipped files (not actually designed for this, only works on first pass):

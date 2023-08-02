@@ -155,3 +155,16 @@ mam_perplotnight <- removeDups(mam_perplotnight, variables=variables_10072)
 mam_pertrapnight <- removeDups(mam_pertrapnight, variables=variables_10072)
 mam.f <- joinTableNEON(mam_perplotnight, mam_pertrapnight)
 
+
+apc_allTabs <- loadByProduct(
+  dpID='DP1.20072.001',
+  check.size=F, 
+  site = "all",
+  package='expanded',
+  startdate = '2021-07',
+  enddate = '2021-07',
+  token = Sys.getenv('NEON_TOKEN'))
+list2env(apc_allTabs, envir=.GlobalEnv)
+removeDups(data = apc_taxonomyRaw, variables = variables_20072)
+
+View(apc_taxonomyRaw)
