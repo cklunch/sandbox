@@ -6,6 +6,7 @@ install('.')
 library(neonUtilities)
 check()
 options(stringsAsFactors = F)
+urlchecker::url_check('.')
 
 setwd("~/GitHub/utilities-test-suite/testUtilities")
 test()
@@ -95,6 +96,33 @@ timeIndex <- 'all'
 tabl <- 'all'
 
 
+
+byFileAOP(dpID='DP3.30019.001', site='TREE', year=2017, savepath='/Users/clunch/Desktop')
+byFileAOP(dpID='DP3.30019.001', site='TREE', year=2017, 
+          savepath='/Users/clunch/Desktop', include.provisional=T)
+byFileAOP(dpID='DP3.30019.001', site='MCDI', year=2020, savepath='/Users/clunch/Desktop')
+
+byTileAOP(dpID = "DP3.30006.001", site = "WREF", year = "2017", 
+          easting = c(571000,578000), 
+          northing = c(5079000,5080000), 
+          savepath='/Users/clunch/Desktop')
+byTileAOP(dpID = "DP3.30015.001", site = "WREF", year = 2022, 
+          easting = c(571000,578000), 
+          northing = c(5079000,5080000), 
+          savepath='/Users/clunch/Desktop')
+byTileAOP(dpID = "DP3.30015.001", site = "WREF", year = 2022, 
+          easting = c(571000,578000), 
+          northing = c(5079000,5080000), 
+          include.provisional = T,
+          savepath='/Users/clunch/Desktop')
+
+
+zipsByProduct(dpID='DP1.20190.001', site='OKSR', 
+              startdate='2019-01', enddate='2020-12',
+              package='expanded', savepath='/Users/clunch/Desktop',
+              check.size=F)
+# manually added data frame files
+r <- stackByTable('/Users/clunch/Desktop/filesToStack20190/', savepath='envt')
 
 
 deflag <- stackEddy('/Users/clunch/Desktop/deflagging/', level='dp01', var='isoCo2', avg=30)
@@ -250,6 +278,10 @@ clbj <- stackEddy(c('/Users/clunch/Desktop/NEON.D11.CLBJ.DP4.00200.001.nsae.2021
 
 foot <- footRaster(c('/Users/clunch/Desktop/NEON.D11.CLBJ.DP4.00200.001.nsae.2021-08-18.expanded.20220511T190125Z.h5',
                      '/Users/clunch/Desktop/NEON.D11.CLBJ.DP4.00200.001.nsae.2021-08-19.expanded.20220511T190309Z.h5'))
+
+# methane
+meth <- stackEddy('/Users/clunch/Desktop/filesToStack00200', level='dp01',
+                  var='ch4Conc', avg=30)
 
 
 
@@ -752,8 +784,8 @@ csd <- loadByProduct(dpID='DP4.00130.001', site=c('WLOU','BLUE'),
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
 st <- loadByProduct(dpID='DP1.20206.001', token=Sys.getenv('NEON_TOKEN'))
-st <- loadByProduct(dpID='DP1.20206.001', startdate='2017-01', 
-                    enddate='2017-12', token=Sys.getenv('NEON_TOKEN'),
+st <- loadByProduct(dpID='DP1.20206.001', startdate='2020-05', 
+                    enddate='2021-07', token=Sys.getenv('NEON_TOKEN'),
                     check.size=F)
 
 fs <- loadByProduct(dpID='DP1.30012.001', check.size=F)
@@ -767,6 +799,10 @@ saat <- loadByProduct(dpID='DP1.00002.001', site=c('CPER','NIWO'),
 
 tick <- loadByProduct(dpID='DP1.10093.001', site=c('WREF','ABBY'),
                     startdate='2021-07', enddate='2022-06', check.size=F)
+tick <- loadByProduct(dpID='DP1.10093.001', site=c('WREF','ABBY'),
+                      startdate='2021-01', enddate='2021-12', check.size=F)
+tick <- loadByProduct(dpID='DP1.10093.001', site=c('WREF','ABBY'),
+                      startdate='2022-01', enddate='2022-12', check.size=F)
 tick <- loadByProduct(dpID='DP1.10093.001', site=c('WREF','ABBY'),
                       startdate='2021-07', enddate='2022-06', 
                       include.provisional=T, check.size=F)

@@ -57,7 +57,7 @@ reaRate::bkgd.salt.conc.plot(inputFile = plotsOut,
                              savePlotPath = plotPath)
 
 # modification to get back to correct format
-hobo <- merge(reaInputList$rea_conductivityFieldData, reaInputList$per_sample, 
+hobo <- merge(reaInputList$rea_conductivityFieldData, reaInputList$rea_conductivityRawData, 
               by.x="hoboSampleID", by.y="hoboSampleId")
 
 reaRatesTrvlTime <- reaRate::def.calc.trvl.time(inputFile = plotsOut,
