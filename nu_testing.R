@@ -8,7 +8,7 @@ check()
 options(stringsAsFactors = F)
 urlchecker::url_check('.')
 
-setwd("~/GitHub/utilities-test-suite/testUtilities")
+setwd("/Users/clunch/GitHub/utilities-test-suite/testUtilities")
 test()
 
 
@@ -810,6 +810,10 @@ tick <- loadByProduct(dpID='DP1.10093.001', site=c('WREF','ABBY'),
 brd <- loadByProduct(dpID='DP1.10003.001', check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
 brd <- loadByProduct(dpID='DP1.10003.001', site=c('WREF','ABBY'), package='expanded',
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+brd.p <- loadByProduct(dpID='DP1.10003.001', site=c('WREF','ABBY'), package='expanded',
+                     include.provisional=TRUE,
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
 ltr <- loadByProduct(dpID='DP1.10033.001', 
