@@ -17,7 +17,7 @@ tableResult <- data.frame(tableResult)
 names(tableResult) <- c('dpID', 'table', 'records', 'duplicates')
 #tableResult <- read.csv('/Users/clunch/GitHub/sandbox/data_availability/duplicate_rate/tableResults.csv')
 
-for(i in c(65:length(deflist))) {
+for(i in c(10:length(deflist))) {
 
   vars <- read.delim(paste(wd, deflist[i], sep='/'), sep='\t')
   dpID <- substring(unique(vars$dpID), 15, 28)
@@ -40,15 +40,17 @@ for(i in c(65:length(deflist))) {
     
     if(j %in% c('rea_conductivityFieldData','sbd_conductivityFieldData') | 
        length(grep('variables', j))>0 | length(grep('validation', j))>0 | 
-       length(grep('readme', j))>0 | length(grep('categoricalCodes', j))>0) {
+       length(grep('readme', j))>0 | length(grep('categoricalCodes', j))>0 |
+       length(grep('citation', j))>0 | length(grep('issueLog', j))>0) {
       next
     }
     
-    datList[[j]] <- datList[[j]][,-which(names(datList[[j]])=='publicationDate')]
+    #datList[[j]] <- datList[[j]][,-which(names(datList[[j]])=='publicationDate' |
+    #                                       names(datList[[j]])=='release')]
     
     datListDup <- try(removeDups(datList[[j]], 
-                                 vars, 
-                                 paste(j, '_pub', sep='')), silent=T)
+                                 datList[[grep('variables', names(datList))]], 
+                                 j), silent=T)
     
     if(class(datListDup)=='try-error') {
       dupres <- c(dpID, j, datListDup[1], '')
