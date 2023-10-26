@@ -17,7 +17,7 @@ tableResult <- data.frame(tableResult)
 names(tableResult) <- c('dpID', 'table', 'records', 'duplicates')
 #tableResult <- read.csv('/Users/clunch/GitHub/sandbox/data_availability/duplicate_rate/tableResults.csv')
 
-for(i in c(10:length(deflist))) {
+for(i in c(77:length(deflist))) {
 
   vars <- read.delim(paste(wd, deflist[i], sep='/'), sep='\t')
   dpID <- substring(unique(vars$dpID), 15, 28)

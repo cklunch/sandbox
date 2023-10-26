@@ -70,16 +70,16 @@
 "DP1.10022.001","bet_sorting","48364","0"
 "DP1.10003.001","brd_countdata","87727","174"
 "DP1.10003.001","brd_perpoint","6249","0"
-"DP1.10003.001","brd_personnel","Error in removeDups(datList[[j]], datList[[grep(\"variables\", names(datList))]],  : 
+"DP1.10003.001","brd_personnel","Error in removeDups(datList[[j]], datList[[grep(\variables\, names(datList))]],  : 
   Data contain records with identical uid but differing data values. This indicates something has gone wrong with the data post-download.
 Start over with a fresh download of the current data.
-",""
+",NA
 "DP1.10003.001","brd_references","300","2"
 "DP1.10014.001","cdw_densitydisk","1037","12"
 "DP1.10014.001","cdw_densitylog","560","2"
-"DP1.10010.001","cdw_fieldtally","Error in removeDups(datList[[j]], datList[[grep(\"variables\", names(datList))]],  : 
+"DP1.10010.001","cdw_fieldtally","Error in removeDups(datList[[j]], datList[[grep(\variables\, names(datList))]],  : 
   Input data appear to be the basic download package. The expanded data package is required for removeDups() to identify all duplicates correctly.
-",""
+",NA
 "DP1.10026.001","bgc_CNiso_externalSummary","60","0"
 "DP1.10026.001","cfc_carbonNitrogen","590","0"
 "DP1.10026.001","cfc_chemistrySubsampling","552","0"
@@ -96,7 +96,7 @@ Start over with a fresh download of the current data.
 "DP1.20254.001","dep_profileData","2615","0"
 "DP1.20254.001","dep_profileHeader","273","0"
 "DP1.20252.001","dep_secchi","273","0"
-"DP1.10017.001","","No data found for 2017-05 to 2018-08",""
+"DP1.10017.001","","No data found for 2017-05 to 2018-08",NA
 "DP1.10058.001","div_10m2Data100m2Data","173297","241"
 "DP1.10058.001","div_1m2Data","280491","1563"
 "DP1.10058.001","div_geneticarchive","1463","0"
@@ -119,7 +119,7 @@ Start over with a fresh download of the current data.
 "DP1.20107.001","fsh_morphospecies","9","0"
 "DP1.20107.001","fsh_perFish","20685","1962"
 "DP1.20107.001","fsh_perPass","766","79"
-"DP1.30012.001","","No data found for 2017-05 to 2018-08",""
+"DP1.30012.001","","No data found for 2017-05 to 2018-08",NA
 "DP1.20267.001","gag_fieldData","1998","5"
 "DP4.00131.001","geo_featureInfo","222","5"
 "DP4.00131.001","geo_mappedPointErrors","459","2"
@@ -136,12 +136,12 @@ Start over with a fresh download of the current data.
 "DP1.20092.001","gwc_fieldSuperParent","237","0"
 "DP1.20092.001","gwc_wellStabilization","842","9"
 "DP1.20092.001","swc_externalLabSummaryData","80","0"
-"DP1.10023.001","hbp_massdata","Error in removeDups(datList[[j]], datList[[grep(\"variables\", names(datList))]],  : 
+"DP1.10023.001","hbp_massdata","Error in removeDups(datList[[j]], datList[[grep(\variables\, names(datList))]],  : 
   Input data appear to be the basic download package. The expanded data package is required for removeDups() to identify all duplicates correctly.
-",""
-"DP1.10023.001","hbp_perbout","Error in removeDups(datList[[j]], datList[[grep(\"variables\", names(datList))]],  : 
+",NA
+"DP1.10023.001","hbp_perbout","Error in removeDups(datList[[j]], datList[[grep(\variables\, names(datList))]],  : 
   Input data appear to be the basic download package. The expanded data package is required for removeDups() to identify all duplicates correctly.
-",""
+",NA
 "DP1.20126.001","inv_dnaExtraction","95","0"
 "DP1.20126.001","inv_dnaExtractionStandard","15","0"
 "DP1.20126.001","inv_dnaRawDataFiles","380","0"
@@ -161,7 +161,7 @@ Start over with a fresh download of the current data.
 "DP1.20120.001","inv_pervial","3331","4"
 "DP1.20120.001","inv_taxonomyProcessed","58172","0"
 "DP1.20120.001","inv_taxonomyRaw","58172","0"
-"DP1.00133.001","","No data found for 2017-05 to 2018-08",""
+"DP1.00133.001","","No data found for 2017-05 to 2018-08",NA
 "DP1.10033.001","bgc_CNiso_externalSummary","60","0"
 "DP1.10033.001","lig_externalSummary","12","0"
 "DP1.10033.001","ltr_chemistrySubsampling","122","0"
@@ -171,13 +171,13 @@ Start over with a fresh download of the current data.
 "DP1.10033.001","ltr_massdata","71169","61"
 "DP1.10033.001","ltr_pertrap","2329","93"
 "DP1.10076.001","mam_BOLDcollectionData","Error in `[.data.frame`(data.dup, , k) : undefined columns selected
-",""
+",NA
 "DP1.10076.001","mam_BOLDspecimenDetails","Error in `[.data.frame`(data.dup, , k) : undefined columns selected
-",""
+",NA
 "DP1.10076.001","mam_BOLDtaxonomy","Error in `[.data.frame`(data.dup, , k) : undefined columns selected
-",""
+",NA
 "DP1.10076.001","mam_BOLDvoucherInfo","Error in `[.data.frame`(data.dup, , k) : undefined columns selected
-",""
+",NA
 "DP1.10072.001","mam_identificationHistory","144","0"
 "DP1.10072.001","mam_perplotnight","3448","0"
 "DP1.10072.001","mam_pertrapnight","344941","411"
@@ -185,21 +185,21 @@ Start over with a fresh download of the current data.
 "DP1.20086.001","mcc_benthicSeqVariantMetadata_16S","684","60"
 "DP1.20086.001","mcc_benthicSeqVariantMetadata_ITS","686","74"
 "DP1.20086.001","mcc_taxonTableLabSummary","2","0"
-"DP1.20086.001","per_sample","Error in removeDups(datList[[j]], datList[[grep(\"variables\", names(datList))]],  : 
+"DP1.20086.001","per_sample","Error in removeDups(datList[[j]], datList[[grep(\variables\, names(datList))]],  : 
   Table name per_sample does not match any table in variables file.
-",""
+",NA
 "DP1.10081.001","mcc_soilSeqVariantMetadata_16S","3670","220"
 "DP1.10081.001","mcc_soilSeqVariantMetadata_ITS","4463","1474"
 "DP1.10081.001","mcc_taxonTableLabSummary","2","0"
-"DP1.10081.001","per_sample","Error in removeDups(datList[[j]], datList[[grep(\"variables\", names(datList))]],  : 
+"DP1.10081.001","per_sample","Error in removeDups(datList[[j]], datList[[grep(\variables\, names(datList))]],  : 
   Table name per_sample does not match any table in variables file.
-",""
+",NA
 "DP1.20141.001","mcc_swSeqVariantMetadata_16S","475","43"
 "DP1.20141.001","mcc_swSeqVariantMetadata_ITS","512","113"
 "DP1.20141.001","mcc_taxonTableLabSummary","2","0"
-"DP1.20141.001","per_sample","Error in removeDups(datList[[j]], datList[[grep(\"variables\", names(datList))]],  : 
+"DP1.20141.001","per_sample","Error in removeDups(datList[[j]], datList[[grep(\variables\, names(datList))]],  : 
   Table name per_sample does not match any table in variables file.
-",""
+",NA
 "DP1.20277.001","mga_batchResults","981","124"
 "DP1.20277.001","mga_benthicGroupAbundances","1248","0"
 "DP1.20277.001","mga_labSummary","13","6"
@@ -268,4 +268,109 @@ Start over with a fresh download of the current data.
 "DP1.10066.001","mpr_perrootsample","198","0"
 "DP1.10055.001","phe_perindividual","9250","0"
 "DP1.10055.001","phe_perindividualperyear","4298","14"
-"DP1.10055.001","phe_statusintensity","did not complete but had many duplicates",""
+"DP1.10055.001","phe_statusintensity","did not complete but had many duplicates",NA
+"DP1.20190.001","rea_backgroundFieldCondData","442","0"
+"DP1.20190.001","rea_backgroundFieldSaltData","808","0"
+"DP1.20190.001","rea_externalLabDataGas","3894","0"
+"DP1.20190.001","rea_externalLabDataSalt","4801","0"
+"DP1.20190.001","rea_fieldData","221","0"
+"DP1.20190.001","rea_plateauMeasurementFieldData","806","0"
+"DP1.20190.001","rea_plateauSampleFieldData","4010","0"
+"DP1.20190.001","rea_widthFieldData","6571","0"
+"DP1.20190.001","sdg_externalLabSummaryData","61","0"
+"DP1.20193.001","sbd_backgroundFieldCondData","846","404"
+"DP1.20193.001","sbd_backgroundFieldSaltData","808","0"
+"DP1.20193.001","sbd_externalLabDataSalt","4801","0"
+"DP1.20193.001","sbd_fieldData","221","0"
+"DP1.20193.001","sbd_plateauMeasurementFieldData","806","0"
+"DP1.20193.001","sbd_plateauSampleFieldData","4010","0"
+"DP1.20193.001","sdg_externalLabSummaryData","61","0"
+"DP1.20275.001","rip_assessment","1198","1178"
+"DP1.20191.001","rip_percentComposition","2837","2836"
+"DP1.10064.001","rpt_bloodtesting","5363","14"
+"DP1.10064.002","","No data found for 2017-05 to 2018-08",NA
+"DP1.20097.001","sdg_externalLabData","2010","14"
+"DP1.20097.001","sdg_externalLabSummaryData","46","46"
+"DP1.20097.001","sdg_fieldData","1070","0"
+"DP1.20097.001","sdg_fieldDataAir","946","0"
+"DP1.20097.001","sdg_fieldDataProc","1070","0"
+"DP1.20097.001","sdg_fieldSuperParent","1077","0"
+"DP4.00133.001","bat_AISsiteSurveyResultsFile","Error in `[.data.frame`(data.low, , key) : undefined columns selected
+",NA
+"DP4.00133.001","bat_controlInfo","9","0"
+"DP4.00133.001","bat_controlType","3","0"
+"DP4.00133.001","bat_priorParameters","3","0"
+"DP4.00133.001","geo_AISsiteSurveyResultsFile","Error in `[.data.frame`(data.low, , key) : undefined columns selected
+",NA
+"DP4.00133.001","geo_controlInfo","160","0"
+"DP4.00133.001","geo_controlType","52","0"
+"DP4.00133.001","geo_curveIdentification","23","0"
+"DP4.00133.001","geo_priorParameters","52","0"
+"DP4.00133.001","sdrc_gaugeDischargeMeas","537","2"
+"DP4.00133.001","sdrc_posteriorParameters","71","0"
+"DP4.00133.001","sdrc_resultsResiduals","538","3"
+"DP4.00133.001","sdrc_sampledParameters","35500","0"
+"DP4.00133.001","sdrc_stageDischargeCurveInfo","26","0"
+"DP1.10111.001","sim_eventData","541","4"
+"DP1.10086.001","bgc_CNiso_externalSummary","60","0"
+"DP1.10086.001","ntr_externalLab","2959","0"
+"DP1.10086.001","ntr_externalSummary","8","0"
+"DP1.10086.001","ntr_internalLab","2517","0"
+"DP1.10086.001","ntr_internalLabBlanks","151","0"
+"DP1.10086.001","sls_bgcSubsampling","820","0"
+"DP1.10086.001","sls_metagenomicsPooling","683","0"
+"DP1.10086.001","sls_soilChemistry","884","0"
+"DP1.10086.001","sls_soilCoreCollection","6335","0"
+"DP1.10086.001","sls_soilMoisture","6251","14"
+"DP1.10086.001","sls_soilpH","5018","0"
+"DP1.10104.001","sme_batchResults","462","459"
+"DP1.10104.001","sme_labSummary","4","0"
+"DP1.10104.001","sme_microbialBiomass","1256","52"
+"DP1.10047.001","spc_biogeochem","1266","0"
+"DP1.10047.001","spc_bulkdensity","621","0"
+"DP1.10047.001","spc_externalLabSummary","23","0"
+"DP1.10047.001","spc_particlesize","1266","0"
+"DP1.10047.001","spc_perhorizon","1399","0"
+"DP1.10047.001","spc_perplot","311","0"
+"DP1.20093.001","swc_asiPOMFieldData","1083","14"
+"DP1.20093.001","swc_domainLabData","1967","0"
+"DP1.20093.001","swc_externalLabDataByAnalyte","41702","4"
+"DP1.20093.001","swc_externalLabSummaryData","80","0"
+"DP1.20093.001","swc_fieldData","1206","0"
+"DP1.20093.001","swc_fieldSuperParent","1082","0"
+"DP1.10093.001","tck_fielddata","2738","0"
+"DP1.10093.001","tck_taxonomyProcessed","1788","0"
+"DP1.10093.001","tck_taxonomyRaw","1788","0"
+"DP1.10092.001","tck_pathogen","70182","0"
+"DP1.10092.001","tck_pathogenqa","1979","1267"
+"DP1.10098.001","vst_apparentindividual","81670","25994"
+"DP1.10098.001","vst_mappingandtagging","129148","0"
+"DP1.10098.001","vst_non-woody","25674","51"
+"DP1.10098.001","vst_perplotperyear","856","0"
+"DP1.10098.001","vst_shrubgroup","125","4"
+"DP1.00013.001","wdp_chemLab","8","0"
+"DP1.00013.001","wdp_collection","8","0"
+"DP1.00013.001","wdp_collectionChem","8","0"
+"DP1.00013.001","wdp_sensor","cancelled calculation but many duplicates",NA
+"DP1.00038.001","wdi_collection","8","0"
+"DP1.00038.001","wdi_collectionIso","8","0"
+"DP1.00038.001","wdi_collectionIsoTest","8","0"
+"DP1.00038.001","wdi_isoPerSample","Error in `[.data.frame`(data.low, , key) : undefined columns selected
+",""
+"DP1.20221.001","inv_dnaExtractionStandard","15","0"
+"DP1.20221.001","inv_dnaRawDataFilesStandard","18","18"
+"DP1.20221.001","inv_markerGeneSequencingStandard","14","14"
+"DP1.20221.001","inv_metabarcodeSummary","4","2"
+"DP1.20221.001","inv_metabarcodeTaxonList","4","0"
+"DP1.20221.001","inv_metabarcodeTaxonomyStandard","1365","869"
+"DP1.20221.001","inv_pcrAmplificationStandard","4","2"
+"DP1.20221.001","zoo_dnaExtraction","27","0"
+"DP1.20221.001","zoo_dnaRawDataFiles","108","0"
+"DP1.20221.001","zoo_fieldData","48","0"
+"DP1.20221.001","zoo_markerGeneSequencing","90","48"
+"DP1.20221.001","zoo_metabarcodeTaxonomy","3416","16"
+"DP1.20221.001","zoo_pcrAmplification","90","48"
+"DP1.20219.001","zoo_fieldData","90","0"
+"DP1.20219.001","zoo_perSample","91","2"
+"DP1.20219.001","zoo_taxonomyProcessed","1201","0"
+"DP1.20219.001","zoo_taxonomyRaw","1201","0"
