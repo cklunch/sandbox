@@ -11,6 +11,19 @@ urlchecker::url_check('.')
 setwd("/Users/clunch/GitHub/utilities-test-suite/testUtilities")
 test()
 
+usera <- paste("neonUtilities/", utils::packageVersion("neonUtilities"), " R/", 
+               R.Version()$major, ".", R.Version()$minor, " ", commandArgs()[1], 
+               " ", R.Version()$platform, sep="")
+
+req <- httr::GET("https://storage.googleapis.com/neon-publication/NEON.DOM.SITE.DP1.20190.001/CARI/20220601T000000--20220701T000000/basic/NEON.D19.CARI.DP1.20190.001.readme.20231102T154855Z.txt", httr::user_agent("test user agent"))
+
+downloader::download("https://storage.googleapis.com/neon-publication/NEON.DOM.SITE.DP1.20190.001/CARI/20220601T000000--20220701T000000/basic/NEON.D19.CARI.DP1.20190.001.readme.20231102T154855Z.txt",
+                     '/Users/clunch/Desktop/testreadme.txt',
+                     mode="wb", quiet=T, 
+                     headers=c("User-Agent"=usera,
+                               "X-API-Token"=""))
+# empty string works, NA doesn't
+
 
 # DOIs
 dois <- getNeonDOI()
@@ -402,11 +415,13 @@ zipsByProduct("DP4.00200.001", site = "PUUM",
               token=Sys.getenv('LATEST_TOKEN'))
 
 zipsByProduct("DP4.00200.001", site = c("MOAB","PUUM"),
-              startdate = "2022-05",
-              enddate = "2022-07",
+              startdate = "2023-10",
+              enddate = "2023-10",
               release = "current",
               savepath = "/Users/clunch/Desktop",
               check.size = FALSE, 
+              package='expanded',
+              include.provisional=TRUE,
               token=Sys.getenv('LATEST_TOKEN'))
 
 flux <- stackEddy('/Users/clunch/Desktop/filesToStack00200/', level='dp04')
@@ -471,6 +486,8 @@ g <- ggplot(subset(flux$HARV, flux$HARV$timeBgn < as.POSIXct("2021-06-05", forma
   ylim(-35,20)
 g
 
+lhflux <- stackEddy("/Users/clunch/Desktop/filesToStack00200", avg = 30, runLocal = F)
+lhflux <- stackEddy("/Users/clunch/Desktop/filesToStack00200", avg = 30, runLocal = T)
 lhflux <- stackEddy("/Users/clunch/Desktop/filesToStack00200", avg = 30)
 lhflux2 <- stackEddy("/Users/clunch/Desktop/filesToStack00200_half_unzipped/", avg = 30)
 
@@ -494,6 +511,11 @@ storTest <- stackEddy(filepath = '/Users/clunch/Desktop/filesToStack00200/',
                      level = "dp01", 
                      var = c("rtioMoleDryCo2","rtioMoleDryH2o"), 
                      avg = "02")
+
+tempTest <- stackEddy(filepath = '/Users/clunch/Desktop/NEON.D16.ABBY.DP4.00200.001.nsae.2022-08.basic.20230223T233702Z.h5', 
+                      level = "dp01", 
+                      var = c("co2Stor","temp"), 
+                      avg = "30")
 
 zipsByProduct(site = "WREF", 
               dpID = "DP4.00200.001", 
@@ -520,8 +542,9 @@ zipsByProduct(site = "BONA",
 
 flux <- stackEddy('/Users/clunch/Desktop/NEON.D03.OSBS.DP4.00200.001.2019-03.expanded.20210118T143742Z/', 
                   level='dp04')
-foot <- footRaster('/Users/clunch/Desktop/filesToStack00200/NEON.D19.BONA.DP4.00200.001.2020-06.expanded.20210123T023002Z.RELEASE-2021/NEON.D19.BONA.DP4.00200.001.nsae.2020-06-06.expanded.20201105T040628Z.h5')
-raster::filledContour(foot$BONA.summary, col=topo.colors(24), 
+foot <- footRaster('/Users/clunch/Desktop/filesToStack00200/NEON.D13.MOAB.DP4.00200.001.nsae.2023-10-15.expanded.20231024T164932Z.h5')
+foot <- footRaster('/Users/clunch/Desktop/NEON.D16.ABBY.DP4.00200.001.nsae.2022-05-25.expanded.20221206T174118Z.h5')
+raster::filledContour(foot$MOAB.summary, col=topo.colors(24), 
                       levels=0.001*0:24)
 raster::filledContour(foot$X.Users.clunch.Desktop.filesToStack00200.NEON.D19.BONA.DP4.00200.001.2020.06.expanded.20210123T023002Z.RELEASE.2021.NEON.D19.BONA.DP4.00200.001.nsae.2020.06.06.expanded.20201105T040628Z.BONA.dp04.data.foot.grid.turb.20200606T093000Z, 
                       col=topo.colors(24), 
@@ -591,10 +614,17 @@ byTileAOP(dpID = "DP3.30015.001", site = "WREF", year = "2017",
           savepath='/Users/clunch/Desktop', check.size = FALSE,
           token=Sys.getenv('NEON_TOKEN'))
 
-byTileAOP(dpID = "DP3.30006.001", site = "WREF", year = "2017", 
+byTileAOP(dpID = "DP3.30015.001", site = "WREF", year = "2017", 
           easting = c(571000,578000), 
           northing = c(5079000,5080000), 
-          savepath='/Users/clunch/Desktop', check.size = FALSE)
+          savepath='/Users/clunch/Desktop', check.size = FALSE,
+          token=Sys.getenv('NEON_TOKEN'))
+
+byTileAOP(dpID = "DP3.30015.001", site = "WREF", year = "2017", 
+          easting = c(571000,578000), 
+          northing = c(5079000,5080000), 
+          savepath='/Users/clunch/Desktop', check.size = FALSE,
+          token=NA)
 
 # fake dpID
 byTileAOP(dpID = "DP3.30467.001", site = "WREF", year = "2017", 
