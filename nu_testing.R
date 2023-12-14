@@ -184,6 +184,13 @@ brd.no <- loadByProduct(dpID='DP1.10003.001', check.size=F,
                      token=Sys.getenv('NEON_TOKEN'))
 
 
+zipsByProduct(dpID='DP1.10003.001', check.size=F, 
+              startdate='2022-01', include.provisional=T,
+              savepath='/Users/clunch/Desktop',
+              package='expanded',
+              token=Sys.getenv('NEON_TOKEN'))
+
+
 # time test
 wind <- stackByTable('/Users/clunch/Desktop/NEON_wind-2d.zip', savepath='envt')
 
