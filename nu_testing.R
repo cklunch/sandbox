@@ -1,5 +1,6 @@
 library(devtools)
 setwd("/Users/clunch/GitHub/NEON-utilities/neonUtilities")
+#setwd("/Users/clunch/GitHub/utilities-test-suite/neonUtilities/")
 #install_github('NEONScience/NEON-utilities/neonUtilities', ref='main')
 
 install('.')
@@ -29,6 +30,35 @@ downloader::download("https://storage.googleapis.com/neon-publication/NEON.DOM.S
 dois <- getNeonDOI()
 dois <- getNeonDOI(dpID='DP1.10003.001')
 dois <- getNeonDOI(dpID='DP1.10098.001', release='RELEASE-2022')
+
+
+# CERT version?
+csd <- loadByProduct(dpID='DP4.00130.001', release='LATEST', stack='cert',
+                     startdate='2021-04', enddate='2021-09',
+                     site=c('BLDE','OKSR','REDB'),
+                     token=Sys.getenv('CERT_LATEST'), check.size=F)
+
+# PARQL from pachy
+ql <- loadByProduct(dpID='DP1.00066.001', release='LATEST', stack='cert',
+                     startdate='2022-04', enddate='2022-09',
+                     site=c('HEAL','MOAB','GUAN'),
+                     token=Sys.getenv('CERT_LATEST'), check.size=F)
+
+gg <- ggplot(ql$PARQL_30min, aes(endDateTime, linePARMean, color=horizontalPosition)) +
+  geom_line() +
+  facet_wrap(~siteID)
+gg
+
+ql <- loadByProduct(dpID='DP1.00066.001', include.provisional=T, stack='cert',
+                    startdate='2023-07', enddate='2023-09',
+                    site=c('HEAL','MOAB','GUAN'),
+                    token=Sys.getenv('CERT_LATEST'), check.size=F)
+
+ql <- loadByProduct(dpID='DP1.00066.001', stack='cert',
+                    startdate='2022-04', enddate='2022-09',
+                    site=c('HEAL','MOAB','GUAN'),
+                    token=Sys.getenv('CERT_LATEST'), check.size=F)
+
 
 
 # LATEST accessible?
@@ -853,6 +883,10 @@ brd.p <- loadByProduct(dpID='DP1.10003.001', site=c('WREF','ABBY'), package='exp
                      include.provisional=TRUE,
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
+brd.p <- loadByProduct(dpID='DP1.10003.001', site=c('WREF','ABBY'), package='expanded',
+                       include.provisional=TRUE, release='PROVISIONAL',
+                       check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
 ltr <- loadByProduct(dpID='DP1.10033.001', 
                      startdate='2020-02', enddate='2022-12',
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
@@ -1276,4 +1310,13 @@ for(i in 1:nrow(av$data$files)) {
   }
 }
 
+
+filepath <- '/Users/clunch/Desktop/filesToStack10003/'
+savepath <- NA
+folder <- F
+saveUnzippedFiles <- FALSE
+dpID <- NA
+package <- NA
+nCores <- 1
+useFasttime <- F
 
