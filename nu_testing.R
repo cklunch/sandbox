@@ -1320,3 +1320,52 @@ package <- NA
 nCores <- 1
 useFasttime <- F
 
+# internal neonUtilities version
+setwd("/Users/clunch/GitHub/utilities-test-suite/neonUtilities")
+install('.')
+library(neonUtilities)
+
+ql <- loadByProduct('DP1.00066.001', site=c('HARV','NIWO','WREF','BONA'),
+                    startdate='2023-05', enddate='2023-07', include.provisional=T,
+                    package='expanded', check.size=F, stack='cert', token=Sys.getenv('CERT_LATEST'))
+
+ql <- loadByProduct(dpID='DP1.00066.001', stack='cert', #release='LATEST',
+                    startdate='2021-11', enddate='2022-02', package='expanded',
+                    site=c('BART','KONZ','ONAQ','TREE'),
+                    token=Sys.getenv('CERT_LATEST'), check.size=F)
+
+ql <- loadByProduct(dpID='DP1.00066.001', stack='cert', release='LATEST',
+                    startdate='2016-03', enddate='2016-07', package='expanded',
+                    site=c('DSNY','JORN','STER','KONZ'),
+                    token=Sys.getenv('CERT_LATEST'), check.size=F)
+
+ql <- loadByProduct(dpID='DP1.00066.001', stack='cert', release='LATEST',
+                    startdate='2015-07', enddate='2015-10', #package='expanded',
+                    site=c('LAJA','CPER','MOAB','STER'),
+                    token=Sys.getenv('CERT_LATEST'), check.size=F)
+
+gg <- ggplot(ql$PARQL_30min, aes(endDateTime, linePARMean, color=horizontalPosition)) +
+  geom_line() +
+  facet_wrap(~siteID)
+gg
+
+gg <- ggplot(ql$PARQL_1min, aes(endDateTime, linePARMean, color=horizontalPosition)) +
+  geom_line() +
+  facet_wrap(~siteID)
+gg
+
+ql <- loadByProduct(dpID='DP1.00066.001', include.provisional=T, stack='cert',
+                    startdate='2023-07', enddate='2023-09',
+                    site=c('HEAL','MOAB','GUAN'),
+                    token=Sys.getenv('CERT_LATEST'), check.size=F)
+
+ql <- loadByProduct(dpID='DP1.00066.001', stack='cert',
+                    startdate='2022-04', enddate='2022-09',
+                    site=c('HEAL','MOAB','GUAN'),
+                    token=Sys.getenv('CERT_LATEST'), check.size=F)
+
+# TEAK location data are partially missing. True on PROD as well; not a pachyderm issue.
+qlp <- loadByProduct(dpID='DP1.00066.001', release='LATEST', stack='prod',
+                    startdate='2020-04', enddate='2020-09', package='expanded',
+                    site=c('RMNP','TEAK'),
+                    token=Sys.getenv('LATEST_TOKEN'), check.size=F)
