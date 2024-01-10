@@ -200,8 +200,8 @@ aq <- stackByTable('/Users/clunch/Desktop/NEON_clip-plant-aqu.zip', savepath='en
 
 
 # download by release
-brd <- loadByProduct(dpID='DP1.10003.001', check.size=F, 
-                     release='PROVISIONAL',
+brd <- loadByProduct(dpID='DP1.10003.001', check.size=F, package='expanded',
+                     release='PROVISIONAL', include.provisional=T,
                      token=Sys.getenv('NEON_TOKEN'))
 
 inv <- loadByProduct(dpID='DP1.20120.001', package='expanded', 
@@ -256,6 +256,15 @@ nst <- loadByProduct(dpID='DP1.10045.001', tabl='nst_perindividual',
 
 # lab table error
 brdp <- loadByProduct(dpID='DP1.10003.001', tabl='brd_personnel',
+                      package='expanded', site=c('HARV','BLAN','MLBS','LAJA'),
+                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+brdp <- loadByProduct(dpID='DP1.10003.001', tabl='brd_personnel', 
+                      release='PROVISIONAL', include.provisional=T,
+                      package='expanded', site=c('HARV','BLAN','MLBS','LAJA'),
+                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+ntrp <- loadByProduct(dpID='DP1.10086.001', tabl='ntr_externalSummary',
                       package='expanded', site=c('HARV','BLAN','MLBS','LAJA'),
                       check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
@@ -569,25 +578,26 @@ isoTestW <- stackEddy(filepath = '/Users/clunch/Desktop/filesToStack00200/',
 
 
 # expanded
-zipsByProduct(site = "BONA", 
+zipsByProduct(site = "MOAB", 
               dpID = "DP4.00200.001", 
-              startdate = "2020-06", 
-              enddate = "2020-06", 
+              startdate = "2021-06", 
+              enddate = "2021-06", 
               package = "expanded", 
               check.size = F, 
+              release = 'RELEASE-2023',
               savepath = '/Users/clunch/Desktop')
 
 flux <- stackEddy('/Users/clunch/Desktop/NEON.D03.OSBS.DP4.00200.001.2019-03.expanded.20210118T143742Z/', 
                   level='dp04')
 foot <- footRaster('/Users/clunch/Desktop/filesToStack00200/NEON.D13.MOAB.DP4.00200.001.nsae.2023-10-15.expanded.20231024T164932Z.h5')
+foot <- footRaster('/Users/clunch/Desktop/filesToStack00200/NEON.D13.MOAB.DP4.00200.001.2021-06.expanded.20230127T120753Z.RELEASE-2023/NEON.D13.MOAB.DP4.00200.001.nsae.2021-06-03.expanded.20221208T043139Z.h5')
 foot <- footRaster('/Users/clunch/Desktop/NEON.D16.ABBY.DP4.00200.001.nsae.2022-05-25.expanded.20221206T174118Z.h5')
-raster::filledContour(foot$MOAB.summary, col=topo.colors(24), 
-                      levels=0.001*0:24)
-raster::filledContour(foot$X.Users.clunch.Desktop.filesToStack00200.NEON.D19.BONA.DP4.00200.001.2020.06.expanded.20210123T023002Z.RELEASE.2021.NEON.D19.BONA.DP4.00200.001.nsae.2020.06.06.expanded.20201105T040628Z.BONA.dp04.data.foot.grid.turb.20200606T093000Z, 
-                      col=topo.colors(24), 
-                      levels=0.001*0:24,
-                      xlim=c(475000,478000),
-                      ylim=c(7224000,7227000))
+terra::contour(foot$MOAB.summary, col=topo.colors(24), 
+                      levels=0.001*0:24, filled=TRUE)
+terra::contour(foot$MOAB.summary, col=topo.colors(24), 
+               levels=0.001*0:24, filled=TRUE,
+               xlim=c(640500,641500),
+               ylim=c(4234000,4235000))
 
 
 # testing for stackEddy() duplication
