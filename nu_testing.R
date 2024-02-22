@@ -167,6 +167,11 @@ zipsByProduct(dpID='DP1.20190.001', site='OKSR',
 # manually added data frame files
 r <- stackByTable('/Users/clunch/Desktop/filesToStack20190/', savepath='envt')
 
+rea <- loadByProduct(dpID='DP1.20190.001', site='SYCA', 
+              startdate='2021-01', enddate='2021-12',
+              package='expanded', check.size=F,
+              release='LATEST', token=Sys.getenv('LATEST_TOKEN'))
+
 
 deflag <- stackEddy('/Users/clunch/Desktop/deflagging/', level='dp01', var='isoCo2', avg=30)
 
@@ -1379,3 +1384,19 @@ qlp <- loadByProduct(dpID='DP1.00066.001', release='LATEST', stack='prod',
                     startdate='2020-04', enddate='2020-09', package='expanded',
                     site=c('RMNP','TEAK'),
                     token=Sys.getenv('LATEST_TOKEN'), check.size=F)
+
+
+# SAE iso updates
+startDate <- "2023-05"
+endDate <- "2023-09"
+zipsByProduct(dpID="DP4.00200.001", site=c('NIWO','BONA','WREF','ORNL','KONA'), 
+              startdate=startDate,
+              enddate=endDate, check.size = F, include.provisional = T,
+              savepath = '/Users/clunch/Desktop')
+
+eddy <- stackEddy(filepath='/Users/clunch/Desktop/filesToStack00200/',
+                level="dp01", var="rtioMoleDryCo2", avg=6)
+
+eddy <- stackEddy(filepath='/Users/clunch/Desktop/filesToStack00200/NEON.D06.KONA.DP4.00200.001.nsae.2023-09.basic.20231011T212329Z.h5',
+                  level="dp01", var="rtioMoleDryCo2", avg=6)
+
