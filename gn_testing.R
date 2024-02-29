@@ -52,6 +52,10 @@ herb.W.loc <- getLocTOS(herb.W$hbp_perbout, 'hbp_perbout', token=Sys.getenv('NEO
 cdw.tally <- loadByProduct(dpID='DP1.10010.001', check.size=F)
 cdw.density <- loadByProduct(dpID='DP1.10014.001', check.size=F)
 
+divJ <- loadByProduct(dpID='DP1.10058.001', site='JERC', 
+                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
+divJ.loc <- getLocTOS(divJ$div_1m2Data, 'div_1m2Data', token=Sys.getenv('NEON_TOKEN'))
+
 vst <- loadByProduct(dpID='DP1.10098.001', site='JERC', check.size=F)
 vst.loc <- getLocTOS(vst$vst_mappingandtagging, 'vst_mappingandtagging')
 byTileAOP(dpID='DP3.30015.001', site='STEI', year=2017,

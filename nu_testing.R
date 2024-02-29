@@ -475,6 +475,16 @@ zipsByProduct("DP4.00200.001", site = c("MOAB","PUUM"),
               include.provisional=TRUE,
               token=Sys.getenv('LATEST_TOKEN'))
 
+zipsByProduct("DP4.00200.001", site = c("CPER"),
+              startdate = "2023-11",
+              enddate = "2023-12",
+              release = "current",
+              savepath = "/Users/clunch/Desktop",
+              check.size = FALSE, 
+              package='expanded',
+              include.provisional=TRUE,
+              token=Sys.getenv('LATEST_TOKEN'))
+
 flux <- stackEddy('/Users/clunch/Desktop/filesToStack00200/', level='dp04')
 flux <- stackEddy('/Users/clunch/Desktop/PUUM_flux_files/', level='dp04')
 flux <- stackEddy(filepath = list.files('/Users/clunch/Desktop/filesToStack00200/', 
