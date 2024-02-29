@@ -6,7 +6,7 @@ library(geoNEON)
 # table of DPIDs and table names to be checked
 dps <- read.csv('/Users/clunch/GitHub/sandbox/TOS_subplot_prods.csv')
 
-for(i in c(4)) {
+for(i in c(1,2,5,7)) {
   
   d23 <- loadByProduct(dps$dpID[i], 
                        site='JERC', 
