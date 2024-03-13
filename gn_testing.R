@@ -56,7 +56,23 @@ divJ <- loadByProduct(dpID='DP1.10058.001', site='JERC',
                       check.size=F, token=Sys.getenv('NEON_TOKEN'))
 divJ.loc <- getLocTOS(divJ$div_1m2Data, 'div_1m2Data', token=Sys.getenv('NEON_TOKEN'))
 
-vst <- loadByProduct(dpID='DP1.10098.001', site='JERC', check.size=F)
+# testing subplot updates
+vst <- loadByProduct(dpID='DP1.10098.001', site='JERC', 
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+vst.loc <- getLocTOS(vst$vst_mappingandtagging, 'vst_mappingandtagging', token=Sys.getenv('NEON_TOKEN'))
+vst.shrub <- getLocTOS(vst$vst_shrubgroup, 'vst_shrubgroup', token=Sys.getenv('NEON_TOKEN'))
+vst.nw <- getLocTOS(vst$`vst_non-woody`, 'vst_non-woody', token=Sys.getenv('NEON_TOKEN'))
+vst.ind <- getLocTOS(vst$vst_apparentindividual, 'vst_apparentindividual', token=Sys.getenv('NEON_TOKEN'))
+
+library(ggplot2)
+gg <- ggplot(data=vst.ind, aes(x=adjEasting, y=adjNorthing, 
+                               size=adjCoordinateUncertainty)) + # size is relative, not absolute
+  geom_point(shape=0) +
+  geom_point(data=vst.loc, aes(x=adjEasting, y=adjNorthing), 
+             shape='.', color='green')
+gg
+
+vst <- loadByProduct(dpID='DP1.10098.001', site='STEI', check.size=F)
 vst.loc <- getLocTOS(vst$vst_mappingandtagging, 'vst_mappingandtagging')
 byTileAOP(dpID='DP3.30015.001', site='STEI', year=2017,
           easting=vst.loc$adjEasting, northing=vst.loc$adjNorthing,
