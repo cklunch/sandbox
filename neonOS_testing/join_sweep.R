@@ -4,13 +4,14 @@ library(neonOS)
 
 wd <- '/Users/clunch/GitHub/definitional-data/pubWBs'
 deflist <- list.files(wd)
+deflist <- grep('.txt', deflist, value=T, fixed=T)
 
-joinResult <- matrix(data=NA, ncol=6, nrow=1)
+joinResult <- matrix(data=NA, ncol=6, nrow=0)
 joinResult <- data.frame(joinResult)
 names(joinResult) <- c('dpID', 'table1', 'table2', 'records1', 'records2', 'joinRecords')
 
-for(i in 1:73) {
-  
+for(i in 75:length(deflist)) {
+
   vars <- read.delim(paste(wd, deflist[i], sep='/'), sep='\t')
   dpID <- substring(unique(vars$dpID), 15, 28)
   if(length(dpID)!=1) {
@@ -33,6 +34,7 @@ for(i in 1:73) {
   tabs <- tabs[grep('categorical', tabs, invert=T)]
   tabs <- tabs[grep('readme', tabs, invert=T)]
   tabs <- tabs[grep('issueLog', tabs, invert=T)]
+  tabs <- tabs[grep('citation', tabs, invert=T)]
   
   if(length(tabs)==1) {
     joinResult <- rbind(joinResult, c(dpID, tabs,'','','','only table in DP'))
@@ -87,7 +89,8 @@ joinE <- joinS[which(joinS$sumRecords==as.numeric(joinS$joinRecords)),]
 
 joinNI <- joinResult[grep('not identified', joinResult$joinRecords),]
 joinNT <- joinResult[grep('not found in quick start guides', joinResult$joinRecords),]
-joinNV <- joinResult[grep('Linking variables', joinResult$joinRecords),]
+joinNV <- joinResult[grep('linking variables', joinResult$joinRecords),]
+joinNL <- joinResult[grep('Linking variables', joinResult$joinRecords),]
 
 write.csv(joinResult, '/Users/clunch/GitHub/sandbox/neonOS_testing/joinResults.csv', row.names=F)
 joinResult <- read.csv('/Users/clunch/GitHub/sandbox/neonOS_testing/joinResults.csv')

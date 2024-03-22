@@ -68,6 +68,10 @@ library(ggplot2)
 gg <- ggplot(data=vst.ind, aes(x=adjEasting, y=adjNorthing, 
                                size=adjCoordinateUncertainty)) + # size is relative, not absolute
   geom_point(shape=0) +
+  geom_point(data=vst.shrub, aes(x=adjEasting, y=adjNorthing), 
+             shape=0, color='olivedrab') + 
+  geom_point(data=vst.nw, aes(x=adjEasting, y=adjNorthing), 
+             shape=0, color='darkblue') +
   geom_point(data=vst.loc, aes(x=adjEasting, y=adjNorthing), 
              shape='.', color='green')
 gg
