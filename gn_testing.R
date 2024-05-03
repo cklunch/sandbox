@@ -57,7 +57,7 @@ divJ <- loadByProduct(dpID='DP1.10058.001', site='JERC',
 divJ.loc <- getLocTOS(divJ$div_1m2Data, 'div_1m2Data', token=Sys.getenv('NEON_TOKEN'))
 
 # testing subplot updates
-vst <- loadByProduct(dpID='DP1.10098.001', site='JERC', 
+vst <- loadByProduct(dpID='DP1.10098.001', site='ABBY', 
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
 vst.loc <- getLocTOS(vst$vst_mappingandtagging, 'vst_mappingandtagging', token=Sys.getenv('NEON_TOKEN'))
 vst.shrub <- getLocTOS(vst$vst_shrubgroup, 'vst_shrubgroup', token=Sys.getenv('NEON_TOKEN'))

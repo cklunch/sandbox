@@ -107,6 +107,10 @@ eos <- loadByProduct(dpID='DP1.20016.001', release='LATEST',
                     site=c('BIGC','WLOU'),
                     token=Sys.getenv('LATEST_TOKEN'), check.size=F)
 
+# SRFs
+pr <- loadByProduct(dpID='DP1.00024.001', site=c('ABBY','SRER'),
+                   startdate='2022-03', enddate='2022-04',
+                   timeIndex=30, check.size=F)
 
 # other LATEST
 mos <- loadByProduct(dpID='DP1.10043.001', release='LATEST',
@@ -514,10 +518,15 @@ Sys.time()
 isoTest <- stackEddy(filepath = '/Users/clunch/Desktop/filesToStack00200/', 
                      level = "dp01", 
                      var = c("dlta13CCo2","dlta18OH2o"), 
-                     avg = "09", metadata=T)
+                     avg = "06", metadata=T)
 Sys.time()
 # 2.3.0.9200: 14 seconds
 # v2.2.1: 14 seconds
+
+isoTestP <- stackEddy(filepath = '/Users/clunch/Desktop/filesP/', 
+                     level = "dp01", 
+                     var = c("dlta13CCo2","dlta18OH2o"), 
+                     avg = "06", metadata=T)
 
 Sys.time()
 flux <- stackEddy('/Users/clunch/Desktop/expanded00200/', 
@@ -912,6 +921,10 @@ brd.p <- loadByProduct(dpID='DP1.10003.001', site=c('WREF','ABBY'), package='exp
                        include.provisional=TRUE, release='PROVISIONAL',
                        check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
+fish <- loadByProduct(dpID='DP1.20107.001', site='MART', 
+                      include.provisional=T, check.size=F,
+                      token=Sys.getenv('NEON_TOKEN'))
+
 ltr <- loadByProduct(dpID='DP1.10033.001', 
                      startdate='2020-02', enddate='2022-12',
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
@@ -921,8 +934,13 @@ div <- loadByProduct(dpID='DP1.10058.001',
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
 veg <- loadByProduct(dpID='DP1.10098.001', 
-                     startdate='2020-02', enddate='2022-12',
+                     startdate='2020-04', enddate='2020-04',
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+veg <- loadByProduct(dpID='DP1.10098.001', 
+                     startdate='2020-04', enddate='2020-04',
+                     release='LATEST', include.provisional=T,
+                     check.size=F, token=Sys.getenv('LATEST_TOKEN'))
 
 cfc <- loadByProduct(dpID='DP1.10026.001', package='expanded', 
                      check.size=F, nCores=1, token=Sys.getenv('NEON_TOKEN'))
@@ -1033,7 +1051,7 @@ stackByTable('/Users/clunch/Desktop/filesToStack20288')
 stackByTable('/Users/clunch/Desktop/NEON_water-quality.zip')
 
 zipsByProduct(dpID='DP1.00041.001', site=c('WREF','ABBY'),
-              startdate='2019-07', enddate='2019-09',
+              startdate='2019-07', enddate='2019-09', timeIndex=30,
               savepath='/Users/clunch/Desktop',
               check.size=F)
 pr <- stackByTable('/Users/clunch/Desktop/filesToStack00041', nCores=1,
@@ -1407,6 +1425,20 @@ zipsByProduct(dpID="DP4.00200.001", site=c('NIWO','BONA','WREF','ORNL','KONA'),
 eddy <- stackEddy(filepath='/Users/clunch/Desktop/filesToStack00200/',
                 level="dp01", var="rtioMoleDryCo2", avg=6)
 
+v <- getVarsEddy('/Users/clunch/Desktop/filesToStack00200/NEON.D06.KONA.DP4.00200.001.nsae.2023-09.basic.20231011T212329Z.h5')
+
 eddy <- stackEddy(filepath='/Users/clunch/Desktop/filesToStack00200/NEON.D06.KONA.DP4.00200.001.nsae.2023-09.basic.20231011T212329Z.h5',
                   level="dp01", var="rtioMoleDryCo2", avg=6)
+
+
+# buoy RH
+RHT <- loadByProduct(dpID='DP1.20046.001', site=c('PRLA','TOOK'), 
+                     startdate='2023-06', enddate='2023-08', 
+                     include.provisional=T,
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+RH <- loadByProduct(dpID='DP1.20271.001', site=c('PRLA','TOOK'), 
+                     startdate='2023-06', enddate='2023-08', 
+                     include.provisional=T,
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
 

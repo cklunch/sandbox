@@ -69,6 +69,8 @@ tst <- joinTableNEON(cfc_fieldData, cfc_elements)
 tst <- joinTableNEON(cfc_fieldData, cfc_carbonNitrogen)
 # left join special case
 tst <- joinTableNEON(cfc_fieldData, vst_mappingandtagging)
+# override left join
+tst <- joinTableNEON(cfc_fieldData, vst_mappingandtagging, left.join=F)
 
 bird <- loadByProduct(dpID='DP1.10003.001', check.size=F, 
                       startdate='2017-05', enddate='2019-08',
@@ -168,3 +170,38 @@ list2env(apc_allTabs, envir=.GlobalEnv)
 removeDups(data = apc_taxonomyRaw, variables = variables_20072)
 
 View(apc_taxonomyRaw)
+
+
+veg <- loadByProduct(dpID='DP1.10098.001', 
+                     startdate='2019-01', enddate='2020-12',
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'),
+                     include.provisional=T)
+vdup <- removeDups(veg$vst_apparentindividual, variables=veg$variables_10098,
+                   table='vst_apparentindividual')
+
+veg2021 <- loadByProduct(dpID='DP1.10098.001', 
+                     startdate='2021-01', enddate='2021-12',
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'),
+                     include.provisional=T)
+vdup2021 <- removeDups(veg2021$vst_apparentindividual, variables=veg2021$variables_10098,
+                   table='vst_apparentindividual')
+
+max(veg$vst_apparentindividual$date[which(!is.na(veg$vst_apparentindividual$tempStemID))])
+length(which(!is.na(veg$vst_apparentindividual$tempStemID)))
+nrow(veg$vst_apparentindividual)
+
+max(veg$vst_apparentindividual$date[which(is.na(veg$vst_apparentindividual$tempStemID))])
+temp <- veg$vst_apparentindividual[which(is.na(veg$vst_apparentindividual$tempStemID)),]
+
+
+mam <- loadByProduct(dpID='DP1.10072.001', site=c('HARV','BART','SJER','SOAP','HEAL'),
+                     startdate='2015-01', enddate='2021-12',
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'),
+                     include.provisional=T)
+mdup <- removeDups(mam$mam_pertrapnight, variables=mam$variables_10072,
+                   table='mam_pertrapnight')
+
+unique(mam$mam_pertrapnight$trapStatus)
+gr <- mam$mam_pertrapnight[grep("X", mam$mam_pertrapnight$trapCoordinate),]
+mult <- mam$mam_pertrapnight[grep("4", mam$mam_pertrapnight$trapStatus),]
+
