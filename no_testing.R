@@ -14,9 +14,12 @@ cfc <- loadByProduct(dpID='DP1.10026.001', check.size=F,
                      package='expanded', token=Sys.getenv('NEON_TOKEN'))
 cfc.cn <- removeDups(cfc$cfc_chlorophyll, variables=cfc$variables_10026, table='cfc_chlorophyll')
 
-amc <- loadByProduct(dpID='DP1.20138.001', check.size=F, 
+# only one field in primary key
+secchi <- loadByProduct(dpID='DP1.20252.001', check.size=F, 
                      startdate='2017-05', enddate='2019-08',
                      package='expanded', token=Sys.getenv('NEON_TOKEN'))
+list2env(secchi, .GlobalEnv)
+sec.d <- removeDups(dep_secchi, variables=variables_20252)
 
 # test expanded package error
 cfc <- loadByProduct(dpID='DP1.10026.001', check.size=F, 
@@ -26,7 +29,8 @@ cfc.cn <- removeDups(cfc$cfc_chlorophyll, variables=cfc$variables_10026, table='
 cfc.dum <- removeDups(cfc$cfc_chlorophyll, variables=cfc$variables_10026, table='cfc_elements')
 
 bird <- loadByProduct(dpID='DP1.10003.001', check.size=F, 
-                      startdate='2017-05', enddate='2019-08',
+                      startdate='2022-05', enddate='2023-08',
+                      include.provisional = T,
                       package='expanded', token=Sys.getenv('NEON_TOKEN'))
 list2env(bird, .GlobalEnv)
 brd.d <- removeDups(brd_countdata, variables=variables_10003)
@@ -185,6 +189,20 @@ veg2021 <- loadByProduct(dpID='DP1.10098.001',
                      include.provisional=T)
 vdup2021 <- removeDups(veg2021$vst_apparentindividual, variables=veg2021$variables_10098,
                    table='vst_apparentindividual')
+vdup2021 <- removeDups(veg2021$vst_apparentindividual, variables=veg2021$variables_10098,
+                       table='vst_apparentindividual', ncores=5)
+saveRDS(vdup2021, '/Users/clunch/Desktop/vdups.rds')
+vdups <- readRDS('/Users/clunch/Desktop/vdups.rds')
+all(vdups==vdup2021, na.rm=T)
+vsub <- vdups[which(vdups$duplicateRecordQF!=0),]
+vpsub <- vdup2021[which(vdup2021$duplicateRecordQF!=0),]
+vkeys <- unique(vsub[,c('eventID', 'individualID', 'tempStemID')])
+vpkeys <- unique(vpsub[,c('eventID', 'individualID', 'tempStemID')])
+vkeys <- vkeys[order(vkeys$individualID),]
+vpkeys <- vpkeys[order(vpkeys$individualID),]
+all(vkeys==vpkeys)
+which(vkeys!=vpkeys, arr.ind=T)
+vkeys[263:265,]
 
 max(veg$vst_apparentindividual$date[which(!is.na(veg$vst_apparentindividual$tempStemID))])
 length(which(!is.na(veg$vst_apparentindividual$tempStemID)))
@@ -199,9 +217,41 @@ mam <- loadByProduct(dpID='DP1.10072.001', site=c('HARV','BART','SJER','SOAP','H
                      check.size=F, token=Sys.getenv('NEON_TOKEN'),
                      include.provisional=T)
 mdup <- removeDups(mam$mam_pertrapnight, variables=mam$variables_10072,
-                   table='mam_pertrapnight')
+                   table='mam_pertrapnight', ncores=5)
+mdup1 <- removeDups(mam$mam_pertrapnight, variables=mam$variables_10072,
+                    table='mam_pertrapnight')
+all(mdup==mdup1, na.rm=T)
+saveRDS(mdup, '/Users/clunch/Desktop/mamdups.rds')
+mamdups <- readRDS('/Users/clunch/Desktop/mamdups.rds')
 
 unique(mam$mam_pertrapnight$trapStatus)
 gr <- mam$mam_pertrapnight[grep("X", mam$mam_pertrapnight$trapCoordinate),]
 mult <- mam$mam_pertrapnight[grep("4", mam$mam_pertrapnight$trapStatus),]
+
+# parallel
+phe <- loadByProduct(dpID='DP1.10055.001', site='SJER',
+                     startdate='2023-01', enddate='2023-12',
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'),
+                     include.provisional=T)
+Sys.time()
+pdup <- removeDups(phe$phe_statusintensity, variables=phe$variables_10055,
+                   table='phe_statusintensity', ncores=6)
+Sys.time()
+saveRDS(pdup, '/Users/clunch/Desktop/phedups.rds')
+phedups <- readRDS('/Users/clunch/Desktop/phedups.rds')
+all(pdup$duplicateRecordQF==phedups$duplicateRecordQF)
+all(pdup==phedups, na.rm=T)
+
+fish <- loadByProduct(dpID='DP1.20107.001', package='expanded',
+                     startdate='2016-01', enddate='2018-12',
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'),
+                     include.provisional=T)
+fpdup <- removeDups(fish$fsh_perFish, variables=fish$variables_20107,
+                   table='fsh_perFish', ncores=6)
+fpdup1 <- removeDups(fish$fsh_perFish, variables=fish$variables_20107,
+                    table='fsh_perFish')
+all(fpdup==fpdup1, na.rm=T)
+saveRDS(fpdup, '/Users/clunch/Desktop/fishdups.rds')
+fpdup <- readRDS('/Users/clunch/Desktop/fishdups.rds')
+
 

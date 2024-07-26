@@ -14,6 +14,8 @@ loc.os <- getLocBySite('HARV', type='all')
 
 loc <- getLocBySite('ABBY', type='TIS')
 
+loc <- getLocBySite('BART', type='TOS')
+
 loc <- getLocBySite('GUIL', type = "all", history = T)
 
 # no lat-long calculation

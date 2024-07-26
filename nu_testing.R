@@ -112,6 +112,20 @@ pr <- loadByProduct(dpID='DP1.00024.001', site=c('ABBY','SRER'),
                    startdate='2022-03', enddate='2022-04',
                    timeIndex=30, check.size=F)
 
+Sys.time()
+pr <- loadByProduct(dpID='DP1.00024.001', site='BARR',
+                    timeIndex=30, check.size=F, include.provisional=T,
+                    token=Sys.getenv('NEON_TOKEN'), package='expanded')
+Sys.time()
+
+zipsByProduct(dpID='DP1.00024.001', site='BARR',
+              timeIndex=30, check.size=F, include.provisional=T,
+              token=Sys.getenv('NEON_TOKEN'), package='expanded',
+              savepath='/Users/clunch/Desktop')
+Sys.time()
+pr <- stackByTable('/Users/clunch/Desktop/filesToStack00024/', savepath='envt')
+Sys.time()
+
 # other LATEST
 mos <- loadByProduct(dpID='DP1.10043.001', release='LATEST',
                     startdate='2019-01', enddate='2021-12',
@@ -661,8 +675,9 @@ stackByTable('/Users/clunch/Downloads/NEON_pressure-air (1).zip')
 
 
 wq <- loadByProduct(dpID = 'DP1.20288.001', 
-              site = c('SYCA'), startdate = '2019-01-01', 
-              enddate = '2020-01-01', check.size = F,
+              site = c('WALK'), startdate = '2021-03', 
+              enddate = '2021-06', check.size = F,
+              package = 'expanded',
               token=Sys.getenv('NEON_TOKEN'))
 
 zipsByProduct(dpID = 'DP1.20288.001', 
@@ -1441,4 +1456,19 @@ RH <- loadByProduct(dpID='DP1.20271.001', site=c('PRLA','TOOK'),
                      startdate='2023-06', enddate='2023-08', 
                      include.provisional=T,
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+# invert bycatch
+fsh <- loadByProduct(dpID='DP1.20107.001', site=c('GUIL','CUPE'), 
+                    include.provisional=T,
+                    check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+# barcoding
+mb <- loadByProduct(dpID='DP1.10038.001', site=c('BART','GRSM'), 
+                     startdate='2022-05', include.provisional=T,
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+bb <- loadByProduct(dpID='DP1.10020.001', site=c('BART','GRSM'), 
+                    startdate='2022-05', include.provisional=T,
+                    check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
 
