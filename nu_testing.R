@@ -238,10 +238,25 @@ brd.no <- loadByProduct(dpID='DP1.10003.001', check.size=F,
 
 
 zipsByProduct(dpID='DP1.10003.001', check.size=F, 
-              startdate='2022-01', include.provisional=T,
+              site=c('PUUM','NIWO'),
+              startdate='2018-01', enddate='2022-12', 
               savepath='/Users/clunch/Desktop',
-              package='expanded',
               token=Sys.getenv('NEON_TOKEN'))
+stackByTable('/Users/clunch/Desktop/filesToStack10003')
+
+zipsByProduct(dpID='DP1.10033.001', check.size=F, 
+              site=c('HARV','SJER'), package='expanded',
+              startdate='2018-01', enddate='2022-12', 
+              savepath='/Users/clunch/Desktop',
+              token=Sys.getenv('NEON_TOKEN'))
+stackByTable('/Users/clunch/Desktop/filesToStack10033')
+
+zipsByProduct(dpID='DP1.00005.001', check.size=F, 
+              site=c('PUUM','NIWO'), package='expanded',
+              startdate='2022-06', enddate='2022-07', 
+              savepath='/Users/clunch/Desktop',
+              token=Sys.getenv('NEON_TOKEN'))
+stackByTable('/Users/clunch/Desktop/filesToStack00005')
 
 
 # time test
@@ -507,7 +522,8 @@ flux <- stackEddy('/Users/clunch/Desktop/filesToStack00200/', level='dp04')
 flux <- stackEddy('/Users/clunch/Desktop/PUUM_flux_files/', level='dp04')
 flux <- stackEddy(filepath = list.files('/Users/clunch/Desktop/filesToStack00200/', 
                                         pattern='[.]h5', full.names = T))
-dp1 <- stackEddy('/Users/clunch/Desktop/filesToStack00200/', level='dp01', avg=2, var='co2Stor')
+dp1 <- stackEddy('/Users/clunch/Desktop/filesToStack00200/', 
+                 level='dp01', avg=2, var='co2Stor')
 dp1$HARV$hour <- paste(lubridate::date(dp1$HARV$timeBgn), lubridate::hour(dp1$HARV$timeBgn), sep=".")
 
 Sys.time()
@@ -1006,6 +1022,10 @@ alg <- loadByProduct(dpID='DP1.20166.001', startdate='2017-05', enddate='2018-08
 
 veg <- loadByProduct(dpID='DP1.10098.001', site='ABBY', 
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
+v <- aggregate(veg$vst_apparentindividual$individualID, 
+               by=list(veg$vst_apparentindividual$eventID,
+                       veg$vst_apparentindividual$plantStatus),
+               FUN=length)
 
 # no data
 veg <- loadByProduct(dpID='DP1.10098.001', site='LAJA', package='expanded',
@@ -1470,5 +1490,30 @@ mb <- loadByProduct(dpID='DP1.10038.001', site=c('BART','GRSM'),
 bb <- loadByProduct(dpID='DP1.10020.001', site=c('BART','GRSM'), 
                     startdate='2022-05', include.provisional=T,
                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+
+
+# finding dead trees after a disturbance event
+sim <- loadByProduct(dpID='DP1.10111.001', include.provisional=T,
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+veg <- loadByProduct(dpID='DP1.10098.001', site='GRSM', 
+                     check.size=F, 
+                     token=Sys.getenv('NEON_TOKEN'))
+vstat <- aggregate(veg$vst_apparentindividual$individualID, 
+                   by=list(veg$vst_apparentindividual$eventID,
+                           veg$vst_apparentindividual$plantStatus),
+                   FUN=length)
+veff <- aggregate(veg$vst_apparentindividual$plotID, 
+                   by=list(veg$vst_apparentindividual$eventID),
+                   FUN=function(x) {length(unique(x))})
+names(vstat) <- c('eventID','plantStatus','count')
+vstat$perplotcount <- NA
+for (i in vstat$eventID) {
+  vstat$perplotcount[which(vstat$eventID==i)] <- 
+    vstat$count[which(vstat$eventID==i)]/
+    veff$x[which(veff$Group.1==i)]
+}
+
 
 
