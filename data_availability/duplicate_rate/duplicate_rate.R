@@ -5,7 +5,7 @@ library(neonUtilities)
 library(neonOS)
 
 wd <- '/Users/clunch/GitHub/definitional-data/pubWBs'
-deflist <- list.files(wd)
+deflist <- list.files(wd, pattern="[.]txt")
 
 dupRate <- matrix(data=NA, ncol=6, nrow=1)
 dupRate <- data.frame(dupRate)
@@ -17,7 +17,7 @@ tableResult <- data.frame(tableResult)
 names(tableResult) <- c('dpID', 'table', 'records', 'duplicates')
 #tableResult <- read.csv('/Users/clunch/GitHub/sandbox/data_availability/duplicate_rate/tableResults.csv')
 
-for(i in c(77:length(deflist))) {
+for(i in c(76:length(deflist))) {
 
   vars <- read.delim(paste(wd, deflist[i], sep='/'), sep='\t')
   dpID <- substring(unique(vars$dpID), 15, 28)
@@ -26,12 +26,17 @@ for(i in c(77:length(deflist))) {
     next
   }
   
-  datList <- try(loadByProduct(dpID, check.size=F, package='expanded',
-                               startdate='2017-05', enddate='2018-08',
-                               token=Sys.getenv('NEON_TOKEN')))
+  if(dpID!='DP1.10017.001') {
+    datList <- try(loadByProduct(dpID, check.size=F, package='expanded',
+                                 startdate='2021-05', enddate='2022-08',
+                                 include.provisional=TRUE,
+                                 token=Sys.getenv('NEON_TOKEN')))
+  } else {
+    next
+  }
   
   if(class(datList)=='try-error') {
-    dres <- c(dpID, '', 'No data found for 2017-05 to 2018-08', '')
+    dres <- c(dpID, '', 'No data found for 2021-05 to 2022-08', '')
     tableResult <- rbind(tableResult, dres)
     next
   }
@@ -41,7 +46,8 @@ for(i in c(77:length(deflist))) {
     if(j %in% c('rea_conductivityFieldData','sbd_conductivityFieldData') | 
        length(grep('variables', j))>0 | length(grep('validation', j))>0 | 
        length(grep('readme', j))>0 | length(grep('categoricalCodes', j))>0 |
-       length(grep('citation', j))>0 | length(grep('issueLog', j))>0) {
+       length(grep('citation', j))>0 | length(grep('issueLog', j))>0 | 
+       length(grep('sensor', j))>0) {
       next
     }
     
