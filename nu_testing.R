@@ -1466,6 +1466,13 @@ eddy <- stackEddy(filepath='/Users/clunch/Desktop/filesToStack00200/NEON.D06.KON
                   level="dp01", var="rtioMoleDryCo2", avg=6)
 
 
+# SIM
+sim <- loadByProduct(dpID='DP1.10111.001', site=c('ONAQ','WREF','BONA','DELA','ARIK','SUGG','TOOK','BLWA'), 
+                     startdate='2021-06', enddate='2021-08', 
+                     include.provisional=T, package='expanded',
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+
 # buoy RH
 RHT <- loadByProduct(dpID='DP1.20046.001', site=c('PRLA','TOOK'), 
                      startdate='2023-06', enddate='2023-08', 
