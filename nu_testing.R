@@ -796,6 +796,15 @@ scc <- loadByProduct(dpID = 'DP1.10081.001',
                             token = Sys.getenv('NEON_TOKEN'),
                             package = 'expanded')
 
+scc <- loadByProduct(dpID = 'DP1.10081.002',
+                     startdate = '2021-06',
+                     enddate = '2022-06',
+                     site=c('NIWO','WREF','HARV'),
+                     check.size = FALSE,
+                     token = Sys.getenv('NEON_TOKEN'),
+                     package = 'expanded',
+                     include.provisional = T)
+
 bcc <- loadByProduct(dpID = 'DP1.20086.001',
                      startdate = '2018-06',
                      enddate = '2019-06',
@@ -1047,12 +1056,17 @@ sms <- loadByProduct(dpID='DP1.00094.001', startdate='2018-06', enddate='2018-07
 buoyT <- loadByProduct(dpID='DP1.20046.001', site='BARC',
                      check.size=F)
 
+buoyT <- loadByProduct(dpID='DP1.20046.001', site='BARC',
+                       release='RELEASE-2023', check.size=F)
+
 sls <- loadByProduct(dpID='DP1.10086.001', site='TALL',
                      package='expanded', token=Sys.getenv('NEON_TOKEN'),
                      check.size=F)
 
-bat <- loadByProduct(dpID='DP4.00132.001', startdate='2017-05',
-                     enddate='2018-08', check.size=F)
+bat <- loadByProduct(dpID='DP4.00132.001', startdate='2021-05',
+                     enddate='2023-08', release='LATEST', 
+                     package='expanded', check.size=F,
+                     token=Sys.getenv('LATEST_TOKEN'))
 
 div <- loadByProduct(dpID='DP1.10058.001', startdate='2018-01', 
                      enddate='2018-12', token=Sys.getenv('NEON_TOKEN'),
