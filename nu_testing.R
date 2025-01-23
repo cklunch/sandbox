@@ -1538,3 +1538,11 @@ for (i in vstat$eventID) {
 
 
 
+zipsByProduct(dpID="DP4.00200.001", site="OAES", 
+              startdate="2022-01", enddate="2022-06",
+              package="expanded", check.size=F,
+              savepath="/Users/clunch/Desktop")
+foot <- footRaster("/Users/clunch/Desktop/filesToStack00200/")
+
+foot <- footRaster('/Users/clunch/Desktop/NEON_eddy-flux.zip')
+foot <- footRaster("/Users/clunch/Desktop/filesToStack00200/NEON.D11.OAES.DP4.00200.001.nsae.2022-01-06.expanded.20240121T104953Z.h5")
