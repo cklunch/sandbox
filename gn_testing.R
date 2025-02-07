@@ -22,6 +22,14 @@ loc <- getLocBySite('GUIL', type = "all", history = T)
 nogp <- geoNEON::getLocBySite("NOGP_037.mosquitoPoint.mos", token = Sys.getenv('NEON_TOKEN'))
 nogp <- geoNEON::getLocBySite("NOGP_037.mosquitoPoint.mos", history=T, token = Sys.getenv('NEON_TOKEN'))
 
+# spc
+spc <- loadByProduct('DP1.10047.001', 
+                     package='expanded', 
+                     include.provisional = T, 
+                     check.size=F)
+sploc <- getLocTOS(spc$spc_perplot, 'spc_perplot', 
+                   token=Sys.getenv('NEON_TOKEN'))
+
 # no lat-long calculation
 bird <- loadByProduct(dpID='DP1.10003.001', site='WREF', check.size=F)
 perpoint.loc <- getLocByName(bird$brd_perpoint)
