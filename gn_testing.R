@@ -12,7 +12,7 @@ loc <- getLocBySite('SYCA', type='all', history=T, token=Sys.getenv('NEON_TOKEN'
 loc.is <- getLocBySite('ARIK', type='site', token='garbage')
 loc.os <- getLocBySite('HARV', type='all')
 
-loc <- getLocBySite('ABBY', type='TIS')
+locA <- getLocBySite('ABBY', type='TIS')
 
 loc <- getLocBySite('BART', type='TOS')
 
@@ -29,6 +29,42 @@ spc <- loadByProduct('DP1.10047.001',
                      check.size=F)
 sploc <- getLocTOS(spc$spc_perplot, 'spc_perplot', 
                    token=Sys.getenv('NEON_TOKEN'))
+
+sppl <- getLocByName(spc$spc_perplot, token=Sys.getenv('NEON_TOKEN'))
+sppl$eastMin <- as.numeric(sppl$easting) - 
+  as.numeric(substring(sppl$plotDimensions, 1, 2))/2
+sppl$eastMax <- as.numeric(sppl$easting) + 
+  as.numeric(substring(sppl$plotDimensions, 1, 2))/2
+sppl$northMin <- as.numeric(sppl$northing) - 
+  as.numeric(substring(sppl$plotDimensions, 1, 2))/2
+sppl$northMax <- as.numeric(sppl$northing) + 
+  as.numeric(substring(sppl$plotDimensions, 1, 2))/2
+
+which(sploc$adjEasting > sppl$eastMax | sploc$adjEasting < sppl$eastMin)
+length(which(sploc$adjEasting > sppl$eastMax | sploc$adjEasting < sppl$eastMin))
+sz <- as.numeric(substring(sppl$plotDimensions, 1, 2))/2
+
+symbols(sppl$easting[which(sppl$plotID=='BART_062')], 
+        sppl$northing[which(sppl$plotID=='BART_062')], 
+        squares=sz[which(sppl$plotID=='BART_062')], 
+        inches=F, xlim=c(315290,315320), ylim=c(4880810,4880845))
+symbols(sploc$adjEasting[which(sploc$plotID=='BART_062')],
+        sploc$adjNorthing[which(sploc$plotID=='BART_062')],
+        circles=0.1, inches=F, add=T)
+
+symbols(sppl$easting[which(sppl$plotID=='SCBI_017')], 
+        sppl$northing[which(sppl$plotID=='SCBI_017')], 
+        squares=sz[which(sppl$plotID=='SCBI_017')], 
+        inches=F, xlim=c(748480,748510), ylim=c(4307280,4307310))
+symbols(sploc$adjEasting[which(sploc$plotID=='SCBI_017')],
+        sploc$adjNorthing[which(sploc$plotID=='SCBI_017')],
+        circles=0.1, inches=F, add=T)
+
+
+sim <- loadByProduct('DP1.10111.001', site='HARV', 
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+
 
 # no lat-long calculation
 bird <- loadByProduct(dpID='DP1.10003.001', site='WREF', check.size=F)
@@ -128,3 +164,64 @@ loc <- jsonlite::fromJSON(httr::content(req, as='text', encoding='UTF-8'))
 req <- httr::GET("http://data.neonscience.org/api/v0/locations/GWWELL112553?history=true")
 loc <- jsonlite::fromJSON(httr::content(req, as='text', encoding='UTF-8'))
 
+
+site <- 'SYCA'
+token <- Sys.getenv('NEON_TOKEN')
+source("~/GitHub/NEON-geolocation/geoNEON/R/getAPI.R")
+source("~/GitHub/NEON-geolocation/geoNEON/R/getLocValues.R")
+source("~/GitHub/NEON-geolocation/geoNEON/R/getLocProperties.R")
+source("~/GitHub/NEON-geolocation/geoNEON/R/findDateMatch.R")
+
+
+###### HISTORY (TOS)
+
+# TOS locations with histories
+pts <- read.csv('/Users/clunch/Downloads/All_NEON_TOS_Plots_V11/TOS_versionedPoints.csv')
+sbplts <- read.csv('/Users/clunch/Downloads/All_NEON_TOS_Plots_V11/TOS_versionedSubplots.csv')
+
+
+# subplots with history
+cfc <- loadByProduct('DP1.10026.001', site='DSNY', check.size=F, token=Sys.getenv('NEON_TOKEN'))
+cfc.nm <- getLocByName(cfc$cfc_fieldData, history=T, locOnly=F, token=Sys.getenv('NEON_TOKEN'))
+cfc.loc <- getLocTOS(cfc$cfc_fieldData, dataProd='cfc_fieldData', token=Sys.getenv('NEON_TOKEN'))
+
+cfc <- loadByProduct('DP1.10026.001', site='OSBS', check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+ltr <- loadByProduct('DP1.10033.001', site='OSBS', check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+herb <- loadByProduct('DP1.10023.001', site='OSBS', check.size=F, token=Sys.getenv('NEON_TOKEN'))
+herb.loc <- getLocTOS(herb$hbp_perbout, dataProd='hbp_perbout', token=Sys.getenv('NEON_TOKEN'))
+View(herb.loc[which(herb.loc$plotID=='OSBS_020'),])
+# it's on the list (TOS plots V11) but doesn't have a history in the database
+
+root <- loadByProduct('DP1.10067.001', site='OSBS', check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+
+# next steps:
+# create a mock json with a history for testing
+# include option to exclude history in getLocTOS()
+
+intersect(cfc$cfc_fieldData$plotID, intersect(ltr$ltr_pertrap$plotID, 
+                                              intersect(herb$hbp_perbout$plotID, 
+                                                        root$bbc_percore$plotID)))
+# [1] "OSBS_027" "OSBS_026" "OSBS_031" "OSBS_028"
+
+# points with history
+bird <- loadByProduct('DP1.10003.001', site='SCBI', check.size=F, token=Sys.getenv('NEON_TOKEN'))
+'SCBI_022' %in% bird$brd_perpoint
+# nope
+
+mampt <- pts[grep('mam',pts$applicableModules),]
+mam <- loadByProduct('DP1.10072.001', site='HEAL', check.size=F, token=Sys.getenv('NEON_TOKEN'))
+unique(mam$mam_perplotnight$plotID[which(mam$mam_perplotnight$plotID %in% mampt$plotID)])
+mam.loc <- getLocTOS(mam$mam_pertrapnight, 'mam_pertrapnight', token=Sys.getenv('NEON_TOKEN'))
+mam32 <- mam.loc[which(mam.loc$plotID=='HEAL_032'),]
+mam32[which(mam32$collectDate==as.POSIXct("2015-08-18", format='%Y-%m-%d', tz='GMT') & 
+                        mam32$trapCoordinate=='B7'),]
+mam32[which(mam32$collectDate==as.POSIXct("2023-08-18", format='%Y-%m-%d', tz='GMT') & 
+                        mam32$trapCoordinate=='B7'),]
+
+mam <- loadByProduct('DP1.10072.001', site='BART', startdate='2021-01', 
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+mam.loc <- getLocTOS(mam$mam_pertrapnight, 'mam_pertrapnight', token=Sys.getenv('NEON_TOKEN'))
+mam01 <- mam.loc[which(mam.loc$plotID=='BART_001'),]

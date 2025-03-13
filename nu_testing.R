@@ -1546,3 +1546,17 @@ foot <- footRaster("/Users/clunch/Desktop/filesToStack00200/")
 
 foot <- footRaster('/Users/clunch/Desktop/NEON_eddy-flux.zip')
 foot <- footRaster("/Users/clunch/Desktop/filesToStack00200/NEON.D11.OAES.DP4.00200.001.nsae.2022-01-06.expanded.20240121T104953Z.h5")
+
+
+# query endpoint
+urlltst <- queryFiles(dpID='DP1.10098.001', site=c('WREF','NIWO','TEAK'),
+                      package='basic', release='RELEASE-2025', 
+                      tabl='vst_apparentindividual',
+                      token=Sys.getenv('NEON_TOKEN'))
+
+# site management by event type
+Sys.time()
+events <- byEventSIM('fire', site=c('SOAP','SJER','TEAK','BIGC','TECR'),
+                     include.provisional=T, token=Sys.getenv('NEON_TOKEN'))
+Sys.time()
+
