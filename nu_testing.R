@@ -471,6 +471,7 @@ enddate <- NA
 # new download structure for SAE
 flux <- stackEddy('/Users/clunch/Desktop/NEON_eddy-flux.zip', level='dp04')
 flux <- stackEddy('/Users/clunch/Desktop/PROD_eddy-flux.zip', level='dp04')
+flux <- stackEddy('/Users/clunch/Desktop/NEON_eddy-flux', level='dp04')
 
 flux <- stackEddy('/Users/clunch/Desktop/NEON.D18.TOOL.DP4.00200.001.nsae.2018-07-19.expanded.h5', 
                   level='dp04')
