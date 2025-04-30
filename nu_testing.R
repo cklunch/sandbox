@@ -1561,3 +1561,74 @@ events <- byEventSIM('fire', site=c('SOAP','SJER','TEAK','BIGC','TECR'),
                      include.provisional=T, token=Sys.getenv('NEON_TOKEN'))
 Sys.time()
 
+
+# arrow fun
+library(arrow)
+library(dplyr)
+library(ggplot2)
+mamds <- datasetQuery(dpID='DP1.10072.001', site='TREE',
+                     package='basic', release='RELEASE-2025', 
+                     tabl='mam_pertrapnight', 
+                     token=Sys.getenv('NEON_TOKEN'))
+mamTREE <- mamds |> 
+  filter(!is.na(taxonID)) |> 
+  select(tagID, taxonID, scientificName) |>
+  distinct() |>
+  collect()
+
+
+swds <- datasetQuery(dpID='DP1.00094.001', site='SJER',
+                    package='basic', release='RELEASE-2025', 
+                    startdate='2024-04', enddate='2024-06',
+                    tabl='SWS_30_minute', hor="002", ver="501",
+                    token=Sys.getenv('NEON_TOKEN'))
+
+swmean <- swds |> 
+  filter(VSWCFinalQF==0) |>
+  select(endDateTime, VSWCMean) |> 
+  mutate(dat = date(endDateTime)) |>
+  group_by(dat) |>
+  summarize(swmean = mean(VSWCMean, na.rm=T)) |>
+  collect()
+
+gg <- ggplot(swmean, aes(dat, swmean)) +
+  geom_line()
+gg
+
+
+invds <- datasetQuery(dpID='DP1.20120.001', site='all',
+                     package='expanded', release='current', 
+                     tabl='inv_taxonomyProcessed', 
+                     include.provisional = TRUE,
+                     token=Sys.getenv('NEON_TOKEN'))
+invds %>% nrow()
+dum <- invds %>% compute()
+
+tckds <- datasetQuery(dpID='DP1.10092.001', site='all',
+                      package='expanded', release='current', 
+                      tabl='tck_pathogen', 
+                      include.provisional = TRUE,
+                      token=Sys.getenv('NEON_TOKEN'))
+tckds %>% nrow()
+
+
+invfile <- read.csv('/Users/clunch/Desktop/NEON.D10.ARIK.DP1.20120.001.inv_taxonomyProcessed.2023-11.expanded.20250204T000151Z.csv')
+varfile <- read.csv('/Users/clunch/Desktop/NEON.D10.ARIK.DP1.20120.001.variables.20250204T000151Z.csv')
+setdiff(varfile$fieldName[which(varfile$table=='inv_taxonomyProcessed')], names(invfile))
+setdiff(names(invfile), varfile$fieldName[which(varfile$table=='inv_taxonomyProcessed')])
+
+varfilenew <- read.csv('/Users/clunch/Desktop/NEON.D06.MCDI.DP1.20120.001.variables.20250410T221216Z.csv')
+setdiff(varfilenew$fieldName[which(varfilenew$table=='inv_taxonomyProcessed')], names(invfile))
+setdiff(names(invfile), varfilenew$fieldName[which(varfilenew$table=='inv_taxonomyProcessed')])
+
+invds <- datasetQuery(dpID='DP1.20120.001', site='COMO',
+                      package='expanded', release='LATEST', 
+                      tabl='inv_taxonomyProcessed', 
+                      include.provisional = TRUE,
+                      token=Sys.getenv('LATEST_TOKEN'))
+invds %>% nrow()
+
+
+
+
+

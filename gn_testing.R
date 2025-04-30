@@ -99,6 +99,12 @@ herb.W <- loadByProduct(dpID='DP1.10023.001', site='WOOD',
                         check.size=F, token=Sys.getenv('NEON_TOKEN'))
 herb.W.loc <- getLocTOS(herb.W$hbp_perbout, 'hbp_perbout', token=Sys.getenv('NEON_TOKEN'))
 
+herb.K <- loadByProduct(dpID='DP1.10023.001', site='KONA', 
+                        check.size=F, token=Sys.getenv('NEON_TOKEN'))
+herb.K.loc <- getLocTOS(herb.K$hbp_perbout, 'hbp_perbout', token=Sys.getenv('NEON_TOKEN'))
+
+plot(herb.K.loc$adjNorthing~herb.K.loc$adjEasting, pch=0)
+
 cdw.tally <- loadByProduct(dpID='DP1.10010.001', check.size=F)
 cdw.density <- loadByProduct(dpID='DP1.10014.001', check.size=F)
 
