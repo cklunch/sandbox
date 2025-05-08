@@ -72,7 +72,7 @@ perpoint.loc <- getLocByName(bird$brd_perpoint)
 countdata.loc <- getLocTOS(bird$brd_countdata, 'brd_countdata', token=Sys.getenv('NEON_TOKEN'))
 
 # lat-long calculation using Sarah's function
-phe <- loadByProduct(dpID='DP1.10055.001', site='MOAB', check.size=F)
+phe <- loadByProduct(dpID='DP1.10055.001', site='OSBS', check.size=F)
 phe.loc <- getLocTOS(phe$phe_perindividual, 'phe_perindividual')
 phe.name <- getLocByName(phe$phe_perindividual)
 
@@ -80,24 +80,29 @@ phe.name <- getLocByName(phe$phe_perindividual)
 root <- loadByProduct(dpID='DP1.10067.001', site=c('TREE','TALL'), check.size=F)
 root.loc <- getLocTOS(root$bbc_percore, 'bbc_percore')
 
-sls <- loadByProduct(dpID='DP1.10086.001', site='UNDE', check.size=F)
+sls <- loadByProduct(dpID='DP1.10086.001', site='JERC', check.size=F)
+sls.loc <- getLocTOS(sls$sls_soilCoreCollection, dataProd='sls_soilCoreCollection', 
+                     token=Sys.getenv('NEON_TOKEN'))
 
-bet <- loadByProduct(dpID='DP1.10022.001', site='TALL', check.size=F)
+bet <- loadByProduct(dpID='DP1.10022.001', site='JERC', check.size=F)
+bet.loc <- getLocTOS(bet$bet_fielddata, dataProd='bet_fielddata', 
+                     token=Sys.getenv('NEON_TOKEN'))
 
 mos <- loadByProduct(dpID='DP1.10043.001', site='NIWO', check.size=F)
 
 tick <- loadByProduct(dpID='DP1.10093.001', site=c('TALL','CLBJ'), check.size=F)
 
 
-dhp <- loadByProduct(dpID='DP1.10017.001', check.size=F, token=Sys.getenv('NEON_TOKEN'))
+dhp <- loadByProduct(dpID='DP1.10017.001', site=c('OSBS','JERC'), 
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
 dhp.loc <- getLocTOS(dhp$dhp_perimagefile, 'dhp_perimagefile', token=Sys.getenv('NEON_TOKEN'))
 
 herb <- loadByProduct(dpID='DP1.10023.001', check.size=F, token=Sys.getenv('NEON_TOKEN'))
 herb.loc <- getLocTOS(herb$hbp_perbout, 'hbp_perbout', token=Sys.getenv('NEON_TOKEN'))
 
-herb.W <- loadByProduct(dpID='DP1.10023.001', site='WOOD', 
+herb <- loadByProduct(dpID='DP1.10023.001', site=c('BART','GRSM'), 
                         check.size=F, token=Sys.getenv('NEON_TOKEN'))
-herb.W.loc <- getLocTOS(herb.W$hbp_perbout, 'hbp_perbout', token=Sys.getenv('NEON_TOKEN'))
+herb.loc <- getLocTOS(herb$hbp_perbout, 'hbp_perbout', token=Sys.getenv('NEON_TOKEN'))
 
 herb.K <- loadByProduct(dpID='DP1.10023.001', site='KONA', 
                         check.size=F, token=Sys.getenv('NEON_TOKEN'))
@@ -106,14 +111,29 @@ herb.K.loc <- getLocTOS(herb.K$hbp_perbout, 'hbp_perbout', token=Sys.getenv('NEO
 plot(herb.K.loc$adjNorthing~herb.K.loc$adjEasting, pch=0)
 
 cdw.tally <- loadByProduct(dpID='DP1.10010.001', check.size=F)
+cdw.loc <- getLocTOS(cdw.tally$cdw_fieldtally, 'cdw_fieldtally', token=Sys.getenv('NEON_TOKEN'))
+
 cdw.density <- loadByProduct(dpID='DP1.10014.001', check.size=F)
 
 divJ <- loadByProduct(dpID='DP1.10058.001', site='JERC', 
                       check.size=F, token=Sys.getenv('NEON_TOKEN'))
 divJ.loc <- getLocTOS(divJ$div_1m2Data, 'div_1m2Data', token=Sys.getenv('NEON_TOKEN'))
 
+div <- loadByProduct(dpID='DP1.10058.001', site='OSBS', 
+                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
+div.loc <- getLocTOS(div$div_1m2Data, 'div_1m2Data', token=Sys.getenv('NEON_TOKEN'))
+div.100 <- getLocTOS(div$div_10m2Data100m2Data, 'div_10m2Data100m2Data', token=Sys.getenv('NEON_TOKEN'))
+
 # testing subplot updates
 vst <- loadByProduct(dpID='DP1.10098.001', site='ABBY', 
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+vst.loc <- getLocTOS(vst$vst_mappingandtagging, 'vst_mappingandtagging', token=Sys.getenv('NEON_TOKEN'))
+vst.shrub <- getLocTOS(vst$vst_shrubgroup, 'vst_shrubgroup', token=Sys.getenv('NEON_TOKEN'))
+vst.nw <- getLocTOS(vst$`vst_non-woody`, 'vst_non-woody', token=Sys.getenv('NEON_TOKEN'))
+vst.ind <- getLocTOS(vst$vst_apparentindividual, 'vst_apparentindividual', token=Sys.getenv('NEON_TOKEN'))
+
+# testing location histories
+vst <- loadByProduct(dpID='DP1.10098.001', site='DSNY', 
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
 vst.loc <- getLocTOS(vst$vst_mappingandtagging, 'vst_mappingandtagging', token=Sys.getenv('NEON_TOKEN'))
 vst.shrub <- getLocTOS(vst$vst_shrubgroup, 'vst_shrubgroup', token=Sys.getenv('NEON_TOKEN'))
@@ -191,17 +211,22 @@ cfc <- loadByProduct('DP1.10026.001', site='DSNY', check.size=F, token=Sys.geten
 cfc.nm <- getLocByName(cfc$cfc_fieldData, history=T, locOnly=F, token=Sys.getenv('NEON_TOKEN'))
 cfc.loc <- getLocTOS(cfc$cfc_fieldData, dataProd='cfc_fieldData', token=Sys.getenv('NEON_TOKEN'))
 
-cfc <- loadByProduct('DP1.10026.001', site='OSBS', check.size=F, token=Sys.getenv('NEON_TOKEN'))
+cfc <- loadByProduct('DP1.10026.001', site='DSNY', check.size=F, token=Sys.getenv('NEON_TOKEN'))
+cfc.loc <- getLocTOS(cfc$cfc_fieldData, dataProd='cfc_fieldData', token=Sys.getenv('NEON_TOKEN'))
 
 ltr <- loadByProduct('DP1.10033.001', site='OSBS', check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+ltr <- loadByProduct('DP1.10033.001', site=c('DSNY', 'GRSM'), 
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+ltr.loc <- getLocTOS(ltr$ltr_pertrap, dataProd='ltr_pertrap', token=Sys.getenv('NEON_TOKEN'))
 
 herb <- loadByProduct('DP1.10023.001', site='OSBS', check.size=F, token=Sys.getenv('NEON_TOKEN'))
 herb.loc <- getLocTOS(herb$hbp_perbout, dataProd='hbp_perbout', token=Sys.getenv('NEON_TOKEN'))
 View(herb.loc[which(herb.loc$plotID=='OSBS_020'),])
 # it's on the list (TOS plots V11) but doesn't have a history in the database
 
-root <- loadByProduct('DP1.10067.001', site='OSBS', check.size=F, token=Sys.getenv('NEON_TOKEN'))
-
+root <- loadByProduct('DP1.10067.001', site='JERC', check.size=F, token=Sys.getenv('NEON_TOKEN'))
+root.loc <- getLocTOS(root$bbc_percore, dataProd='bbc_percore', token=Sys.getenv('NEON_TOKEN'))
 
 # next steps:
 # create a mock json with a history for testing
@@ -213,9 +238,9 @@ intersect(cfc$cfc_fieldData$plotID, intersect(ltr$ltr_pertrap$plotID,
 # [1] "OSBS_027" "OSBS_026" "OSBS_031" "OSBS_028"
 
 # points with history
-bird <- loadByProduct('DP1.10003.001', site='SCBI', check.size=F, token=Sys.getenv('NEON_TOKEN'))
-'SCBI_022' %in% bird$brd_perpoint
-# nope
+bird <- loadByProduct('DP1.10003.001', site='SCBI', 
+                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
+bird.loc <- getLocTOS(bird$brd_perpoint, 'brd_perpoint', token=Sys.getenv('NEON_TOKEN'))
 
 mampt <- pts[grep('mam',pts$applicableModules),]
 mam <- loadByProduct('DP1.10072.001', site='HEAL', check.size=F, token=Sys.getenv('NEON_TOKEN'))

@@ -1629,6 +1629,12 @@ invds <- datasetQuery(dpID='DP1.20120.001', site='COMO',
 invds %>% nrow()
 
 
+## implementing cloud mode
+dum <- zipsByProduct(dpID='DP1.30012.001', package='expanded', cloud.mode=T,
+                     include.provisional = T, token = Sys.getenv('NEON_TOKEN'))
 
-
+dum <- queryFiles(dpID='DP1.30012.001',
+                  package='expanded',
+                  include.provisional = T,
+                  token=Sys.getenv('NEON_TOKEN'))
 
