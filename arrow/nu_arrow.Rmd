@@ -1,0 +1,86 @@
+---
+output:
+  md_document
+date: "2025-05-14"
+---
+
+```{r libraries, message=F}
+
+library(neonUtilities)
+library(arrow)
+library(dplyr)
+library(lubridate)
+library(ggplot2)
+
+```
+
+The neonUtilities version used here is the development version, not the released version.
+
+## Last time:
+
+* `queryFiles()` is a neonUtilities function, a wrapper for the new API endpoint that returns the full list of files meeting the search criteria. https://data.neonscience.org/data-api/endpoints/data-query/
+
+* `open_csv_dataset()` is an arrow function. It takes a list of filepaths and defines them as a unified dataset, but doesn't download them.
+
+* `schemaFromVar()` is a neonUtilities function that takes a NEON variables file and translates it into an arrow schema, defining the column names and data types for the dataset.
+
+```{r qfsm, results="hide", message=F}
+
+urllst <- queryFiles(dpID='DP1.10072.001', site='TREE',
+                      package='basic', release='RELEASE-2025', 
+                      tabl='mam_pertrapnight', metadata=F,
+                      token=Sys.getenv('NEON_TOKEN'))
+
+ds <- open_csv_dataset(sources=urllst[[1]], 
+                       schema=schemaFromVar(urllst[[2]], 
+                                            'mam_pertrapnight',
+                                            'basic'), 
+                       skip=1)
+
+```
+
+## New function: datasetQuery()
+
+This function combines the functions above into a single step.
+
+```{r qds, message=F}
+
+dsq <- datasetQuery(dpID='DP1.10072.001', site='TREE',
+                    package='basic', release='RELEASE-2025', 
+                    tabl='mam_pertrapnight', 
+                    token=Sys.getenv('NEON_TOKEN'))
+
+```
+
+This one function creates an arrow dataset based on the query criteria.
+
+```{r ds-class}
+
+class(dsq)
+
+```
+
+## IS data
+
+Here's what this function looks like for IS data:
+
+```{r dsq-IS, message=F}
+
+dssw <- datasetQuery(dpID='DP1.00094.001', site='SJER',
+                     startdate='2024-04', enddate='2024-06',
+                     package='basic', release='RELEASE-2025', 
+                     tabl='SWS_30_minute', hor='002', ver='501',
+                     token=Sys.getenv('NEON_TOKEN'))
+
+```
+
+`site`, `hor`, and `ver` are required inputs. This prevents users from 
+unknowingly calculating averages and other statistics across locations.
+
+`queryFiles()` is still in the package, so people can still figure out how 
+to do more complicated and risky queries on their own, and it doesn't change 
+the risk of e.g. leaving out critical columns. But making `datasetQuery()` 
+the default way to do this reduces some of the biggest risks.
+
+
+

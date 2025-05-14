@@ -228,6 +228,9 @@ View(herb.loc[which(herb.loc$plotID=='OSBS_020'),])
 root <- loadByProduct('DP1.10067.001', site='JERC', check.size=F, token=Sys.getenv('NEON_TOKEN'))
 root.loc <- getLocTOS(root$bbc_percore, dataProd='bbc_percore', token=Sys.getenv('NEON_TOKEN'))
 
+soil <- loadByProduct('DP1.10086.001', check.size=F, token=Sys.getenv('NEON_TOKEN'))
+soil.loc <- getLocTOS(soil$sls_soilCoreCollection, dataProd='sls_soilCoreCollection', token=Sys.getenv('NEON_TOKEN'))
+
 # next steps:
 # create a mock json with a history for testing
 # include option to exclude history in getLocTOS()
