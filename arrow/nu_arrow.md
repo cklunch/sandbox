@@ -61,8 +61,9 @@ Here’s what this function looks like for IS data:
                          tabl='SWS_30_minute', hor='002', ver='501',
                          token=Sys.getenv('NEON_TOKEN'))
 
-`site`, `hor`, and `ver` are required inputs. This prevents users from
-unknowingly calculating averages and other statistics across locations.
+`site`, `hor`, and `ver` are required inputs, and only allow for a
+single entry each. This prevents users from unknowingly calculating
+averages and other statistics across locations.
 
 `queryFiles()` is still in the package, so people can still figure out
 how to do more complicated and risky queries on their own, and it
