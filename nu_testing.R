@@ -9,6 +9,11 @@ check()
 options(stringsAsFactors = F)
 urlchecker::url_check('.')
 
+source("~/GitHub/NEON-utilities/neonUtilities/R/getRecentPublication.R")
+source("~/GitHub/NEON-utilities/neonUtilities/R/getVariables.R")
+source("~/GitHub/NEON-utilities/neonUtilities/R/schemaFromVar.R")
+source("~/GitHub/NEON-utilities/neonUtilities/R/schemaAllStrings.R")
+
 setwd("/Users/clunch/GitHub/utilities-test-suite/testUtilities")
 test()
 
@@ -844,6 +849,11 @@ waq <- loadByProduct(dpID='DP1.20288.001', site=c('ARIK','HOPB'),
                      startdate='2022-09', enddate='2022-11', 
                      package='expanded', check.size=F, useFasttime=T)
 
+zipsByProduct(dpID='DP1.20288.001', site=c('ARIK','HOPB'), 
+              startdate='2022-09', enddate='2022-11', 
+              package='expanded', check.size=F, 
+              savepath='/Users/clunch/Desktop')
+
 byTileAOP(dpID = "DP3.30006.001", site = "ORNL", year = "2016", 
           easting = 744000, northing = 983000, check.size = FALSE)
 
@@ -1552,7 +1562,7 @@ foot <- footRaster("/Users/clunch/Desktop/filesToStack00200/NEON.D11.OAES.DP4.00
 # query endpoint
 urlltst <- queryFiles(dpID='DP1.10098.001', site=c('WREF','NIWO','TEAK'),
                       package='basic', release='RELEASE-2025', 
-                      tabl='vst_apparentindividual',
+                      #tabl='vst_apparentindividual',
                       token=Sys.getenv('NEON_TOKEN'))
 
 # site management by event type
