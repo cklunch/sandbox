@@ -5,14 +5,9 @@ setwd("/Users/clunch/GitHub/NEON-utilities/neonUtilities")
 
 install('.')
 library(neonUtilities)
+load_all()
 check()
-options(stringsAsFactors = F)
 urlchecker::url_check('.')
-
-source("~/GitHub/NEON-utilities/neonUtilities/R/getRecentPublication.R")
-source("~/GitHub/NEON-utilities/neonUtilities/R/getVariables.R")
-source("~/GitHub/NEON-utilities/neonUtilities/R/schemaFromVar.R")
-source("~/GitHub/NEON-utilities/neonUtilities/R/schemaAllStrings.R")
 
 setwd("/Users/clunch/GitHub/utilities-test-suite/testUtilities")
 test()
@@ -117,6 +112,10 @@ pr <- loadByProduct(dpID='DP1.00024.001', site=c('ABBY','SRER'),
                    startdate='2022-03', enddate='2022-04',
                    timeIndex=30, check.size=F)
 
+pr <- loadByProduct(dpID='DP1.00024.001', site=c('ABBY','SRER'),
+                    startdate='2024-06', enddate='2024-07',
+                    timeIndex=30, include.provisional=T, check.size=F)
+
 Sys.time()
 pr <- loadByProduct(dpID='DP1.00024.001', site='BARR',
                     timeIndex=30, check.size=F, include.provisional=T,
@@ -130,6 +129,12 @@ zipsByProduct(dpID='DP1.00024.001', site='BARR',
 Sys.time()
 pr <- stackByTable('/Users/clunch/Desktop/filesToStack00024/', savepath='envt')
 Sys.time()
+
+# HOR/VER
+getHorVer('DP1.20033.001', site='ARIK')
+getHorVer('DP1.00001.001', site='HARV')
+getHorVer('DP1.20267.001', site='POSE')
+getHorVer('DP1.20100.001', site='POSE')
 
 # other LATEST
 mos <- loadByProduct(dpID='DP1.10043.001', release='LATEST',
@@ -233,8 +238,12 @@ brd <- loadByProduct(dpID='DP1.10003.001', check.size=F, package='expanded',
                      token=Sys.getenv('NEON_TOKEN'))
 
 inv <- loadByProduct(dpID='DP1.20120.001', package='expanded', 
-                     release='RELEASE-2021',
+                     release='RELEASE-2025', site=c('COMO','OKSR','MCRA','SYCA','PRLA','REDB'),
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+invrate <- loadByProduct(dpID='DP1.20120.001', package='expanded', 
+                     release='RELEASE-2025', site='all',
+                     check.size=F, token=Sys.getenv('PUBLIC_TOKEN'))
 
 # no data in release for parameters:
 brd.no <- loadByProduct(dpID='DP1.10003.001', check.size=F, 
@@ -256,12 +265,21 @@ zipsByProduct(dpID='DP1.10033.001', check.size=F,
               token=Sys.getenv('NEON_TOKEN'))
 stackByTable('/Users/clunch/Desktop/filesToStack10033')
 
+# zips test
 zipsByProduct(dpID='DP1.00005.001', check.size=F, 
+              timeIndex=30,
               site=c('PUUM','NIWO'), package='expanded',
-              startdate='2022-06', enddate='2022-07', 
+              startdate='2022-06', enddate='2024-06', 
               savepath='/Users/clunch/Desktop',
-              token=Sys.getenv('NEON_TOKEN'))
+              token=Sys.getenv('PUBLIC_TOKEN'))
 stackByTable('/Users/clunch/Desktop/filesToStack00005')
+
+# science review flag test - one unresolved
+biotemp <- loadByProduct(dpID='DP1.00005.001', check.size=F, 
+              timeIndex=30,
+              site=c('PUUM','NIWO'), package='expanded',
+              startdate='2022-06', enddate='2024-06', 
+              token=Sys.getenv('PUBLIC_TOKEN'))
 
 
 # time test
@@ -274,6 +292,7 @@ zipsByProduct(dpID='DP1.10026.001', tabl='cfc_carbonNitrogen',
 cfc.n <- stackByTable('/Users/clunch/Desktop/filesToStack10026', savepath='envt')
 
 cfcc <- loadByProduct(dpID='DP1.10026.001', tabl='cfc_chlorophyll',
+                      include.provisional=T, site=c('HARV','BLAN','NIWO','CPER','CLBJ','JORN'),
                       check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
 ltr_CN <- loadByProduct(dpID = "DP1.10033.001", 
@@ -404,12 +423,12 @@ neon_download(product="DP1.10026.001",
               type="expanded",
               site=c("TOOL","WREF","GUAN"))
 
-Sys.setenv(NEONSTORE_HOME = '/Users/clunch/Dropbox/data/neonstore')
+Sys.setenv(NEONSTORE_HOME = '/Users/clunch/data/neonstore')
 neon_download(product="DP1.10026.001",
               type="expanded",
               site=c("BONA","CLBJ","DCFS","DELA","GRSM","KONZ","LENO","MOAB","NOGP","SOAP","UKFS"))
-cfcStore <- stackFromStore('/Users/clunch/Dropbox/data/neonstore', dpID='DP1.10026.001', 
-                           site=c('DELA','SOAP','NOGP'), pubdate='2020-12-19',
+cfcStore <- stackFromStore('/Users/clunch/data/neonstore', dpID='DP1.10026.001', 
+                           site=c('DELA','SOAP','NOGP'), pubdate='2025-07-10',
                            package='expanded', zipped=F, load=T)
 
 temp <- stackFromStore(filepaths='/Users/clunch/data/neonstore',
@@ -443,7 +462,11 @@ dst <- stackFromStore('/Users/clunch/Dropbox/data/neonstore', dpID='DP1.00017.00
                       package='expanded', zipped=T, load=T) # not working
 dst <- stackFromStore('/Users/clunch/Dropbox/data/neonstore', dpID='DP1.00017.001',
                       package='expanded', zipped=F, load=T)
-dst <- stackFromStore('/Users/clunch/Dropbox/data/neonstore', dpID='DP1.00017.001',
+
+neon_download(product="DP1.00017.001", 
+              type="expanded",
+              site=c("RMNP","ONAQ"))
+dst <- stackFromStore('/Users/clunch/data/neonstore', dpID='DP1.00017.001',
                       package='expanded', timeIndex=60, zipped=F, load=T)
 
 mam <- stackFromStore(neon_dir(), dpID='DP1.10072.001', package='expanded')
@@ -826,7 +849,7 @@ wcc <- loadByProduct(dpID = 'DP1.20141.001',
                      package = 'expanded')
 
 fsp <- loadByProduct(dpID='DP1.30012.001',
-                     check.size=F,
+                     check.size=F, site=c('GUAN','HEAL'),
                      package='expanded',
                      token = Sys.getenv('NEON_TOKEN'))
 
@@ -947,7 +970,23 @@ pr <- loadByProduct(dpID='DP1.00024.001', site=c('WREF','ABBY'),
 
 saat <- loadByProduct(dpID='DP1.00002.001', site=c('CPER','NIWO'),
                       startdate='2022-05', enddate='2022-08',
-                      check.size=F)
+                      timeIndex=30, check.size=F, token=Sys.getenv('EXPIRED_TOKEN'))
+
+# test loadByProduct() with timeIndex
+dpID <- 'DP1.00002.001'
+site <- c('CPER','NIWO')
+startdate <- '2022-05'
+enddate <- '2022-08'
+timeIndex <- 30
+check.size <- F
+package <- 'basic'
+release <- 'current'
+cloud.mode <- F
+include.provisional <- F
+nCores <- 1
+token <- Sys.getenv('NEON_TOKEN')
+avg <- NA
+tabl <- 'all'
 
 tick <- loadByProduct(dpID='DP1.10093.001', site=c('WREF','ABBY'),
                     startdate='2021-07', enddate='2022-06', check.size=F)
@@ -962,7 +1001,7 @@ tick <- loadByProduct(dpID='DP1.10093.001', site=c('WREF','ABBY'),
 brd <- loadByProduct(dpID='DP1.10003.001', check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
 brd <- loadByProduct(dpID='DP1.10003.001', site=c('WREF','ABBY'), package='expanded',
-                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'), progress=F)
 
 brd.p <- loadByProduct(dpID='DP1.10003.001', site=c('WREF','ABBY'), package='expanded',
                      include.provisional=TRUE,
@@ -974,10 +1013,19 @@ brd.p <- loadByProduct(dpID='DP1.10003.001', site=c('WREF','ABBY'), package='exp
 
 fish <- loadByProduct(dpID='DP1.20107.001', site='MART', 
                       include.provisional=T, check.size=F,
-                      token=Sys.getenv('NEON_TOKEN'))
+                      token=Sys.getenv('EXPIRED_TOKEN'))
 
 ltr <- loadByProduct(dpID='DP1.10033.001', 
                      startdate='2020-02', enddate='2022-12',
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+ltr <- loadByProduct(dpID='DP1.10033.001', site=c('HARV','ABBY'),
+                     include.provisional=T, cloud.mode=T,
+                     package='expanded',
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+ltrloc <- loadByProduct(dpID='DP1.10033.001', site=c('HARV','ABBY'),
+                     include.provisional=T, 
+                     package='expanded',
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
 div <- loadByProduct(dpID='DP1.10058.001', 
@@ -1006,8 +1054,26 @@ gwe <- loadByProduct(dpID='DP1.20100.001', site=c('MART','WLOU'),
 swe <- loadByProduct(dpID='DP1.20016.001', site=c('MART','WLOU'),
                      startdate='2019-07', enddate='2019-09', check.size=F, nCores=2)
 
-wch <- loadByProduct(dpID='DP1.20093.001', site=c('ARIK','POSE'),
+wch <- loadByProduct(dpID='DP1.20093.001', site=c('ARIK','POSE','MART','WLOU','OKSR','COMO','TOOK'),
+                     package='expanded', check.size=F, token=Sys.getenv('PUBLIC_TOKEN'))
+
+wcha <- loadByProduct(dpID='DP1.20093.001', site=c('ARIK','POSE','MART','WLOU','OKSR','COMO','TOOK'),
                      package='expanded', check.size=F)
+
+dpID <- 'DP1.20093.001'
+site <- c('ARIK','POSE')
+package <- 'expanded'
+startdate <- NA
+enddate <- NA
+release <- 'current'
+avg <- NA
+timeIndex <- 'all'
+tabl <- 'all'
+cloud.mode <- F
+include.provisional <- F
+token <- Sys.getenv('PUBLIC_TOKEN')
+check.size <- F
+nCores <- 1
 
 nst <- loadByProduct(dpID='DP1.10045.001', package='expanded',
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
@@ -1032,6 +1098,12 @@ rh <- loadByProduct(dpID='DP1.00098.001', site='SCBI', startdate='2020-01',
                     enddate='2020-12', check.size=F, 
                     package='expanded',
                     token=Sys.getenv('NEON_TOKEN'))
+
+wss <- loadByProduct(dpID='DP4.00001.001', site=c('NIWO','HARV'),
+                     startdate='2023-01', include.provisional = T,
+                     check.size = F)
+any(duplicated(wss$wss_monthly_temp$yearMonth[which(wss$wss_monthly_temp$siteID=='HARV')]))
+#FALSE
 
 alg <- loadByProduct(dpID='DP1.20166.001', check.size=F)
 alg.exp <- loadByProduct(dpID='DP1.20166.001', package='expanded', token='garbage')
@@ -1061,7 +1133,9 @@ wqCheck <- neonUtilities::loadByProduct(dpID = "DP1.20288.001",
 nitrate <- loadByProduct(dpID="DP1.20033.001", site="BLDE", startdate="2020-04", enddate="2020-08",
                        package="expanded", check.size = F)
 
-sms <- loadByProduct(dpID='DP1.00094.001', startdate='2018-06', enddate='2018-07',
+sms <- loadByProduct(dpID='DP1.00094.001', 
+                     timeIndex=30,
+                     startdate='2018-06', enddate='2018-07',
                      site='NIWO', check.size=F)
 
 buoyT <- loadByProduct(dpID='DP1.20046.001', site='BARC',
@@ -1121,7 +1195,7 @@ stackByTable('/Users/clunch/Desktop/filesToStack00041')
 zipsByProduct(dpID='DP1.00002.001', site=c('ARIK','CPER'),
               startdate='2019-07', enddate='2019-08',
               savepath='/Users/clunch/Desktop',
-              avg=30, check.size=F)
+              timeIndex=30, check.size=F)
 stackByTable('/Users/clunch/Desktop/filesToStack00002', nCores=1)
 
 saat <- loadByProduct(dpID='DP1.00002.001', site=c('ARIK','CPER'),
@@ -1226,8 +1300,8 @@ zipsByProduct(dpID='DP1.10017.001', savepath='/Users/clunch/Desktop',
               package='expanded')
 
 zipsByProduct(dpID='DP4.00200.001', site='TEAK', startdate='2018-06', enddate='2018-09',
-              savepath='/Users/clunch/Desktop')
-flux <- stackEddy('/Users/clunch/Desktop/filesToStack00200TEAK/')
+              savepath='/Users/clunch/Desktop', progress = F)
+flux <- stackEddy('/Users/clunch/Desktop/filesToStack00200', progress=F)
 
 flux <- stackEddy('/Users/clunch/Desktop/NEON_eddy-flux.zip')
 
@@ -1523,11 +1597,35 @@ bb <- loadByProduct(dpID='DP1.10020.001', site=c('BART','GRSM'),
                     startdate='2022-05', include.provisional=T,
                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
+# weird join
+bb <- loadByProduct(dpID='DP1.20163.001', site=c('CRAM'), 
+                    include.provisional=F,
+                    check.size=F, token=Sys.getenv('NEON_TOKEN'))
+list2env(bb, .GlobalEnv)
+alg <- joinTableNEON(alg_fieldData, alg_domainLabChemistry)
+algall <- joinTableNEON(alg, alg_algaeExternalLabDataPerSample, 
+                        name1='alg_domainLabChemistry',
+                        name2='alg_algaeExternalLabDataPerSample')
 
 
-# finding dead trees after a disturbance event
-sim <- loadByProduct(dpID='DP1.10111.001', include.provisional=T,
+# site management
+sim <- loadByProduct(dpID='DP1.10111.001', site='HARV', include.provisional=T,
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+eventType <- 'fire'
+site <- 'all'
+startdate <- NA
+enddate <- NA
+metadata <- T
+release <- 'current'
+include.provisional <- T
+token <- NA
+
+sim <- byEventSIM(eventType='fire', site=c('BIGC','TECR','TEAK','SJER','SOAP'),
+                  include.provisional = T)
+
+sim <- byEventSIM(eventType='fire', site=c('BIGC','TECR','TEAK','SJER','SOAP'),
+                  release='RELEASE-2025')
 
 veg <- loadByProduct(dpID='DP1.10098.001', site='GRSM', 
                      check.size=F, 
@@ -1638,6 +1736,18 @@ invds <- datasetQuery(dpID='DP1.20120.001', site='COMO',
                       token=Sys.getenv('LATEST_TOKEN'))
 invds %>% nrow()
 
+invds <- queryFiles(dpID='DP1.20120.001', site='COMO',
+                    package='expanded', release='LATEST', 
+                    tabl='inv_taxonomyProcessed', 
+                    include.provisional = TRUE,
+                    metadata=F,
+                    token=Sys.getenv('LATEST_TOKEN'))
+
+invds <- loadByProduct(dpID='DP1.20120.001', site='COMO',
+                    package='expanded', release='LATEST', 
+                    include.provisional = TRUE,
+                    check.size = F,
+                    token=Sys.getenv('LATEST_TOKEN'))
 
 ## implementing cloud mode
 dum <- zipsByProduct(dpID='DP1.30012.001', package='expanded', cloud.mode=T,
@@ -1647,4 +1757,152 @@ dum <- queryFiles(dpID='DP1.30012.001',
                   package='expanded',
                   include.provisional = T,
                   token=Sys.getenv('NEON_TOKEN'))
+
+
+dpID <- 'DP1.10072.001'
+site <- 'BLAN'
+package <- 'basic'
+release <- 'current'
+timeIndex <- "all"
+tabl <- "all"
+metadata <- TRUE
+startdate <- NA
+enddate <- NA
+include.provisional <- T
+token <- Sys.getenv("NEON_TOKEN")
+
+
+# testing datasetQuery() edge cases
+ds_mam_pertrapnight <- datasetQuery(
+  dpID = 'DP1.10072.001',
+  site = 'BLAN',
+  package = "basic",
+  tabl = "mam_pertrapnight",
+  release = "current",
+  include.provisional = TRUE,
+  token = Sys.getenv("NEON_TOKEN"))
+
+ds_mam_pertrapnight %>% nrow()
+mam <- ds_mam_pertrapnight %>% collect()
+
+fls <- queryFiles(dpID = 'DP1.10072.001',
+                  site = 'BLAN',
+                  package = "basic",
+                  #tabl = "mam_pertrapnight",
+                  #metadata=F,
+                  release = "current",
+                  include.provisional = TRUE,
+                  token = Sys.getenv("NEON_TOKEN"))
+
+
+mam <- loadByProduct(dpID = 'DP1.10072.001',
+                  site = 'BLAN',
+                  package = "basic",
+                  release = "current",
+                  include.provisional = TRUE,
+                  cloud.mode=T,
+                  check.size = F,
+                  token = Sys.getenv("NEON_TOKEN"))
+
+zipsByProduct(dpID = 'DP1.10072.001',
+              site = 'BLAN',
+              package = "basic",
+              release = "current",
+              include.provisional = TRUE,
+              check.size = F,
+              savepath = '/Users/clunch/Desktop',
+              token = Sys.getenv("NEON_TOKEN"))
+mam <- stackByTable('/Users/clunch/Desktop/filesToStack10072', savepath='envt')
+
+
+veg <- loadByProduct(dpID = 'DP1.10098.001',
+                     site = 'BLAN',
+                     package = "basic",
+                     release = "current",
+                     include.provisional = TRUE,
+                     cloud.mode=T,
+                     check.size = F,
+                     token = Sys.getenv("NEON_TOKEN"))
+
+# testing read of inconsistent files
+library(dplyr)
+load_all()
+
+mamold <- '/Users/clunch/Desktop/NEON.D02.BLAN.DP1.10072.001.mam_pertrapnight.2022-08.expanded.20241118T070304Z.csv'
+varold <- '/Users/clunch/Desktop/NEON.D02.BLAN.DP1.10072.001.variables.20241118T070304Z.csv'
+mamnew <- '/Users/clunch/Desktop/NEON.D02.BLAN.DP1.10072.001.mam_pertrapnight.2024-10.expanded.20250604T223649Z.csv'
+varnew <- '/Users/clunch/Desktop/NEON.D02.BLAN.DP1.10072.001.variables.20250604T223649Z.csv'
+schemaold <- schemaFromVar(varold, 'mam_pertrapnight', 'expanded')
+schemanew <- schemaFromVar(varnew, 'mam_pertrapnight', 'expanded')
+
+# old file with new schema - extra column in schema
+ds <- arrow::open_csv_dataset(sources=mamold, 
+                              schema=schemanew, 
+                              convert_options=arrow::csv_convert_options(
+                                include_columns=schemanew$names,
+                                include_missing_columns=TRUE),
+                              skip=1)
+ds %>% nrow()
+# doesn't work - include_missing_columns seems to be ignored
+
+# read in each separately and then stack??
+dsold <- arrow::open_csv_dataset(sources=mamold, 
+                                 schema=schemaold,
+                                 skip=1)
+dsnew <- arrow::open_csv_dataset(sources=mamnew, 
+                                 schema=schemanew,
+                                 skip=1)
+ds <- arrow::open_csv_dataset(list(dsold, dsnew), 
+                              unify_schemas = T,
+                              skip=0)
+# add filename?
+datf <- dplyr::mutate(.data=ds, file=arrow::add_filename())
+dattab <- data.frame(dplyr::collect(datf))
+
+ds %>% nrow()
+d <- ds %>% collect()
+# hooray
+
+
+dpID <- 'DP1.10098.001'
+tabl <- 'vst_mappingandtagging'
+include.provisional <- TRUE
+site <- c('WREF','SJER','NIWO','DEJU','LAJA')
+check.size <- F
+startdate <- NA
+enddate <- NA
+package <- "basic"
+release <- "current"
+timeIndex <- "all"
+cloud.mode <- FALSE
+nCores <- 1
+forceParallel <- FALSE
+token <- NA_character_
+useFasttime <- FALSE
+avg <- NA
+
+# site-all and lab tables in datasetQuery()
+# site-all
+fls <- queryFiles(dpID='DP1.10098.001', site=c('HARV','BART'), 
+                  startdate='2021-01', metadata=F,
+                  tabl='vst_mappingandtagging')
+
+mat <- datasetQuery(dpID='DP1.10098.001', site=c('HARV','BART','WREF'),
+                    startdate='2022-01', tabl='vst_mappingandtagging', 
+                    include.provisional=T)
+veg <- mat |> 
+  filter(!is.na(taxonID)) |> 
+  select(siteID, taxonID, scientificName) |>
+  distinct() |>
+  collect()
+
+# lab
+cfds <- datasetQuery(dpID='DP1.10026.001', site=c('HARV','WREF'),
+                    tabl='bgc_CNiso_externalSummary', 
+                    package='expanded',
+                    include.provisional=T)
+cfl <- cfds |> 
+  filter(analyte=='d13C') |>
+  collect()
+
 
