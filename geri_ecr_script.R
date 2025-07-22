@@ -20,6 +20,7 @@ stackByTable('/Users/clunch/Downloads/NEON_temp-air-single.zip')
 
 # here's how we get the same thing directly in R
 # basic package is the default
+# expanded gets you more data quality details
 saat <- loadByProduct(dpID='DP1.00002.001', site=c('ONAQ','RMNP'),
                       startdate='2024-04', enddate='2024-06')
 names(saat)
