@@ -22,6 +22,17 @@ loc <- getLocBySite('GUIL', type = "all", history = T)
 nogp <- geoNEON::getLocBySite("NOGP_037.mosquitoPoint.mos", token = Sys.getenv('NEON_TOKEN'))
 nogp <- geoNEON::getLocBySite("NOGP_037.mosquitoPoint.mos", history=T, token = Sys.getenv('NEON_TOKEN'))
 
+# div/BLAN
+div <- loadByProduct('DP1.10058.001', site='BLAN', 
+                     startdate='2023-01', package='expanded',
+                     include.provisional=F, check.size=F,
+                     token=Sys.getenv('NEON_TOKEN'))
+div1m2loc <- getLocTOS(div$div_1m2Data, dataProd='div_1m2Data',
+                       token=Sys.getenv('NEON_TOKEN'))
+easting <- 'adjEasting'
+northing <- 'adjNorthing'
+
+
 # spc
 spc <- loadByProduct('DP1.10047.001', 
                      package='expanded', 
