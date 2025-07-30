@@ -12,11 +12,12 @@ div <- loadByProduct('DP1.10058.001', site='BLAN',
                      include.provisional=F, check.size=F,
                      token=Sys.getenv('NEON_TOKEN'))
 
-# get subplot locations
+# get subplot locations and convert BLAN 18N locations to 17N to match remote sensing
 div1m2loc <- getLocTOS(div$div_1m2Data, dataProd='div_1m2Data',
-                       token=Sys.getenv('NEON_TOKEN'))
+                       convertBLAN=T, token=Sys.getenv('NEON_TOKEN'))
 
-# convert subplot locations from UTM 18N to 17N
+# convertBLAN() is also available as an independent function
+# but this example code won't do anything in this script, because the locations are already converted
 div1m2loc17 <- convertBLAN(div1m2loc, 
                            easting="adjEasting",
                            northing="adjNorthing")

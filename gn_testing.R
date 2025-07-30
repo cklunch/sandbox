@@ -29,8 +29,22 @@ div <- loadByProduct('DP1.10058.001', site='BLAN',
                      token=Sys.getenv('NEON_TOKEN'))
 div1m2loc <- getLocTOS(div$div_1m2Data, dataProd='div_1m2Data',
                        token=Sys.getenv('NEON_TOKEN'))
-easting <- 'adjEasting'
-northing <- 'adjNorthing'
+
+div1m2loc <- getLocTOS(div$div_1m2Data, dataProd='div_1m2Data',
+                       convertBLAN=T, token=Sys.getenv('NEON_TOKEN'))
+
+
+hbp <- loadByProduct('DP1.10023.001', site=c('BART','BLAN','SJER','KONZ'),
+                     startdate='2023-01', check.size = F,
+                     token = Sys.getenv('NEON_TOKEN'))
+
+hbploc <- getLocTOS(hbp$hbp_perbout, dataProd = 'hbp_perbout',
+                    convertBLAN = T, token=Sys.getenv('NEON_TOKEN'))
+
+veg <- loadByProduct('DP1.10098.001', site='WREF', startdate = '2023-01',
+                     check.size = F, token=Sys.getenv('NEON_TOKEN'))
+vegloc <- getLocTOS(veg$vst_mappingandtagging, dataProd = 'vst_mappingandtagging',
+                    convertBLAN = T, token=Sys.getenv('NEON_TOKEN'))
 
 
 # spc
