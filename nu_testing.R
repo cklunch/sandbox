@@ -725,6 +725,13 @@ wq <- loadByProduct(dpID = 'DP1.20288.001',
               package = 'expanded',
               token=Sys.getenv('NEON_TOKEN'))
 
+wq <- loadByProduct(dpID = 'DP1.20288.001', 
+                    site = c('WALK'), startdate = '2024-05', 
+                    enddate = '2024-07', check.size = F,
+                    package = 'expanded',
+                    include.provisional = T,
+                    token=Sys.getenv('NEON_TOKEN'))
+
 zipsByProduct(dpID = 'DP1.20288.001', 
               site = c('SYCA'), startdate = '2020-02', 
               enddate = '2020-09', check.size = F,
@@ -1904,5 +1911,23 @@ cfds <- datasetQuery(dpID='DP1.10026.001', site=c('HARV','WREF'),
 cfl <- cfds |> 
   filter(analyte=='d13C') |>
   collect()
+
+
+
+# deshpande
+soil_mois_data <- loadByProduct(dpID = "DP1.00094.001",
+                                site = "HARV",
+                                startdate = "2023-01",
+                                enddate = "2023-03",
+                                package="basic",
+                                release = "current",
+                                check.size = FALSE,
+                                timeIndex = 30,
+                                tabl="all",
+                                include.provisional=FALSE,
+                                nCores = 2,
+                                forceParallel = TRUE,
+                                cloud.mode = TRUE,
+                                useFasttime=FALSE)
 
 
