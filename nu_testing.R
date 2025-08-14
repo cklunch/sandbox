@@ -1085,6 +1085,10 @@ nCores <- 1
 nst <- loadByProduct(dpID='DP1.10045.001', package='expanded',
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
+herb <- loadByProduct(dpID='DP1.10023.001', package='expanded',
+                      site='KONZ',
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
 wdp <- loadByProduct(dpID='DP1.00013.001', site=c('RMNP','NIWO'),
                      package='expanded', check.size=F)
 
@@ -1154,6 +1158,11 @@ buoyT <- loadByProduct(dpID='DP1.20046.001', site='BARC',
 sls <- loadByProduct(dpID='DP1.10086.001', site='TALL',
                      package='expanded', token=Sys.getenv('NEON_TOKEN'),
                      check.size=F)
+
+sls <- loadByProduct(dpID='DP1.10086.001', site='all',
+                     startdate='2025-01', enddate='2025-12',
+                     package='expanded', token=Sys.getenv('NEON_TOKEN'),
+                     include.provisional = T, check.size=F)
 
 bat <- loadByProduct(dpID='DP4.00132.001', startdate='2021-05',
                      enddate='2023-08', release='LATEST', 
@@ -1750,7 +1759,7 @@ invds <- queryFiles(dpID='DP1.20120.001', site='COMO',
                     metadata=F,
                     token=Sys.getenv('LATEST_TOKEN'))
 
-invds <- loadByProduct(dpID='DP1.20120.001', site='COMO',
+inv <- loadByProduct(dpID='DP1.20120.001', site='COMO',
                     package='expanded', release='LATEST', 
                     include.provisional = TRUE,
                     check.size = F,
@@ -1913,6 +1922,28 @@ cfl <- cfds |>
   collect()
 
 
+# bugs
+slds <- datasetQuery(dpID='DP1.10086.001', site='all',
+                     tabl='sls_soilCoreCollection', 
+                     startdate='2025-03', enddate='2025-03',
+                     package='expanded',
+                     include.provisional=T)
+slall <- slds |> 
+  collect()
+
+
+btds <- datasetQuery(dpID='DP1.00005.001', site='WREF',
+                     tabl='IRBT_30_minute', hor='000', ver='030',
+                     startdate='2023-05', enddate='2023-09',
+                     package='basic', token=Sys.getenv('NEON_TOKEN'))
+btdat <- btds |>
+  collect()
+
+btt <- loadByProduct(dpID='DP1.00005.001', site='WREF',
+                     timeIndex = 30,
+                     startdate='2023-05', enddate='2023-09',
+                     package='basic', token=Sys.getenv('NEON_TOKEN'))
+
 
 # deshpande
 soil_mois_data <- loadByProduct(dpID = "DP1.00094.001",
@@ -1930,4 +1961,17 @@ soil_mois_data <- loadByProduct(dpID = "DP1.00094.001",
                                 cloud.mode = TRUE,
                                 useFasttime=FALSE)
 
+# time stamp OSqc error
+soil <- loadByProduct(  dpID='DP1.10086.001',  check.size=F,   
+                            startdate = "2025-03",  
+                            enddate = "2025-03",  
+                            site = "all",  package='expanded',  
+                            release = "LATEST",  
+                            token = Sys.getenv('LATEST_TOKEN'))
+
+soil <- loadByProduct(  dpID='DP1.10086.001',  check.size=F,   
+                        startdate = "2023-03",  
+                        enddate = "2023-09",  
+                        site = "all",  package='expanded',  
+                        token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJhdWQiOiJodHRwczovL2RhdGEubmVvbnNjaWVuY2Uub3JnL2FwaS92MC8iLCJzdWIiOiJLcnV0aWthLkRlc2hwYW5kZUBuYXUuZWR1Iiwic2NvcGUiOiJyYXRlOnB1YmxpYyIsImlzcyI6Imh0dHBzOi8vZGF0YS5uZW9uc2NpZW5jZS5vcmcvIiwiZXhwIjoxODk3NDk5NzA0LCJpYXQiOjE3Mzk4MTk3MDQsImVtYWlsIjoiS3J1dGlrYS5EZXNocGFuZGVAbmF1LmVkdSJ9.v_8UoKm5OHSIvzf8Pe4wPrh8sL1f8K9R5BNwkEdr19YXZR7B9We0zd12T-q5SoMC8beuaMT-Bd3eDcTFphcpxg')
 
