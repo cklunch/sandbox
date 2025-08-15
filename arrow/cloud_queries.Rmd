@@ -1,0 +1,159 @@
+---
+title: "cloud_queries"
+output: html_document
+date: "2025-08-15"
+---
+
+```{r setup, include=FALSE}
+library(reticulate)
+knitr::opts_chunk$set(dev="png")
+```
+
+## Exploring arrow query capabilities
+
+This document explores using arrow functionality to query NEON data without downloading. The examples used to illustrate the functionality also demonstrate some of the risks and pitfalls, and lead to a set of recommendations at the end of the document.
+
+For background on the software backbone we are using for this, see [https://arrow.apache.org/docs/r/articles/data_wrangling.html](https://arrow.apache.org/docs/r/articles/data_wrangling.html) for R information and [https://duckdb.org/docs/stable/guides/python/sql_on_arrow.html](https://duckdb.org/docs/stable/guides/python/sql_on_arrow.html) for Python.
+
+
+## Install Packages {.tabset}
+
+### R
+
+```{r install, eval=FALSE}
+
+install.packages("neonUtilities")
+install.packages("dplyr")
+
+```
+
+### Python
+
+```{python p-install, eval=FALSE}
+
+pip install neonutilities
+pip install duckdb
+
+```
+
+## {-}
+
+## Load packages {.tabset}
+
+### R
+
+```{r R-library, results="hide", message=FALSE}
+
+library(neonUtilities)
+library(dplyr)
+
+```
+
+### Python
+
+```{python p-import}
+
+import neonutilities as nu
+import duckdb
+import matplotlib.pyplot as plt
+
+```
+
+## {-}
+
+## Bind files into a dataset {.tabset}
+
+The arrow software enables us to query many files in a cloud bucket as if they are a single dataset. But first, we have to point it to the set of files we'll be querying, and define those as the dataset of interest. For NEON data, that generally means choosing the site(s), date(s), and table of interest.
+
+Because we're running database-style queries, we can only query one data table at a time. However, see below (XX) to see how to join tables on the fly using these tools.
+
+For our first example, we'll get the mammal trapping data for all time from Treehaven (TREE) in RELEASE-2025.
+
+### R
+
+```{r dq-mam}
+
+mamds <- datasetQuery(dpID="DP1.10072.001", 
+                      site="TREE", package="basic",
+                      tabl="mam_pertrapnight",
+                      release="RELEASE-2025",
+                      token=Sys.getenv("NEON_TOKEN"))
+
+```
+
+### Python
+
+```{python p-dq-mam}
+
+mamds = nu.dataset_query(dpid="DP1.10072.001", 
+                         site="TREE", package="basic",
+                         tabl="mam_pertrapnight",
+                         release="RELEASE-2025")
+
+```
+
+## {-}
+
+## Database-style query of dataset {.tabset}
+
+We've now defined our dataset without downloading anything. We can use normal `dplyr` syntax in R, and SQL syntax in Python, to query the dataset and download the data that match the query. Let's say we want to know which species have been captured, and in what numbers: let's get the tag and taxonomic identification for each record, and reduce to unique records to account for recaptures of the same individual.
+
+### R
+
+```{r mam-ind-tax}
+
+mamTREE <- mamds |> 
+  filter(!is.na(taxonID)) |> 
+  select(tagID, taxonID, scientificName) |>
+  distinct() |>
+  collect()
+
+```
+
+### Python
+
+```{python p-mam-ind-tax}
+
+con = duckdb.connect()
+mamTREE = con.execute("SELECT DISTINCT tagID, taxonID, scientificName FROM mamds WHERE taxonID != ''").df()
+
+```
+
+## {-}
+
+We've easily accessed data on the distribution of taxa, without downloading all the rest of the associated data.
+
+## Plot distribution of taxa {.tabset}
+
+### R
+
+```{r mam-plot-tax}
+
+ct <- table(mamTREE$taxonID)
+
+barplot(ct[order(ct, decreasing=T)], 
+        horiz=T, las=1, cex.names=0.5)
+
+```
+
+### Python
+
+```{python p-mam-plot-tax}
+
+ct = mamTREE.taxonID.value_counts()
+
+fig, ax = plt.subplots()
+ax.barh(y=ct.keys(), width=ct)
+plt.show()
+
+```
+
+## {-}
+
+Organization of content: better to focus on functionality here, talk about speed all in one section later? Or better to have speed tests as I go? One option:
+
+Section 1: How to use these tools - capabilities, syntax, etc
+Section 2: Pitfalls and risks
+Section 3: Speed and performance
+Section 4: Recommendations
+
