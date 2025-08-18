@@ -1969,9 +1969,6 @@ soil <- loadByProduct(  dpID='DP1.10086.001',  check.size=F,
                             release = "LATEST",  
                             token = Sys.getenv('LATEST_TOKEN'))
 
-soil <- loadByProduct(  dpID='DP1.10086.001',  check.size=F,   
-                        startdate = "2023-03",  
-                        enddate = "2023-09",  
-                        site = "all",  package='expanded',  
-                        token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJhdWQiOiJodHRwczovL2RhdGEubmVvbnNjaWVuY2Uub3JnL2FwaS92MC8iLCJzdWIiOiJLcnV0aWthLkRlc2hwYW5kZUBuYXUuZWR1Iiwic2NvcGUiOiJyYXRlOnB1YmxpYyIsImlzcyI6Imh0dHBzOi8vZGF0YS5uZW9uc2NpZW5jZS5vcmcvIiwiZXhwIjoxODk3NDk5NzA0LCJpYXQiOjE3Mzk4MTk3MDQsImVtYWlsIjoiS3J1dGlrYS5EZXNocGFuZGVAbmF1LmVkdSJ9.v_8UoKm5OHSIvzf8Pe4wPrh8sL1f8K9R5BNwkEdr19YXZR7B9We0zd12T-q5SoMC8beuaMT-Bd3eDcTFphcpxg')
+
+
 
