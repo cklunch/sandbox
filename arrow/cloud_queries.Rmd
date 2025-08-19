@@ -9,16 +9,15 @@ library(reticulate)
 knitr::opts_chunk$set(dev="png")
 ```
 
-## Exploring arrow query capabilities
+# Exploring arrow query capabilities
 
-This document explores using arrow functionality to query NEON data without downloading. The examples used to illustrate the functionality also demonstrate some of the risks and pitfalls, and lead to a set of recommendations at the end of the document.
+This document explores using arrow functionality to query NEON data without downloading. Accessing data this way can be much faster than downloading everything, with some caveats - see the Speed and Performance section below. The examples used to illustrate the functionality also demonstrate some of the risks and pitfalls, and lead to a set of recommendations at the end of the document.
 
 For background on the software backbone we are using for this, see [https://arrow.apache.org/docs/r/articles/data_wrangling.html](https://arrow.apache.org/docs/r/articles/data_wrangling.html) for R information and [https://duckdb.org/docs/stable/guides/python/sql_on_arrow.html](https://duckdb.org/docs/stable/guides/python/sql_on_arrow.html) for Python.
 
+### Install Packages {.tabset}
 
-## Install Packages {.tabset}
-
-### R
+#### R
 
 ```{r install, eval=FALSE}
 
@@ -27,7 +26,7 @@ install.packages("dplyr")
 
 ```
 
-### Python
+#### Python
 
 ```{python p-install, eval=FALSE}
 
@@ -36,11 +35,11 @@ pip install duckdb
 
 ```
 
-## {-}
+### {-}
 
-## Load packages {.tabset}
+### Load packages {.tabset}
 
-### R
+#### R
 
 ```{r R-library, results="hide", message=FALSE}
 
@@ -49,7 +48,7 @@ library(dplyr)
 
 ```
 
-### Python
+#### Python
 
 ```{python p-import}
 
@@ -59,17 +58,19 @@ import matplotlib.pyplot as plt
 
 ```
 
-## {-}
+### {-}
 
-## Bind files into a dataset {.tabset}
+# 1. How To: Capabilities and Syntax
+
+### Bind files into a dataset {.tabset}
 
 The arrow software enables us to query many files in a cloud bucket as if they are a single dataset. But first, we have to point it to the set of files we'll be querying, and define those as the dataset of interest. For NEON data, that generally means choosing the site(s), date(s), and table of interest.
 
-Because we're running database-style queries, we can only query one data table at a time. However, see below (XX) to see how to join tables on the fly using these tools.
+Because we're running database-style queries, we can only query one data table at a time. However, see below to learn how to join tables on the fly using these tools.
 
 For our first example, we'll get the mammal trapping data for all time from Treehaven (TREE) in RELEASE-2025.
 
-### R
+#### R
 
 ```{r dq-mam}
 
@@ -81,7 +82,7 @@ mamds <- datasetQuery(dpID="DP1.10072.001",
 
 ```
 
-### Python
+#### Python
 
 ```{python p-dq-mam}
 
@@ -92,13 +93,13 @@ mamds = nu.dataset_query(dpid="DP1.10072.001",
 
 ```
 
-## {-}
+### {-}
 
-## Database-style query of dataset {.tabset}
+### Database-style query of dataset {.tabset}
 
-We've now defined our dataset without downloading anything. We can use normal `dplyr` syntax in R, and SQL syntax in Python, to query the dataset and download the data that match the query. Let's say we want to know which species have been captured, and in what numbers: let's get the tag and taxonomic identification for each record, and reduce to unique records to account for recaptures of the same individual.
+We've now defined our dataset without downloading anything. We can use normal `dplyr` syntax in R, and SQL syntax in Python, to query the dataset and download only the data that match the query. Let's say we want to know which species have been captured, and in what numbers: let's get the tag and taxonomic identification for each record, and reduce to unique records to account for recaptures of the same individual.
 
-### R
+#### R
 
 ```{r mam-ind-tax}
 
@@ -110,7 +111,7 @@ mamTREE <- mamds |>
 
 ```
 
-### Python
+#### Python
 
 ```{python p-mam-ind-tax}
 
@@ -119,13 +120,13 @@ mamTREE = con.execute("SELECT DISTINCT tagID, taxonID, scientificName FROM mamds
 
 ```
 
-## {-}
+### {-}
 
 We've easily accessed data on the distribution of taxa, without downloading all the rest of the associated data.
 
-## Plot distribution of taxa {.tabset}
+### Plot distribution of taxa {.tabset}
 
-### R
+#### R
 
 ```{r mam-plot-tax}
 
@@ -136,7 +137,7 @@ barplot(ct[order(ct, decreasing=T)],
 
 ```
 
-### Python
+#### Python
 
 ```{python p-mam-plot-tax}
 
@@ -148,9 +149,142 @@ plt.show()
 
 ```
 
-## {-}
+### {-}
 
-Organization of content: better to focus on functionality here, talk about speed all in one section later? Or better to have speed tests as I go? One option:
+### Joining data tables: Set up both datasets {.tabset}
+
+As noted above, we can only query one data table at a time. However, we can use database-style joining functionality as well, and join tables as we access them. Let's find the mammal species at TREE that have tested positive for tick-borne diseases. This will require querying the rodent pathogen data product (Rodent pathogen status, tick-borne (DP1.10064.002)) as well as the mammal trapping data, and joining the results.
+
+First define the dataset for rodent pathogens at TREE.
+
+#### R
+
+```{r dq-path}
+
+pthds <- datasetQuery(dpID="DP1.10064.002", 
+                      site="TREE", package="basic",
+                      tabl="rpt2_pathogentesting",
+                      release="RELEASE-2025",
+                      token=Sys.getenv("NEON_TOKEN"))
+
+```
+
+#### Python
+
+```{python p-dq-path}
+
+pthds = nu.dataset_query(dpid="DP1.10064.002", 
+                         site="TREE", package="basic",
+                         tabl="rpt2_pathogentesting",
+                         release="RELEASE-2025")
+                         
+```
+
+### {-}
+
+### Joining data tables: Making the join {.tabset}
+
+Now we join the pathogen data to the mammal trapping dataset and filter to positive pathogen tests. Note that the mammal input at this step is the arrow dataset - the set of files in the cloud - not the data table we downloaded earlier. As with the data queries, we use standard `dplyr` or SQL syntax.
+
+From the joined data, take a look at which taxa have tested positive for any pathogen.
+
+#### R
+
+```{r join-path}
+
+mampath <- mamds |> 
+  select(tagID, taxonID, scientificName, bloodSampleID) |> 
+  inner_join(pthds, by=c('bloodSampleID' = 'sampleID')) |>
+  filter(testResult=='Positive') |>
+  distinct() |>
+  collect()
+
+table(mampath$scientificName)
+
+```
+
+#### Python
+
+```{python p-join-path}
+
+mampath = con.execute("SELECT tagID, taxonID, scientificName, bloodSampleID FROM mamds INNER JOIN pthds ON mamds.bloodSampleID = pthds.sampleID WHERE testResult = 'Positive'").df()
+
+mampath.scientificName.value_counts()
+
+```
+
+### {-}
+
+### Access and query NEON sensor data {.tabset}
+
+The examples we've explored so far have been observational (OS) data. These methods are extremely appealing for use with NEON sensor (IS) data, because IS data volumes are large, and can be time-consuming to download and resource-intensive to process. Being able to subset before downloading has the potential to make working with these data much faster and easier.
+
+BUT: there are major limitations due to the way IS data files are structured and named. One of the biggest issues is that IS data don't contain location information - the site, horizontal index, and vertical index - as data fields, but there can be many sensors per site. Because the location information is only in the file name, the query tools can't distinguish data collected by different sensors.
+
+To avoid queries running across sensors, the `datasetQuery()` (R) and `dataset_query()` (Python) functions require that sensor datasets be defined only for a single sensor. `site`, `hor`, and `ver` are all required inputs for sensor data products, and can only be of length 1.
+
+Even with access restricted to one sensor, these tools can be very useful. Let's say we want an estimate of soil moisture at San Joaquin Experimental Range (SJER) in 2023, and let's say we don't need our estimate to be extremely precise, either in space or in time. One sensor at a 30-minute frequency is fine. On the NEON Data Portal, our only option would be to download all Soil water content and salinity (DP1.00094.001) data for 2023. That is, 5 soil plots times 8 soil depths, 1- and 30-minute averaging intervals. It adds up to 2.26 GB.
+
+Instead, let's get just the 30-minute dataset for the sensor at HOR=002 (soil plot 2) and VER=501 (soil depth 1).
+
+#### R
+
+```{r sw-dq}
+
+swds <- datasetQuery(dpID="DP1.00094.001", 
+                     site="SJER", package="basic",
+                     hor="002", ver="501",
+                     startdate="2023-01", enddate="2023-12",
+                     tabl="SWS_30_minute",
+                     release="RELEASE-2025")
+
+```
+
+#### Python
+
+```{python p-sw-dq}
+
+swds = nu.dataset_query(dpid="DP1.00094.001", 
+                         site="SJER", package="basic",
+                         hor="002", ver="501",
+                         startdate="2023-01", enddate="2023-12",
+                         tabl="SWS_30_minute",
+                         release="RELEASE-2025")
+
+```
+
+### {-}
+
+
+We want all the data, so instead of running a query to subset, we return the full data table, and plot a time series of the results.
+
+### {.tabset}
+
+#### R
+
+```{r sw-coll}
+
+swSJER <- swds |>
+  collect()
+
+plot(swSJER$VSWCMean~swSJER$endDateTime, type="l")
+
+```
+
+#### Python
+
+```{python p-sw-coll}
+
+swSJER = con.execute("SELECT * FROM swds").df()
+
+fig, ax = plt.subplots()
+ax.plot(swSJER.endDateTime, swSJER.VSWCMean)
+plt.show()
+
+```
+
+### {-}
+
 
 Section 1: How to use these tools - capabilities, syntax, etc
 Section 2: Pitfalls and risks
