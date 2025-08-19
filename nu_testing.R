@@ -1970,5 +1970,25 @@ soil <- loadByProduct(  dpID='DP1.10086.001',  check.size=F,
                             token = Sys.getenv('LATEST_TOKEN'))
 
 
+swds <- datasetQuery(dpID="DP1.00094.001", 
+                     site="SJER", package="basic",
+                     hor="002", ver="501",
+                     startdate="2023-01", enddate="2023-12",
+                     tabl="SWS_30_minute",
+                     release="RELEASE-2025")
+swSJER <- swds |>
+  collect()
 
+plot(swSJER$VSWCMean~swSJER$endDateTime, type="l")
 
+dpID <- 'DP1.00094.001'
+site <- 'SJER'
+startdate <- '2023-01'
+enddate <- '2023-12'
+tabl <- 'SWS_30_minute'
+hor <- '002'
+ver <- '501'
+package <- 'basic'
+release <- 'RELEASE-2025'
+include.provisional <- F
+token <- NA_character_
