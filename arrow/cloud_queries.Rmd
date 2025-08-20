@@ -1,5 +1,5 @@
 ---
-title: "cloud_queries"
+title: "Exploring arrow query capabilities"
 output: html_document
 date: "2025-08-15"
 ---
@@ -8,8 +8,6 @@ date: "2025-08-15"
 library(reticulate)
 knitr::opts_chunk$set(dev="png")
 ```
-
-# Exploring arrow query capabilities
 
 This document explores using arrow functionality to query NEON data without downloading. Accessing data this way can be much faster than downloading everything, with some caveats - see the Speed and Performance section below. The examples used to illustrate the functionality also demonstrate some of the risks and pitfalls, and lead to a set of recommendations at the end of the document.
 
@@ -122,9 +120,9 @@ mamTREE = con.execute("SELECT DISTINCT tagID, taxonID, scientificName FROM mamds
 
 ### {-}
 
-We've easily accessed data on the distribution of taxa, without downloading all the rest of the associated data.
+We've easily accessed data on the distribution of taxa, without downloading all the rest of the associated data. Let's make a simple plot of the distribution.
 
-### Plot distribution of taxa {.tabset}
+### {.tabset}
 
 #### R
 
@@ -151,7 +149,7 @@ plt.show()
 
 ### {-}
 
-### Joining data tables: Set up both datasets {.tabset}
+### Joining data tables {.tabset}
 
 As noted above, we can only query one data table at a time. However, we can use database-style joining functionality as well, and join tables as we access them. Let's find the mammal species at TREE that have tested positive for tick-borne diseases. This will require querying the rodent pathogen data product (Rodent pathogen status, tick-borne (DP1.10064.002)) as well as the mammal trapping data, and joining the results.
 
@@ -182,7 +180,7 @@ pthds = nu.dataset_query(dpid="DP1.10064.002",
 
 ### {-}
 
-### Joining data tables: Making the join {.tabset}
+### {.tabset}
 
 Now we join the pathogen data to the mammal trapping dataset and filter to positive pathogen tests. Note that the mammal input at this step is the arrow dataset - the set of files in the cloud - not the data table we downloaded earlier. As with the data queries, we use standard `dplyr` or SQL syntax.
 
@@ -255,8 +253,7 @@ swds = nu.dataset_query(dpid="DP1.00094.001",
 
 ### {-}
 
-
-We want all the data, so instead of running a query to subset, we return the full data table, and plot a time series of the results.
+We want all the data from this sensor, so instead of running a query to subset, we return the full data table, and plot a time series of the results.
 
 ### {.tabset}
 
