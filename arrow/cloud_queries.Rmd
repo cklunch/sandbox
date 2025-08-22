@@ -221,7 +221,7 @@ BUT: there are major limitations due to the way IS data files are structured and
 
 To avoid queries running across sensors, the `datasetQuery()` (R) and `dataset_query()` (Python) functions require that sensor datasets be defined only for a single sensor. `site`, `hor`, and `ver` are all required inputs for sensor data products, and can only be of length 1.
 
-Even with access restricted to one sensor, these tools can be very useful. Let's say we want an estimate of soil moisture at San Joaquin Experimental Range (SJER) in 2023, and let's say we don't need our estimate to be extremely precise, either in space or in time. One sensor at a 30-minute frequency is fine. On the NEON Data Portal, our only option would be to download all Soil water content and salinity (DP1.00094.001) data for 2023. That is, 5 soil plots times 8 soil depths, 1- and 30-minute averaging intervals. It adds up to 2.26 GB.
+Even with access restricted to one sensor, these tools can be very useful. Let's say we want an estimate of soil moisture at San Joaquin Experimental Range (SJER) in 2023, and let's say we don't need our estimate to be extremely precise, either in space or in time. One sensor at a 30-minute frequency is fine. On the NEON Data Portal, our only option would be to download all Soil water content and salinity (DP1.00094.001) data for 2023. That is, 5 soil plots times 8 soil depths = 40 sensors, each at both 1- and 30-minute averaging intervals. It adds up to 2.26 GB.
 
 Instead, let's get just the 30-minute dataset for the sensor at HOR=002 (soil plot 2) and VER=501 (soil depth 1).
 
@@ -282,9 +282,17 @@ plt.show()
 
 ### {-}
 
+### Averaging on the fly {.tabset}
+
+For sensor data, users are often interested in aggregating data to longer averaging intervals. It's possible to do this on the fly, before downloading, using these query tools, but there are some significant caveats.
+
+
+
+### {-}
+
 
 Section 1: How to use these tools - capabilities, syntax, etc
-Section 2: Pitfalls and risks
+Section 2: Pitfalls, risks, and limitations
 Section 3: Speed and performance
 Section 4: Recommendations
 
