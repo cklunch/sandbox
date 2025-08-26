@@ -58,7 +58,7 @@ import matplotlib.pyplot as plt
 
 ### {-}
 
-# 1. How To: Capabilities and Syntax
+# 1. How to: Capabilities and syntax
 
 ### Bind files into a dataset {.tabset}
 
@@ -114,7 +114,10 @@ mamTREE <- mamds |>
 ```{python p-mam-ind-tax}
 
 con = duckdb.connect()
-mamTREE = con.execute("SELECT DISTINCT tagID, taxonID, scientificName FROM mamds WHERE taxonID != ''").df()
+mamTREE = con.execute('''
+                      SELECT DISTINCT tagID, taxonID, scientificName 
+                      FROM mamds WHERE taxonID != ''
+                      ''').df()
 
 ```
 
@@ -205,7 +208,13 @@ table(mampath$scientificName)
 
 ```{python p-join-path}
 
-mampath = con.execute("SELECT tagID, taxonID, scientificName, bloodSampleID FROM mamds INNER JOIN pthds ON mamds.bloodSampleID = pthds.sampleID WHERE testResult = 'Positive'").df()
+mampath = con.execute('''
+                      SELECT tagID, taxonID, scientificName, bloodSampleID 
+                      FROM mamds 
+                      INNER JOIN pthds 
+                      ON mamds.bloodSampleID = pthds.sampleID 
+                      WHERE testResult = 'Positive'
+                      ''').df()
 
 mampath.scientificName.value_counts()
 
@@ -270,6 +279,8 @@ plot(swSJER$VSWCMean~swSJER$endDateTime, type="l")
 
 #### Python
 
+Note that the SQL statement here is enclosed in double quotes, rather than 3 single quotes as in the queries above. Since this query is short, it fits easily on one line and is very readable. Using 3 single quotes lets us use multiple lines for the query.
+
 ```{python p-sw-coll}
 
 swSJER = con.execute("SELECT * FROM swds").df()
@@ -286,9 +297,122 @@ plt.show()
 
 For sensor data, users are often interested in aggregating data to longer averaging intervals. It's possible to do this on the fly, before downloading, using these query tools, but there are some significant caveats.
 
+Let's say we want the daily mean soil moisture from SJER, instead of the 30-minute data. The first important consideration: we'll omit records with the final quality flag (`VSWCFinalQF`) raised.
 
+#### R
+
+```{r sw-mean}
+
+swmean <- swds |> 
+  filter(VSWCFinalQF==0) |>
+  select(endDateTime, VSWCMean) |> 
+  mutate(dat = date(endDateTime)) |>
+  group_by(dat) |>
+  summarize(swdaily = mean(VSWCMean, na.rm=T)) |>
+  arrange(dat) |>
+  collect()
+
+plot(swmean$swdaily~swmean$dat, type="l")
+
+```
+
+#### Python
+
+```{python p-sw-mean}
+
+swmean = con.execute('''
+                     SELECT 
+                        EXTRACT(DAYOFYEAR FROM endDateTime) AS dat,
+                        AVG(VSWCMean) AS swdaily
+                     FROM swds 
+                     WHERE VSWCFinalQF = 0 
+                     GROUP BY 
+                        EXTRACT(DAYOFYEAR FROM endDateTime)
+                     ORDER BY dat
+                     ''').df()
+
+fig, ax = plt.subplots()
+ax.plot(swmean.dat, swmean.swdaily)
+plt.show()
+
+```
 
 ### {-}
+
+The catch is that although we've omitted flagged data records, we don't know which time periods were affected, nor how much data was omitted. The records were left out of the mean silently. Let's make another calculation: the sum of the absolute value of `VSWCFinalQF`. Most sensor data quality flags at NEON can take 3 possible values: 0 = pass, 1 = fail, -1 = could not be evaluated. Summing the absolute value will give us a count of records that did not pass on each day.
+
+Plot the flag count on top of the daily mean data.
+
+### {.tabset}
+
+#### R
+
+```{r sw-mean-flag}
+
+swmeanf <- swds |> 
+  select(endDateTime, VSWCFinalQF) |> 
+  mutate(dat = date(endDateTime)) |>
+  group_by(dat) |>
+  summarize(flagdaily = sum(abs(VSWCFinalQF)), na.rm=F) |>
+  arrange(dat) |>
+  collect()
+
+layout <- layout(matrix(c(1,2), 2, 1, byrow = F)) 
+layout <- plot(swmean$swdaily~swmean$dat, type="l")
+layout <- plot(swmeanf$flagdaily~swmeanf$dat, pch=20)
+
+```
+
+#### Python
+
+```{python p-sw-mean-flag}
+
+swmeanf = con.execute('''
+                     SELECT 
+                        EXTRACT(DAYOFYEAR FROM endDateTime) AS dat,
+                        SUM(flagabs) AS flagdaily
+                     FROM (SELECT 
+                              endDateTime,
+                              ABS(VSWCFinalQF) AS flagabs
+                           FROM swds)
+                     GROUP BY 
+                        EXTRACT(DAYOFYEAR FROM endDateTime)
+                     ORDER BY dat
+                     ''').df()
+
+fig, ax1 = plt.subplots()
+ax2 = ax1.twinx()
+
+ax1.plot(swmean.dat, swmean.swdaily)
+ax2.scatter(swmeanf.dat, swmeanf.flagdaily, c='r')
+plt.show()
+
+```
+
+### {-}
+
+That is a lot of flags! To understand how to interpret these flags, and which daily mean values are reliable, we would need to examine the detailed quality flags. If we need a continuous time series, we would need to do some gap-filling of the omitted data. But our daily mean data don't include the full set of flags and values from the original data. Which brings us to the limitations and challenges of these methods.
+
+
+# 2. Pitfalls, risks, and limitations
+
+### Contextual data
+
+Pulling data in this way makes it easier to overlook some of the details. For example, in the first query we ran on the mammal captures, we used `distinct()` to remove recaptures of the same individual. But in some cases, animals are recaptured and given a different identification, and we never accounted for that - those instances remain as duplicates in the data above. And we only know this because we included `tagID` in the columns we selected. Someone could easily leave out `tagID`, run `distinct()`, and think they are getting a clean estimate of species composition.
+
+Similarly, there are repeat `tagID`s in the set of mammals with positive pathogen tests. They are a mix of repeat blood draws from the same individual, and individuals that tested positive for multiple pathogens.
+
+(some kind of figure here?)
+
+How to handle the re-identified recaptures and the pathogen repeats depends on your analysis, but both scenarios require something beyond simple data slicing and joining.
+
+Counterpoint: It is also entirely possible to overlook the same details when analyzing downloaded data.
+
+Counter-counterpoint: At least if you download everything, you can't entirely omit a critical column. If you go looking for contextual data, you already have it in memory.
+
+### Aggregated data
+
+Aggregating time series data vastly reduces the demand on compute and the time needed to access data. But it also introduces huge risks by discarding or averaging away missing or erroneous data points, usually invisibly.
 
 
 Section 1: How to use these tools - capabilities, syntax, etc

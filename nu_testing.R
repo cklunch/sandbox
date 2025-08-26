@@ -1788,6 +1788,15 @@ include.provisional <- T
 token <- Sys.getenv("NEON_TOKEN")
 
 
+# AOP queryFiles()
+dum <- queryFiles(dpID='DP3.30015.001',
+                  site='SJER',
+                  startdate='2023-01',
+                  enddate='2023-12',
+                  include.provisional = T,
+                  token=Sys.getenv('NEON_TOKEN'))
+
+
 # testing datasetQuery() edge cases
 ds_mam_pertrapnight <- datasetQuery(
   dpID = 'DP1.10072.001',
