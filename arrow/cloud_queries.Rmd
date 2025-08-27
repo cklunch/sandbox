@@ -414,9 +414,12 @@ Counter-counterpoint: At least if you download everything, you can't entirely om
 
 Aggregating time series data vastly reduces the demand on compute and the time needed to access data. But it also introduces huge risks by discarding or averaging away missing or erroneous data points, usually invisibly.
 
+The impact of ignoring gaps depends on your analysis, of course. But for any analysis that requires high precision and accuracy, careful attention to gap-filling is necessary.
 
-Section 1: How to use these tools - capabilities, syntax, etc
-Section 2: Pitfalls, risks, and limitations
-Section 3: Speed and performance
-Section 4: Recommendations
+
+# 3. Speed and performance
+
+
+# 4. Recommendations
+
 

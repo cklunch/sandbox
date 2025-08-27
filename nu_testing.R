@@ -2001,3 +2001,37 @@ package <- 'basic'
 release <- 'RELEASE-2025'
 include.provisional <- F
 token <- NA_character_
+
+# should fail
+swds <- datasetQuery(dpID="DP1.00094.001", 
+                     site=c("SJER","TEAK"), package="basic",
+                     hor="002", ver="501",
+                     startdate="2023-01", enddate="2023-12",
+                     tabl="SWS_30_minute",
+                     release="RELEASE-2025")
+
+swds <- datasetQuery(dpID="DP1.00094.001", 
+                     site="SJER", package="basic",
+                     hor=c("002","003"), ver="501",
+                     startdate="2023-01", enddate="2023-12",
+                     tabl="SWS_30_minute",
+                     release="RELEASE-2025")
+
+swds <- datasetQuery(dpID="DP1.00094.001", 
+                     site="SJER", package="basic",
+                     hor="002", ver=c("501","502"),
+                     startdate="2023-01", enddate="2023-12",
+                     tabl="SWS_30_minute",
+                     release="RELEASE-2025")
+
+# ais maintenance
+getHorVer("DP1.20288.001", "TECR")
+amds <- datasetQuery(dpID="DP1.20288.001", 
+                     site="TECR", package="expanded",
+                     hor="102", ver="100",
+                     startdate="2023-01", enddate="2023-12",
+                     tabl="ais_maintenance",
+                     release="RELEASE-2025")
+
+
+
