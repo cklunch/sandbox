@@ -2033,5 +2033,30 @@ amds <- datasetQuery(dpID="DP1.20288.001",
                      tabl="ais_maintenance",
                      release="RELEASE-2025")
 
+amds <- datasetQuery(dpID="DP1.20288.001", 
+                     site="TECR", package="expanded",
+                     startdate="2023-01", enddate="2023-12",
+                     tabl="ais_maintenance",
+                     release="RELEASE-2025")
+amTECR <- amds |>
+  collect()
+
+
+
+# tick pathogens
+Sys.time()
+tickpath <- loadByProduct(dpID="DP1.10092.001", 
+                          release="RELEASE-2025",
+                          check.size=F,
+                          token=Sys.getenv("NEON_TOKEN"))
+Sys.time()
+
+pathsite <- tickpath$tck_pathogen |>
+  filter(testResult=="Positive") |>
+  select(siteID, testPathogenName) |>
+  distinct() |>
+  collect()
+
+
 
 

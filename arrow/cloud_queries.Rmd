@@ -416,9 +416,13 @@ Aggregating time series data vastly reduces the demand on compute and the time n
 
 The impact of ignoring gaps depends on your analysis, of course. But for any analysis that requires high precision and accuracy, careful attention to gap-filling is necessary.
 
+(examples here)
 
 # 3. Speed and performance
 
+Downloading complete datasets is slower than querying NEON data files in the cloud, but querying a dataset in local memory is very fast. This means if you are making a number of queries, the speed advantage of cloud queries may disappear.
+
+For example, let's compare the speed of downloads vs cloud queries for surface water chemistry data. 
 
 # 4. Recommendations
 
