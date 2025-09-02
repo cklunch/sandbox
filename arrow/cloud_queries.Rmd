@@ -1,6 +1,8 @@
 ---
 title: "Exploring arrow query capabilities"
-output: html_document
+output: 
+  md_document:
+    variant: markdown_github
 date: "2025-08-15"
 ---
 
@@ -232,7 +234,7 @@ To avoid queries running across sensors, the `datasetQuery()` (R) and `dataset_q
 
 Even with access restricted to one sensor, these tools can be very useful. Let's say we want an estimate of soil moisture at San Joaquin Experimental Range (SJER) in 2023, and let's say we don't need our estimate to be extremely precise, either in space or in time. One sensor at a 30-minute frequency is fine. On the NEON Data Portal, our only option would be to download all Soil water content and salinity (DP1.00094.001) data for 2023. That is, 5 soil plots times 8 soil depths = 40 sensors, each at both 1- and 30-minute averaging intervals. It adds up to 2.26 GB.
 
-Instead, let's get just the 30-minute dataset for the sensor at HOR=002 (soil plot 2) and VER=501 (soil depth 1).
+Instead, let's get just the 30-minute dataset for the sensor at HOR=004 (soil plot 4) and VER=502 (soil depth 2).
 
 #### R
 
@@ -240,7 +242,7 @@ Instead, let's get just the 30-minute dataset for the sensor at HOR=002 (soil pl
 
 swds <- datasetQuery(dpID="DP1.00094.001", 
                      site="SJER", package="basic",
-                     hor="002", ver="501",
+                     hor="004", ver="502",
                      startdate="2023-01", enddate="2023-12",
                      tabl="SWS_30_minute",
                      release="RELEASE-2025")
@@ -253,7 +255,7 @@ swds <- datasetQuery(dpID="DP1.00094.001",
 
 swds = nu.dataset_query(dpid="DP1.00094.001", 
                          site="SJER", package="basic",
-                         hor="002", ver="501",
+                         hor="004", ver="502",
                          startdate="2023-01", enddate="2023-12",
                          tabl="SWS_30_minute",
                          release="RELEASE-2025")
@@ -391,20 +393,78 @@ plt.show()
 
 ### {-}
 
-That is a lot of flags! To understand how to interpret these flags, and which daily mean values are reliable, we would need to examine the detailed quality flags. If we need a continuous time series, we would need to do some gap-filling of the omitted data. But our daily mean data don't include the full set of flags and values from the original data. Which brings us to the limitations and challenges of these methods.
+That is a lot of flags! To understand how to interpret these flags, and which daily mean values are reliable, we would need to examine the detailed quality flags. If we need a continuous time series, we would need to do some gap-filling of the omitted data. But the daily mean data we aggregated from the cloud don't include the full set of flags and values from the original data. Which brings us to the limitations and challenges of these methods.
 
 
 # 2. Pitfalls, risks, and limitations
 
-### Contextual data
+### Contextual data and metadata
 
-Pulling data in this way makes it easier to overlook some of the details. For example, in the first query we ran on the mammal captures, we used `distinct()` to remove recaptures of the same individual. But in some cases, animals are recaptured and given a different identification, and we never accounted for that - those instances remain as duplicates in the data above. And we only know this because we included `tagID` in the columns we selected. Someone could easily leave out `tagID`, run `distinct()`, and think they are getting a clean estimate of species composition.
+Querying data in this way makes it dangerously easy to overlook some of the details. For example, in the first query we ran on the mammal captures, we used `distinct()` to remove recaptures of the same individual. But let's check for repeated `tagID`s in the table of taxa.
 
-Similarly, there are repeat `tagID`s in the set of mammals with positive pathogen tests. They are a mix of repeat blood draws from the same individual, and individuals that tested positive for multiple pathogens.
+### {.tabset}
 
-(some kind of figure here?)
+#### R
 
-How to handle the re-identified recaptures and the pathogen repeats depends on your analysis, but both scenarios require something beyond simple data slicing and joining.
+```{r mam-tags}
+
+tagdups <- mamTREE |>
+  group_by(tagID) |>
+  filter(n() > 1) |>
+  ungroup() |>
+  arrange(tagID)
+
+head(tagdups, 10)
+
+```
+
+#### Python
+
+```{python p-mam-tags}
+
+# TBD
+
+```
+
+### {-}
+
+This is very clear - in some cases, the same animal is captured multiple times and identified differently. And we only know this because we included `tagID` in the columns we selected. Someone could easily leave out `tagID`, run `distinct()`, and think they are getting a clean estimate of species composition. 
+
+On the flip side, deciding what to do with these multiple identifications depends on data we didn't include in our query. For example, some of these individuals may have been caught many times. Which identification is the most common? Or maybe an individual was caught both as a juvenile and as an adult - presumably we would be more confident in the adult identification. To make those decisions, we need the full set of trapping data.
+
+Is there anything similar going on in the pathogen data?
+
+### {.tabset}
+
+#### R
+
+```{r mam-path-tags}
+
+pathdups <- mampath |>
+  group_by(tagID) |>
+  filter(n() > 1) |>
+  ungroup() |>
+  select(tagID, scientificName, 
+         collectDate, testPathogenName) |>
+  arrange(tagID, collectDate)
+
+head(pathdups, 21)
+
+```
+
+#### Python
+
+```{python p-mam-path-tags}
+
+# TBD
+
+```
+
+### {-}
+
+There are several repeat `tagID`s in the set of mammals with positive pathogen tests. We can see the majority of them are individuals that tested positive for multiple pathogens (poor NEON.MAM.D05.R7185 tested positive for 4 pathogens), but see also NEON.MAM.D05.R7453, which was captured in 2021 and 2022 and tested positive for *Babesia microti* both times.
+
+How to handle the re-identified recaptures and the repeat pathogen tests depends on your analysis, but both scenarios require something beyond simple data slicing and joining.
 
 Counterpoint: It is also entirely possible to overlook the same details when analyzing downloaded data.
 
@@ -414,7 +474,7 @@ Counter-counterpoint: At least if you download everything, you can't entirely om
 
 Aggregating time series data vastly reduces the demand on compute and the time needed to access data. But it also introduces huge risks by discarding or averaging away missing or erroneous data points, usually invisibly.
 
-The impact of ignoring gaps depends on your analysis, of course. But for any analysis that requires high precision and accuracy, careful attention to gap-filling is necessary.
+The impact of ignoring gaps depends on your analysis, of course, as well as the extent of the gaps. But for any analysis that requires high precision and accuracy, careful attention to gap-filling is necessary.
 
 (examples here)
 
@@ -422,7 +482,87 @@ The impact of ignoring gaps depends on your analysis, of course. But for any ana
 
 Downloading complete datasets is slower than querying NEON data files in the cloud, but querying a dataset in local memory is very fast. This means if you are making a number of queries, the speed advantage of cloud queries may disappear.
 
-For example, let's compare the speed of downloads vs cloud queries for surface water chemistry data. 
+For example, let's compare the speed of downloads vs cloud queries for surface water chemistry data. We'll run a very simple query: All analytical records for total nitrogen from McRae Creek (MCRA).
+
+
+### {.tabset}
+
+#### R
+
+```{r dq-swc}
+
+start.time <- Sys.time()
+
+wcds <- datasetQuery(dpID="DP1.20093.001", 
+                      site="MCRA", package="basic",
+                      tabl="swc_externalLabDataByAnalyte",
+                      release="RELEASE-2025",
+                      token=Sys.getenv("NEON_TOKEN"))
+
+Sys.time() - start.time
+
+tn <- wcds |>
+  filter(analyte=="TN") |>
+  collect()
+
+Sys.time() - start.time
+
+```
+
+#### Python
+
+```{python p-dq-swc}
+
+wcds = nu.dataset_query(dpid="DP1.20093.001", 
+                         site="MCRA", package="basic",
+                         tabl="swc_externalLabDataByAnalyte",
+                         release="RELEASE-2025")
+
+```
+
+### {-}
+
+And now, let's get the same data by downloading and then subsetting the dataset.
+
+### {.tabset}
+
+#### R
+
+```{r lbp-swc}
+
+start.time <- Sys.time()
+
+wclist <- loadByProduct(dpID="DP1.20093.001", 
+                      site="MCRA", package="basic",
+                      release="RELEASE-2025",
+                      check.size=F,
+                      token=Sys.getenv("NEON_TOKEN"))
+
+Sys.time() - start.time
+
+tnl <- wclist$swc_externalLabDataByAnalyte |>
+  filter(analyte=="TN") |>
+  collect()
+
+Sys.time() - start.time
+
+```
+
+#### Python
+
+```{python p-lbp-swc}
+
+wclist = nu.dataset_query(dpid="DP1.20093.001", 
+                         site="MCRA", package="basic",
+                         check_size=False,
+                         release="RELEASE-2025")
+
+```
+
+### {-}
+
+
+
 
 # 4. Recommendations
 
