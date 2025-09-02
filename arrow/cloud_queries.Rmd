@@ -2,7 +2,7 @@
 title: "Exploring arrow query capabilities"
 output: 
   md_document:
-    variant: markdown_github
+    variant: gfm
 date: "2025-08-15"
 ---
 
@@ -484,7 +484,6 @@ Downloading complete datasets is slower than querying NEON data files in the clo
 
 For example, let's compare the speed of downloads vs cloud queries for surface water chemistry data. We'll run a very simple query: All analytical records for total nitrogen from McRae Creek (MCRA).
 
-
 ### {.tabset}
 
 #### R
@@ -528,17 +527,19 @@ And now, let's get the same data by downloading and then subsetting the dataset.
 
 #### R
 
-```{r lbp-swc}
+```{r lbp-swc, eval=FALSE}
 
 start.time <- Sys.time()
 
 wclist <- loadByProduct(dpID="DP1.20093.001", 
                       site="MCRA", package="basic",
                       release="RELEASE-2025",
-                      check.size=F,
+                      check.size=F, progress=F,
                       token=Sys.getenv("NEON_TOKEN"))
 
 Sys.time() - start.time
+
+    ## Time difference of 48.28636 secs
 
 tnl <- wclist$swc_externalLabDataByAnalyte |>
   filter(analyte=="TN") |>
@@ -546,24 +547,56 @@ tnl <- wclist$swc_externalLabDataByAnalyte |>
 
 Sys.time() - start.time
 
+    ## Time difference of 48.29913 secs
+
 ```
 
 #### Python
 
-```{python p-lbp-swc}
+```{python p-lbp-swc, eval=FALSE}
 
 wclist = nu.dataset_query(dpid="DP1.20093.001", 
                          site="MCRA", package="basic",
-                         check_size=False,
+                         check_size=False, progress=False,
                          release="RELEASE-2025")
 
 ```
 
 ### {-}
 
+Finding the dataset in the cloud took 6 seconds, vs 48 seconds to download the data. But querying the data in the cloud took an additional 5 seconds, vs 0.01 seconds to subset the data locally. Obviously the exact numbers will vary depending on the specific data product and query, but the overall pattern here is representative: making a single data request to the cloud is much faster than downloading, but making multiple queries can very quickly add up to more time than downloading.
 
-
+Given the limitations described above, the speed and performance we observe, and the pitfalls, what do we recommend?
 
 # 4. Recommendations
+
+### What these tools are good for
+
+#### Highly targeted searches
+
+Database-style queries in the cloud are an excellent tool when you know exactly what you're looking for, and what you're looking for is a small subset of a large amount of data. Some examples:
+
+* Find every site where NEON has observed a particular species
+* Find the diameter measurements over time of a specific individual tree
+* 
+* 
+
+#### Data subsets not supported by the NEON data model
+
+NEON allows data download by data product, site, and month. As we saw above, if you only need data from a single sensor, it can be much faster to access that specific sensor's files using these tools. If you do this, we highly recommend you don't subset the columns - get all of the data and metadata associated with each record, so you have the full set of contextual data and quality flags.
+
+Similarly, if you're looking for something that occurs at unpredictable intervals, being able to search for that specific something, rather than downloading everything and then looking for it, can be much faster. To support this scenario, the `neonUtilities` R package now includes the function `byEventSIM()` for accessing site management data (DP4.10111.001) by event type, built on a backbone of arrow dataset capabilities. This allows you to search for e.g. all fires at NEON sites, rather than downloading all of the site management data and subsetting to fires.
+
+
+### What these tools are not good for
+
+#### Data exploration
+
+When you are exploring a new dataset and learning about what it contains, you are likely to make many different slices, aggregations, and summaries of it. Doing this using cloud queries will, in the end, be much slower than downloading the data and then exploring. If the volume of data is too large to download all of it, download one site, or one year at one site, and use that as a testbed before proceeding.
+
+#### Data reshaping
+
+If you need a large amount of data, but in a different format than NEON presents (e.g. long vs wide), accessing the data this way is not efficient. Download the data you need, and then rearrange.
+
 
 
