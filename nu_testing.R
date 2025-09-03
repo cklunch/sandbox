@@ -2002,6 +2002,31 @@ release <- 'RELEASE-2025'
 include.provisional <- F
 token <- NA_character_
 
+
+swds <- datasetQuery(dpID="DP1.00094.001", 
+                     site="SJER", package="expanded",
+                     hor="004", ver="502",
+                     startdate="2023-01", enddate="2023-12",
+                     tabl="SWS_30_minute",
+                     release="RELEASE-2025")
+
+swSJER <- swds |>
+  collect()
+
+plot(swSJER$VSWCMean~swSJER$endDateTime, type="l")
+
+swmean <- swds |> 
+  filter(VSWCFinalQF==0) |>
+  select(endDateTime, VSWCMean) |> 
+  mutate(dat = date(endDateTime)) |>
+  group_by(dat) |>
+  summarize(swdaily = mean(VSWCMean, na.rm=T)) |>
+  arrange(dat) |>
+  collect()
+
+plot(swmean$swdaily~swmean$dat, type="l")
+
+
 # should fail
 swds <- datasetQuery(dpID="DP1.00094.001", 
                      site=c("SJER","TEAK"), package="basic",
@@ -2056,6 +2081,21 @@ pathsite <- tickpath$tck_pathogen |>
   select(siteID, testPathogenName) |>
   distinct() |>
   collect()
+
+
+# neon_cloud() capabilities
+swds <- neon_cloud("SWS_30_minute", product="DP1.00094.001",
+                  site="SJER", start_date="2023-01-01", end_date="2023-12-31",
+                  release="RELEASE-2025")
+
+
+brd <- neon_cloud("brd_countdata", product="DP1.10003.001")
+
+brd |> 
+  distinct(siteID, scientificName) |> 
+  count(siteID, sort=TRUE) |> 
+  collect()
+
 
 
 

@@ -1,8 +1,6 @@
 ---
 title: "Exploring arrow query capabilities"
-output: 
-  md_document:
-    variant: gfm
+output: html_document
 date: "2025-08-15"
 ---
 
@@ -230,7 +228,7 @@ The examples we've explored so far have been observational (OS) data. These meth
 
 BUT: there are major limitations due to the way IS data files are structured and named. One of the biggest issues is that IS data don't contain location information - the site, horizontal index, and vertical index - as data fields, but there can be many sensors per site. Because the location information is only in the file name, the query tools can't distinguish data collected by different sensors.
 
-To avoid queries running across sensors, the `datasetQuery()` (R) and `dataset_query()` (Python) functions require that sensor datasets be defined only for a single sensor. `site`, `hor`, and `ver` are all required inputs for sensor data products, and can only be of length 1.
+To avoid queries running across sensors, the `datasetQuery()` (R) and `dataset_query()` (Python) functions require that sensor datasets be defined only for a single sensor. `site`, `hor`, and `ver` are all required inputs for sensor data products, and can only be of length 1. This may be relaxed in future versions of the package, if sufficient safeguards can be put in place to help users avoid inappropriate queries.
 
 Even with access restricted to one sensor, these tools can be very useful. Let's say we want an estimate of soil moisture at San Joaquin Experimental Range (SJER) in 2023, and let's say we don't need our estimate to be extremely precise, either in space or in time. One sensor at a 30-minute frequency is fine. On the NEON Data Portal, our only option would be to download all Soil water content and salinity (DP1.00094.001) data for 2023. That is, 5 soil plots times 8 soil depths = 40 sensors, each at both 1- and 30-minute averaging intervals. It adds up to 2.26 GB.
 
@@ -341,7 +339,9 @@ plt.show()
 
 ### {-}
 
-The catch is that although we've omitted flagged data records, we don't know which time periods were affected, nor how much data was omitted. The records were left out of the mean silently. Let's make another calculation: the sum of the absolute value of `VSWCFinalQF`. Most sensor data quality flags at NEON can take 3 possible values: 0 = pass, 1 = fail, -1 = could not be evaluated. Summing the absolute value will give us a count of records that did not pass on each day.
+The catch is that although we've omitted flagged data records, we don't know which time periods were affected, nor how much data was omitted. The records were left out of the mean silently. In a few places it's clear - we can see that a few large spikes in the spring have disappeared - but where else have records been omitted?
+
+Let's make another calculation: the sum of the absolute value of `VSWCFinalQF`. Most sensor data quality flags at NEON can take 3 possible values: 0 = pass, 1 = fail, -1 = could not be evaluated. Summing the absolute value will give us a count of records that did not pass on each day.
 
 Plot the flag count on top of the daily mean data.
 
@@ -476,7 +476,6 @@ Aggregating time series data vastly reduces the demand on compute and the time n
 
 The impact of ignoring gaps depends on your analysis, of course, as well as the extent of the gaps. But for any analysis that requires high precision and accuracy, careful attention to gap-filling is necessary.
 
-(examples here)
 
 # 3. Speed and performance
 
@@ -564,7 +563,7 @@ wclist = nu.dataset_query(dpid="DP1.20093.001",
 
 ### {-}
 
-Finding the dataset in the cloud took 6 seconds, vs 48 seconds to download the data. But querying the data in the cloud took an additional 5 seconds, vs 0.01 seconds to subset the data locally. Obviously the exact numbers will vary depending on the specific data product and query, but the overall pattern here is representative: making a single data request to the cloud is much faster than downloading, but making multiple queries can very quickly add up to more time than downloading.
+Finding the dataset in the cloud took 6 seconds, vs 48 seconds to download the data. But querying the data in the cloud took an additional 5 seconds, vs 0.01 seconds to subset the data locally. Obviously the exact numbers will vary depending on the specific data product and query, but the overall pattern here is representative: making a single data request to the cloud is much faster than downloading, but making multiple queries can very quickly add up to more time than downloading. This means it can also very quickly become much more burdensome on NEON's egress capacity.
 
 Given the limitations described above, the speed and performance we observe, and the pitfalls, what do we recommend?
 
@@ -574,14 +573,13 @@ Given the limitations described above, the speed and performance we observe, and
 
 #### Highly targeted searches
 
-Database-style queries in the cloud are an excellent tool when you know exactly what you're looking for, and what you're looking for is a small subset of a large amount of data. Some examples:
+Database-style queries in the cloud are an excellent tool when you know exactly what you're looking for, and what you're looking for is a small, precise subset of a large amount of data. Some examples:
 
 * Find every site where NEON has observed a particular species
 * Find the diameter measurements over time of a specific individual tree
-* 
-* 
+* Find all the species that co-occur in the same sampling location as a particular species
 
-#### Data subsets not supported by the NEON data model
+#### Data subsets not supported by the NEON data publication model
 
 NEON allows data download by data product, site, and month. As we saw above, if you only need data from a single sensor, it can be much faster to access that specific sensor's files using these tools. If you do this, we highly recommend you don't subset the columns - get all of the data and metadata associated with each record, so you have the full set of contextual data and quality flags.
 
@@ -596,7 +594,15 @@ When you are exploring a new dataset and learning about what it contains, you ar
 
 #### Data reshaping
 
-If you need a large amount of data, but in a different format than NEON presents (e.g. long vs wide), accessing the data this way is not efficient. Download the data you need, and then rearrange.
+If you need a large amount of data, but in a different format than NEON presents (e.g. long vs wide), accessing the data via cloud queries is not efficient. Download the data you need, and then rearrange.
 
+#### Errors and exceptions
+
+This is a slightly murkier area. To some extent, you can discard flagged data, detect duplicates, and identify inconsistencies using data queries, but it is very easy to stumble into conditions that require more customized handling. This is closely tied to the data exploration scenario - if you have strong knowledge of your dataset and the types of errors and exceptions it may contain, you'll be better placed to know what parameters you can query on, and what variables are essential to include for error detection.
+
+
+### Final thoughts
+
+Database-style querying in the cloud provides incredibly powerful and flexible workflows for accessing data, when you know exactly what you're looking for and are deeply familiar with the data in question. Use these tools thoughtfully and know your dataset!
 
 
