@@ -12,6 +12,9 @@ urlchecker::url_check('.')
 setwd("/Users/clunch/GitHub/utilities-test-suite/testUtilities")
 test()
 
+library(dplyr)
+
+
 usera <- paste("neonUtilities/", utils::packageVersion("neonUtilities"), " R/", 
                R.Version()$major, ".", R.Version()$minor, " ", commandArgs()[1], 
                " ", R.Version()$platform, sep="")
@@ -25,6 +28,9 @@ downloader::download("https://storage.googleapis.com/neon-publication/NEON.DOM.S
                                "X-API-Token"=""))
 # empty string works, NA doesn't
 
+download.file('https://storage.googleapis.com/neon-publication/NEON.DOM.SITE.DP1.20206.001/MCRA/20250601T000000--20250701T000000/expanded/NEON.D16.MCRA.DP1.20206.001.asi_fieldData.2025-06.expanded.20250707T192050Z.csv',
+              method='curl',
+              destfile='/Users/clunch/Desktop/test.csv')
 
 # DOIs
 dois <- getNeonDOI()
@@ -45,6 +51,11 @@ ql <- loadByProduct(dpID='DP1.00066.001', release='LATEST', stack='cert',
                      token=Sys.getenv('CERT_LATEST'), check.size=F)
 
 gg <- ggplot(ql$PARQL_30min, aes(endDateTime, linePARMean, color=horizontalPosition)) +
+  geom_line() +
+  facet_wrap(~siteID)
+gg
+
+gg <- ggplot(dum$TSD_30_min, aes(endDateTime, tsdWaterTempMean, color=verticalPosition)) +
   geom_line() +
   facet_wrap(~siteID)
 gg
@@ -2097,6 +2108,30 @@ brd |>
   collect()
 
 
+
+dpID <- "DP1.10055.001"
+site <- "HARV"
+tabl <- "phe_perindividual"
+package <- "basic"
+release <- "RELEASE-2025"
+include.provisional <- FALSE
+token <- Sys.getenv("NEON_TOKEN")
+
+urlset <- queryFiles(dpID=dpID, site=site, 
+                     package=package, release=release,
+                     timeIndex="all", tabl=tabl, metadata=FALSE,
+                     include.provisional=include.provisional, 
+                     token=token)
+
+
+
+tempchain <- loadByProduct(  dpID='DP1.20264.001',  check.size=F,   
+                        startdate = "2024-05",  
+                        enddate = "2024-07",  
+                        cloud.mode = T,
+                        site = "TOOK",  package='basic',  
+                        include.provisional = T,
+                        token = Sys.getenv('NEON_TOKEN'))
 
 
 

@@ -53,6 +53,7 @@ library(dplyr)
 import neonutilities as nu
 import duckdb
 import matplotlib.pyplot as plt
+import datetime
 
 ```
 
@@ -209,7 +210,8 @@ table(mampath$scientificName)
 ```{python p-join-path}
 
 mampath = con.execute('''
-                      SELECT tagID, taxonID, scientificName, bloodSampleID 
+                      SELECT 
+                        tagID, taxonID, scientificName, bloodSampleID, pthds.*
                       FROM mamds 
                       INNER JOIN pthds 
                       ON mamds.bloodSampleID = pthds.sampleID 
@@ -343,6 +345,8 @@ The catch is that although we've omitted flagged data records, we don't know whi
 
 Let's make another calculation: the sum of the absolute value of `VSWCFinalQF`. Most sensor data quality flags at NEON can take 3 possible values: 0 = pass, 1 = fail, -1 = could not be evaluated. Summing the absolute value will give us a count of records that did not pass on each day.
 
+(Note: a more straightforward way to evaluate this in R would be to use `count()` inside `summarize()` to find the number of records included in each daily mean calculation. But `count()` is currently not available in the Arrow-dplyr integration.)
+
 Plot the flag count on top of the daily mean data.
 
 ### {.tabset}
@@ -400,7 +404,7 @@ That is a lot of flags! To understand how to interpret these flags, and which da
 
 ### Contextual data and metadata
 
-Querying data in this way makes it dangerously easy to overlook some of the details. For example, in the first query we ran on the mammal captures, we used `distinct()` to remove recaptures of the same individual. But let's check for repeated `tagID`s in the table of taxa.
+Querying data in this way makes it dangerously easy to overlook some of the details. For example, in the first query we ran on the mammal captures, we used `distinct()`/`DISTINCT` to remove recaptures of the same individual. But let's check for repeated `tagID`s in the table of taxa.
 
 ### {.tabset}
 
@@ -422,13 +426,17 @@ head(tagdups, 10)
 
 ```{python p-mam-tags}
 
-# TBD
+tagdups = (mamTREE.groupby('tagID')
+           .filter(lambda x: len(x) > 1)
+           .sort_values('tagID')
+           .reset_index(drop=True))
+tagdups.head(10)
 
 ```
 
 ### {-}
 
-This is very clear - in some cases, the same animal is captured multiple times and identified differently. And we only know this because we included `tagID` in the columns we selected. Someone could easily leave out `tagID`, run `distinct()`, and think they are getting a clean estimate of species composition. 
+This is very clear - in some cases, the same animal is captured multiple times and identified differently. And we only know this because we included `tagID` in the columns we selected. Someone could easily leave out `tagID`, find distinct values, and think they are getting a clean estimate of species composition. 
 
 On the flip side, deciding what to do with these multiple identifications depends on data we didn't include in our query. For example, some of these individuals may have been caught many times. Which identification is the most common? Or maybe an individual was caught both as a juvenile and as an adult - presumably we would be more confident in the adult identification. To make those decisions, we need the full set of trapping data.
 
@@ -456,7 +464,13 @@ head(pathdups, 21)
 
 ```{python p-mam-path-tags}
 
-# TBD
+pathdups = (mampath.groupby('tagID')
+            .filter(lambda x: len(x) > 1)
+            .reset_index(drop=True)
+            .loc[:, ['tagID', 'scientificName', 'collectDate', 'testPathogenName']]
+            .sort_values(['tagID', 'collectDate'])
+           )
+pathdups.head(21)
 
 ```
 
@@ -511,10 +525,21 @@ Sys.time() - start.time
 
 ```{python p-dq-swc}
 
+starttime = datetime.datetime.now()
+
 wcds = nu.dataset_query(dpid="DP1.20093.001", 
                          site="MCRA", package="basic",
                          tabl="swc_externalLabDataByAnalyte",
                          release="RELEASE-2025")
+                         
+print(datetime.datetime.now() - starttime)
+
+tn = con.execute('''
+                 SELECT * FROM wcds
+                 WHERE analyte = 'TN'
+                 ''').df()
+
+print(datetime.datetime.now() - starttime)
 
 ```
 
@@ -554,16 +579,25 @@ Sys.time() - start.time
 
 ```{python p-lbp-swc, eval=FALSE}
 
-wclist = nu.dataset_query(dpid="DP1.20093.001", 
-                         site="MCRA", package="basic",
-                         check_size=False, progress=False,
-                         release="RELEASE-2025")
+starttime = datetime.datetime.now()
+
+wclist = nu.load_by_product(dpid="DP1.20093.001", 
+                            site="MCRA", package="basic",
+                            check_size=False, progress=False,
+                            release="RELEASE-2025")
+
+print(datetime.datetime.now() - starttime)
+
+waterchem = wclist['swc_externalLabDataByAnalyte']
+tnl = waterchem[waterchem['analyte']=='TN']
+
+print(datetime.datetime.now() - starttime)
 
 ```
 
 ### {-}
 
-Finding the dataset in the cloud took 6 seconds, vs 48 seconds to download the data. But querying the data in the cloud took an additional 5 seconds, vs 0.01 seconds to subset the data locally. Obviously the exact numbers will vary depending on the specific data product and query, but the overall pattern here is representative: making a single data request to the cloud is much faster than downloading, but making multiple queries can very quickly add up to more time than downloading. This means it can also very quickly become much more burdensome on NEON's egress capacity.
+Finding the dataset in the cloud took 6 seconds, vs 48 seconds to download the data (89 in Python). But querying the data in the cloud took an additional 5 seconds, vs 0.01 seconds to subset the data locally. Obviously the exact numbers will vary depending on the specific data product and query, but the overall pattern here is representative: making a single data request to the cloud is much faster than downloading, but making multiple queries can very quickly add up to more time than downloading. This means it can also very quickly become much more burdensome on NEON's egress capacity.
 
 Given the limitations described above, the speed and performance we observe, and the pitfalls, what do we recommend?
 
