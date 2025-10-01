@@ -1075,8 +1075,9 @@ swe <- loadByProduct(dpID='DP1.20016.001', site=c('MART','WLOU'),
 wch <- loadByProduct(dpID='DP1.20093.001', site=c('ARIK','POSE','MART','WLOU','OKSR','COMO','TOOK'),
                      package='expanded', check.size=F, token=Sys.getenv('PUBLIC_TOKEN'))
 
-wcha <- loadByProduct(dpID='DP1.20093.001', site=c('ARIK','POSE','MART','WLOU','OKSR','COMO','TOOK'),
-                     package='expanded', check.size=F)
+wcha <- loadByProduct(dpID='DP1.20093.001', site=c('OKSR','COMO','TOOK'),
+                      startdate='2023-01', enddate='2023-12',
+                    check.size=F)
 
 dpID <- 'DP1.20093.001'
 site <- c('ARIK','POSE')
@@ -2132,6 +2133,39 @@ tempchain <- loadByProduct(  dpID='DP1.20264.001',  check.size=F,
                         site = "TOOK",  package='basic',  
                         include.provisional = T,
                         token = Sys.getenv('NEON_TOKEN'))
+
+
+wqds <- datasetQuery(dpID="DP1.20288.001",
+             site = "CRAM",
+             hor="001", ver="103",
+             tabl="waq_instantaneous",
+             package="basic",
+             release="current",
+             include.provisional = TRUE,
+             token=Sys.getenv("NEON_TOKEN"))
+
+
+divds <- datasetQuery(dpID='DP1.10058.001', 
+                     tabl='div_1m2Data',
+                     token=Sys.getenv('NEON_TOKEN'))
+
+lich <- divds |>
+  select(siteID, endDate, eventID, otherVariables, percentCover) |>
+  filter(otherVariables %in% c('lichen','biocrustLichen')) |>
+  group_by(siteID) |>
+  summarize(meanCover = mean(percentCover, na.rm=T)) |>
+  collect()
+
+fsd <- read.csv('/Users/clunch/data/NEON_Field_Site_Metadata_20250930.csv')
+lf <- merge(lich, fsd, by.x='siteID', by.y='site_id', all=F)
+lf$mean_annual_temperature <- gsub('°C', '', lf$mean_annual_temperature_C)
+
+
+plot(lf$mean_annual_temperature, lf$mean_annual_precipitation_mm, type="n",
+     xlab='Mean annual temperature', ylab='Mean annual precipitation')
+text(lf$mean_annual_temperature, lf$mean_annual_precipitation_mm, 
+     labels=lf$siteID, cex=lf$meanCover*0.1)
+
 
 
 
