@@ -1,6 +1,7 @@
 library(devtools)
 library(urlchecker)
 library(neonUtilities)
+library(visNetwork)
 setwd("~/GitHub/NEON-OS-data-processing/neonOS")
 install('.')
 library(neonOS)
@@ -29,11 +30,23 @@ cfc.cn <- removeDups(cfc$cfc_chlorophyll, variables=cfc$variables_10026, table='
 cfc.dum <- removeDups(cfc$cfc_chlorophyll, variables=cfc$variables_10026, table='cfc_elements')
 
 bird <- loadByProduct(dpID='DP1.10003.001', check.size=F, 
-                      startdate='2022-05', enddate='2023-08',
+                      startdate='2023-03', enddate='2024-09',
                       include.provisional = T,
                       package='expanded', token=Sys.getenv('NEON_TOKEN'))
 list2env(bird, .GlobalEnv)
 brd.d <- removeDups(brd_countdata, variables=variables_10003)
+brd.pd <- removeDups(brd_perpoint, variables_10003)
+variables_10003$primaryKey[which(variables_10003$fieldName=='plotID')] <- 'Y'
+variables_10003$primaryKey[which(variables_10003$fieldName=='pointID')] <- 'Y'
+
+brd_fakecount <- brd_countdata
+variables_10003$table[which(variables_10003$table=='brd_countdata')] <- 'brd_fakecount'
+brd.d <- removeDups(brd_fakecount, variables=variables_10003)
+View(brd.d[which(brd.d$duplicateRecordQF!=0),])
+variables_10003$primaryKey[which(variables_10003$fieldName=='clusterSize')] <- 'Y'
+variables_10003$primaryKey[which(variables_10003$fieldName=='clusterCode')] <- 'Y'
+brd.d <- removeDups(brd_fakecount, variables=variables_10003)
+View(brd.d[which(brd.d$duplicateRecordQF!=0),])
 
 fish <- loadByProduct(dpID='DP1.20107.001', check.size=F, 
                       startdate='2017-05', enddate='2019-08',
@@ -128,6 +141,30 @@ algs <- getSampleTree(sampleNode='BLDE.SS.20181002', idType='tag',
 # should exit with sampleClass info:
 algs <- getSampleTree('BLDE.SS.20181002', idType='tag', 
                       token=Sys.getenv('NEON_TOKEN'))
+
+# networks
+soil <- loadByProduct(dpID="DP1.10086.001", 
+                      site="SOAP",
+                      startdate="2018-01",
+                      enddate="2024-12",
+                      include.provisional=T,
+                      progress=F,
+                      check.size=F)
+
+list2env(soil, .GlobalEnv)
+
+samp <- getSampleTree(sls_soilCoreCollection$sampleID[1])
+edges <- data.frame(cbind(to=samp$sampleUuid, from=samp$parentSampleUuid))
+nodes <- data.frame(cbind(id=samp$sampleUuid, label=samp$sampleTag))
+visNetwork(nodes, edges) |>
+  visEdges(arrows="to")
+
+samp <- getSampleTree(sls_soilCoreCollection$sampleID[2])
+edges <- data.frame(cbind(to=samp$sampleUuid, from=samp$parentSampleUuid))
+nodes <- data.frame(cbind(id=samp$sampleUuid, label=samp$sampleTag))
+visNetwork(nodes, edges) |>
+  visEdges(arrows="to")
+
 
 
 # plant div
