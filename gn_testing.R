@@ -6,6 +6,7 @@ options(stringsAsFactors = F)
 install('.')
 check()
 test()
+load_all()
 
 loc <- getLocBySite('ARIK', type='AQU')
 loc <- getLocBySite('SYCA', type='all', history=T, token=Sys.getenv('NEON_TOKEN'))

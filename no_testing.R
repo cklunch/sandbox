@@ -60,6 +60,15 @@ dust <- loadByProduct(dpID='DP1.00101.001', check.size=F, startdate='2017-05', e
 dpm.d <- removeDups(dust$dpm_lab, variables=dust$variables_00101, table='dpm_lab')
 
 
+alg <- loadByProduct(dpID='DP1.20166.001', check.size=F, startdate='2017-01', enddate='2017-12', 
+                     release='LATEST', token=Sys.getenv('LATEST_TOKEN'))
+alg.d <- removeDups(alg$alg_taxonomyProcessed, variables=alg$variables_20166, table='alg_taxonomyProcessed')
+
+alg19 <- loadByProduct(dpID='DP1.20166.001', check.size=F, startdate='2019-01', enddate='2019-12',
+                       release='LATEST', token=Sys.getenv('LATEST_TOKEN'))
+alg19.d <- removeDups(alg19$alg_taxonomyProcessed, variables=alg19$variables_20166, table='alg_taxonomyProcessed')
+
+
 # mammals
 mam <- loadByProduct(dpID='DP1.10072.001', site='JERC', startdate='2016-01', enddate='2017-12',
                      package='expanded', check.size=F, token=Sys.getenv('NEON_TOKEN'))

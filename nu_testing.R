@@ -593,10 +593,46 @@ Sys.time()
 # 2.3.0.9200: 14 seconds
 # v2.2.1: 14 seconds
 
-isoTestP <- stackEddy(filepath = '/Users/clunch/Desktop/filesP/', 
+# comparing to Python
+isoTestP <- stackEddy(filepath = '/Users/clunch/Desktop/filesToStack00200/', 
                      level = "dp01", 
                      var = c("dlta13CCo2","dlta18OH2o"), 
                      avg = "06", metadata=T)
+
+isoTestP9 <- stackEddy(filepath = '/Users/clunch/Desktop/filesToStack00200/', 
+                      level = "dp01", 
+                      var = c("dlta13CCo2","dlta18OH2o"), 
+                      avg = 9, metadata=F)
+
+flux <- stackEddy('/Users/clunch/Desktop/filesToStack00200/')
+
+isoTpy <- read.csv('/Users/clunch/Desktop/iso6min.csv')
+isoTpy$timeBgn <- as.POSIXct(isoTpy$timeBgn, tz='GMT', format='%Y-%m-%d %H:%M:%S')
+isoTpy$timeEnd <- as.POSIXct(isoTpy$timeEnd, tz='GMT', format='%Y-%m-%d %H:%M:%S')
+
+plot(isoTestP$TOOL$data.isoCo2.dlta13CCo2.mean~isoTestP$TOOL$timeEnd, type='l')
+lines(isoTpy$data.isoCo2.dlta13CCo2.mean~isoTpy$timeEnd, col='blue')
+
+iso9py <- read.csv('/Users/clunch/Desktop/iso9min.csv')
+iso9py$timeBgn <- as.POSIXct(iso9py$timeBgn, tz='GMT', format='%Y-%m-%d %H:%M:%S')
+iso9py$timeEnd <- as.POSIXct(iso9py$timeEnd, tz='GMT', format='%Y-%m-%d %H:%M:%S')
+
+plot(isoTestP9$TOOL$data.isoH2o.dlta18OH2o.mean~isoTestP9$TOOL$timeEnd, type='l')
+lines(iso9py$data.isoH2o.dlta18OH2o.mean~iso9py$timeEnd, col='blue')
+
+fluxpy <- read.csv('/Users/clunch/Desktop/fluxJORN.csv')
+fluxpy$timeBgn <- as.POSIXct(fluxpy$timeBgn, tz='GMT', format='%Y-%m-%d %H:%M:%S')
+fluxpy$timeEnd <- as.POSIXct(fluxpy$timeEnd, tz='GMT', format='%Y-%m-%d %H:%M:%S')
+
+plot(flux$JORN$data.fluxCo2.turb.flux~flux$JORN$timeEnd, type='l')
+lines(fluxpy$data.fluxCo2.turb.flux~fluxpy$timeEnd, col='blue')
+
+plot(flux$JORN$data.fluxCo2.turb.flux~flux$JORN$timeEnd, type='l', ylim=c(-20,20))
+lines(fluxpy$data.fluxCo2.turb.flux~fluxpy$timeEnd, col='blue')
+
+
+
+
 
 Sys.time()
 flux <- stackEddy('/Users/clunch/Desktop/expanded00200/', 
@@ -1033,6 +1069,10 @@ fish <- loadByProduct(dpID='DP1.20107.001', site='MART',
                       include.provisional=T, check.size=F,
                       token=Sys.getenv('EXPIRED_TOKEN'))
 
+fish <- loadByProduct(dpID='DP1.20107.001', site='LIRO', 
+                      release='LATEST', check.size=F,
+                      token=Sys.getenv('LATEST_TOKEN'))
+
 ltr <- loadByProduct(dpID='DP1.10033.001', 
                      startdate='2020-02', enddate='2022-12',
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
@@ -1179,6 +1219,11 @@ sls <- loadByProduct(dpID='DP1.10086.001', site='all',
 bat <- loadByProduct(dpID='DP4.00132.001', startdate='2021-05',
                      enddate='2023-08', release='LATEST', 
                      package='expanded', check.size=F,
+                     token=Sys.getenv('LATEST_TOKEN'))
+
+apl <- loadByProduct(dpID='DP1.20066.001', site='MCRA',
+                     package='expanded', check.size = F, 
+                     release='LATEST',
                      token=Sys.getenv('LATEST_TOKEN'))
 
 div <- loadByProduct(dpID='DP1.10058.001', startdate='2018-01', 
@@ -2167,5 +2212,29 @@ text(lf$mean_annual_temperature, lf$mean_annual_precipitation_mm,
      labels=lf$siteID, cex=lf$meanCover*0.1)
 
 
+iso  <- stackEddy('/Users/clunch/Desktop/filesToStack00200',
+                    level="dp01", avg=6, var=c("dlta13CCo2","dlta18OH2o"))
 
+
+barc <- loadByProduct('DP1.20126.001', site=c('ARIK','POSE','COMO','MCRA'),
+                      startdate='2021-01', enddate='2022-12',
+                      check.size = F, package='expanded', token=Sys.getenv('NEON_TOKEN'))
+
+
+options(timeout=300)
+micro <- loadByProduct(dpID="DP1.10081.002", 
+                       site="SJER",
+                       startdate="2023-01",
+                       enddate="2023-12",
+                       package="expanded",
+                       include.provisional=T,
+                       check.size=F)
+
+frameadd <- data.frame(table=c('MCT','MCT'), 
+                       fieldName=c('otherScientificName','accession'), 
+                       description=c('Other scientific name, not included in the NEON constrained taxon tables. This is the name of the lowest level taxonomic rank that can be determined',''),
+                       dataType=c('string','string'),
+                       units=c(NA,NA),
+                       downloadPkg=c('expanded','expanded'),
+                       pubFormat=c('asIs','asIs'))
 
