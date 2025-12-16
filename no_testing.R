@@ -14,6 +14,7 @@ cfc <- loadByProduct(dpID='DP1.10026.001', check.size=F,
                      startdate='2017-05', enddate='2019-08',
                      package='expanded', token=Sys.getenv('NEON_TOKEN'))
 cfc.cn <- removeDups(cfc$cfc_chlorophyll, variables=cfc$variables_10026, table='cfc_chlorophyll')
+cfc.cn <- removeDups(cfc$cfc_chlorophyll, variables=cfc$variables_10026, table='cfc_chlorophyll', flagOnly = T)
 
 # only one field in primary key
 secchi <- loadByProduct(dpID='DP1.20252.001', check.size=F, 
@@ -21,6 +22,7 @@ secchi <- loadByProduct(dpID='DP1.20252.001', check.size=F,
                      package='expanded', token=Sys.getenv('NEON_TOKEN'))
 list2env(secchi, .GlobalEnv)
 sec.d <- removeDups(dep_secchi, variables=variables_20252)
+sec.d <- removeDups(dep_secchi, variables=variables_20252, flagOnly=T)
 
 # test expanded package error
 cfc <- loadByProduct(dpID='DP1.10026.001', check.size=F, 

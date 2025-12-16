@@ -11,7 +11,7 @@ load_all()
 loc <- getLocBySite('ARIK', type='AQU')
 loc <- getLocBySite('SYCA', type='all', history=T, token=Sys.getenv('NEON_TOKEN'))
 loc.is <- getLocBySite('ARIK', type='site', token='garbage')
-loc.os <- getLocBySite('HARV', type='all')
+loc.os <- getLocBySite('HARV', type='all', token=ntok)
 
 locA <- getLocBySite('ABBY', type='TIS')
 

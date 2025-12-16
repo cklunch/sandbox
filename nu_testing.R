@@ -1057,7 +1057,7 @@ brd <- loadByProduct(dpID='DP1.10003.001', check.size=F, token=Sys.getenv('NEON_
 brd <- loadByProduct(dpID='DP1.10003.001', site=c('WREF','ABBY'), package='expanded',
                      check.size=F, token=Sys.getenv('NEON_TOKEN'), progress=F)
 
-brd.p <- loadByProduct(dpID='DP1.10003.001', site=c('WREF','ABBY'), package='expanded',
+brd <- loadByProduct(dpID='DP1.10003.001', site=c('WREF','ABBY'), package='expanded',
                      include.provisional=TRUE,
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
@@ -1069,7 +1069,12 @@ fish <- loadByProduct(dpID='DP1.20107.001', site='MART',
                       include.provisional=T, check.size=F,
                       token=Sys.getenv('EXPIRED_TOKEN'))
 
-fish <- loadByProduct(dpID='DP1.20107.001', site='LIRO', 
+fish <- loadByProduct(dpID='DP1.20107.001', site='TOOK', 
+                      startdate='2017-01', enddate='2017-12', 
+                      check.size=F,
+                      token=Sys.getenv('NEON_TOKEN'))
+
+fish <- loadByProduct(dpID='DP1.20107.001', tabl='fsh_perPass',
                       release='LATEST', check.size=F,
                       token=Sys.getenv('LATEST_TOKEN'))
 
