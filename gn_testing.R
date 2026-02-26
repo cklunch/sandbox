@@ -240,6 +240,10 @@ cfc.loc <- getLocTOS(cfc$cfc_fieldData, dataProd='cfc_fieldData', token=Sys.gete
 cfc <- loadByProduct('DP1.10026.001', site='DSNY', check.size=F, token=Sys.getenv('NEON_TOKEN'))
 cfc.loc <- getLocTOS(cfc$cfc_fieldData, dataProd='cfc_fieldData', token=Sys.getenv('NEON_TOKEN'))
 
+# error message for data with no clip strips
+cfc <- loadByProduct('DP1.10026.001', site='WREF', check.size=F, token=Sys.getenv('NEON_TOKEN'))
+cfc.loc <- getLocTOS(cfc$cfc_fieldData, dataProd='cfc_fieldData', token=Sys.getenv('NEON_TOKEN'))
+
 ltr <- loadByProduct('DP1.10033.001', site='OSBS', check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
 ltr <- loadByProduct('DP1.10033.001', site=c('DSNY', 'GRSM'), 
@@ -256,6 +260,15 @@ root.loc <- getLocTOS(root$bbc_percore, dataProd='bbc_percore', token=Sys.getenv
 
 soil <- loadByProduct('DP1.10086.001', check.size=F, token=Sys.getenv('NEON_TOKEN'))
 soil.loc <- getLocTOS(soil$sls_soilCoreCollection, dataProd='sls_soilCoreCollection', token=Sys.getenv('NEON_TOKEN'))
+
+soil <- loadByProduct('DP1.10086.001', 
+                      startdate='2024-01', enddate='2025-12',
+                      include.provisional = T,
+                      release='LATEST',
+                      check.size=F, token=Sys.getenv('LATEST_TOKEN'))
+soil.loc <- getLocTOS(soil$sls_soilCoreCollection, dataProd='sls_soilCoreCollection', token=Sys.getenv('NEON_TOKEN'))
+
+
 
 # next steps:
 # create a mock json with a history for testing
@@ -285,3 +298,54 @@ mam <- loadByProduct('DP1.10072.001', site='BART', startdate='2021-01',
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
 mam.loc <- getLocTOS(mam$mam_pertrapnight, 'mam_pertrapnight', token=Sys.getenv('NEON_TOKEN'))
 mam01 <- mam.loc[which(mam.loc$plotID=='BART_001'),]
+
+
+
+# CDW density
+cdw <- loadByProduct('DP1.10014.001', site=c('CLBJ','GRSM'), 
+                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
+cdw.loc <- getLocTOS(cdw$cdw_densitylog, 'cdw_densitylog', token=Sys.getenv('NEON_TOKEN'))
+
+# all data - test for cdw locations
+cdw <- loadByProduct('DP1.10014.001', include.provisional = T,
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+data$rowid <- 1:nrow(data)
+dataN <- data[which(is.na(data$logDistance) | is.na(data$logAzimuth)),]
+data <- data[which(!is.na(data$logDistance) & !is.na(data$logAzimuth)),]
+# only ~1/3 have distance and azimuth
+data$namedLocation <- gsub('all', 'cdw', data$namedLocation)
+pointIDs <- substring(data$pointID, 1, 2)
+data$points <- paste(data$namedLocation, pointIDs, sep=".")
+locCol <- "points"
+point.all <- geoNEON::getLocByName(data, locCol=locCol, locOnly=TRUE, 
+                                   history=TRUE, token=token)
+
+dataNA <- data[which(is.na(data$pointID)),]
+unique(dataNA$yearBoutBegan)
+
+dataNM <- dataN[which(dataN$mappingMethod=='Relative'),]
+
+dataGPS <- dataN[which(dataN$mappingMethod=='GPS'),]
+all(!is.na(dataGPS$sampleEasting))
+length(which(is.na(dataGPS$sampleEasting)))
+# most of the 2025 TREE data doesn't have easting and northing populated
+# same with UNDE, NIWO, & DELA 2025, LENO 2021, SOAP 2024
+
+
+dups <- cdw$cdw_densitydisk[which(duplicated(cdw$cdw_densitydisk$subsampleID)),]
+any(duplicated(cdw$cdw_densitydisk$sampleID))
+
+nomatch_disk <- setdiff(cdw$cdw_densitydisk$sampleID, cdw$cdw_densitylog$sampleID)
+
+
+pts <- cdw$cdw_densitylog[,c("namedLocation", "pointID")]
+pts <- unique(pts)
+pts <- pts[which(!is.na(pts$pointID)),]
+write.table(pts, '/Users/clunch/Desktop/cdw_pts.csv', quote=F, row.names = F, sep=',')
+
+
+soils <- read.csv('/Users/clunch/Desktop/sls_compiled.csv')
+soils$uid <- 1:nrow(soils)
+soil.loc <- getLocTOS(soils, dataProd='sls_soilCoreCollection', token=Sys.getenv('NEON_TOKEN'))
+
+

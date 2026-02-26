@@ -854,7 +854,21 @@ pcp <- loadByProduct(dpID='DP1.00006.001', site=c('KING','BLDE','ARIK','MCRA','P
 
 part <- loadByProduct(dpID='DP1.00024.001', site=c('KING','BLWA','ARIK','MCRA','TOMB'),
                      startdate='2019-07', enddate='2019-08', timeIndex=30,
-                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+                     check.size=T, token=Sys.getenv('NEON_TOKEN'))
+
+part <- loadByProduct(dpID='DP1.00024.001', site='BLWA',
+                      startdate='2019-07', enddate='2019-08', timeIndex=30,
+                      check.size=T, token=Sys.getenv('NEON_TOKEN'))
+
+part <- loadByProduct(dpID='DP1.00024.001', site=c('KING','BLWA','ARIK','MCRA','TOMB'),
+                      startdate='2025-09', enddate='2026-01', timeIndex=30,
+                      include.provisional = T,
+                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+part <- loadByProduct(dpID='DP1.00024.001', site=c('KING','BLWA','ARIK','MCRA','TOMB'),
+                      startdate='2019-07', enddate='2019-08', timeIndex=30,
+                      release='RELEASE-2025',
+                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
 # should not alert anything:
 part <- loadByProduct(dpID='DP1.00024.001', site=c('KING','ARIK','MCRA'),
                       startdate='2019-07', enddate='2019-08', timeIndex=30,
@@ -1625,6 +1639,23 @@ qlp <- loadByProduct(dpID='DP1.00066.001', release='LATEST', stack='prod',
                     site=c('RMNP','TEAK'),
                     token=Sys.getenv('LATEST_TOKEN'), check.size=F)
 
+# aqu plant chem
+aqc <- loadByProduct(dpID='DP1.20063.001', 
+                     startdate='2022-01', package='expanded',
+                     site=c('POSE','TECR'),
+                     token=Sys.getenv('LATEST_TOKEN'), check.size=F)
+
+apl <- loadByProduct(dpID='DP1.20066.001', 
+                     startdate='2022-01', package='expanded',
+                     site=c('POSE','TECR'),
+                     token=Sys.getenv('LATEST_TOKEN'), check.size=F)
+
+aqp <- loadByProduct(dpID='DP1.20163.001', 
+                     startdate='2022-01', package='expanded',
+                     site=c('POSE','TECR'),
+                     token=Sys.getenv('LATEST_TOKEN'), check.size=F)
+
+
 
 # SAE iso updates
 startDate <- "2023-05"
@@ -2242,4 +2273,21 @@ frameadd <- data.frame(table=c('MCT','MCT'),
                        units=c(NA,NA),
                        downloadPkg=c('expanded','expanded'),
                        pubFormat=c('asIs','asIs'))
+
+
+fsp <- stackByTable('/Users/clunch/Desktop/NEON_spectra-field.zip', savepath='envt')
+fbdup <- removeDups(fsp$fsp_boutMetadata, variables=fsp$variables_30012, table='fsp_boutMetadata')
+fsmdup <- removeDups(fsp$fsp_sampleMetadata, variables=fsp$variables_30012, table='fsp_sampleMetadata')
+all(fsp$fsp_boutMetadata$siteID %in% fsp$fsp_sampleMetadata$siteID)
+all(fsp$fsp_boutMetadata$siteID %in% fsp$fsp_spectralData$siteID)
+
+mcc <- stackByTable('/Users/clunch/Desktop/NEON_comm-microbe-soil.zip', savepath='envt')
+View(mcc$mcc_soilPerSampleTaxonomy_16S)
+
+mct <- stackByTable('/Users/clunch/Desktop/NEON_tax-microbe-surfacewater.zip', savepath='envt')
+View(mct$mct_surfaceWaterPerSampleTaxonomy_ITS)
+
+
+
+
 
