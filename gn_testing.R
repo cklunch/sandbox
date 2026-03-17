@@ -309,28 +309,15 @@ cdw.loc <- getLocTOS(cdw$cdw_densitylog, 'cdw_densitylog', token=Sys.getenv('NEO
 # all data - test for cdw locations
 cdw <- loadByProduct('DP1.10014.001', include.provisional = T,
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
-data$rowid <- 1:nrow(data)
-dataN <- data[which(is.na(data$logDistance) | is.na(data$logAzimuth)),]
-data <- data[which(!is.na(data$logDistance) & !is.na(data$logAzimuth)),]
-# only ~1/3 have distance and azimuth
-data$namedLocation <- gsub('all', 'cdw', data$namedLocation)
-pointIDs <- substring(data$pointID, 1, 2)
-data$points <- paste(data$namedLocation, pointIDs, sep=".")
-locCol <- "points"
-point.all <- geoNEON::getLocByName(data, locCol=locCol, locOnly=TRUE, 
-                                   history=TRUE, token=token)
-
-dataNA <- data[which(is.na(data$pointID)),]
-unique(dataNA$yearBoutBegan)
-
-dataNM <- dataN[which(dataN$mappingMethod=='Relative'),]
-
-dataGPS <- dataN[which(dataN$mappingMethod=='GPS'),]
-all(!is.na(dataGPS$sampleEasting))
-length(which(is.na(dataGPS$sampleEasting)))
-# most of the 2025 TREE data doesn't have easting and northing populated
-# same with UNDE, NIWO, & DELA 2025, LENO 2021, SOAP 2024
-
+cdw.loc <- getLocTOS(cdw$cdw_densitylog, dataProd='cdw_densitylog', token=Sys.getenv('NEON_TOKEN'))
+length(which(is.na(cdw.loc$adjEasting)))
+# 1879 out of 4645
+length(which(is.na(cdw.loc$adjEasting) & cdw.loc$mappingMethod != "Not mapped"))
+# 749
+length(which(is.na(cdw.loc$adjEasting) & cdw.loc$mappingMethod != "Not mapped" & is.na(cdw.loc$logAzimuth)))
+# 572
+length(which(is.na(cdw.loc$adjEasting) & cdw.loc$mappingMethod == "Relative" & is.na(cdw.loc$logAzimuth)))
+# 157
 
 dups <- cdw$cdw_densitydisk[which(duplicated(cdw$cdw_densitydisk$subsampleID)),]
 any(duplicated(cdw$cdw_densitydisk$sampleID))

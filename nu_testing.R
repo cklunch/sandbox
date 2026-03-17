@@ -861,7 +861,7 @@ part <- loadByProduct(dpID='DP1.00024.001', site='BLWA',
                       check.size=T, token=Sys.getenv('NEON_TOKEN'))
 
 part <- loadByProduct(dpID='DP1.00024.001', site=c('KING','BLWA','ARIK','MCRA','TOMB'),
-                      startdate='2025-09', enddate='2026-01', timeIndex=30,
+                      startdate='2025-09', enddate='2026-02', timeIndex=30,
                       include.provisional = T,
                       check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
@@ -1828,6 +1828,13 @@ tckds <- datasetQuery(dpID='DP1.10092.001', site='all',
                       token=Sys.getenv('NEON_TOKEN'))
 tckds %>% nrow()
 
+ltrlabds <- datasetQuery(dpID='DP1.10033.001', site='all',
+                      package='expanded', release='current', 
+                      tabl='lig_externalSummary', 
+                      include.provisional = TRUE,
+                      token=Sys.getenv('NEON_TOKEN'))
+liglab <- ltrlabds |>
+  collect()
 
 invfile <- read.csv('/Users/clunch/Desktop/NEON.D10.ARIK.DP1.20120.001.inv_taxonomyProcessed.2023-11.expanded.20250204T000151Z.csv')
 varfile <- read.csv('/Users/clunch/Desktop/NEON.D10.ARIK.DP1.20120.001.variables.20250204T000151Z.csv')

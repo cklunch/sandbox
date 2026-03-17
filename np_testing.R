@@ -85,11 +85,11 @@ apppc <- estimateAquPercentCover(apc, barPlots = T)
 ab <- apppc$plot_list
 
 
-veg <- loadByProduct(dpID = "DP1.10098.001", site = 'BLAN',
-                     startdate='2022-01', enddate='2023-12',
+veg <- loadByProduct(dpID = "DP1.10098.001", site = 'HEAL',
+                     startdate='2021-01', enddate='2022-12',
                      check.size = FALSE,
                      token=Sys.getenv('NEON_TOKEN'))
-vprod <- estimateWoodProd(veg, siteID='BLAN')
+vprod <- estimateWoodProd(veg, siteID='HEAL')
 vmass <- estimateWoodMass(veg)
 
 veg <- loadByProduct(dpID = "DP1.10098.001", site = c('ABBY','YELL'),
@@ -103,5 +103,68 @@ vmass <- estimateWoodMass(veg)
 # more dead mass than live most years at ABBY?
 vprod <- estimateWoodProd(veg, siteID='ABBY')
 
+sap <- vmass$vst_agb_kg[which(vmass$vst_agb_kg$growthForm=='sapling'),]
+st <- vmass$vst_agb_kg[which(vmass$vst_agb_kg$growthForm=='small tree'),]
 
+sapm <- vmass$vst_missing[which(vmass$vst_missing$growthForm=='sapling'),]
+stm <- vmass$vst_missing[which(vmass$vst_missing$growthForm=='small tree'),]
+
+
+bev <- getVegStructureEvents(site='BART', token=Sys.getenv('NEON_TOKEN'))
+
+veg <- loadByProduct(dpID = "DP1.10098.001", site = 'BART',
+                     startdate='2022-01', enddate='2023-12',
+                     check.size = FALSE,
+                     token=Sys.getenv('NEON_TOKEN'))
+inputDataList <- veg
+plotSubset <- "towerAnnualSubset"
+mortalityMissing <- "filterMissing"
+stemIncrementFlagged <- "filterFlagged"
+
+
+# distribution of tables by site
+p <- getProductInfo('DP1.10098.001')
+sitetabs <- list()
+
+for(i in 1:length(p$siteCodes$siteCode)) {
+  
+  u <- p$siteCodes$availableDataUrls[[i]]
+  tabs <- character()
+  
+  for(j in 1:length(u)) {
+    
+    r <- httr::GET(u[j])
+    a <- jsonlite::fromJSON(httr::content(r, as='text', encoding='UTF-8'))
+    n <- a$data$files$name
+    s <- strsplit(n, split='.', fixed=T)
+    l <- unlist(lapply(s, '[', 7))
+    g <- grep('EML|readme|variables|validation|categoricalCodes|vst_identificationHistory|vst_mappingandtagging|vst_perplotperyear', 
+              l, invert=T, value=T)
+    tabs <- c(tabs, g)
+    Sys.sleep(1)
+    
+  }
+  tabs <- unique(tabs)
+  sitetabs[[p$siteCodes$siteCode[i]]] <- tabs
+  
+}
+
+# check getVegStructureEvents() against all 4 scenarios
+ev.rmnp <- getVegStructureEvents(site='RMNP', token=Sys.getenv('NEON_TOKEN')) # only AI
+ev.unde <- getVegStructureEvents(site='UNDE', token=Sys.getenv('NEON_TOKEN')) # AI + NW
+ev.scbi <- getVegStructureEvents(site='SCBI', token=Sys.getenv('NEON_TOKEN')) # AI + SG
+ev.teak <- getVegStructureEvents(site='TEAK', token=Sys.getenv('NEON_TOKEN')) # all 3
+# all working. double check a few - TEAK has bouts starting in June (2022) and July (2025)
+
+ev.jerc <- getVegStructureEvents(site='JERC', token=Sys.getenv('NEON_TOKEN')) # all 3
+
+# test dataset with all 3 tables
+veg <- loadByProduct(dpID = "DP1.10098.001", site = 'JERC',
+                     startdate='2021-01', enddate='2024-12',
+                     check.size = FALSE,
+                     token=Sys.getenv('NEON_TOKEN'))
+inputDataList <- veg
+plotSubset <- "towerAnnualSubset"
+mortalityMissing <- "filterMissing"
+stemIncrementFlagged <- "filterFlagged"
 
