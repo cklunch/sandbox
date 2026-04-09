@@ -168,3 +168,17 @@ plotSubset <- "towerAnnualSubset"
 mortalityMissing <- "filterMissing"
 stemIncrementFlagged <- "filterFlagged"
 
+plot(veg$vst_perplotperyear$northing~veg$vst_perplotperyear$easting, pch=20)
+plot(veg$vst_perplotperyear$northing[which(veg$vst_perplotperyear$samplingImpractical=='OK')]~
+       veg$vst_perplotperyear$easting[which(veg$vst_perplotperyear$samplingImpractical=='OK')], pch=NA)
+text(veg$vst_perplotperyear$northing[which(veg$vst_perplotperyear$samplingImpractical=='OK')]~
+       veg$vst_perplotperyear$easting[which(veg$vst_perplotperyear$samplingImpractical=='OK')], 
+     label=veg$vst_perplotperyear$plotID, cex=0.7)
+
+
+vegsub <- loadByProduct(dpID = "DP1.10098.001", site = 'JERC',
+                     startdate='2022-01', enddate='2023-12',
+                     check.size = FALSE,
+                     token=Sys.getenv('NEON_TOKEN'))
+vprod <- estimateWoodProd(vegsub, siteID='JERC')
+

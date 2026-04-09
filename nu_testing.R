@@ -2295,6 +2295,30 @@ mct <- stackByTable('/Users/clunch/Desktop/NEON_tax-microbe-surfacewater.zip', s
 View(mct$mct_surfaceWaterPerSampleTaxonomy_ITS)
 
 
+devtools::install_github('NEONScience/NEON-utilities/neonUtilities', ref='token-dev')
+
+# re-start R
+# no env variable - public API
+library(neonUtilities)
+brd <- loadByProduct('DP1.10003.001', site='PUUM',
+                     release='RELEASE-2026', check.size=F)
+
+# re-start R
+# internal API - tokenless LATEST access
+# need to be on the VPN for this one
+Sys.setenv(NEON_API_URL = 'https://portal-public-api.internal.portal-prod.gcp.neoninternal.org/api/v0/')
+library(neonUtilities)
+brd <- loadByProduct('DP1.10003.001', site='PUUM',
+                     release='LATEST', check.size=F)
+
+# re-start R
+# CERT API
+# try to download test data product that only exists on CERT
+Sys.setenv(NEON_API_URL = 'https://cert-data.neonscience.org/api/v0/')
+library(neonUtilities)
+tax <- loadByProduct('DP1.10300.001', 
+                     include.provisional=T,
+                     check.size=F)
 
 
 
