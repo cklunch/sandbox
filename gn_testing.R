@@ -13,7 +13,12 @@ loc <- getLocBySite('SYCA', type='all', history=T, token=Sys.getenv('NEON_TOKEN'
 loc.is <- getLocBySite('ARIK', type='site', token='garbage')
 loc.os <- getLocBySite('HARV', type='all', token=ntok)
 
-locA <- getLocBySite('ABBY', type='TIS')
+locA <- getLocBySite('ABBY', type='TIS', history=T)
+locK <- getLocBySite('KONZ', type='TIS', history=T)
+locH <- getLocBySite('HARV', type='TIS', history=T)
+locB <- getLocBySite('BLAN', type='TIS', history=T)
+locG <- getLocBySite('GUAN', type='TIS', history=T)
+
 
 loc <- getLocBySite('BART', type='TOS')
 
@@ -87,9 +92,10 @@ symbols(sploc$adjEasting[which(sploc$plotID=='SCBI_017')],
         circles=0.1, inches=F, add=T)
 
 
-sim <- loadByProduct('DP1.10111.001', site='HARV', 
+sim <- loadByProduct('DP1.10111.001', site='KONZ',
+                     startdate='2022-01',
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
-
+sim.loc <- getLocTOS(sim$sim_eventData, 'sim_eventData', token=Sys.getenv('NEON_TOKEN'))
 
 
 # no lat-long calculation
@@ -335,4 +341,7 @@ soils <- read.csv('/Users/clunch/Desktop/sls_compiled.csv')
 soils$uid <- 1:nrow(soils)
 soil.loc <- getLocTOS(soils, dataProd='sls_soilCoreCollection', token=Sys.getenv('NEON_TOKEN'))
 
+
+j <- 'CFGLOC109643'
+token <- Sys.getenv('NEON_TOKEN')
 
