@@ -97,6 +97,12 @@ sim <- loadByProduct('DP1.10111.001', site='KONZ',
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
 sim.loc <- getLocTOS(sim$sim_eventData, 'sim_eventData', token=Sys.getenv('NEON_TOKEN'))
 
+sim <- loadByProduct('DP1.10111.001', site='JERC',
+                     startdate='2022-01',
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+sim.loc <- getLocTOS(sim$sim_eventData, 'sim_eventData', token=Sys.getenv('NEON_TOKEN'))
+
+
 
 # no lat-long calculation
 bird <- loadByProduct(dpID='DP1.10003.001', site='WREF', check.size=F)

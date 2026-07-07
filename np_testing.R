@@ -113,7 +113,7 @@ stm <- vmass$vst_missing[which(vmass$vst_missing$growthForm=='small tree'),]
 bev <- getVegStructureEvents(site='BART', token=Sys.getenv('NEON_TOKEN'))
 
 veg <- loadByProduct(dpID = "DP1.10098.001", site = 'BART',
-                     startdate='2022-01', enddate='2023-12',
+                     startdate='2018-01', enddate='2023-12',
                      check.size = FALSE,
                      token=Sys.getenv('NEON_TOKEN'))
 inputDataList <- veg
@@ -168,6 +168,8 @@ plotSubset <- "towerAnnualSubset"
 mortalityMissing <- "filterMissing"
 stemIncrementFlagged <- "filterFlagged"
 
+jercmass <- estimateWoodMass(veg)
+
 plot(veg$vst_perplotperyear$northing~veg$vst_perplotperyear$easting, pch=20)
 plot(veg$vst_perplotperyear$northing[which(veg$vst_perplotperyear$samplingImpractical=='OK')]~
        veg$vst_perplotperyear$easting[which(veg$vst_perplotperyear$samplingImpractical=='OK')], pch=NA)
@@ -182,3 +184,125 @@ vegsub <- loadByProduct(dpID = "DP1.10098.001", site = 'JERC',
                      token=Sys.getenv('NEON_TOKEN'))
 vprod <- estimateWoodProd(vegsub, siteID='JERC')
 
+inputDataList <- vegsub
+plotSubset <- "towerAnnualSubset"
+mortalityMissing <- "filterMissing"
+stemIncrementFlagged <- "filterFlagged"
+
+
+# looking for scenario where entire plots died
+ev.soap <- getVegStructureEvents(site='SOAP', token=Sys.getenv('NEON_TOKEN'))
+
+# slightly confused about what sampling happened in 2020. I think they canceled
+# due to the fire.
+
+ev.soap <- getVegStructureEvents(site='SOAP', includePlots = T,
+                                 token=Sys.getenv('NEON_TOKEN'))
+# ok, it appears to be: 2019 was "distributed and tower subset", but they 
+# didn't measure the tower subset, so there are no plots measured in both 
+# 2019 and 2021. we should be able to compare distributed plots in 2019 and 
+# 2024 (actually measured in 2025)
+
+vegsoap <- loadByProduct(dpID = "DP1.10098.001", site = 'SOAP',
+                        include.provisional=T,
+                        check.size = FALSE,
+                        token=Sys.getenv('NEON_TOKEN'))
+inputDataList <- vegsoap
+plotSubset <- "all"
+mortalityMissing <- "filterMissing"
+stemIncrementFlagged <- "filterFlagged"
+
+biomassTable <- vst_agb_kg
+plotYearTable <- inputDataList$vst_perplotperyear
+
+
+ev.abby <- getVegStructureEvents(site='ABBY', token=Sys.getenv('NEON_TOKEN'))
+
+vegabby <- loadByProduct(dpID = "DP1.10098.001", site = 'ABBY',
+                         include.provisional=T,
+                         check.size = FALSE,
+                         token=Sys.getenv('NEON_TOKEN'))
+inputDataList <- vegabby
+plotSubset <- "all"
+mortalityMissing <- "filterMissing"
+stemIncrementFlagged <- "filterFlagged"
+
+biomassTable <- vst_agb_kg
+plotYearTable <- inputDataList$vst_perplotperyear
+
+
+
+# looking for scenario where entire plots died
+vegtall <- loadByProduct(dpID = "DP1.10098.001",
+                         tabl='vst_perplotperyear',
+                         include.provisional=T,
+                         check.size = FALSE,
+                         token=Sys.getenv('NEON_TOKEN'))
+
+plotYearTable <- vegtall$vst_perplotperyear
+
+yrcols <- grep('TTP', names(plotTrans))
+for(i in yrcols) {
+  norows <- which(plotTrans[,i]=='N')
+  if(length(norows)==0) {
+    next
+  }
+  for(j in yrcols[which(yrcols<i)]) {
+    if(all(is.na(plotTrans[norows,j]))) {
+      next
+    }
+    if(any(plotTrans[norows,j] %in% 'Y')) {
+      print(plotTrans$plotID[norows][which(plotTrans[norows,j] %in% 'Y')])
+    }
+  }
+}
+
+
+vegkonz <- loadByProduct(dpID = "DP1.10098.001", site = 'KONZ',
+                         include.provisional=T,
+                         check.size = FALSE,
+                         token=Sys.getenv('NEON_TOKEN'))
+inputDataList <- vegkonz
+plotSubset <- "all"
+mortalityMissing <- "filterMissing"
+stemIncrementFlagged <- "filterFlagged"
+
+biomassTable <- vst_agb_kg
+plotYearTable <- inputDataList$vst_perplotperyear
+
+View(vegheal$vst_apparentindividual[which(vegheal$vst_apparentindividual$plotID %in% c('HEAL_055','HEAL_060','HEAL_071','HEAL_072','HEAL_062','HEAL_064') & vegheal$vst_apparentindividual$growthForm %in% c('single bole tree', 'multi-bole tree')),])
+View(vegheal$vst_apparentindividual[which(vegheal$vst_apparentindividual$plotID %in% c('HEAL_025','HEAL_015') & vegheal$vst_apparentindividual$growthForm %in% c('single bole tree', 'multi-bole tree')),])
+View(vegkonz$vst_apparentindividual[which(vegkonz$vst_apparentindividual$plotID %in% c('KONZ_059') & vegkonz$vst_apparentindividual$growthForm %in% c('single bole tree', 'multi-bole tree')),])
+
+# current state of pppy table
+pppy <- loadByProduct('DP1.10098.001', release='LATEST',
+                      tabl='vst_perplotperyear', cloud.mode=T,
+                      check.size=F, token=Sys.getenv('LATEST_TOKEN'))
+
+
+dum <- tidyr::pivot_longer(transitions, 
+                           cols = tidyselect::matches("20[0-9]{2}"),
+                           names_to = c(".value",
+                                        "eventYear"),
+                           names_pattern = "(.*)_(20[0-9]{2})$")
+
+for(i in unique(transitionsLong$individualID)) {
+  ploti <- unique(transitionsLong$plotID[which(transitionsLong$individualID==i)])
+  if(length(ploti)>1) {
+    print(i)
+  }
+}
+# none
+
+for(i in unique(transitionsLong$individualID)) {
+  rowsi <- nrow(transitionsLong[which(transitionsLong$individualID==i),])
+  if(rowsi>11) {
+    print(i)
+  }
+}
+# these are cases with different totalSampledArea
+# are they accurate? ie different sampled areas in different years
+# if so, they produce incorrect recruitment estimates. how should we deal with these?
+# should total sampled area be another variable that varies with year?
+# NEON.PLA.D16.ABBY.00419 is not accurate - first sampling year (2019) they just didn't fill in totalSampledArea
+# but for NEON.PLA.D16.ABBY.03344 there are 2 records, 1 with 400 and 1 with 800, and this is consistent across the plot

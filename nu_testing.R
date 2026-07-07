@@ -4,6 +4,7 @@ setwd("/Users/clunch/GitHub/NEON-utilities/neonUtilities")
 #install_github('NEONScience/NEON-utilities/neonUtilities', ref='main')
 
 install('.')
+Sys.setenv(NEON_API_URL = "https://data.neonscience.org/api/v0/")
 library(neonUtilities)
 load_all()
 check()
@@ -191,7 +192,8 @@ byTileAOP(dpID = "DP3.30006.001", site = "WREF", year = "2017",
 byTileAOP(dpID = "DP3.30015.001", site = "WREF", year = 2022, 
           easting = c(571000,578000), 
           northing = c(5079000,5080000), 
-          savepath='/Users/clunch/Desktop')
+          savepath='/Users/clunch/Desktop',
+          token=Sys.getenv('NEON_TOKEN'))
 byTileAOP(dpID = "DP3.30015.001", site = "WREF", year = 2022, 
           easting = c(571000,578000), 
           northing = c(5079000,5080000), 
@@ -556,6 +558,14 @@ zipsByProduct("DP4.00200.001", site = c("CPER"),
               check.size = FALSE, 
               package='expanded',
               include.provisional=TRUE,
+              token=Sys.getenv('LATEST_TOKEN'))
+
+zipsByProduct("DP4.00200.001", site = c("PUUM","WREF"),
+              startdate = "2024-06",
+              enddate = "2024-08",
+              release='current',
+              savepath = "/Users/clunch/Desktop",
+              check.size = FALSE, 
               token=Sys.getenv('LATEST_TOKEN'))
 
 flux <- stackEddy('/Users/clunch/Desktop/filesToStack00200/', level='dp04')
@@ -1022,6 +1032,17 @@ zipsByProduct(dpID='DP4.00200.001', site='all', check.size=F,
           savepath='/Users/clunch/Desktop')
 
 
+# 2026 update: zips don't expire, only individual files do
+Sys.time()
+zipsByProduct(dpID='DP1.00094.001', 
+                site=c('BARR','BART','CLBJ','GUAN','HARV','HEAL','MOAB','NIWO','SJER','SOAP','UKFS','WREF','YELL'), 
+                check.size=F, 
+                savepath='/Users/clunch/Desktop',
+                timeIndex=1,
+                token=token)
+
+
+
 csd <- loadByProduct(dpID='DP4.00130.001', site=c('WLOU','BLUE'),
                      startdate='2019-04', enddate='2020-03',
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
@@ -1194,7 +1215,7 @@ alg <- loadByProduct(dpID='DP1.20166.001', startdate='2017-05', enddate='2018-08
                      site=c('MAYF','PRIN'), package='expanded',
                      check.size=F, token='garbage')
 
-veg <- loadByProduct(dpID='DP1.10098.001', site='ABBY', 
+veg <- loadByProduct(dpID='DP1.10098.001', site='OSBS', 
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
 v <- aggregate(veg$vst_apparentindividual$individualID, 
                by=list(veg$vst_apparentindividual$eventID,
@@ -2320,5 +2341,18 @@ tax <- loadByProduct('DP1.10300.001',
                      include.provisional=T,
                      check.size=F)
 
+
+for(i in unique(shared_aquatic$site)) {
+  if('DP1.00006.001' %in% shared_aquatic$product[which(shared_aquatic$site==i)]) {
+    shared_aquatic <- dplyr::add_row(shared_aquatic, site=i, 
+                                     towerSite=unique(shared_aquatic$towerSite[which(shared_aquatic$site==i)]),
+                                     product='DP1.00044.001',
+                                     .before=which(shared_aquatic$site==i & shared_aquatic$product=='DP1.00006.001'))
+    shared_aquatic <- dplyr::add_row(shared_aquatic, site=i, 
+                                     towerSite=unique(shared_aquatic$towerSite[which(shared_aquatic$site==i)]),
+                                     product='DP1.00045.001',
+                                     .before=which(shared_aquatic$site==i & shared_aquatic$product=='DP1.00006.001'))
+  }
+}
 
 
