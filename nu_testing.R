@@ -5,6 +5,7 @@ setwd("/Users/clunch/GitHub/NEON-utilities/neonUtilities")
 
 install('.')
 Sys.setenv(NEON_API_URL = "https://data.neonscience.org/api/v0/")
+Sys.setenv(NEON_API_URL = "https://portal-public-api-cert.internal.portal-nonprod.gcp.neoninternal.org/api/v0/")
 library(neonUtilities)
 load_all()
 check()
@@ -182,8 +183,17 @@ tabl <- 'all'
 
 byFileAOP(dpID='DP3.30019.001', site='TREE', year=2017, savepath='/Users/clunch/Desktop')
 byFileAOP(dpID='DP3.30019.001', site='TREE', year=2017, 
-          savepath='/Users/clunch/Desktop', include.provisional=T)
+          savepath='/Users/clunch/Desktop', 
+          include.provisional=T,
+          token=Sys.getenv('NEON_TOKEN'))
 byFileAOP(dpID='DP3.30019.001', site='MCDI', year=2020, savepath='/Users/clunch/Desktop')
+
+dpID <- 'DP3.30019.001'
+site <- 'TREE'
+year <- 2017
+savepath <- '/Users/clunch/Desktop'
+include.provisional <- T
+token <- Sys.getenv('NEON_TOKEN')
 
 byTileAOP(dpID = "DP3.30006.001", site = "WREF", year = "2017", 
           easting = c(571000,578000), 
@@ -199,6 +209,12 @@ byTileAOP(dpID = "DP3.30015.001", site = "WREF", year = 2022,
           northing = c(5079000,5080000), 
           include.provisional = T,
           savepath='/Users/clunch/Desktop')
+
+byFileAOP(dpID='DP1.30006.001', site='TREE', year=2017, 
+          savepath='/Users/clunch/Desktop', 
+          include.provisional=T,
+          token=Sys.getenv('NEON_TOKEN'))
+
 
 
 zipsByProduct(dpID='DP1.20190.001', site='OKSR', 
@@ -257,6 +273,11 @@ inv <- loadByProduct(dpID='DP1.20120.001', package='expanded',
 invrate <- loadByProduct(dpID='DP1.20120.001', package='expanded', 
                      release='RELEASE-2025', site='all',
                      check.size=F, token=Sys.getenv('PUBLIC_TOKEN'))
+
+inv <- loadByProduct(dpID='DP1.20126.001', package='expanded', 
+                     release='RELEASE-2025', site=c('OKSR','MCRA','PRLA','REDB'),
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
 
 # no data in release for parameters:
 brd.no <- loadByProduct(dpID='DP1.10003.001', check.size=F, 
@@ -912,6 +933,14 @@ scc <- loadByProduct(dpID = 'DP1.10081.002',
                      package = 'expanded',
                      include.provisional = T)
 
+fls <- queryFiles(dpID = 'DP1.10081.002',
+                     startdate = '2021-06',
+                     enddate = '2022-06',
+                     site=c('NIWO','WREF','HARV'),
+                     token = Sys.getenv('NEON_TOKEN'),
+                     package = 'expanded',
+                     include.provisional = T)
+
 bcc <- loadByProduct(dpID = 'DP1.20086.001',
                      startdate = '2018-06',
                      enddate = '2019-06',
@@ -1087,6 +1116,31 @@ tick <- loadByProduct(dpID='DP1.10093.001', site=c('WREF','ABBY'),
                       startdate='2021-07', enddate='2022-06', 
                       include.provisional=T, check.size=F)
 
+tick <- loadByProduct(dpID='DP1.10093.001',
+                      startdate='2022-01', enddate='2026-06', 
+                      include.provisional = T, check.size=F)
+
+library(ggplot2)
+library(dplyr)
+
+
+tpth <- loadByProduct(dpID='DP1.10092.001',
+                      startdate='2021-01', enddate='2026-06', 
+                      include.provisional = T, check.size=F)
+
+tp <- tpth$tck_pathogen |>
+  group_by(siteID) |>
+  summarize(lat = mean(decimalLatitude), long = mean(decimalLongitude),
+            pctpos = 100*length(which(testResult=='Positive'))/length(testResult))
+
+gg <- ggplot(data=tp, aes(x=long, y=lat, size=pctpos)) +
+  geom_point(alpha=0.5) +
+  scale_radius(range = c(1, 10), name="% Positive") +
+  xlab('Longitude') + ylab('Latitude')
+gg
+
+
+
 brd <- loadByProduct(dpID='DP1.10003.001', check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
 brd <- loadByProduct(dpID='DP1.10003.001', site=c('WREF','ABBY'), package='expanded',
@@ -1127,7 +1181,11 @@ ltrloc <- loadByProduct(dpID='DP1.10033.001', site=c('HARV','ABBY'),
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
 div <- loadByProduct(dpID='DP1.10058.001', 
-                     startdate='2020-02', enddate='2022-12',
+                     startdate='2022-01', enddate='2024-12',
+                     check.size=F, token=Sys.getenv('NEON_TOKEN'))
+
+div2020 <- loadByProduct(dpID='DP1.10058.001', 
+                     startdate='2020-01', enddate='2020-12',
                      check.size=F, token=Sys.getenv('NEON_TOKEN'))
 
 veg <- loadByProduct(dpID='DP1.10098.001', 
@@ -1233,8 +1291,11 @@ wqCheck <- neonUtilities::loadByProduct(dpID = "DP1.20288.001",
                                         check.size = FALSE,
                                         token=Sys.getenv('NEON_TOKEN'))
 
-nitrate <- loadByProduct(dpID="DP1.20033.001", site="BLDE", startdate="2020-04", enddate="2020-08",
-                       package="expanded", check.size = F)
+nitrate <- loadByProduct(dpID="DP1.20033.001", site="BLDE", startdate="2025-04", enddate="2025-08",
+                       include.provisional = T, package="basic", check.size = F)
+
+plot(nitrate$NSW_15_minute$surfWaterNitrateMean~nitrate$NSW_15_minute$endDateTime, 
+     pch='.', cex=1.5, xlab='', ylab='Nitrate concentration', main='Blacktail Deer Creek 2025')
 
 sms <- loadByProduct(dpID='DP1.00094.001', 
                      timeIndex=30,
@@ -1243,6 +1304,26 @@ sms <- loadByProduct(dpID='DP1.00094.001',
 
 buoyT <- loadByProduct(dpID='DP1.20046.001', site='BARC',
                      check.size=F)
+
+senstst <- loadByProduct(dpID='DP1.20042.001', site=c('SYCA','TECR'),
+                         startdate='2025-06', enddate='2025-09',
+                         include.provisional = T,
+                       check.size=F)
+
+senscld <- loadByProduct(dpID='DP1.20042.001', site=c('SYCA','TECR'),
+                         startdate='2025-06', enddate='2025-09',
+                         include.provisional = T,
+                         cloud.mode=T)
+
+sensfls <- queryFiles(dpID='DP1.20042.001', site=c('SYCA','TECR'),
+                         startdate='2025-06', enddate='2025-09',
+                         include.provisional = T, metadata = T)
+
+sensold <- loadByProduct(dpID='DP1.00024.001', site=c('WREF','HARV'),
+                         startdate='2019-06', enddate='2019-09',
+                         release='RELEASE-2021',
+                         check.size=F)
+
 
 buoyT <- loadByProduct(dpID='DP1.20046.001', site='BARC',
                        release='RELEASE-2023', check.size=F)
@@ -1805,14 +1886,41 @@ library(arrow)
 library(dplyr)
 library(ggplot2)
 mamds <- datasetQuery(dpID='DP1.10072.001', site='TREE',
-                     package='basic', release='RELEASE-2025', 
+                     package='basic', #release='RELEASE-2025', 
                      tabl='mam_pertrapnight', 
+                     include.provisional = T,
                      token=Sys.getenv('NEON_TOKEN'))
 mamTREE <- mamds |> 
   filter(!is.na(taxonID)) |> 
   select(tagID, taxonID, scientificName) |>
   distinct() |>
   collect()
+
+mamTREE <- mamds |>
+  collect()
+
+mamds <- datasetQuery(dpID='DP1.10072.001', site='TREE',
+                      package='basic', 
+                      tabl='mam_pertrapnight', 
+                      include.provisional = T,
+                      all.string=T,
+                      token=Sys.getenv('NEON_TOKEN'))
+mamTREEstring <- mamds |>
+  collect()
+
+mamtab <- loadByProduct(dpID='DP1.10072.001', site='TREE',
+                       package='basic', #release='RELEASE-2025', 
+                       tabl='mam_pertrapnight', 
+                       include.provisional = T,
+                       token=Sys.getenv('NEON_TOKEN'))
+
+mamfls <- queryFiles(dpID='DP1.10072.001', site='TREE',
+                      package='basic',
+                      tabl='mam_pertrapnight', 
+                      include.provisional = T,
+                     metadata=F,
+                      token=Sys.getenv('NEON_TOKEN'))
+
 
 
 swds <- datasetQuery(dpID='DP1.00094.001', site='SJER',
@@ -1872,6 +1980,7 @@ invds <- datasetQuery(dpID='DP1.20120.001', site='COMO',
                       include.provisional = TRUE,
                       token=Sys.getenv('LATEST_TOKEN'))
 invds %>% nrow()
+invtab <- invds %>% collect()
 
 invds <- queryFiles(dpID='DP1.20120.001', site='COMO',
                     package='expanded', release='LATEST', 
@@ -1931,6 +2040,18 @@ ds_mam_pertrapnight <- datasetQuery(
 ds_mam_pertrapnight %>% nrow()
 mam <- ds_mam_pertrapnight %>% collect()
 
+ds_mam_pertrapnight <- datasetQuery(
+  dpID = 'DP1.10072.001',
+  site = 'BLAN',
+  package = "basic",
+  tabl = "mam_pertrapnight",
+  release = "current",
+  include.provisional = TRUE,
+  all.string = T,
+  token = Sys.getenv("NEON_TOKEN"))
+
+mamstr <- ds_mam_pertrapnight %>% collect()
+
 fls <- queryFiles(dpID = 'DP1.10072.001',
                   site = 'BLAN',
                   package = "basic",
@@ -1941,7 +2062,7 @@ fls <- queryFiles(dpID = 'DP1.10072.001',
                   token = Sys.getenv("NEON_TOKEN"))
 
 
-mam <- loadByProduct(dpID = 'DP1.10072.001',
+mamcl <- loadByProduct(dpID = 'DP1.10072.001',
                   site = 'BLAN',
                   package = "basic",
                   release = "current",

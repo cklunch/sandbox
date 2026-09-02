@@ -267,7 +267,7 @@ plotSubset <- "all"
 mortalityMissing <- "filterMissing"
 stemIncrementFlagged <- "filterFlagged"
 
-biomassTable <- vst_agb_kg
+biomassTable <- woodMass$vst_agb_kg
 plotYearTable <- inputDataList$vst_perplotperyear
 
 View(vegheal$vst_apparentindividual[which(vegheal$vst_apparentindividual$plotID %in% c('HEAL_055','HEAL_060','HEAL_071','HEAL_072','HEAL_062','HEAL_064') & vegheal$vst_apparentindividual$growthForm %in% c('single bole tree', 'multi-bole tree')),])
@@ -306,3 +306,21 @@ for(i in unique(transitionsLong$individualID)) {
 # should total sampled area be another variable that varies with year?
 # NEON.PLA.D16.ABBY.00419 is not accurate - first sampling year (2019) they just didn't fill in totalSampledArea
 # but for NEON.PLA.D16.ABBY.03344 there are 2 records, 1 with 400 and 1 with 800, and this is consistent across the plot
+
+
+# everything!
+veg <- loadByProduct(dpID = "DP1.10098.001", 
+                         include.provisional=T,
+                         check.size = FALSE,
+                         token=Sys.getenv('NEON_TOKEN'))
+
+map <- veg$vst_mappingandtagging
+appInd <- veg$vst_apparentindividual
+perPlotMassInput <- veg$vst_perplotperyear
+
+woodMass <- neonPlants::estimateWoodMass(inputIndividual = appInd,
+                                         inputMapTag = map,
+                                         inputPerPlot = perPlotMassInput,
+                                         growthFormSubset = "tree")
+
+
