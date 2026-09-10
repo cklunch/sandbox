@@ -262,6 +262,16 @@ vegkonz <- loadByProduct(dpID = "DP1.10098.001", site = 'KONZ',
                          include.provisional=T,
                          check.size = FALSE,
                          token=Sys.getenv('NEON_TOKEN'))
+
+prodkonz <- estimateWoodProd(vegkonz)
+
+# NEON.PLA.D06.KONZ.01019E goes from dead to live 2018 to 2020 but transitionStatus=NA
+# is this because it's a multi-bole? unsure which bole is E? or error?
+# same happens to NEON.PLA.D06.KONZ.01020 and it's counted as mortality when it died in 2017
+# so we are assuming for mortality that we know which bole is which
+# NEON.PLA.D06.KONZ.01487 goes from live to NA and is counted as mortality but I don't see a missing flag
+# what's with all the NAs at the bottom of the table?
+
 inputDataList <- vegkonz
 plotSubset <- "all"
 mortalityMissing <- "filterMissing"
